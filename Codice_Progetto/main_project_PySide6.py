@@ -1,6 +1,6 @@
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow
-from project_PySide6_ui import Ui_MainWindow  # Import the generated UI class
+from QT_Creator_dell_App_4_ui import Ui_MainWindow  # Import the generated UI class
 import logger_CSV_Inserisco_direttamente
 from threading import Thread
 import project_PySide6_ui

@@ -1,7 +1,7 @@
 # importing the module 
 import pandas as pd 
 import client_Sinc_TCP
-import project_PySide6_ui
+import QT_Creator_dell_App_4_ui
 from time import process_time
 import time
 
@@ -33,7 +33,7 @@ def logger():
     n = 0
     start_timer = time.time()  
     
-    while project_PySide6_ui.startStop_logger:
+    while QT_Creator_dell_App_4_ui.startStop_logger:
         # Processing dei dati
         stop_timer = time.time()
         timer = stop_timer - start_timer
@@ -57,5 +57,5 @@ def logger():
 
 
 if __name__ == "__main__":
-    project_PySide6_ui.startStop_logger = True
+    QT_Creator_dell_App_4_ui.startStop_logger
     logger()
