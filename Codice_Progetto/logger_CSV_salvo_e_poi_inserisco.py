@@ -5,7 +5,7 @@ import project_PySide6_ui
 from time import process_time, sleep
 import time
 
-startStop = project_PySide6_ui.startStop
+startStop_logger = project_PySide6_ui.startStop
 
 # Creazione liste
 list_time = []
@@ -41,5 +41,5 @@ def logger():
         print(n)
 
 if __name__ == "__main__":
-    startStop = True
+    startStop_logger = True
     logger()

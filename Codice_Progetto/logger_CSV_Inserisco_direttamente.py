@@ -5,7 +5,6 @@ import project_PySide6_ui
 from time import process_time
 import time
 
-startStop = project_PySide6_ui.startStop
 
 def logger():
     
@@ -18,7 +17,7 @@ def logger():
     list_unit = [] 
 
     # creating the DataFrame 
-    my_df = {'Time': list_time,  
+    my_df = {'Time [s]': list_time,  
             'Cella_1': list_cella1,
             'Cella_2': list_cella2,
             'Cella_3': list_cella3,
@@ -26,27 +25,21 @@ def logger():
             'unit': list_unit} 
     df = pd.DataFrame(my_df) 
     
-    # displaying the DataFrame 
-    print('DataFrame:\n', df) 
-    
     # saving the DataFrame as a CSV file 
-    gfg_csv_data = df.to_csv('Codice_Progetto\\CSV\\testing_log.csv', index=False) 
-    print('\nCSV String:\n', gfg_csv_data) 
+    df.to_csv('Codice_Progetto\\CSV\\testing_log.csv', index=False)  
     
-    
+    # timer start
     timer = 0
     n = 0
-    start_timer = time.time()  # timer start
+    start_timer = time.time()  
     
-    while timer <= 1.00000000000:
+    while project_PySide6_ui.startStop_logger:
         # Processing dei dati
-        
-
         stop_timer = time.time()
         timer = stop_timer - start_timer
-        n = n + 1  
         
-        result_list = client_Sinc_TCP.WORKING.read_holding_registers_mV() 
+        # lettura dei registri mV
+        result_list = client_Sinc_TCP.WORKING.read_holding_registers_mV()   
 
         # creating the DataFrame 
         my_df = [[timer,
@@ -57,13 +50,12 @@ def logger():
                  'mV']] 
         df = pd.DataFrame(my_df)  
         
-        df.to_csv('Codice_Progetto\\CSV\\testing_log.csv', header=False, mode='a', index=False)       
-
-        print(timer)
-        print(n)
-    
+         # Append al file CSV 
+        df.to_csv('Codice_Progetto\\CSV\\testing_log.csv', header=False, mode='a', index=False) 
+        n = n + 1 
+        print(n)   
 
 
 if __name__ == "__main__":
-    startStop = True
+    project_PySide6_ui.startStop_logger = True
     logger()

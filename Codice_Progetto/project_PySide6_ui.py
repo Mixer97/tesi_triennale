@@ -21,6 +21,7 @@ from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLCDNumber, QLabel,
 import client_Sinc_TCP
 
 startStop = False
+startStop_logger = True
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -361,9 +362,13 @@ class Ui_MainWindow(object):
     
     def stop_mV(self):
             self.timer.stop()
+            global startStop_logger 
+            startStop_logger = False
             
     def start_mV(self):           
             self.timer.start(100)  # Update every second
+            global startStop_logger 
+            startStop_logger = True
     
     def update0(self):
                 list = client_Sinc_TCP.WORKING.read_holding_registers_mV()
