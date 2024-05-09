@@ -28,18 +28,18 @@ def logger():
         timer = stop_timer - start_timer
         n = n + 1
         
-        # result_list = client_Sinc_TCP.WORKING.read_holding_registers_mV() # RENDERE PIU VELOCE
+        result_list = client_Sinc_TCP.WORKING.read_holding_registers_mV()
 
         list_time.append(timer)
-        # list_cella1.append(result_list[0])
-        # list_cella2.append(result_list[1])
-        # list_cella3.append(result_list[2])
-        # list_cella4.append(result_list[3])
+        list_cella1.append(result_list[0])
+        list_cella2.append(result_list[1])
+        list_cella3.append(result_list[2])
+        list_cella4.append(result_list[3])
         list_unit.append('mV')
         
-        # print(list_cella3)
         print(timer)
         print(n)
 
 if __name__ == "__main__":
+    startStop = True
     logger()

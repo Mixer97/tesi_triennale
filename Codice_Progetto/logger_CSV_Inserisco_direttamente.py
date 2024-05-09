@@ -3,10 +3,12 @@ import pandas as pd
 import client_Sinc_TCP
 import project_PySide6_ui
 from time import process_time
+import time
 
 startStop = project_PySide6_ui.startStop
 
 def logger():
+    
     # Creazione liste per dataframe
     list_time = []
     list_cella1 = []
@@ -31,14 +33,23 @@ def logger():
     gfg_csv_data = df.to_csv('Codice_Progetto\\CSV\\testing_log.csv', index=False) 
     print('\nCSV String:\n', gfg_csv_data) 
     
-    while startStop:
+    
+    timer = 0
+    n = 0
+    start_timer = time.time()  # timer start
+    
+    while timer <= 1.00000000000:
         # Processing dei dati
-        start_test = process_time()  # timer start 
+        
+
+        stop_timer = time.time()
+        timer = stop_timer - start_timer
+        n = n + 1  
         
         result_list = client_Sinc_TCP.WORKING.read_holding_registers_mV() 
 
         # creating the DataFrame 
-        my_df = [[start_test,
+        my_df = [[timer,
                  result_list[0],
                  result_list[1],
                  result_list[2],
@@ -48,9 +59,8 @@ def logger():
         
         df.to_csv('Codice_Progetto\\CSV\\testing_log.csv', header=False, mode='a', index=False)       
 
-        stop_test = process_time() # timer stop
-        print(stop_test, start_test)
-        print(stop_test - start_test)
+        print(timer)
+        print(n)
     
 
 
