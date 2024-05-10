@@ -33,27 +33,28 @@ def logger():
     n = 0
     start_timer = time.time()  
     
-    while QT_Creator_dell_App_4_ui.startStop_logger:
-        # Processing dei dati
-        stop_timer = time.time()
-        timer = stop_timer - start_timer
-        
-        # lettura dei registri mV
-        result_list = client_Sinc_TCP.WORKING.read_holding_registers_mV()   
+    while True:
+        if QT_Creator_dell_App_4_ui.startStop_logger:
+            # Processing dei dati
+            stop_timer = time.time()
+            timer = stop_timer - start_timer
+            
+            # lettura dei registri mV
+            result_list = client_Sinc_TCP.WORKING.read_holding_registers_mV()   
 
-        # creating the DataFrame 
-        my_df = [[timer,
-                 result_list[0],
-                 result_list[1],
-                 result_list[2],
-                 result_list[3],
-                 'mV']] 
-        df = pd.DataFrame(my_df)  
-        
-         # Append al file CSV 
-        df.to_csv('Codice_Progetto\\CSV\\testing_log.csv', header=False, mode='a', index=False) 
-        n = n + 1 
-        print(n)   
+            # creating the DataFrame 
+            my_df = [[timer,
+                    result_list[0],
+                    result_list[1],
+                    result_list[2],
+                    result_list[3],
+                    'mV']] 
+            df = pd.DataFrame(my_df)  
+            
+            # Append al file CSV 
+            df.to_csv('Codice_Progetto\\CSV\\testing_log.csv', header=False, mode='a', index=False) 
+            n = n + 1 
+            print(n)   
 
 
 if __name__ == "__main__":
