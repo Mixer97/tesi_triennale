@@ -11,6 +11,9 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         # Setup the user interface
         self.ui.setupUi(self)
+        # Create and start a thread for the logger
+        logger_thread = Thread(target=run_logger)
+        logger_thread.start()        
 
 def run_logger():
     logger_CSV_Inserisco_direttamente.logger()  
@@ -18,11 +21,6 @@ def run_logger():
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = MainWindow()
-    
-    # Create and start a thread for the logger
-    logger_thread = Thread(target=run_logger)
-    logger_thread.start()
-    
     window.show()
     sys.exit(app.exec())
     
