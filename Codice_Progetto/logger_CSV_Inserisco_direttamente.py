@@ -30,7 +30,7 @@ def logger():
     
     # timer start
     timer = 0
-    n = 0
+    # n = 0
     start_timer = time.time()  
     
     while True:
@@ -53,10 +53,11 @@ def logger():
             
             # Append al file CSV 
             df.to_csv('Codice_Progetto\\CSV\\testing_log.csv', header=False, mode='a', index=False) 
-            n = n + 1 
-            print(n)   
+            print(my_df)
+            # n = n + 1 
+            # print(n)   
 
 
 if __name__ == "__main__":
-    QT_Creator_dell_App_4_ui.startStop_logger
+    QT_Creator_dell_App_4_ui.startStop_logger = True
     logger()
