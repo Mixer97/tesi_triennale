@@ -22,8 +22,8 @@ import client_Sinc_TCP
 
 startStop = False
 startStop_logger = False
-status_pulsante_interfaccia = 0
-status_pulsante_registrazione = 0
+status_pulsante_interfaccia = 1
+status_pulsante_registrazione = 1
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
