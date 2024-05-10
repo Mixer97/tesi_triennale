@@ -3,7 +3,6 @@ from PySide6.QtWidgets import QApplication, QMainWindow
 from QT_Creator_dell_App_4_ui import Ui_MainWindow  # Import the generated UI class
 import logger_CSV_Inserisco_direttamente
 from threading import Thread
-import project_PySide6_ui
 
 class MainWindow(QMainWindow):
     def __init__(self):
