@@ -465,7 +465,11 @@ class Ui_MainWindow(object):
             self.pushButton_Interfaccia.setText("STOP")
             status_pulsante_interfaccia = status_pulsante_interfaccia + 1
         else:     
-            self.timer.stop()         
+            self.timer.stop()
+            self.lcdNumber_1.display(0)
+            self.lcdNumber_2.display(0)
+            self.lcdNumber_3.display(0)
+            self.lcdNumber_4.display(0)         
             self.pushButton_Interfaccia.setStyleSheet("background-color: green; border-style: outset; border-width: 2px; border-color: black;")
             self.pushButton_Interfaccia.setText("START")
             status_pulsante_interfaccia = status_pulsante_interfaccia + 1
