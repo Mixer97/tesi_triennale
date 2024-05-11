@@ -16,7 +16,7 @@ class MainWindow(QMainWindow):
         logger_thread.start()        
 
 def run_logger():
-    logger_CSV_Inserisco_direttamente.logger()  
+    logger_CSV_Inserisco_direttamente.Logger.logger(nome_CSV= "test")  
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
