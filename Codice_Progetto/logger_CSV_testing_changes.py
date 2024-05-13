@@ -69,7 +69,7 @@ class Logger:
                     # print(n)   
 
     def Append_CSV(self, timer, result_list):
-        
+        i = 0
         
         
         
