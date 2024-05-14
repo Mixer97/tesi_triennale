@@ -36,8 +36,8 @@ class CMDR_COMMANDS:
     COMMAND_25 = 25
     COMMAND_27 = 27
     ENABLE_command_dosage_read = 6803
-    ENABLE_command_full_scale_write = 6051
-    ENABLE_command_full_scale_read = 6052
+    COMMAND_6501 = 6501
+    COMMAND_6502 = 6502
 
 
 # Configura il client Modbus (VUOLE COMUNQUE UN FRAMER RTU !!)
@@ -45,8 +45,6 @@ client = ModbusTcpClient(host=SLAVE.IP, port=SLAVE.PORT, baudrate=SLAVE.BAUDRATE
 
 # Connessione al dispositivo Modbus
 connection = client.connect()
-
-
 
 
 class NOT_WORKING:
@@ -240,6 +238,23 @@ class WORKING:
             else:
                 print("Errore nella lettura:", risultati_SR1)
 
+    def teoretical_calibration_write(full_scale):
+        # Scrivere il valore del fondo scala in W1
+            UTILS.write_W1(full_scale)
+
+        # Inviare il comando 6501 a CMDR
+            UTILS.write_CMDR(CMDR_COMMANDS.COMMAND_6501)
+        
+    def teoretical_calibration_read():
+        # Inviare il comando 6502 a CMDR
+        UTILS.write_CMDR(CMDR_COMMANDS.COMMAND_6502)
+        
+        # Lettura del valore di fondo scala in R1
+        risultati_fullScale = UTILS.read_R1()
+
+        # Print
+        print("Fondoscala = " + str(risultati_fullScale))
+
 
 class TESTING:
 
@@ -265,34 +280,6 @@ class TESTING:
             print("Valore letto:", risultati_BIS.registers)
         else:
             print("Errore nella lettura:", risultati_BIS)
-
-    def teoretical_calibration_write(full_scale):
-        # Scrivere il valore del fondo scala in W1
-        write_result=client.write_registers(address=ADDRESS.REGISTER_2_WR1_low, values=full_scale, slave=SLAVE.ID)
-        while write_result.isError():
-            write_result=client.write_registers(address=ADDRESS.REGISTER_2_WR1_low, values=full_scale, slave=SLAVE.ID)
-
-        # Inviare il comando 6051 a CMDR
-        write_result=client.write_registers(address=ADDRESS.CMDR, values=CMDR_COMMANDS.ENABLE_command_full_scale_write, slave=SLAVE.ID)
-        while write_result.isError():
-            write_result=client.write_registers(address=ADDRESS.CMDR, values=CMDR_COMMANDS.ENABLE_command_full_scale_write, slave=SLAVE.ID)
-        
-    def teoretical_calibration_read():
-        # Inviare il comando 6052 a CMDR
-        write_result=client.write_registers(address=ADDRESS.CMDR, values=CMDR_COMMANDS.ENABLE_command_full_scale_read, slave=SLAVE.ID)
-        while write_result.isError():
-            write_result=client.write_registers(address=ADDRESS.CMDR, values=CMDR_COMMANDS.ENABLE_command_full_scale_read, slave=SLAVE.ID)
-
-        # Lettura del valore di fondo scala in R1
-        risultati_fullScale=client.read_holding_registers(address=ADDRESS.REGISTER_1_WR1_high, count=2, slave=SLAVE.ID)
-        while risultati_fullScale.isError():
-            risultati_fullScale=client.read_holding_registers(address=ADDRESS.REGISTER_1_WR1_high, count=2, slave=SLAVE.ID)
-
-        # Print
-        if not risultati_fullScale.isError():
-            print("Valore letto:", risultati_fullScale.registers)
-        else:
-            print("Errore nella lettura:", risultati_fullScale)
 
     def read_HIGHRES_divisions():
 
