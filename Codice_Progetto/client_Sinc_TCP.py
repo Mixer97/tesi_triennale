@@ -21,8 +21,8 @@ class ADDRESS:
 
 
 class CMDR_COMMANDS:
-    COMMAND_6092 = 6902
-    COMMAND_6093 = 6903
+    COMMAND_6902 = 6902
+    COMMAND_6903 = 6903
     COMMAND_6808 = 6808
     DISABLE_command_cargo = 6809
     CHANNEL_command_search = 6094
@@ -60,7 +60,7 @@ class WORKING:
         if connection:     
                 
             # Inviare il comando 6902 a CMDR (abilitare lettura in mV)
-            UTILS.write_CMDR(CMDR_COMMANDS.COMMAND_6092)
+            UTILS.write_CMDR(CMDR_COMMANDS.COMMAND_6902)
 
             # Lettura holding registers (52...55)
             risultatimV=client.read_holding_registers(address=ADDRESS.REGISTER_3, count=4, slave=SLAVE.ID)
@@ -79,7 +79,7 @@ class WORKING:
             #         print("Errore nella lettura:", risultatimV)
 
             # Inviare il comando 6903 a CMDR (disabilitare lettura in mV)
-            UTILS.write_CMDR(CMDR_COMMANDS.COMMAND_6093)
+            UTILS.write_CMDR(CMDR_COMMANDS.COMMAND_6903)
             
             return risultatimV.registers
 
@@ -206,43 +206,42 @@ class WORKING:
         else:
             print("Impossibile connettersi al dispositivo Modbus")
 
+    def read_status_register():
+            # Lettura status register (6)
+            risultati_SR1=client.read_holding_registers(address=ADDRESS.REGISTER_SR1, count=1, slave=SLAVE.ID)
+            while risultati_SR1.isError():
+                risultati_SR1=client.read_holding_registers(address=ADDRESS.REGISTER_SR1, count=1, slave=SLAVE.ID)
+
+            if not risultati_SR1.isError():
+
+                decimal = risultati_SR1.registers[0]
+
+                def risultati_SR1_to_binary(decimal):   # Convertitore decimale-binario
+                    binary = ""
+                    if decimal == 0:
+                        return "0"
+                    while decimal > 0:
+                        remainder = decimal % 2
+                        binary = str(remainder) + binary
+                        decimal = decimal // 2
+                    return binary
+                            
+                def find_set_bits(binary):
+                    set_bits = []
+                    for i, bit in enumerate(binary):
+                        if bit == '1':
+                            set_bits.append(15 - i)  # Calcoliamo l'indice partendo dal bit più significativo
+                    return set_bits
+                    
+                bit_impostati_a_1 = find_set_bits(risultati_SR1_to_binary(decimal))
+                print("I seguenti bit sono impostati su 1:", bit_impostati_a_1)      # Print
+
+                print("Valore letto:", risultati_SR1.registers)
+            else:
+                print("Errore nella lettura:", risultati_SR1)
 
 
 class TESTING:
-
-    def read_status_register():
-        # Lettura status register (6)
-        risultati_SR1=client.read_holding_registers(address=ADDRESS.REGISTER_SR1, count=1, slave=SLAVE.ID)
-        while risultati_SR1.isError():
-            risultati_SR1=client.read_holding_registers(address=ADDRESS.REGISTER_SR1, count=1, slave=SLAVE.ID)
-
-        if not risultati_SR1.isError():
-
-            decimal = risultati_SR1.registers[0]
-
-            def risultati_SR1_to_binary(decimal):   # Convertitore decimale-binario
-                binary = ""
-                if decimal == 0:
-                    return "0"
-                while decimal > 0:
-                    remainder = decimal % 2
-                    binary = str(remainder) + binary
-                    decimal = decimal // 2
-                return binary
-                        
-            def find_set_bits(binary):
-                set_bits = []
-                for i, bit in enumerate(binary):
-                    if bit == '1':
-                        set_bits.append(15 - i)  # Calcoliamo l'indice partendo dal bit più significativo
-                return set_bits
-                
-            bit_impostati_a_1 = find_set_bits(risultati_SR1_to_binary(decimal))
-            print("I seguenti bit sono impostati su 1:", bit_impostati_a_1)      # Print
-
-            print("Valore letto:", risultati_SR1.registers)
-        else:
-            print("Errore nella lettura:", risultati_SR1)
 
     def automatic_search_of_active_channels(): # CAPIRE COSA FA
         # Inviare il comando 6094 a CMDR
