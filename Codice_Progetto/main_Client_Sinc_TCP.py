@@ -18,8 +18,9 @@ def main(no):
         client_Sinc_TCP.TESTING.read_instrument_status()
 
     elif(no==5):
-        client_Sinc_TCP.TESTING.teoretical_calibration_read()
-        # client_Sinc_TCP.TESTING.teoretical_calibration_write()
+
+        client_Sinc_TCP.WORKING.teoretical_calibration_write(1000)
+        client_Sinc_TCP.WORKING.teoretical_calibration_read()
 
     elif(no==6):
         client_Sinc_TCP.WORKING.test_conversione(600000000) #wORKING
