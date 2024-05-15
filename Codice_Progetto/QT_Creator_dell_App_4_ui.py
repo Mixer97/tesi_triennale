@@ -9,7 +9,7 @@
 ################################################################################
 
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect, QTimer,
+    QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
 from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
@@ -18,12 +18,6 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLCDNumber,
     QLabel, QMainWindow, QPushButton, QSizePolicy,
     QVBoxLayout, QWidget)
-import client_Sinc_TCP
-
-startStop = False
-startStop_logger = False
-status_pulsante_interfaccia = 1
-status_pulsante_registrazione = 1
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -389,7 +383,7 @@ class Ui_MainWindow(object):
         self.pushButton_Registrazione.setFont(font4)
         self.pushButton_Registrazione.setCursor(QCursor(Qt.PointingHandCursor))
         self.pushButton_Registrazione.setStyleSheet(u"QWidget {\n"
-"	background-color:green; \n"
+"	background-color:red; \n"
 "	border-style: outset;\n"
 "    border-width: 2px;\n"
 "    border-color: black;\n"
@@ -424,7 +418,7 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.lable_Logo_Easting.setTextFormat(Qt.RichText)
-        self.lable_Logo_Easting.setPixmap(QPixmap(u"C:\\Users\\franc\\OneDrive\\Tirocinio_triennale\\Code_esercizi\\Visual_studio_python\\WebApp_Easting _Electronics\\Immagini\\LogoEasting.png"))
+        self.lable_Logo_Easting.setPixmap(QPixmap(u"../../../Immagini/Screenshot_Easting.jpeg"))
         self.lable_Logo_Easting.setScaledContents(False)
 
         self.verticalLayout_24.addWidget(self.lable_Logo_Easting, 0, Qt.AlignHCenter|Qt.AlignVCenter)
@@ -445,66 +439,6 @@ class Ui_MainWindow(object):
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
-
-    #------------------------------------------------------------------------------------------------------------------#
-    # Codice aggiunto da me
-    
-    # setup segnali
-        self.pushButton_Interfaccia.clicked.connect(self.pulsante_interfaccia_click)
-        self.pushButton_Registrazione.clicked.connect(self.pulsante_registrazione_click)
-        self.timer = QTimer()
-        self.timer.timeout.connect(self.update0)
-        
-    
-    def pulsante_interfaccia_click(self):
-        # Check della condizione del pulsante e poi cambio il tipo e gestisco il timer
-        global status_pulsante_interfaccia
-        if status_pulsante_interfaccia % 2 != 0:
-            self.timer.start(100)          # In millisecondi
-            self.pushButton_Interfaccia.setStyleSheet("background-color: red; border-style: outset; border-width: 2px; border-color: black;")
-            self.pushButton_Interfaccia.setText("STOP")
-            status_pulsante_interfaccia = status_pulsante_interfaccia + 1
-        else:     
-            self.timer.stop()
-            self.lcdNumber_1.display(0)
-            self.lcdNumber_2.display(0)
-            self.lcdNumber_3.display(0)
-            self.lcdNumber_4.display(0)         
-            self.pushButton_Interfaccia.setStyleSheet("background-color: green; border-style: outset; border-width: 2px; border-color: black;")
-            self.pushButton_Interfaccia.setText("START")
-            status_pulsante_interfaccia = status_pulsante_interfaccia + 1
-    
-    def pulsante_registrazione_click(self):
-        # Check della condizione del pulsante e poi cambio il tipo e gestisco il logger
-        global startStop_logger
-        global status_pulsante_registrazione
-        if status_pulsante_registrazione % 2 != 0:       
-            startStop_logger = True
-            self.pushButton_Registrazione.setStyleSheet("background-color: red; border-style: outset; border-width: 2px; border-color: black;")
-            self.pushButton_Registrazione.setText("STOP")
-            status_pulsante_registrazione = status_pulsante_registrazione + 1
-        else:     
-            startStop_logger = False          
-            self.pushButton_Registrazione.setStyleSheet("background-color: green; border-style: outset; border-width: 2px; border-color: black;")
-            self.pushButton_Registrazione.setText("START")
-            status_pulsante_registrazione = status_pulsante_registrazione + 1
-        
-        
-    def update0(self):
-            list = client_Sinc_TCP.WORKING.read_holding_registers_mV()
-            self.lcdNumber_1.display(list[0])
-            self.lcdNumber_2.display(list[1])
-            self.lcdNumber_3.display(list[2])
-            self.lcdNumber_4.display(list[3])
-                
-    
-    
-    
-    #------------------------------------------------------------------------------------------------------------------# 
-
-
-
-
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.label_1.setText(QCoreApplication.translate("MainWindow", u"Channel 1", None))
@@ -514,7 +448,7 @@ class Ui_MainWindow(object):
         self.label.setText(QCoreApplication.translate("MainWindow", u"INTERFACCIA", None))
         self.pushButton_Interfaccia.setText(QCoreApplication.translate("MainWindow", u"START", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"REGISTRAZIONE", None))
-        self.pushButton_Registrazione.setText(QCoreApplication.translate("MainWindow", u"START", None))
+        self.pushButton_Registrazione.setText(QCoreApplication.translate("MainWindow", u"STOP", None))
         self.lable_Logo_Easting.setText("")
     # retranslateUi
 
