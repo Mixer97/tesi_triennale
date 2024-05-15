@@ -1,0 +1,12 @@
+{
+    "files": [
+        "client_Sinc_TCP.py",
+	    "logger_CSV_Inserisco_direttamente.py",
+	    "main.py",
+        "QT_Creator_dell_App_4_ui.py",
+        "main_Client_Sinc_TCP.py",
+        "requirements.txt",
+        "logger_CSV_testing_changes.py",
+        "QT_Creator_dell_App_4.ui"
+    ]
+}

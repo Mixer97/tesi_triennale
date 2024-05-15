@@ -424,7 +424,7 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.lable_Logo_Easting.setTextFormat(Qt.RichText)
-        self.lable_Logo_Easting.setPixmap(QPixmap(u"C:\\Users\\franc\\OneDrive\\Tirocinio_triennale\\Code_esercizi\\Visual_studio_python\\WebApp_Easting _Electronics\\Immagini\\Screenshot_Easting.jpeg"))
+        self.lable_Logo_Easting.setPixmap(QPixmap(u"C:\\Users\\franc\\OneDrive\\Tirocinio_triennale\\Code_esercizi\\Visual_studio_python\\WebApp_Easting _Electronics\\Immagini\\LogoEasting.png"))
         self.lable_Logo_Easting.setScaledContents(False)
 
         self.verticalLayout_24.addWidget(self.lable_Logo_Easting, 0, Qt.AlignHCenter|Qt.AlignVCenter)
