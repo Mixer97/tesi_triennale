@@ -4,12 +4,13 @@ import client_Sinc_TCP
 import QT_Creator_dell_App_4_ui
 from time import process_time
 import time
+import os
 
 class Logger:
 
     def logger(nome_CSV):
         
-        path_CSV = 'Codice_Progetto\\CSV\\' + str(nome_CSV) + ".csv"
+        path_CSV = 'python\\Codice_Progetto\\CSV\\' + str(nome_CSV) + ".csv"
         
         # Creazione liste per dataframe
         list_time = []
