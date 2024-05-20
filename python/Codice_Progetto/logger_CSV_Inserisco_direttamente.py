@@ -4,13 +4,13 @@ import client_Sinc_TCP
 import QT_Creator_dell_App_4_ui
 from time import process_time
 import time
-import os
+import csv
 
 class Logger:
 
     def logger(nome_CSV):
         
-        path_CSV = 'python\\Codice_Progetto\\CSV\\' + str(nome_CSV) + ".csv"
+        path_CSV = 'C:\\Code_GIT\\tesi_triennale_Git\\python\\Codice_Progetto\\CSV\\' + str(nome_CSV) + ".csv"
         
         # Creazione liste per dataframe
         list_time = []
@@ -31,41 +31,30 @@ class Logger:
         
         # saving the DataFrame as a CSV file 
         df.to_csv(path_CSV, index=False)  
-        
-        # timer start
+                
+            # timer start
         timer = 0
-        # n = 0
+        n = 0
         start_timer = time.time()  
-        
+            
         while True:
             if QT_Creator_dell_App_4_ui.startStop_logger:
                 # Processing dei dati
                 stop_timer = time.time()
                 timer = stop_timer - start_timer
                 
-                # lettura dei registri mV
+                # Lettura dei registri mV
                 result_list = client_Sinc_TCP.WORKING.read_holding_registers_mV()   
-
-                # Scrittuara su CSV
-                # Logger.Append_CSV(timer=self.timer, result_list=self.result_list)
                 
-                # creating the DataFrame 
-                my_df = [[timer,
-                        result_list[0],
-                        result_list[1],
-                        result_list[2],
-                        result_list[3],
-                        'mV']] 
-                df = pd.DataFrame(my_df)  
-                
-                # Append al file CSV 
-                df.to_csv(path_CSV, header=False, mode='a', index=False) 
-                print(my_df)
-                # n = n + 1 
-                # print(n)   
-
-    # def Append_CSV(self, timer, result_list):
+                # Scrittura di una riga
+                with open(path_CSV, mode="a", newline="") as csv_doc:
+                    writer = csv.writer(csv_doc)
+                    list_to_write = [timer, result_list[0], result_list[1], result_list[2], result_list[3], "mV"]
+                    writer.writerow(list_to_write)
+                    print(list_to_write) 
 
 if __name__ == "__main__":
     QT_Creator_dell_App_4_ui.startStop_logger = True
     Logger.logger(nome_CSV="test")
+        
+        

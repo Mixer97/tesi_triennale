@@ -47,6 +47,11 @@ def main(no):
         print(risultatimV.registers)
         client_Sinc_TCP.UTILS.write_CMDR(client_Sinc_TCP.CMDR_COMMANDS.COMMAND_6903)
         
+    elif(no==12):
+        client_Sinc_TCP.TESTING.semiautomatic_tara_deactivation()
+        
+            
+        
     elif(no==666):
         while True:
             client_Sinc_TCP.TESTING.read_HIGHRES_divisions() #INCASINA TUTTO, CAPIRE PERCHE'!
@@ -54,4 +59,4 @@ def main(no):
     else:
         print("Out of bounds.")
 
-main(2)
+main(12)

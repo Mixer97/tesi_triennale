@@ -613,7 +613,7 @@ class Ui_MainWindow(object):
         self.pushButton_Registrazione.setFont(font4)
         self.pushButton_Registrazione.setCursor(QCursor(Qt.PointingHandCursor))
         self.pushButton_Registrazione.setStyleSheet(u"QWidget {\n"
-"	background-color:red; \n"
+"	background-color:green; \n"
 "	border-style: outset;\n"
 "    border-width: 2px;\n"
 "    border-color: black;\n"
@@ -796,7 +796,7 @@ class Ui_MainWindow(object):
         self.label.setText(QCoreApplication.translate("MainWindow", u"INTERFACCIA", None))
         self.pushButton_Interfaccia.setText(QCoreApplication.translate("MainWindow", u"START", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"REGISTRAZIONE", None))
-        self.pushButton_Registrazione.setText(QCoreApplication.translate("MainWindow", u"STOP", None))
+        self.pushButton_Registrazione.setText(QCoreApplication.translate("MainWindow", u"START", None))
         self.label_nomeFile.setText(QCoreApplication.translate("MainWindow", u"NOME FILE", None))
     # retranslateUi
 

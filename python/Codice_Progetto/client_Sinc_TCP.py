@@ -38,6 +38,8 @@ class CMDR_COMMANDS:
     ENABLE_command_dosage_read = 6803
     COMMAND_6501 = 6501
     COMMAND_6502 = 6502
+    COMMAND_7 = 7
+    COMMAND_9 = 9
 
 
 # Configura il client Modbus (VUOLE COMUNQUE UN FRAMER RTU !!)
@@ -148,7 +150,9 @@ class WORKING:
         x = UTILS.read_EXC_AEXC()
 
         # Azzeramento della Tara
-        UTILS.write_CMDR(CMDR_COMMANDS.COMMAND_100)      
+        UTILS.write_CMDR(CMDR_COMMANDS.COMMAND_100)   
+        
+        # Azzeramento offset in mV   
 
         x = UTILS.read_EXC_AEXC()
 
@@ -257,7 +261,15 @@ class WORKING:
 
 
 class TESTING:
-
+    
+    def semiautomatic_tara_activation():
+        # Inviare il comando 7 a CMDR
+        UTILS.write_CMDR(CMDR_COMMANDS.COMMAND_7)
+        
+    def semiautomatic_tara_deactivation():
+        # Inviare il comando 9 a CMDR
+        UTILS.write_CMDR(CMDR_COMMANDS.COMMAND_9)
+        
     def automatic_search_of_active_channels(): # CAPIRE COSA FA
         # Inviare il comando 6094 a CMDR
         write_result=client.write_registers(address=ADDRESS.CMDR, values=CMDR_COMMANDS.CHANNEL_command_search, slave=SLAVE.ID)

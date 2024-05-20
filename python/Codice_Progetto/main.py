@@ -13,7 +13,7 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         # Create and start a thread for the logger
         logger_thread = Thread(target=run_logger)
-        logger_thread.start()        
+        logger_thread.start()     
 
 def run_logger():
     logger_CSV_Inserisco_direttamente.Logger.logger(nome_CSV= "test")  
