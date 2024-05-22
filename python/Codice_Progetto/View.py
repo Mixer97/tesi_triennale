@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout,
     QLCDNumber, QLabel, QLineEdit, QMainWindow,
     QPushButton, QSizePolicy, QVBoxLayout, QWidget)
-import client_Sinc_TCP
+import Controller_Client_TCP as Controller_Client_TCP
 
 startStop = False
 startStop_logger = False
@@ -720,7 +720,7 @@ class Ui_MainWindow(object):
         # Check della condizione del pulsante e poi cambio il tipo e gestisco il timer
         global status_pulsante_interfaccia
         if status_pulsante_interfaccia % 2 != 0:
-            self.timer.start(100)          # In millisecondi
+            self.timer.start(1000)          # In millisecondi
             self.pushButton_Interfaccia.setStyleSheet("background-color: red; border-style: outset; border-width: 2px; border-color: black;")
             self.pushButton_Interfaccia.setText("STOP")
             status_pulsante_interfaccia = status_pulsante_interfaccia + 1
@@ -751,7 +751,7 @@ class Ui_MainWindow(object):
         
         
     def update0(self):
-            list = client_Sinc_TCP.WORKING.read_holding_registers_mV()
+            list = Controller_Client_TCP.WORKING.read_holding_registers_mV()
             self.lcdNumber_1.display(list[0])
             self.lcdNumber_2.display(list[1])
             self.lcdNumber_3.display(list[2])

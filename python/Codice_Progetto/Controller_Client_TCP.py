@@ -400,3 +400,63 @@ class UTILS:
 
         return signed_num
 
+
+
+if __name__ == "__main__":
+    
+    no = 3      # Impostare il valore qui per eseguire il main
+    
+    if(no==1): # Lettura Cargo
+        WORKING.read_holding_registers_cargo()  
+
+    elif(no==2): # Lettura mV
+        while(True):
+            res=WORKING.read_holding_registers_mV()        # Work in progress
+            print("Risultato: " + str(res))
+            
+    elif(no==3): # Lettura SR
+        WORKING.read_status_register()
+
+    elif(no==4): # !!!
+        TESTING.read_instrument_status()
+
+    elif(no==5):
+
+        WORKING.teoretical_calibration_write(1000)
+        WORKING.teoretical_calibration_read()
+
+    elif(no==6):
+        WORKING.test_conversione(600000000) #wORKING
+
+    elif(no==7):
+        # client_Sinc_TCP.WORKING.teoretical_equalization([0,0,2,0]) #WORKING
+        WORKING.tara_reset() #WORKING
+
+    elif(no==8):
+        WORKING.read_sensibility(1) #WORKING
+        WORKING.read_sensibility(2)
+        WORKING.read_sensibility(3)
+        WORKING.read_sensibility(4)
+
+    elif(no==9):
+        WORKING.read_channels_active()
+
+    elif(no==10):
+        WORKING.write_channels_active(4) # Valore da inserire in base 10 (i canali sono da six a dex in binario)
+        
+    elif(no==11):
+        UTILS.write_CMDR(CMDR_COMMANDS.COMMAND_6902)
+        risultatimV=client.read_holding_registers(address=52, count=24, slave=SLAVE.ID)
+        print(risultatimV.registers)
+        UTILS.write_CMDR(CMDR_COMMANDS.COMMAND_6903)
+        
+    elif(no==12):
+        TESTING.semiautomatic_tara_deactivation()   
+        
+    elif(no==666):
+        while True:
+            TESTING.read_HIGHRES_divisions() #INCASINA TUTTO, CAPIRE PERCHE'!
+
+    else:
+        print("Out of bounds.")
+
