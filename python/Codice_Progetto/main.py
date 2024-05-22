@@ -1,7 +1,7 @@
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow
-from Codice_Progetto.View import Ui_MainWindow  # Import the generated UI class
-import Codice_Progetto.Controller_Logger as Controller_Logger
+from View import Ui_MainWindow  # Import the generated UI class
+from Model import Logger
 from threading import Thread
 
 class MainWindow(QMainWindow):
@@ -16,7 +16,8 @@ class MainWindow(QMainWindow):
         logger_thread.start()     
 
 def run_logger():
-    Controller_Logger.Logger.logger(nome_CSV= "test")  
+    logger = Logger("logger", False)
+    logger.execute_logger()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

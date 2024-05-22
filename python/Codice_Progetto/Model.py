@@ -28,7 +28,7 @@ class Logger:
     
     # Getter status esecuzione logger
     def status_EXEC_getter(self):
-        return f"{self.status_EXEC}"            # Check per vedere se torna
+        return f"{self.status_EXEC}"           
     
     # Setter status esecuzione logger
     def status_EXEC_setter(self, status=False):
@@ -64,7 +64,7 @@ class Logger:
         start_timer = time.time()  
             
         while True:
-            if self.status_EXEC:
+            if self.status_EXEC: #CAMBIARE QUI E METTERE IL SEGNALE DEI PULSANTI
                 # Processing dei dati
                 stop_timer = time.time()
                 timer = stop_timer - start_timer
