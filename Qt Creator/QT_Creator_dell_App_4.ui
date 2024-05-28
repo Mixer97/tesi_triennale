@@ -74,6 +74,11 @@
                         <pointsize>17</pointsize>
                        </font>
                       </property>
+                      <property name="styleSheet">
+                       <string notr="true">QLabel{
+	color: rgb(0,0,0);
+}</string>
+                      </property>
                       <property name="text">
                        <string>Channel 1</string>
                       </property>
@@ -98,7 +103,10 @@
     border-width: 2px;
     border-color: black;
 }
-</string>
+QLCDNumber{
+    color: rgb(0, 0, 0);    
+    background-color: rgb(255, 255, 255);
+}</string>
                   </property>
                   <property name="digitCount">
                    <number>7</number>
@@ -140,6 +148,11 @@
                       <pointsize>17</pointsize>
                      </font>
                     </property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel{
+	color: rgb(0,0,0);
+}</string>
+                    </property>
                     <property name="text">
                      <string>Channel 2</string>
                     </property>
@@ -160,7 +173,10 @@
     border-width: 2px;
     border-color: black;
 }
-</string>
+QLCDNumber{
+    color: rgb(0, 0, 0);    
+    background-color: rgb(255, 255, 255);
+}</string>
                   </property>
                   <property name="digitCount">
                    <number>7</number>
@@ -199,6 +215,11 @@
                       <pointsize>17</pointsize>
                      </font>
                     </property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel{
+	color: rgb(0,0,0);
+}</string>
+                    </property>
                     <property name="text">
                      <string>Channel 3</string>
                     </property>
@@ -225,7 +246,10 @@
     border-width: 2px;
     border-color: black;
 }
-</string>
+QLCDNumber{
+    color: rgb(0, 0, 0);    
+    background-color: rgb(255, 255, 255);
+}</string>
                   </property>
                   <property name="digitCount">
                    <number>7</number>
@@ -264,6 +288,11 @@
                       <pointsize>17</pointsize>
                      </font>
                     </property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel{
+	color: rgb(0,0,0);
+}</string>
+                    </property>
                     <property name="text">
                      <string>Channel 4</string>
                     </property>
@@ -284,7 +313,10 @@
     border-width: 2px;
     border-color: black;
 }
-</string>
+QLCDNumber{
+    color: rgb(0, 0, 0);    
+    background-color: rgb(255, 255, 255);
+}</string>
                   </property>
                   <property name="digitCount">
                    <number>7</number>
@@ -353,6 +385,10 @@
     border-width: 0px;
     border-color: black;
 }
+QLabel{
+	color: rgb(0,0,0);
+}
+
 </string>
                   </property>
                   <property name="text">
@@ -399,7 +435,9 @@
     border-width: 2px;
     border-color: black;
 }
-</string>
+QPushButton{
+	color: rgb(0,0,0);
+}</string>
                   </property>
                   <property name="text">
                    <string>START</string>
@@ -424,7 +462,9 @@
     border-width: 0px;
     border-color: black;
 }
-</string>
+QLabel{
+	color: rgb(0,0,0);
+}</string>
                   </property>
                   <property name="text">
                    <string>REGISTRAZIONE</string>
@@ -467,7 +507,9 @@
     border-width: 2px;
     border-color: black;
 }
-</string>
+QPushButton{
+	color: rgb(0,0,0);
+}</string>
                   </property>
                   <property name="text">
                    <string>STOP</string>

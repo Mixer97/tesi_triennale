@@ -1,7 +1,7 @@
 # importing the module 
 import pandas as pd 
-import client_Sinc_TCP
-import QT_Creator_dell_App_4_ui
+import Controller_Client_TCP as Controller_Client_TCP
+import View_QT as View_QT
 from time import process_time
 import time
 import csv
@@ -38,13 +38,13 @@ class Logger:
         start_timer = time.time()  
             
         while True:
-            if QT_Creator_dell_App_4_ui.startStop_logger:
+            if View_QT.startStop_logger:
                 # Processing dei dati
                 stop_timer = time.time()
                 timer = stop_timer - start_timer
                 
                 # Lettura dei registri mV
-                result_list = client_Sinc_TCP.WORKING.read_holding_registers_mV()   
+                result_list = Controller_Client_TCP.WORKING.read_holding_registers_mV()   
                 
                 # Scrittura di una riga
                 with open(path_CSV, mode="a", newline="") as csv_doc:
@@ -54,7 +54,7 @@ class Logger:
                     print(list_to_write) 
 
 if __name__ == "__main__":
-    QT_Creator_dell_App_4_ui.startStop_logger = True
+    View_QT.startStop_logger = True
     Logger.logger(nome_CSV="test")
         
         

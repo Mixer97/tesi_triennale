@@ -9,22 +9,15 @@
 ################################################################################
 
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect, QTimer,
+    QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
 from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout,
-    QLCDNumber, QLabel, QLineEdit, QMainWindow,
-    QPushButton, QSizePolicy, QVBoxLayout, QWidget)
-import client_Sinc_TCP
-
-startStop = False
-startStop_logger = False
-status_pulsante_interfaccia = 1
-status_pulsante_registrazione = 1
-
+    QLCDNumber, QLabel, QMainWindow, QPushButton,
+    QSizePolicy, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -96,6 +89,10 @@ class Ui_MainWindow(object):
 "    min-width: 6em;\n"
 "}\n"
 "\n"
+"QComboBox{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"\n"
 "QComboBox:editable {\n"
 "    background: white;\n"
 "}\n"
@@ -118,10 +115,10 @@ class Ui_MainWindow(object):
 "    padding-left: 4px;\n"
 "}\n"
 "\n"
-"QComboBox::drop-down {\n"
+"QComboBox"
+                        "::drop-down {\n"
 "    subcontrol-origin: padding;\n"
-""
-                        "    subcontrol-position: top right;\n"
+"    subcontrol-position: top right;\n"
 "    width: 15px;\n"
 "\n"
 "    border-left-width: 1px;\n"
@@ -150,6 +147,10 @@ class Ui_MainWindow(object):
         font = QFont()
         font.setPointSize(17)
         self.label_1.setFont(font)
+        self.label_1.setStyleSheet(u"QLabel{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
 
         self.verticalLayout_9.addWidget(self.label_1, 0, Qt.AlignHCenter)
 
@@ -167,6 +168,9 @@ class Ui_MainWindow(object):
 "	border-style: outset;\n"
 "    border-width: 2px;\n"
 "    border-color: black;\n"
+"}\n"
+"QLCDNumber{\n"
+"	color: rgb(0,0,0);\n"
 "}\n"
 "")
         self.lcdNumber_1.setDigitCount(7)
@@ -211,6 +215,10 @@ class Ui_MainWindow(object):
 "    min-width: 6em;\n"
 "}\n"
 "\n"
+"QComboBox{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"\n"
 "QComboBox:editable {\n"
 "    background: white;\n"
 "}\n"
@@ -233,10 +241,10 @@ class Ui_MainWindow(object):
 "    padding-left: 4px;\n"
 "}\n"
 "\n"
-"QComboBox::drop-down {\n"
+"QComboBox"
+                        "::drop-down {\n"
 "    subcontrol-origin: padding;\n"
-""
-                        "    subcontrol-position: top right;\n"
+"    subcontrol-position: top right;\n"
 "    width: 15px;\n"
 "\n"
 "    border-left-width: 1px;\n"
@@ -263,6 +271,10 @@ class Ui_MainWindow(object):
         self.label_2 = QLabel(self.widget_3)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setFont(font)
+        self.label_2.setStyleSheet(u"QLabel{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
 
         self.verticalLayout_10.addWidget(self.label_2, 0, Qt.AlignHCenter)
 
@@ -276,6 +288,9 @@ class Ui_MainWindow(object):
 "	border-style: outset;\n"
 "    border-width: 2px;\n"
 "    border-color: black;\n"
+"}\n"
+"QLCDNumber{\n"
+"	color: rgb(0,0,0);\n"
 "}\n"
 "")
         self.lcdNumber_2.setDigitCount(7)
@@ -319,6 +334,10 @@ class Ui_MainWindow(object):
 "    min-width: 6em;\n"
 "}\n"
 "\n"
+"QComboBox{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"\n"
 "QComboBox:editable {\n"
 "    background: white;\n"
 "}\n"
@@ -341,10 +360,10 @@ class Ui_MainWindow(object):
 "    padding-left: 4px;\n"
 "}\n"
 "\n"
-"QComboBox::drop-down {\n"
+"QComboBox"
+                        "::drop-down {\n"
 "    subcontrol-origin: padding;\n"
-""
-                        "    subcontrol-position: top right;\n"
+"    subcontrol-position: top right;\n"
 "    width: 15px;\n"
 "\n"
 "    border-left-width: 1px;\n"
@@ -371,6 +390,10 @@ class Ui_MainWindow(object):
         self.label_3 = QLabel(self.widget_4)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setFont(font)
+        self.label_3.setStyleSheet(u"QLabel{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
 
         self.verticalLayout_7.addWidget(self.label_3, 0, Qt.AlignHCenter)
 
@@ -388,6 +411,9 @@ class Ui_MainWindow(object):
 "	border-style: outset;\n"
 "    border-width: 2px;\n"
 "    border-color: black;\n"
+"}\n"
+"QLCDNumber{\n"
+"	color: rgb(0,0,0);\n"
 "}\n"
 "")
         self.lcdNumber_3.setDigitCount(7)
@@ -418,6 +444,10 @@ class Ui_MainWindow(object):
         self.label_4 = QLabel(self.widget_5)
         self.label_4.setObjectName(u"label_4")
         self.label_4.setFont(font)
+        self.label_4.setStyleSheet(u"QLabel{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
 
         self.verticalLayout_11.addWidget(self.label_4, 0, Qt.AlignHCenter)
 
@@ -442,6 +472,10 @@ class Ui_MainWindow(object):
 "    min-width: 6em;\n"
 "}\n"
 "\n"
+"QComboBox{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"\n"
 "QComboBox:editable {\n"
 "    background: white;\n"
 "}\n"
@@ -464,10 +498,10 @@ class Ui_MainWindow(object):
 "    padding-left: 4px;\n"
 "}\n"
 "\n"
-"QComboBox::drop-down {\n"
+"QComboBox"
+                        "::drop-down {\n"
 "    subcontrol-origin: padding;\n"
-""
-                        "    subcontrol-position: top right;\n"
+"    subcontrol-position: top right;\n"
 "    width: 15px;\n"
 "\n"
 "    border-left-width: 1px;\n"
@@ -496,6 +530,9 @@ class Ui_MainWindow(object):
 "	border-style: outset;\n"
 "    border-width: 2px;\n"
 "    border-color: black;\n"
+"}\n"
+"QLCDNumber{\n"
+"	color: rgb(0,0,0);\n"
 "}\n"
 "")
         self.lcdNumber_4.setDigitCount(7)
@@ -552,6 +589,9 @@ class Ui_MainWindow(object):
 "    border-width: 0px;\n"
 "    border-color: black;\n"
 "}\n"
+"QLabel{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
 "")
 
         self.horizontalLayout_6.addWidget(self.label, 0, Qt.AlignHCenter|Qt.AlignVCenter)
@@ -579,6 +619,9 @@ class Ui_MainWindow(object):
 "    border-width: 2px;\n"
 "    border-color: black;\n"
 "}\n"
+"QPushButton{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
 "")
 
         self.horizontalLayout_6.addWidget(self.pushButton_Interfaccia)
@@ -596,6 +639,9 @@ class Ui_MainWindow(object):
 "	border-style: outset;\n"
 "    border-width: 0px;\n"
 "    border-color: black;\n"
+"}\n"
+"QLabel{\n"
+"	color: rgb(0,0,0);\n"
 "}\n"
 "")
 
@@ -617,6 +663,9 @@ class Ui_MainWindow(object):
 "	border-style: outset;\n"
 "    border-width: 2px;\n"
 "    border-color: black;\n"
+"}\n"
+"QPushButton{\n"
+"	color: rgb(0,0,0);\n"
 "}\n"
 "")
 
@@ -646,37 +695,6 @@ class Ui_MainWindow(object):
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
         self.horizontalLayout_9 = QHBoxLayout()
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
-        self.label_nomeFile = QLabel(self.widget_6)
-        self.label_nomeFile.setObjectName(u"label_nomeFile")
-        self.label_nomeFile.setFont(font)
-        self.label_nomeFile.setStyleSheet(u"QWidget {\n"
-"	background-color:orange; \n"
-"	border-style: outset;\n"
-"    border-width: 0px;\n"
-"    border-color: black;\n"
-"}\n"
-"")
-
-        self.horizontalLayout_9.addWidget(self.label_nomeFile, 0, Qt.AlignHCenter|Qt.AlignVCenter)
-
-        self.lineEdit_nomeFile = QLineEdit(self.widget_6)
-        self.lineEdit_nomeFile.setObjectName(u"lineEdit_nomeFile")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.lineEdit_nomeFile.sizePolicy().hasHeightForWidth())
-        self.lineEdit_nomeFile.setSizePolicy(sizePolicy2)
-        self.lineEdit_nomeFile.setMaximumSize(QSize(300, 50))
-        self.lineEdit_nomeFile.setStyleSheet(u"QWidget {\n"
-"	background-color:white; \n"
-"	border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-color: black;\n"
-"}\n"
-"")
-
-        self.horizontalLayout_9.addWidget(self.lineEdit_nomeFile)
-
 
         self.verticalLayout_16.addLayout(self.horizontalLayout_9)
 
@@ -703,65 +721,6 @@ class Ui_MainWindow(object):
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
-    
-    
-    
-    #------------------------------------------------------------------------------------------------------------------#
-    # Codice aggiunto da me
-    
-    # setup segnali
-        self.pushButton_Interfaccia.clicked.connect(self.pulsante_interfaccia_click)
-        self.pushButton_Registrazione.clicked.connect(self.pulsante_registrazione_click)
-        self.timer = QTimer()
-        self.timer.timeout.connect(self.update0)
-        
-    
-    def pulsante_interfaccia_click(self):
-        # Check della condizione del pulsante e poi cambio il tipo e gestisco il timer
-        global status_pulsante_interfaccia
-        if status_pulsante_interfaccia % 2 != 0:
-            self.timer.start(100)          # In millisecondi
-            self.pushButton_Interfaccia.setStyleSheet("background-color: red; border-style: outset; border-width: 2px; border-color: black;")
-            self.pushButton_Interfaccia.setText("STOP")
-            status_pulsante_interfaccia = status_pulsante_interfaccia + 1
-        else:     
-            self.timer.stop()
-            self.lcdNumber_1.display(0)
-            self.lcdNumber_2.display(0)
-            self.lcdNumber_3.display(0)
-            self.lcdNumber_4.display(0)         
-            self.pushButton_Interfaccia.setStyleSheet("background-color: green; border-style: outset; border-width: 2px; border-color: black;")
-            self.pushButton_Interfaccia.setText("START")
-            status_pulsante_interfaccia = status_pulsante_interfaccia + 1
-    
-    def pulsante_registrazione_click(self):
-        # Check della condizione del pulsante e poi cambio il tipo e gestisco il logger
-        global startStop_logger
-        global status_pulsante_registrazione
-        if status_pulsante_registrazione % 2 != 0:       
-            startStop_logger = True
-            self.pushButton_Registrazione.setStyleSheet("background-color: red; border-style: outset; border-width: 2px; border-color: black;")
-            self.pushButton_Registrazione.setText("STOP")
-            status_pulsante_registrazione = status_pulsante_registrazione + 1
-        else:     
-            startStop_logger = False          
-            self.pushButton_Registrazione.setStyleSheet("background-color: green; border-style: outset; border-width: 2px; border-color: black;")
-            self.pushButton_Registrazione.setText("START")
-            status_pulsante_registrazione = status_pulsante_registrazione + 1
-        
-        
-    def update0(self):
-            list = client_Sinc_TCP.WORKING.read_holding_registers_mV()
-            self.lcdNumber_1.display(list[0])
-            self.lcdNumber_2.display(list[1])
-            self.lcdNumber_3.display(list[2])
-            self.lcdNumber_4.display(list[3])
-                
-    
-    
-    
-    #------------------------------------------------------------------------------------------------------------------# 
-    
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
@@ -797,6 +756,5 @@ class Ui_MainWindow(object):
         self.pushButton_Interfaccia.setText(QCoreApplication.translate("MainWindow", u"START", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"REGISTRAZIONE", None))
         self.pushButton_Registrazione.setText(QCoreApplication.translate("MainWindow", u"START", None))
-        self.label_nomeFile.setText(QCoreApplication.translate("MainWindow", u"NOME FILE", None))
     # retranslateUi
 

@@ -1,6 +1,7 @@
 from time import sleep
 from pymodbus.client import ModbusTcpClient
 from pymodbus.framer import Framer
+import View_QT
 
 class SLAVE:
     ID=1
@@ -399,4 +400,6 @@ class UTILS:
             signed_num = num
 
         return signed_num
+
+
 
