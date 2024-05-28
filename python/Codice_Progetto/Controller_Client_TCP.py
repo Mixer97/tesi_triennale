@@ -41,6 +41,9 @@ class CMDR_COMMANDS:
     COMMAND_6502 = 6502
     COMMAND_7 = 7
     COMMAND_9 = 9
+    
+class DATA:
+    LIST_mV_VALUE = [0,0,0,0]
 
 
 # Configura il client Modbus (VUOLE COMUNQUE UN FRAMER RTU !!)
@@ -403,3 +406,8 @@ class UTILS:
 
 
 
+
+class DATA_INTERACTIONS:
+        
+    def get_mv():
+        return DATA.LIST_mV_VALUE

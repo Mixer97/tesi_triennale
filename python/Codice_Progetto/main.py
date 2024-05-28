@@ -2,6 +2,7 @@ import sys
 from PySide6.QtWidgets import QApplication, QMainWindow
 from View_QT import Ui_MainWindow  # Import the generated UI class
 import Logger as Logger
+import Controller_Client_TCP
 from threading import Thread
 
 class MainWindow(QMainWindow):
@@ -14,9 +15,15 @@ class MainWindow(QMainWindow):
         # Create and start a thread for the logger
         logger_thread = Thread(target=run_logger)
         logger_thread.start()     
+        update_thread = Thread(target=data_update_mV)
+        update_thread.start()
 
 def run_logger():
-    Logger.Logger.logger(nome_CSV= "test")  
+    Logger.logger(nome_CSV= "test")  
+
+def data_update_mV():
+    while True:
+        Controller_Client_TCP.DATA.LIST_mV_VALUE = Controller_Client_TCP.WORKING.read_holding_registers_mV()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

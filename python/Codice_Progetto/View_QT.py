@@ -731,6 +731,7 @@ class Ui_MainWindow(object):
     
     #------------------------------------------------------------------------------------------------------------------#
     # Codice aggiunto da me
+        lcdDisplay_list=[self.lcdNumber_1,self.lcdNumber_2,self.lcdNumber_3,self.lcdNumber_4]
     
     # setup segnali
         self.pushButton_Interfaccia.clicked.connect(self.pulsante_interfaccia_click)
@@ -775,7 +776,7 @@ class Ui_MainWindow(object):
         
         
     def update(self):
-            list = Controller_Client_TCP.WORKING.read_holding_registers_mV()
+            list = Controller_Client_TCP.DATA_INTERACTIONS.get_mv()
             self.lcdNumber_1.display(list[0])
             self.lcdNumber_2.display(list[1])
             self.lcdNumber_3.display(list[2])
