@@ -2,8 +2,8 @@
 import pandas as pd 
 import Controller_Client_TCP as Controller_Client_TCP
 import View_QT as View_QT
-from time import process_time
 import time
+from time import sleep
 import csv
 
 
@@ -37,6 +37,7 @@ def logger(nome_CSV):
     start_timer = time.time()  
         
     while True:
+        sleep(0.10)   # Aggiunto per testing
         if View_QT.startStop_logger:
             # Processing dei dati
             stop_timer = time.time()

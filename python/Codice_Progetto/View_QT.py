@@ -731,14 +731,16 @@ class Ui_MainWindow(object):
     
     #------------------------------------------------------------------------------------------------------------------#
     # Codice aggiunto da me
-        lcdDisplay_list=[self.lcdNumber_1,self.lcdNumber_2,self.lcdNumber_3,self.lcdNumber_4]
     
     # setup segnali
         self.pushButton_Interfaccia.clicked.connect(self.pulsante_interfaccia_click)
         self.pushButton_Registrazione.clicked.connect(self.pulsante_registrazione_click)
         self.timer = QTimer()
-        self.timer.timeout.connect(self.update)
-        #self.comboBox_1.activated.connect(self.cambio unita di misura)
+        self.timer.timeout.connect(self.update_CH1)
+        self.timer.timeout.connect(self.update_CH2)
+        self.timer.timeout.connect(self.update_CH3)
+        self.timer.timeout.connect(self.update_CH4)
+
         
     
     def pulsante_interfaccia_click(self):
@@ -773,14 +775,81 @@ class Ui_MainWindow(object):
             self.pushButton_Registrazione.setText("START")     
             self.pushButton_Registrazione.setStyleSheet("background-color: green; border-style: outset; border-width: 2px; border-color: black; color: black")
             status_pulsante_registrazione = status_pulsante_registrazione + 1
-        
-        
-    def update(self):
-            list = Controller_Client_TCP.DATA_INTERACTIONS.get_mv()
-            self.lcdNumber_1.display(list[0])
-            self.lcdNumber_2.display(list[1])
-            self.lcdNumber_3.display(list[2])
-            self.lcdNumber_4.display(list[3])
+           
+    def update_CH1(self):
+        if self.comboBox_1.currentText() == "mV":
+                list_mV = Controller_Client_TCP.DATA_INTERACTIONS.get_mv()
+                self.lcdNumber_1.display(list_mV[0])
+        elif self.comboBox_1.currentText() == "Kg":
+                list_Kg = Controller_Client_TCP.DATA_INTERACTIONS.get_Kg()
+                self.lcdNumber_1.display(list_Kg[0])
+        elif self.comboBox_1.currentText() == "N":
+                list_N = Controller_Client_TCP.DATA_INTERACTIONS.get_N()
+                self.lcdNumber_1.display(list_N[0])
+        elif self.comboBox_1.currentText() == "Nm":
+                list_Nm = Controller_Client_TCP.DATA_INTERACTIONS.get_Nm()
+                self.lcdNumber_1.display(list_Nm[0]) 
+        else:
+                print("Error: something went wrong in the selection of the measuring unit fro CH1!")       
+                exit(1)
+
+    def update_CH2(self):
+        if self.comboBox_2.currentText() == "mV":
+                list_mV = Controller_Client_TCP.DATA_INTERACTIONS.get_mv()
+                self.lcdNumber_2.display(list_mV[1])
+        elif self.comboBox_2.currentText() == "Kg":
+                list_Kg = Controller_Client_TCP.DATA_INTERACTIONS.get_Kg()
+                #print(list_Kg)
+                self.lcdNumber_2.display(list_Kg[1])
+        elif self.comboBox_2.currentText() == "N":
+                list_N = Controller_Client_TCP.DATA_INTERACTIONS.get_N()
+                self.lcdNumber_2.display(list_N[1])
+        elif self.comboBox_2.currentText() == "Nm":
+                list_Nm = Controller_Client_TCP.DATA_INTERACTIONS.get_Nm()
+                self.lcdNumber_2.display(list_Nm[1]) 
+        else:
+                print("Error: something went wrong in the selection of the measuring unit fro CH2!")       
+                exit(1)
+
+
+    def update_CH3(self):
+        if self.comboBox_3.currentText() == "mV":
+                list_mV = Controller_Client_TCP.DATA_INTERACTIONS.get_mv()
+                self.lcdNumber_3.display(list_mV[2])
+        elif self.comboBox_3.currentText() == "Kg":
+                list_Kg = Controller_Client_TCP.DATA_INTERACTIONS.get_Kg()
+                self.lcdNumber_3.display(list_Kg[2])
+        elif self.comboBox_3.currentText() == "N":
+                list_N = Controller_Client_TCP.DATA_INTERACTIONS.get_N()
+                self.lcdNumber_3.display(list_N[2])
+        elif self.comboBox_3.currentText() == "Nm":
+                list_Nm = Controller_Client_TCP.DATA_INTERACTIONS.get_Nm()
+                self.lcdNumber_3.display(list_Nm[2]) 
+        else:
+                print("Error: something went wrong in the selection of the measuring unit fro CH3!")       
+                exit(1)
+
+    def update_CH4(self):
+        if self.comboBox_4.currentText() == "mV":
+                list_mV = Controller_Client_TCP.DATA_INTERACTIONS.get_mv()
+                self.lcdNumber_4.display(list_mV[3])
+        elif self.comboBox_4.currentText() == "Kg":
+                list_Kg = Controller_Client_TCP.DATA_INTERACTIONS.get_Kg()
+                self.lcdNumber_4.display(list_Kg[3])
+        elif self.comboBox_4.currentText() == "N":
+                list_N = Controller_Client_TCP.DATA_INTERACTIONS.get_N()
+                self.lcdNumber_4.display(list_N[3])
+        elif self.comboBox_4.currentText() == "Nm":
+                list_Nm = Controller_Client_TCP.DATA_INTERACTIONS.get_Nm()
+                self.lcdNumber_4.display(list_Nm[3]) 
+        else:
+                print("Error: something went wrong in the selection of the measuring unit fro CH4!")       
+                exit(1)
+            
+            
+            
+            
+            
                 
     
     

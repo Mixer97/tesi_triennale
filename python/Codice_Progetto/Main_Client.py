@@ -26,7 +26,7 @@ def main(no):
         Controller_Client_TCP.WORKING.test_conversione(600000000) #wORKING
 
     elif(no==7):
-        # client_Sinc_TCP.WORKING.teoretical_equalization([0,0,2,0]) #WORKING
+        # Controller_Client_TCP.WORKING.teoretical_equalization([0,2.0203,0,1]) #WORKING
         Controller_Client_TCP.WORKING.tara_reset() #WORKING
 
     elif(no==8):
@@ -59,4 +59,4 @@ def main(no):
     else:
         print("Out of bounds.")
 
-main(2)
+main(8)
