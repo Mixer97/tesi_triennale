@@ -48,7 +48,7 @@ class DATA:
     LIST_Kg_VALUE = [0,0,0,0]
     LIST_Nm_VALUE = [0,0,0,0]
     LIST_N_VALUE = [0,0,0,0]
-    LIST_SENSIBILITY = [1,2.0302,1,1]
+    LIST_SENSIBILITY = [0,2.0302,0,1]
     LIST_FULLSCALE = [10,50,10,10]
     LIST_mV_ZERO = [1,-3.16,1,-0.21]
     LEVER_ARM = 1 # meters
@@ -425,19 +425,28 @@ class DATA_INTERACTIONS:
     def get_Kg():
         i = 0
         for i in range(0, len(DATA.LIST_mV_VALUE)):
-            DATA.LIST_Kg_VALUE[i] = abs((DATA.LIST_FULLSCALE[i]/(SLAVE.CHN_VOLTAGE*DATA.LIST_SENSIBILITY[i]))*(DATA.LIST_mV_ZERO[i] - DATA.LIST_mV_VALUE[i]))
+            if DATA.LIST_SENSIBILITY[i]!=0:
+                DATA.LIST_Kg_VALUE[i] = abs((DATA.LIST_FULLSCALE[i]/(SLAVE.CHN_VOLTAGE*DATA.LIST_SENSIBILITY[i]))*(DATA.LIST_mV_ZERO[i] - DATA.LIST_mV_VALUE[i]))
+            else:
+                DATA.LIST_Kg_VALUE[i] = 0
         return DATA.LIST_Kg_VALUE
     
     def get_Nm():
         i = 0
         for i in range(0, len(DATA.LIST_mV_VALUE)):
-            DATA.LIST_Nm_VALUE[i] = DATA.LEVER_ARM*9.81*(DATA.LIST_FULLSCALE[i]/(SLAVE.CHN_VOLTAGE*DATA.LIST_SENSIBILITY[i]))*(DATA.LIST_mV_ZERO[i] - DATA.LIST_mV_VALUE[i])
+            if DATA.LIST_SENSIBILITY[i]!=0:
+                DATA.LIST_Nm_VALUE[i] = DATA.LEVER_ARM*9.81*(DATA.LIST_FULLSCALE[i]/(SLAVE.CHN_VOLTAGE*DATA.LIST_SENSIBILITY[i]))*(DATA.LIST_mV_ZERO[i] - DATA.LIST_mV_VALUE[i])
+            else:
+                DATA.LIST_Nm_VALUE[i] = 0
         return DATA.LIST_Nm_VALUE
         
     def get_N():
         i = 0
         for i in range(0, len(DATA.LIST_mV_VALUE)):
-            DATA.LIST_N_VALUE[i] = 9.81*(DATA.LIST_FULLSCALE[i]/(SLAVE.CHN_VOLTAGE*DATA.LIST_SENSIBILITY[i]))*(DATA.LIST_mV_ZERO[i] - DATA.LIST_mV_VALUE[i])
+            if DATA.LIST_SENSIBILITY[i]!=0:
+                DATA.LIST_N_VALUE[i] = 9.81*(DATA.LIST_FULLSCALE[i]/(SLAVE.CHN_VOLTAGE*DATA.LIST_SENSIBILITY[i]))*(DATA.LIST_mV_ZERO[i] - DATA.LIST_mV_VALUE[i])
+            else:
+                DATA.LIST_N_VALUE[i] = 0
         return DATA.LIST_N_VALUE
     
     

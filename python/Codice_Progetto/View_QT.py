@@ -19,9 +19,9 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout
     QLCDNumber, QLabel, QLineEdit, QMainWindow,
     QPushButton, QSizePolicy, QVBoxLayout, QWidget)
 import Controller_Client_TCP as Controller_Client_TCP
+import Logger
 
 startStop = False
-startStop_logger = False
 status_pulsante_interfaccia = 1
 status_pulsante_registrazione = 1
 
@@ -141,6 +141,14 @@ class Ui_MainWindow(object):
 "QComboBox::down-arrow:on { /* shift the arrow when popup is open */\n"
 "    top: 1px;\n"
 "    left: 1px;\n"
+"}"
+""
+"QListView"
+"{"
+"background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                  stop: 0 #D3D3D3, stop: 0.4 #D8D8D8,\n"
+"                  stop: 0.5 #DDDDDD, stop: 1.0 #E1E1E1);\n"
+"color: rgb(0,0,0)"
 "}")
         self.comboBox_1.setIconSize(QSize(30, 30))
 
@@ -267,6 +275,14 @@ class Ui_MainWindow(object):
 "QComboBox::down-arrow:on { /* shift the arrow when popup is open */\n"
 "    top: 1px;\n"
 "    left: 1px;\n"
+"}"
+""
+"QListView"
+"{"
+"background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                  stop: 0 #D3D3D3, stop: 0.4 #D8D8D8,\n"
+"                  stop: 0.5 #DDDDDD, stop: 1.0 #E1E1E1);\n"
+"color: rgb(0,0,0)"
 "}")
         self.comboBox_2.setIconSize(QSize(30, 30))
 
@@ -386,6 +402,14 @@ class Ui_MainWindow(object):
 "QComboBox::down-arrow:on { /* shift the arrow when popup is open */\n"
 "    top: 1px;\n"
 "    left: 1px;\n"
+"}"
+""
+"QListView"
+"{"
+"background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                  stop: 0 #D3D3D3, stop: 0.4 #D8D8D8,\n"
+"                  stop: 0.5 #DDDDDD, stop: 1.0 #E1E1E1);\n"
+"color: rgb(0,0,0)"
 "}")
         self.comboBox_3.setIconSize(QSize(30, 30))
 
@@ -524,6 +548,14 @@ class Ui_MainWindow(object):
 "QComboBox::down-arrow:on { /* shift the arrow when popup is open */\n"
 "    top: 1px;\n"
 "    left: 1px;\n"
+"}"
+""
+"QListView"
+"{"
+"background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                  stop: 0 #D3D3D3, stop: 0.4 #D8D8D8,\n"
+"                  stop: 0.5 #DDDDDD, stop: 1.0 #E1E1E1);\n"
+"color: rgb(0,0,0)"
 "}")
         self.comboBox_4.setIconSize(QSize(30, 30))
 
@@ -735,24 +767,30 @@ class Ui_MainWindow(object):
     # setup segnali
         self.pushButton_Interfaccia.clicked.connect(self.pulsante_interfaccia_click)
         self.pushButton_Registrazione.clicked.connect(self.pulsante_registrazione_click)
-        self.timer = QTimer()
-        self.timer.timeout.connect(self.update_CH1)
-        self.timer.timeout.connect(self.update_CH2)
-        self.timer.timeout.connect(self.update_CH3)
-        self.timer.timeout.connect(self.update_CH4)
-
+        self.timer1 = QTimer()
+        self.timer2 = QTimer()
+        self.timer1.timeout.connect(self.update_CH1)
+        self.timer1.timeout.connect(self.update_CH2)
+        self.timer1.timeout.connect(self.update_CH3)
+        self.timer1.timeout.connect(self.update_CH4)
+        self.timer2.timeout.connect(self.setter_lcdDisplay_text_logger)
         
+    def setter_lcdDisplay_text_logger(self):
+        Logger.DATA.text_lcd[0]=self.comboBox_1.currentText()
+        Logger.DATA.text_lcd[1]=self.comboBox_2.currentText()
+        Logger.DATA.text_lcd[2]=self.comboBox_3.currentText()
+        Logger.DATA.text_lcd[3]=self.comboBox_4.currentText()
     
     def pulsante_interfaccia_click(self):
         # Check della condizione del pulsante e poi cambio il tipo e gestisco il timer
         global status_pulsante_interfaccia
         if status_pulsante_interfaccia % 2 != 0:
-            self.timer.start(100)          # In millisecondi
+            self.timer1.start(100)          # In millisecondi
             self.pushButton_Interfaccia.setText("STOP")
             self.pushButton_Interfaccia.setStyleSheet("background-color: red; border-style: outset; border-width: 2px; border-color: black; color: black")
             status_pulsante_interfaccia = status_pulsante_interfaccia + 1
         else:     
-            self.timer.stop()
+            self.timer1.stop()
             self.lcdNumber_1.display(0)
             self.lcdNumber_2.display(0)
             self.lcdNumber_3.display(0)
@@ -763,15 +801,16 @@ class Ui_MainWindow(object):
     
     def pulsante_registrazione_click(self):
         # Check della condizione del pulsante e poi cambio il tipo e gestisco il logger
-        global startStop_logger
         global status_pulsante_registrazione
-        if status_pulsante_registrazione % 2 != 0:       
-            startStop_logger = True
+        if status_pulsante_registrazione % 2 != 0:
+            self.timer2.start(100)          # In millisecondi       
+            Logger.DATA.startStop_logger = True
             self.pushButton_Registrazione.setText("STOP")
             self.pushButton_Registrazione.setStyleSheet("background-color: red; border-style: outset; border-width: 2px; border-color: black; color: black")
             status_pulsante_registrazione = status_pulsante_registrazione + 1
-        else:     
-            startStop_logger = False     
+        else:
+            self.timer2.stop()     
+            Logger.DATA.startStop_logger  = False     
             self.pushButton_Registrazione.setText("START")     
             self.pushButton_Registrazione.setStyleSheet("background-color: green; border-style: outset; border-width: 2px; border-color: black; color: black")
             status_pulsante_registrazione = status_pulsante_registrazione + 1
@@ -790,7 +829,7 @@ class Ui_MainWindow(object):
                 list_Nm = Controller_Client_TCP.DATA_INTERACTIONS.get_Nm()
                 self.lcdNumber_1.display(list_Nm[0]) 
         else:
-                print("Error: something went wrong in the selection of the measuring unit fro CH1!")       
+                print("Error: something went wrong in the selection of the measuring unit in CH1!")       
                 exit(1)
 
     def update_CH2(self):
@@ -799,7 +838,6 @@ class Ui_MainWindow(object):
                 self.lcdNumber_2.display(list_mV[1])
         elif self.comboBox_2.currentText() == "Kg":
                 list_Kg = Controller_Client_TCP.DATA_INTERACTIONS.get_Kg()
-                #print(list_Kg)
                 self.lcdNumber_2.display(list_Kg[1])
         elif self.comboBox_2.currentText() == "N":
                 list_N = Controller_Client_TCP.DATA_INTERACTIONS.get_N()
@@ -808,7 +846,7 @@ class Ui_MainWindow(object):
                 list_Nm = Controller_Client_TCP.DATA_INTERACTIONS.get_Nm()
                 self.lcdNumber_2.display(list_Nm[1]) 
         else:
-                print("Error: something went wrong in the selection of the measuring unit fro CH2!")       
+                print("Error: something went wrong in the selection of the measuring unit in CH2!")       
                 exit(1)
 
 
@@ -826,7 +864,7 @@ class Ui_MainWindow(object):
                 list_Nm = Controller_Client_TCP.DATA_INTERACTIONS.get_Nm()
                 self.lcdNumber_3.display(list_Nm[2]) 
         else:
-                print("Error: something went wrong in the selection of the measuring unit fro CH3!")       
+                print("Error: something went wrong in the selection of the measuring unit in CH3!")       
                 exit(1)
 
     def update_CH4(self):
@@ -843,7 +881,7 @@ class Ui_MainWindow(object):
                 list_Nm = Controller_Client_TCP.DATA_INTERACTIONS.get_Nm()
                 self.lcdNumber_4.display(list_Nm[3]) 
         else:
-                print("Error: something went wrong in the selection of the measuring unit fro CH4!")       
+                print("Error: something went wrong in the selection of the measuring unit in CH4!")       
                 exit(1)
             
             
