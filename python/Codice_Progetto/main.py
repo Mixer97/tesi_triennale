@@ -19,15 +19,20 @@ def run_logger():
     Logger.logger(nome_CSV= "test")  
 
 def data_update_mV():
-    while True:
+    while Logger.DATA.loop_status:
          result_list = Controller_Client_TCP.WORKING.read_holding_registers_mV()
          Controller_Client_TCP.DATA.LIST_mV_VALUE = result_list
+
+def closed_window():
+    Logger.DATA.loop_status=False
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = MainWindow()
     window.show()
-    # Create and start a thread for the logger
+    app.lastWindowClosed.connect(closed_window)
+    # Create and start a thread for the logger and for data acquisition
     logger_thread = Thread(target=run_logger)
     logger_thread.start()     
     update_thread = Thread(target=data_update_mV)

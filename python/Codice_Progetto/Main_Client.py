@@ -34,7 +34,7 @@ def main(no):
         Controller_Client_TCP.WORKING.read_sensibility(2)
         Controller_Client_TCP.WORKING.read_sensibility(3)
         Controller_Client_TCP.WORKING.read_sensibility(4)
-
+        
     elif(no==9):
         Controller_Client_TCP.WORKING.read_channels_active()
 

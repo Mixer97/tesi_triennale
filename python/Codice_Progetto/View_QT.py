@@ -775,6 +775,8 @@ class Ui_MainWindow(object):
         self.timer1.timeout.connect(self.update_CH4)
         self.timer2.timeout.connect(self.setter_lcdDisplay_text_logger)
         
+
+        
     def setter_lcdDisplay_text_logger(self):
         Logger.DATA.text_lcd[0]=self.comboBox_1.currentText()
         Logger.DATA.text_lcd[1]=self.comboBox_2.currentText()

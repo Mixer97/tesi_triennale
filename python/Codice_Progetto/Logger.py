@@ -9,6 +9,7 @@ class DATA:
     startStop_logger=False
     text_lcd=["mV","mV","mV","mV"]  # Viene aggiornata dalla View in automatico
     result_list=[0,0,0,0]
+    loop_status=True
 
 def logger(nome_CSV):
     
@@ -49,7 +50,7 @@ def logger(nome_CSV):
     timer = 0
     start_timer = time.time()  
         
-    while True:
+    while DATA.loop_status:
         sleep(0.10)   # Aggiunto per testing
         if DATA.startStop_logger:
             # Processing dei dati

@@ -14,3 +14,7 @@ tesi triennale presso Easting Electronics
     Problema da risolvere: Il logger devere riuscire a scrivere i valori corretti con le corrette unita di misura. 
         Per realizzare questo ho implementato un secondo timer nella view che con una funzione aggiorna una lista, presente nel logger, con il testo di ogni lcdDisplay.  
         Dopo pranzo preocedo all' implementazione della scrittura sul CSv della lista e dei valori corretti in base all'unità di misura rilevata.
+
+30/05
+    Problema da risolvere: Chiusura di tutto il programma quando la finestra si chiude.
+        Trovato segnale di chiusura lastWindowClosed() che viene chiamato quando l'ultima finestra viene chiusa
