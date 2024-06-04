@@ -17,4 +17,5 @@ tesi triennale presso Easting Electronics
 
 30/05
     Problema da risolvere: Chiusura di tutto il programma quando la finestra si chiude.
-        Trovato segnale di chiusura lastWindowClosed() che viene chiamato quando l'ultima finestra viene chiusa
+        Trovato segnale di chiusura lastWindowClosed() che viene chiamato quando l'ultima finestra viene chiusa e sistemata la chiusuare dei thread quando la finestra viene chiusa
+

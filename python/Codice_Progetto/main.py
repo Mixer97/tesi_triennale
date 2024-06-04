@@ -1,6 +1,6 @@
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow
-from View_QT import Ui_MainWindow  # Import the generated UI class
+from View_QT_HomePage import Ui_MainWindow  # Import the generated UI class
 import Logger as Logger
 import Controller_Client_TCP
 from threading import Thread
@@ -23,7 +23,7 @@ def data_update_mV():
          result_list = Controller_Client_TCP.WORKING.read_holding_registers_mV()
          Controller_Client_TCP.DATA.LIST_mV_VALUE = result_list
 
-def closed_window():
+def closed_last_window_signal():
     Logger.DATA.loop_status=False
 
 
@@ -31,7 +31,7 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = MainWindow()
     window.show()
-    app.lastWindowClosed.connect(closed_window)
+    app.lastWindowClosed.connect(closed_last_window_signal)
     # Create and start a thread for the logger and for data acquisition
     logger_thread = Thread(target=run_logger)
     logger_thread.start()     

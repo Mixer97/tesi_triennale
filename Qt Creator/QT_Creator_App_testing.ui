@@ -53,12 +53,12 @@
             <widget class="QWidget" name="widget" native="true">
              <property name="styleSheet">
               <string notr="true">QWidget {
-	background-color:orange; 
+	background-color:rgb(255, 207, 84); 
 	border-style: outset;
-    border-width: 0px;
-    border-color: black;
-}
-</string>
+    border-width: 2px;
+    border-color: rgb(255, 106, 0);
+	border-radius: 20px;
+}</string>
              </property>
              <layout class="QGridLayout" name="gridLayout_3">
               <item row="0" column="1">
@@ -84,6 +84,7 @@
     border-radius: 3px;
     padding: 1px 18px 1px 3px;
     min-width: 6em;
+	border-radius: 20px;
 }
 
 QComboBox{
@@ -166,7 +167,7 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
               </item>
               <item row="0" column="0">
                <layout class="QVBoxLayout" name="verticalLayout_9">
-                <item alignment="Qt::AlignHCenter">
+                <item>
                  <widget class="QLabel" name="label_1">
                   <property name="font">
                    <font>
@@ -175,12 +176,17 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
                   </property>
                   <property name="styleSheet">
                    <string notr="true">QLabel{
+	background-color:rgb(255, 207, 84); 
+	border-style: outset;
+    border-width: 2px;
+    border-color: rgb(255, 106, 0);
+	border-radius: 20px;
 	color: rgb(0,0,0);
 }
 </string>
                   </property>
                   <property name="text">
-                   <string>Channel 1</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Channel 1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                  </widget>
                 </item>
@@ -198,8 +204,10 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
                  <string notr="true">QWidget {
 	background-color:white; 
 	border-style: outset;
+	border-style: outset;
     border-width: 2px;
     border-color: black;
+	border-radius: 10px;
 }
 QLCDNumber{
 	color: rgb(0,0,0);
@@ -225,12 +233,12 @@ QLCDNumber{
             <widget class="QWidget" name="widget_3" native="true">
              <property name="styleSheet">
               <string notr="true">QWidget {
-	background-color:orange; 
+	background-color:rgb(255, 207, 84); 
 	border-style: outset;
-    border-width: 0px;
-    border-color: black;
-}
-</string>
+    border-width: 2px;
+    border-color: rgb(255, 106, 0);
+	border-radius: 20px;
+}</string>
              </property>
              <layout class="QGridLayout" name="gridLayout_4">
               <item row="0" column="1">
@@ -256,6 +264,7 @@ QLCDNumber{
     border-radius: 3px;
     padding: 1px 18px 1px 3px;
     min-width: 6em;
+	border-radius: 20px;
 }
 
 QComboBox{
@@ -338,7 +347,7 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
               </item>
               <item row="0" column="0">
                <layout class="QVBoxLayout" name="verticalLayout_10">
-                <item alignment="Qt::AlignHCenter">
+                <item>
                  <widget class="QLabel" name="label_2">
                   <property name="font">
                    <font>
@@ -352,7 +361,7 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
 </string>
                   </property>
                   <property name="text">
-                   <string>Channel 2</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Channel 2&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                  </widget>
                 </item>
@@ -364,8 +373,10 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
                  <string notr="true">QWidget {
 	background-color:white; 
 	border-style: outset;
+	border-style: outset;
     border-width: 2px;
     border-color: black;
+	border-radius: 10px;
 }
 QLCDNumber{
 	color: rgb(0,0,0);
@@ -388,12 +399,12 @@ QLCDNumber{
             <widget class="QWidget" name="widget_4" native="true">
              <property name="styleSheet">
               <string notr="true">QWidget {
-	background-color:orange; 
+	background-color:rgb(255, 207, 84); 
 	border-style: outset;
-    border-width: 0px;
-    border-color: black;
-}
-</string>
+    border-width: 2px;
+    border-color: rgb(255, 106, 0);
+	border-radius: 20px;
+}</string>
              </property>
              <layout class="QGridLayout" name="gridLayout_5">
               <item row="0" column="1">
@@ -419,6 +430,7 @@ QLCDNumber{
     border-radius: 3px;
     padding: 1px 18px 1px 3px;
     min-width: 6em;
+	border-radius: 20px;
 }
 
 QComboBox{
@@ -501,7 +513,7 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
               </item>
               <item row="0" column="0">
                <layout class="QVBoxLayout" name="verticalLayout_7">
-                <item alignment="Qt::AlignHCenter">
+                <item>
                  <widget class="QLabel" name="label_3">
                   <property name="font">
                    <font>
@@ -515,7 +527,7 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
 </string>
                   </property>
                   <property name="text">
-                   <string>Channel 3</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Channel 3&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                  </widget>
                 </item>
@@ -533,8 +545,10 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
                  <string notr="true">QWidget {
 	background-color:white; 
 	border-style: outset;
+	border-style: outset;
     border-width: 2px;
     border-color: black;
+	border-radius: 10px;
 }
 QLCDNumber{
 	color: rgb(0,0,0);
@@ -557,17 +571,17 @@ QLCDNumber{
             <widget class="QWidget" name="widget_5" native="true">
              <property name="styleSheet">
               <string notr="true">QWidget {
-	background-color:orange; 
+	background-color:rgb(255, 207, 84); 
 	border-style: outset;
-    border-width: 0px;
-    border-color: black;
-}
-</string>
+    border-width: 2px;
+    border-color: rgb(255, 106, 0);
+	border-radius: 20px;
+}</string>
              </property>
              <layout class="QGridLayout" name="gridLayout_6">
               <item row="0" column="0">
                <layout class="QVBoxLayout" name="verticalLayout_11">
-                <item alignment="Qt::AlignHCenter">
+                <item>
                  <widget class="QLabel" name="label_4">
                   <property name="font">
                    <font>
@@ -581,7 +595,7 @@ QLCDNumber{
 </string>
                   </property>
                   <property name="text">
-                   <string>Channel 4</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Channel 4&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                  </widget>
                 </item>
@@ -610,6 +624,7 @@ QLCDNumber{
     border-radius: 3px;
     padding: 1px 18px 1px 3px;
     min-width: 6em;
+	border-radius: 20px;
 }
 
 QComboBox{
@@ -696,8 +711,10 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
                  <string notr="true">QWidget {
 	background-color:white; 
 	border-style: outset;
+	border-style: outset;
     border-width: 2px;
     border-color: black;
+	border-radius: 10px;
 }
 QLCDNumber{
 	color: rgb(0,0,0);
@@ -734,6 +751,282 @@ QLCDNumber{
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_14">
          <item>
+          <widget class="QWidget" name="widget_6" native="true">
+           <property name="styleSheet">
+            <string notr="true">QWidget {
+	background-color:orange; 
+	border-style: outset;
+    border-width: 1px;
+    border-color: black;
+}
+</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayout">
+            <item row="0" column="0">
+             <widget class="QWidget" name="widget_7" native="true">
+              <property name="styleSheet">
+               <string notr="true">QWidget {
+	background-color:rgb(255, 207, 84); 
+	border-style: outset;
+    border-width: 2px;
+    border-color: rgb(255, 106, 0);
+	border-radius: 20px;
+}</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_7">
+               <item row="0" column="1">
+                <widget class="QComboBox" name="comboBox_5">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="cursor">
+                  <cursorShape>PointingHandCursor</cursorShape>
+                 </property>
+                 <property name="mouseTracking">
+                  <bool>false</bool>
+                 </property>
+                 <property name="autoFillBackground">
+                  <bool>false</bool>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QComboBox {
+    border: 3px solid gray;
+    border-radius: 3px;
+    padding: 1px 18px 1px 3px;
+    min-width: 6em;
+	border-radius: 20px;
+}
+
+QComboBox{
+	color: rgb(0,0,0);
+}
+
+QComboBox:editable {
+    background: white;
+}
+
+QComboBox:!editable, QComboBox::drop-down:editable {
+     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                 stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
+                                 stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
+}
+
+/* QComboBox gets the &quot;on&quot; state when the popup is open */
+QComboBox:!editable:on, QComboBox::drop-down:editable:on {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #D3D3D3, stop: 0.4 #D8D8D8,
+                                stop: 0.5 #DDDDDD, stop: 1.0 #E1E1E1);
+}
+
+QComboBox:on { /* shift the text when the popup opens */
+    padding-top: 3px;
+    padding-left: 4px;
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 15px;
+
+    border-left-width: 1px;
+    border-left-color: darkgray;
+    border-left-style: solid; /* just a single line */
+    border-top-right-radius: 3px; /* same radius as the QComboBox */
+    border-bottom-right-radius: 3px;
+}
+
+QComboBox::down-arrow {
+    image: url(/usr/share/icons/crystalsvg/16x16/actions/1downarrow.png);
+}
+
+QComboBox::down-arrow:on { /* shift the arrow when popup is open */
+    top: 1px;
+    left: 1px;
+}</string>
+                 </property>
+                 <property name="currentText">
+                  <string>mV</string>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>30</width>
+                   <height>30</height>
+                  </size>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string>mV</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Nm</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Kg</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>N</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <layout class="QVBoxLayout" name="verticalLayout_13">
+                 <item>
+                  <widget class="QLabel" name="label_SG600">
+                   <property name="font">
+                    <font>
+                     <pointsize>17</pointsize>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QLabel{
+	color: rgb(0,0,0);
+}
+</string>
+                   </property>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;SG-600&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="1" column="0" colspan="2">
+                <widget class="QLCDNumber" name="lcdNumber_5">
+                 <property name="font">
+                  <font>
+                   <pointsize>9</pointsize>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget {
+	background-color:white; 
+	border-style: outset;
+	border-style: outset;
+    border-width: 2px;
+    border-color: black;
+	border-radius: 10px;
+}
+QLCDNumber{
+	color: rgb(0,0,0);
+}
+</string>
+                 </property>
+                 <property name="digitCount">
+                  <number>7</number>
+                 </property>
+                 <property name="value" stdset="0">
+                  <double>0.000000000000000</double>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QWidget" name="" native="true">
+              <property name="styleSheet">
+               <string notr="true">QWidget {
+	background-color:rgb(213, 213, 213); 
+	border-style: outset;
+    border-width: 2px;
+    border-color:rgb(103, 98, 93);
+	border-radius: 20px;
+}</string>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout">
+               <property name="spacing">
+                <number>7</number>
+               </property>
+               <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                <widget class="QLabel" name="label_impostazioni">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Ignored">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="baseSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>17</pointsize>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget {
+	background-color:rgb(213, 213, 213); 
+	border-style: outset;
+    border-width: 0px;
+    border-color:rgb(103, 98, 93);
+	border-radius: 20px;
+}
+QLabel{
+	color: rgb(0,0,0);
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;IMPOSTAZIONI&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButton_impostazioni">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Minimum" vsizetype="Ignored">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>30</pointsize>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="cursor">
+                  <cursorShape>PointingHandCursor</cursorShape>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget {
+	background-color:rgb(138, 139, 135); 
+	border-style: outset;
+    border-width: 2px;
+    border-color: black;
+	border-style: outset;
+	border-radius: 20px;
+}
+QPushButton{
+	color: rgb(0,0,0);
+}
+</string>
+                 </property>
+                 <property name="text">
+                  <string>SETUP</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
           <layout class="QVBoxLayout" name="verticalLayout_6">
            <item>
             <widget class="QWidget" name="widget_12" native="true">
@@ -754,180 +1047,183 @@ QLCDNumber{
              </property>
              <layout class="QGridLayout" name="gridLayout_2">
               <item row="0" column="0">
-               <layout class="QHBoxLayout" name="horizontalLayout_6">
-                <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                 <widget class="QLabel" name="label">
-                  <property name="font">
-                   <font>
-                    <pointsize>17</pointsize>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QWidget {
-	background-color:orange; 
+               <widget class="QWidget" name="" native="true">
+                <property name="styleSheet">
+                 <string notr="true">QWidget {
+	background-color:rgb(125, 225, 10); 
+	border-style: outset;
+    border-width: 2px;
+    border-color:rgb(63, 156, 23);
+	border-radius: 20px;
+}</string>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_6">
+                 <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                  <widget class="QLabel" name="label">
+                   <property name="font">
+                    <font>
+                     <pointsize>17</pointsize>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QWidget {
+	background-color:rgb(125, 225, 10); 
 	border-style: outset;
     border-width: 0px;
-    border-color: black;
+    border-color:rgb(63, 156, 23);
+	border-radius: 20px;
 }
 QLabel{
 	color: rgb(0,0,0);
 }
 </string>
-                  </property>
-                  <property name="text">
-                   <string>INTERFACCIA</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pushButton_Interfaccia">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>200</width>
-                    <height>150</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>300</width>
-                    <height>200</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <pointsize>30</pointsize>
-                    <italic>false</italic>
-                    <bold>true</bold>
-                    <underline>false</underline>
-                    <strikeout>false</strikeout>
-                   </font>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>PointingHandCursor</cursorShape>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QWidget {
+                   </property>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;INTERFACCIA&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_Interfaccia">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>200</width>
+                     <height>140</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>300</width>
+                     <height>200</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <pointsize>30</pointsize>
+                     <italic>false</italic>
+                     <bold>true</bold>
+                     <underline>false</underline>
+                     <strikeout>false</strikeout>
+                    </font>
+                   </property>
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QWidget {
 	background-color:green; 
+	border-style: outset;
 	border-style: outset;
     border-width: 2px;
     border-color: black;
+	border-radius: 20px;
 }
 QPushButton{
 	color: rgb(0,0,0);
 }
 </string>
-                  </property>
-                  <property name="text">
-                   <string>START</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
+                   </property>
+                   <property name="text">
+                    <string>START</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
               </item>
               <item row="1" column="0">
-               <layout class="QHBoxLayout" name="horizontalLayout_8">
-                <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                 <widget class="QLabel" name="label_5">
-                  <property name="font">
-                   <font>
-                    <pointsize>17</pointsize>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QWidget {
-	background-color:orange; 
+               <widget class="QWidget" name="" native="true">
+                <property name="styleSheet">
+                 <string notr="true">QWidget {
+	background-color:rgb(125, 225, 10); 
+	border-style: outset;
+    border-width: 2px;
+    border-color:rgb(63, 156, 23);
+	border-radius: 20px;
+}</string>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_8">
+                 <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                  <widget class="QLabel" name="label_5">
+                   <property name="font">
+                    <font>
+                     <pointsize>17</pointsize>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QWidget {
+	background-color:rgb(125, 225, 10); 
 	border-style: outset;
     border-width: 0px;
-    border-color: black;
+    border-color:rgb(63, 156, 23);
+	border-radius: 20px;
 }
 QLabel{
 	color: rgb(0,0,0);
 }
 </string>
-                  </property>
-                  <property name="text">
-                   <string>REGISTRAZIONE</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pushButton_Registrazione">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>200</width>
-                    <height>150</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>300</width>
-                    <height>200</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <pointsize>30</pointsize>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>PointingHandCursor</cursorShape>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QWidget {
+                   </property>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;REGISTRAZIONE&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_Registrazione">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>200</width>
+                     <height>140</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>300</width>
+                     <height>200</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <pointsize>30</pointsize>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QWidget {
 	background-color:green; 
+	border-style: outset;
 	border-style: outset;
     border-width: 2px;
     border-color: black;
+	border-radius: 20px;
 }
 QPushButton{
 	color: rgb(0,0,0);
 }
 </string>
-                  </property>
-                  <property name="text">
-                   <string>START</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-             </layout>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_12">
-           <item>
-            <widget class="QWidget" name="widget_6" native="true">
-             <property name="styleSheet">
-              <string notr="true">QWidget {
-	background-color:orange; 
-	border-style: outset;
-    border-width: 1px;
-    border-color: black;
-}
-</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_16">
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_9"/>
-              </item>
-              <item>
-               <layout class="QVBoxLayout" name="verticalLayout_19"/>
+                   </property>
+                   <property name="text">
+                    <string>START</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
               </item>
              </layout>
             </widget>
