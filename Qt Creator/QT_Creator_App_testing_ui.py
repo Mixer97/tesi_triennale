@@ -800,7 +800,8 @@ class Ui_MainWindow(object):
 "    border-width: 2px;\n"
 "    border-color:rgb(63, 156, 23);\n"
 "	border-radius: 20px;\n"
-"}")
+"}\n"
+"")
         self.horizontalLayout_6 = QHBoxLayout(self.widget2)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
         self.label = QLabel(self.widget2)

@@ -18,6 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QCheckBox, QGridLayout, QHBoxLayout,
     QLCDNumber, QLabel, QMainWindow, QPushButton,
     QSizePolicy, QVBoxLayout, QWidget)
+import Controller_Client_TCP as Controller_Client_TCP
 
 class Ui_SetupWindow(object):
     def setupUi(self, MainWindow):
@@ -160,6 +161,7 @@ class Ui_SetupWindow(object):
 "	font: 700 12pt \"Segoe UI\";\n"
 "}\n"
 "\n"
+"QCheckBox:checked {Background-color: rgb(255, 207, 84); border-width: 2px;}"
 "QCheckBox::indicator {\n"
 "    width: 26px;\n"
 "    height: 26px;\n"
@@ -173,7 +175,7 @@ class Ui_SetupWindow(object):
 "QCheckBox::indicator:unchecked {\n"
 "	width: 26px;\n"
 "    height: 26px;\n"
-"	Background-color: white;\n"
+"	Background-color: red;\n"
 "	border-width: 2px;\n"
 "    border-radius: 10px;\n"
 "    border-color: black;\n"
@@ -323,6 +325,7 @@ class Ui_SetupWindow(object):
 "	font: 700 12pt \"Segoe UI\";\n"
 "}\n"
 "\n"
+"QCheckBox:checked {Background-color: rgb(255, 207, 84); border-width: 2px;}"
 "QCheckBox::indicator {\n"
 "    width: 26px;\n"
 "    height: 26px;\n"
@@ -336,7 +339,7 @@ class Ui_SetupWindow(object):
 "QCheckBox::indicator:unchecked {\n"
 "	width: 26px;\n"
 "    height: 26px;\n"
-"	Background-color: white;\n"
+"	Background-color: red;\n"
 "	border-width: 2px;\n"
 "    border-radius: 10px;\n"
 "    border-color: black;\n"
@@ -486,6 +489,7 @@ class Ui_SetupWindow(object):
 "	font: 700 12pt \"Segoe UI\";\n"
 "}\n"
 "\n"
+"QCheckBox:checked {Background-color: rgb(255, 207, 84); border-width: 2px;}"
 "QCheckBox::indicator {\n"
 "    width: 26px;\n"
 "    height: 26px;\n"
@@ -499,7 +503,7 @@ class Ui_SetupWindow(object):
 "QCheckBox::indicator:unchecked {\n"
 "	width: 26px;\n"
 "    height: 26px;\n"
-"	Background-color: white;\n"
+"	Background-color: red;\n"
 "	border-width: 2px;\n"
 "    border-radius: 10px;\n"
 "    border-color: black;\n"
@@ -649,6 +653,7 @@ class Ui_SetupWindow(object):
 "	font: 700 12pt \"Segoe UI\";\n"
 "}\n"
 "\n"
+"QCheckBox:checked {Background-color: rgb(255, 207, 84); border-width: 2px;}"
 "QCheckBox::indicator {\n"
 "    width: 26px;\n"
 "    height: 26px;\n"
@@ -662,7 +667,7 @@ class Ui_SetupWindow(object):
 "QCheckBox::indicator:unchecked {\n"
 "	width: 26px;\n"
 "    height: 26px;\n"
-"	Background-color: white;\n"
+"	Background-color: red;\n"
 "	border-width: 2px;\n"
 "    border-radius: 10px;\n"
 "    border-color: black;\n"
@@ -781,6 +786,38 @@ class Ui_SetupWindow(object):
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
+    
+    #------------------------------------------------------------------------------------------------------------------# 
+
+        self.checkBox_CH1.clicked.connect(lambda: Controller_Client_TCP.WORKING.set_channel_status(1))
+        self.checkBox_CH2.clicked.connect(lambda: Controller_Client_TCP.WORKING.set_channel_status(2))
+        self.checkBox_CH3.clicked.connect(lambda: Controller_Client_TCP.WORKING.set_channel_status(3))
+        self.checkBox_CH4.clicked.connect(lambda: Controller_Client_TCP.WORKING.set_channel_status(4))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #------------------------------------------------------------------------------------------------------------------# 
+
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))

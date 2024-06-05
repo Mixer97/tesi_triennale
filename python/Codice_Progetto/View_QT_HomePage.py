@@ -975,35 +975,46 @@ class Ui_MainWindow(object):
         # Check della condizione del pulsante e poi cambio il tipo e gestisco il timer
         global status_pulsante_interfaccia
         if status_pulsante_interfaccia % 2 != 0:
-            self.timer1.start(100)          # In millisecondi
-            self.pushButton_Interfaccia.setText("STOP")
-            self.pushButton_Interfaccia.setStyleSheet("background-color: red; border-style: outset; border-width: 2px; border-color: black; color: black")
-            status_pulsante_interfaccia = status_pulsante_interfaccia + 1
+                self.timer1.start(100)          # In millisecondi
+                self.pushButton_Interfaccia.setText("STOP")
+                self.pushButton_Interfaccia.setStyleSheet("background-color: red; border-style: outset; border-width: 2px; border-color: black; color: black")
+                self.label.setStyleSheet("QWidget { background-color:rgb(255, 69, 72); border-style: outset; border-width: 0px; border-color:rgb(255, 111, 113); border-radius: 20px; } QLabel { color: rgb(0,0,0); }")
+                self.widget2.setStyleSheet("QWidget { background-color:rgb(255, 69, 72); border-style: outset; border-width: 2px; border-color:rgb(255, 111, 113); border-radius: 20px; }")
+                status_pulsante_interfaccia = status_pulsante_interfaccia + 1
         else:     
-            self.timer1.stop()
-            self.lcdNumber_1.display(0)
-            self.lcdNumber_2.display(0)
-            self.lcdNumber_3.display(0)
-            self.lcdNumber_4.display(0)         
-            self.pushButton_Interfaccia.setStyleSheet("background-color: green; border-style: outset; border-width: 2px; border-color: black; color: black")
-            self.pushButton_Interfaccia.setText("START")
-            status_pulsante_interfaccia = status_pulsante_interfaccia + 1
+                self.timer1.stop()
+                self.lcdNumber_1.display(0)
+                self.lcdNumber_2.display(0)
+                self.lcdNumber_3.display(0)
+                self.lcdNumber_4.display(0)         
+                self.pushButton_Interfaccia.setStyleSheet("background-color: green; border-style: outset; border-width: 2px; border-color: black; color: black")
+                self.label.setStyleSheet("QWidget { background-color:rgb(125, 225, 10); border-style: outset; border-width: 0px; border-color:rgb(63, 156, 23); border-radius: 20px; } QLabel { color: rgb(0,0,0); }")
+                self.widget2.setStyleSheet("QWidget { background-color:rgb(125, 225, 10); border-style: outset; border-width: 2px; border-color:rgb(63, 156, 23); border-radius: 20px; }")
+                self.pushButton_Interfaccia.setText("START")
+                status_pulsante_interfaccia = status_pulsante_interfaccia + 1
     
     def pulsante_registrazione_click(self):
         # Check della condizione del pulsante e poi cambio il tipo e gestisco il logger
         global status_pulsante_registrazione
         if status_pulsante_registrazione % 2 != 0:
-            self.timer2.start(100)          # In millisecondi       
-            Logger.DATA.startStop_logger = True
-            self.pushButton_Registrazione.setText("STOP")
-            self.pushButton_Registrazione.setStyleSheet("background-color: red; border-style: outset; border-width: 2px; border-color: black; color: black")
-            status_pulsante_registrazione = status_pulsante_registrazione + 1
+                self.timer2.start(100)          # In millisecondi       
+                Logger.DATA.startStop_logger = True
+                self.pushButton_Registrazione.setText("STOP")
+                self.label_5.setStyleSheet("QWidget { background-color:rgb(255, 69, 72); border-style: outset; border-width: 0px; border-color:rgb(255, 111, 113); border-radius: 20px; } QLabel { color: rgb(0,0,0); }")
+                self.pushButton_Registrazione.setStyleSheet("background-color: red; border-style: outset; border-width: 2px; border-color: black; color: black")
+                self.widget3.setStyleSheet("QWidget { background-color:rgb(255, 69, 72); border-style: outset; border-width: 2px; border-color:rgb(255, 111, 113); border-radius: 20px; }")
+                status_pulsante_registrazione = status_pulsante_registrazione + 1
         else:
-            self.timer2.stop()     
-            Logger.DATA.startStop_logger  = False     
-            self.pushButton_Registrazione.setText("START")     
-            self.pushButton_Registrazione.setStyleSheet("background-color: green; border-style: outset; border-width: 2px; border-color: black; color: black")
-            status_pulsante_registrazione = status_pulsante_registrazione + 1
+                self.timer2.stop()     
+                Logger.DATA.startStop_logger  = False     
+                self.pushButton_Registrazione.setText("START")     
+                self.label_5.setStyleSheet("QWidget { background-color:rgb(125, 225, 10); border-style: outset; border-width: 0px; border-color:rgb(63, 156, 23); border-radius: 20px; } QLabel { color: rgb(0,0,0); }")
+                self.pushButton_Registrazione.setStyleSheet("background-color: green; border-style: outset; border-width: 2px; border-color: black; color: black")
+                self.widget3.setStyleSheet("QWidget { background-color:rgb(125, 225, 10); border-style: outset; border-width: 2px; border-color:rgb(63, 156, 23); border-radius: 20px; }")
+                status_pulsante_registrazione = status_pulsante_registrazione + 1
+                
+           
+           # "QWidget { background-color:rgb(255, 69, 72); border-style: outset; border-width: 2px; border-color:rgb(255, 111, 113); border-radius: 20px; }"
            
     def update_CH1(self):
         if self.comboBox_1.currentText() == "mV":

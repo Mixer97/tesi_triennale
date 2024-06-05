@@ -39,7 +39,7 @@ def main(no):
         Controller_Client_TCP.WORKING.read_channels_active()
 
     elif(no==10):
-        Controller_Client_TCP.WORKING.write_channels_active(4) # Valore da inserire in base 10 (i canali sono da six a dex in binario)
+        Controller_Client_TCP.WORKING.set_channel_status(3) # Valore da inserire in base 10 (i canali sono da six a dex in binario)
         
     elif(no==11):
         Controller_Client_TCP.UTILS.write_CMDR(Controller_Client_TCP.CMDR_COMMANDS.COMMAND_6902)
@@ -59,4 +59,4 @@ def main(no):
     else:
         print("Out of bounds.")
 
-main(8)
+main(10)

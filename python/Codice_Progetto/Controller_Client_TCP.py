@@ -170,8 +170,24 @@ class WORKING:
 
         x = UTILS.read_EXC_AEXC()
 
-    def write_channels_active(ACR): # IL VALORE DI ACR DEVE ESSERE IN BASE 10
-
+    def set_channel_status(channel_ID): # IL VALORE DI ACR DEVE ESSERE IN BASE 10
+        
+        # Lettura dei canali
+        channel_status = WORKING.read_channels_active()
+        channel_status = str(channel_status).zfill(4)   # mi mette gli 0 davanti fino a 4
+        STATUS_CHN = [int(digit) for digit in channel_status]   # faccio diventare una list
+            
+        # Negazione del canale corrispondente nel vettore
+        STATUS_CHN[abs(4-channel_ID)] = int(not(STATUS_CHN[abs(4-channel_ID)]))     # cambio status del canale richiesto 
+        
+        # Calcolo di ACR (numero decimale da inviare alla scheda)
+        ACR = 0
+        i = 0
+        for elements in STATUS_CHN:
+            if STATUS_CHN[3-i] == 1:
+                ACR = ACR + 2**i
+            i=i+1
+        print(ACR)
         # Scrittura di ACR in W1
         UTILS.write_W1(ACR)
 
@@ -179,7 +195,8 @@ class WORKING:
         UTILS.write_CMDR(CMDR_COMMANDS.COMMAND_6575)
 
         # Messaggio di conferma
-        print("Risultato binario: " + str(ACR))
+        tmp = bin(ACR).replace("0b", "")
+        print("Risultato binario: " + str(tmp))
 
     def read_channels_active():
 
@@ -189,8 +206,11 @@ class WORKING:
         # Lettura dei canali attivi in R1
         res=UTILS.read_R1()
 
-        tmp = bin(res).replace("0b", "")
-        print("Canali attivi: " + str(tmp))
+        print(res)
+        channel_status = bin(res).replace("0b", "")
+        print("Canali attivi: " + str(channel_status))
+        
+        return channel_status
         
     def read_holding_registers_cargo():
         if connection:     
@@ -372,7 +392,7 @@ class UTILS:
         while risultati.isError():
             risultati = client.write_registers(address=ADDRESS.REGISTER_1_WR1_high, count=2, slave=SLAVE.ID)
         
-        print("high and low: " + str(risultati.registers[0]) + " " + str(risultati.registers[1]))
+        # print("high and low: " + str(risultati.registers[0]) + " " + str(risultati.registers[1]))
 
         risultati_elaborati = UTILS.HL_to_value(risultati.registers)
 
