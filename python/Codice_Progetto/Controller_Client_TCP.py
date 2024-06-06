@@ -2,6 +2,7 @@ from time import sleep
 from pymodbus.client import ModbusTcpClient
 from pymodbus.framer import Framer
 import View_QT_HomePage as View_QT_HomePage
+from View_QT_SetupPage import Ui_SetupWindow
 
 class SLAVE:
     ID=1
@@ -52,6 +53,8 @@ class DATA:
     LIST_FULLSCALE = [10,50,10,10]
     LIST_mV_ZERO = [1,-3.16,1,-0.21]
     LEVER_ARM = 1 # meters
+    STATUS_CHANNELS = [0,0,0,0] # settato da setupPage
+    
 
     
 
@@ -170,30 +173,24 @@ class WORKING:
 
         x = UTILS.read_EXC_AEXC()
 
-    def set_channel_status(channel_ID): # IL VALORE DI ACR DEVE ESSERE IN BASE 10
-        
-        # Lettura dei canali
-        channel_status = WORKING.read_channels_active()
-        channel_status = str(channel_status).zfill(4)   # mi mette gli 0 davanti fino a 4
-        STATUS_CHN = [int(digit) for digit in channel_status]   # faccio diventare una list
-            
-        # Negazione del canale corrispondente nel vettore
-        STATUS_CHN[abs(4-channel_ID)] = int(not(STATUS_CHN[abs(4-channel_ID)]))     # cambio status del canale richiesto 
+    def set_channel_status(list_status_ch): # IL VALORE DI ACR DEVE ESSERE IN BASE 10
         
         # Calcolo di ACR (numero decimale da inviare alla scheda)
         ACR = 0
         i = 0
-        for elements in STATUS_CHN:
-            if STATUS_CHN[3-i] == 1:
+        for elements in list_status_ch:
+            if list_status_ch[3-i] == 1:
                 ACR = ACR + 2**i
             i=i+1
-        print(ACR)
+        print("ACR" + str(ACR))
         # Scrittura di ACR in W1
         UTILS.write_W1(ACR)
 
         # Invio del comando 6575 a CMDR
         UTILS.write_CMDR(CMDR_COMMANDS.COMMAND_6575)
-
+        
+        WORKING.read_channels_active()
+        
         # Messaggio di conferma
         tmp = bin(ACR).replace("0b", "")
         print("Risultato binario: " + str(tmp))
@@ -202,15 +199,14 @@ class WORKING:
 
         # Invio del comando 6576 a CMDR
         UTILS.write_CMDR(CMDR_COMMANDS.COMMAND_6576)
-
         # Lettura dei canali attivi in R1
         res=UTILS.read_R1()
 
-        print(res)
-        channel_status = bin(res).replace("0b", "")
+        channel_status = bin(res).replace("0b", "").zfill(4)
         print("Canali attivi: " + str(channel_status))
-        
-        return channel_status
+        STATUS_CHN = [int(digit) for digit in channel_status]
+        print(STATUS_CHN)
+        return STATUS_CHN
         
     def read_holding_registers_cargo():
         if connection:     
@@ -469,6 +465,8 @@ class DATA_INTERACTIONS:
                 DATA.LIST_N_VALUE[i] = 0
         return DATA.LIST_N_VALUE
     
-    
+    def setup_full_update(list):
+        print(list)
+        WORKING.set_channel_status(list)
     
     

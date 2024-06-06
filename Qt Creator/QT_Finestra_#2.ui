@@ -907,7 +907,40 @@ QLCDNumber{
         </property>
         <layout class="QGridLayout" name="gridLayout_26">
          <item row="2" column="0">
-          <layout class="QGridLayout" name="gridLayout_27"/>
+          <layout class="QGridLayout" name="gridLayout_27">
+           <item row="0" column="0">
+            <widget class="QPushButton" name="pushButton">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Ignored">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>30</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QWidget {
+	background-color:rgb(138, 139, 135); 
+	border-style: outset;
+    border-width: 2px;
+    border-color: grey;
+	border-style: outset;
+	border-radius: 20px;
+}
+QPushButton{
+	color: rgb(0,0,0);
+}
+</string>
+             </property>
+             <property name="text">
+              <string>CONCLUDI SETUP</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
          <item row="0" column="0">
           <layout class="QGridLayout" name="gridLayout_25">

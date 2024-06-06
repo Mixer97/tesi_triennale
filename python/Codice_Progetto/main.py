@@ -16,7 +16,6 @@ class MainWindow(QMainWindow):
         # Setup the user interface
         self.ui.setupUi(self)
 
-
 def run_logger():
     Logger.logger(nome_CSV= "test")  
 

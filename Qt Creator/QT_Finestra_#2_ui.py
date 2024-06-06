@@ -733,6 +733,31 @@ class Ui_MainWindow(object):
         self.gridLayout_26.setObjectName(u"gridLayout_26")
         self.gridLayout_27 = QGridLayout()
         self.gridLayout_27.setObjectName(u"gridLayout_27")
+        self.pushButton = QPushButton(self.widget_2)
+        self.pushButton.setObjectName(u"pushButton")
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Ignored)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
+        self.pushButton.setSizePolicy(sizePolicy)
+        font1 = QFont()
+        font1.setPointSize(30)
+        self.pushButton.setFont(font1)
+        self.pushButton.setStyleSheet(u"QWidget {\n"
+"	background-color:rgb(138, 139, 135); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: grey;\n"
+"	border-style: outset;\n"
+"	border-radius: 20px;\n"
+"}\n"
+"QPushButton{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+
+        self.gridLayout_27.addWidget(self.pushButton, 0, 0, 1, 1)
+
 
         self.gridLayout_26.addLayout(self.gridLayout_27, 2, 0, 1, 1)
 
@@ -804,6 +829,7 @@ class Ui_MainWindow(object):
         self.label_CH4_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">SENS. [mV/V]</span></p></body></html>", None))
         self.checkBox_CH4.setText(QCoreApplication.translate("MainWindow", u"OFF", None))
         self.label_CH4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">FONDOSCALA [?]</span></p></body></html>", None))
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"CONCLUDI SETUP", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700;\">IMPOSTAZIONI SG600</span></p></body></html>", None))
     # retranslateUi
 

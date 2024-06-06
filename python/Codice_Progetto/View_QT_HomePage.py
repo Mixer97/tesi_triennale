@@ -21,6 +21,8 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout
 import Controller_Client_TCP as Controller_Client_TCP
 import Logger
 from View_QT_SetupPage import Ui_SetupWindow
+from time import sleep
+
 
 startStop = False
 status_pulsante_interfaccia = 1
