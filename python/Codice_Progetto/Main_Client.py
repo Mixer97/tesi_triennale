@@ -59,4 +59,4 @@ def main(no):
     else:
         print("Out of bounds.")
 
-main(10)
+main(2)
