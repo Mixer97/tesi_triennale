@@ -19,3 +19,14 @@ tesi triennale presso Easting Electronics
     Problema da risolvere: Chiusura di tutto il programma quando la finestra si chiude.
         Trovato segnale di chiusura lastWindowClosed() che viene chiamato quando l'ultima finestra viene chiusa e sistemata la chiusuare dei thread quando la finestra viene chiusa
 
+06/06
+    Problema da risolvere: Troppi click sui checkbox mandano in pappa il sistema.
+        Provare a risolvere con un timer che esegue tutte le funzioni necessarie ogni secondo e che utilizza lo stato del tasto che è dato da una serie di variabili globali (che possono cambiare fra un clock e l'altro)
+    Problema da risolvere: La scheda non gestisce il caso di 0 canali aperti.
+        Impostare che il canale 1 sia attivo all'apertura della applicazione.
+        Impostare un thread separato nel main, che vada ad aggiornare i canali nella scheda prendendo dati da una list
+        NUOVA IDEA: usare un pulsante per eseguire l'update di tutte le robe nelle impostazioni in un unica volta.
+        Alla fine è stato risolto nel seguente metodo: inizio leggendo lo stato della scheda e faccio corrispondere i vari checkbox allo stato corretto. Poi mi segnare i vari cambiamenti agli stati nella lista che ho inizializzato in precedenza. Alla fine il pulsante CUNCLUDI SETUP, o qaulcosa di simile, mi permette di inviare questa lista nel Client Controller e di utilizzarla per la chiamata di set_status fatta quando il bottone è premuto!    
+
+    **NUOVO PROBLEMA**: quando concludo Il setup ho una chance che non vada in porto la modifica della scheda, che la app non si chiuda del tutto  
+    quando la chiudo e che il display si rompa.  
