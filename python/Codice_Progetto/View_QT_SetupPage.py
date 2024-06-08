@@ -9,7 +9,7 @@
 ################################################################################
 
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
+    QMetaObject, QObject, QPoint, QRect, QTimer,
     QSize, QTime, QUrl, Qt)
 from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
@@ -19,9 +19,22 @@ from PySide6.QtWidgets import (QApplication, QCheckBox, QGridLayout, QHBoxLayout
     QLCDNumber, QLabel, QMainWindow, QPushButton,
     QSizePolicy, QVBoxLayout, QWidget)
 import Controller_Client_TCP as Controller_Client_TCP
+from time import sleep
+
+var = False
 
 class Ui_SetupWindow(object):
+    
+    update_status = False
+    list_status_checkbox = [0,0,0,0]   #[CH4, CH3, CH2, CH1]     
+    status_timer = False  
+          
+          
     def setupUi(self, MainWindow):
+            
+        while self.list_status_checkbox == [0,0,0,0]:     
+                self.list_status_checkbox=Controller_Client_TCP.WORKING.read_channels_active() 
+            
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(1101, 679)
@@ -161,7 +174,6 @@ class Ui_SetupWindow(object):
 "	font: 700 12pt \"Segoe UI\";\n"
 "}\n"
 "\n"
-"QCheckBox:checked {Background-color: rgb(255, 207, 84); border-width: 2px;}"
 "QCheckBox::indicator {\n"
 "    width: 26px;\n"
 "    height: 26px;\n"
@@ -175,7 +187,7 @@ class Ui_SetupWindow(object):
 "QCheckBox::indicator:unchecked {\n"
 "	width: 26px;\n"
 "    height: 26px;\n"
-"	Background-color: red;\n"
+"	Background-color: white;\n"
 "	border-width: 2px;\n"
 "    border-radius: 10px;\n"
 "    border-color: black;\n"
@@ -184,7 +196,6 @@ class Ui_SetupWindow(object):
 "\n"
 "\n"
 "")
-
         self.gridLayout_43.addWidget(self.checkBox_CH1, 0, 0, 1, 1)
 
 
@@ -325,7 +336,6 @@ class Ui_SetupWindow(object):
 "	font: 700 12pt \"Segoe UI\";\n"
 "}\n"
 "\n"
-"QCheckBox:checked {Background-color: rgb(255, 207, 84); border-width: 2px;}"
 "QCheckBox::indicator {\n"
 "    width: 26px;\n"
 "    height: 26px;\n"
@@ -339,7 +349,7 @@ class Ui_SetupWindow(object):
 "QCheckBox::indicator:unchecked {\n"
 "	width: 26px;\n"
 "    height: 26px;\n"
-"	Background-color: red;\n"
+"	Background-color: white;\n"
 "	border-width: 2px;\n"
 "    border-radius: 10px;\n"
 "    border-color: black;\n"
@@ -489,7 +499,6 @@ class Ui_SetupWindow(object):
 "	font: 700 12pt \"Segoe UI\";\n"
 "}\n"
 "\n"
-"QCheckBox:checked {Background-color: rgb(255, 207, 84); border-width: 2px;}"
 "QCheckBox::indicator {\n"
 "    width: 26px;\n"
 "    height: 26px;\n"
@@ -503,7 +512,7 @@ class Ui_SetupWindow(object):
 "QCheckBox::indicator:unchecked {\n"
 "	width: 26px;\n"
 "    height: 26px;\n"
-"	Background-color: red;\n"
+"	Background-color: white;\n"
 "	border-width: 2px;\n"
 "    border-radius: 10px;\n"
 "    border-color: black;\n"
@@ -653,7 +662,6 @@ class Ui_SetupWindow(object):
 "	font: 700 12pt \"Segoe UI\";\n"
 "}\n"
 "\n"
-"QCheckBox:checked {Background-color: rgb(255, 207, 84); border-width: 2px;}"
 "QCheckBox::indicator {\n"
 "    width: 26px;\n"
 "    height: 26px;\n"
@@ -667,7 +675,7 @@ class Ui_SetupWindow(object):
 "QCheckBox::indicator:unchecked {\n"
 "	width: 26px;\n"
 "    height: 26px;\n"
-"	Background-color: red;\n"
+"	Background-color: white;\n"
 "	border-width: 2px;\n"
 "    border-radius: 10px;\n"
 "    border-color: black;\n"
@@ -738,6 +746,31 @@ class Ui_SetupWindow(object):
         self.gridLayout_26.setObjectName(u"gridLayout_26")
         self.gridLayout_27 = QGridLayout()
         self.gridLayout_27.setObjectName(u"gridLayout_27")
+        self.pushButton = QPushButton(self.widget_2)
+        self.pushButton.setObjectName(u"pushButton")
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Ignored)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
+        self.pushButton.setSizePolicy(sizePolicy)
+        font1 = QFont()
+        font1.setPointSize(30)
+        self.pushButton.setFont(font1)
+        self.pushButton.setStyleSheet(u"QWidget {\n"
+"	background-color:rgb(138, 139, 135); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: grey;\n"
+"	border-style: outset;\n"
+"	border-radius: 20px;\n"
+"}\n"
+"QPushButton{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+
+        self.gridLayout_27.addWidget(self.pushButton, 0, 0, 1, 1)
+
 
         self.gridLayout_26.addLayout(self.gridLayout_27, 2, 0, 1, 1)
 
@@ -787,34 +820,38 @@ class Ui_SetupWindow(object):
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
     
+    
     #------------------------------------------------------------------------------------------------------------------# 
 
-        self.checkBox_CH1.clicked.connect(lambda: Controller_Client_TCP.WORKING.set_channel_status(1))
-        self.checkBox_CH2.clicked.connect(lambda: Controller_Client_TCP.WORKING.set_channel_status(2))
-        self.checkBox_CH3.clicked.connect(lambda: Controller_Client_TCP.WORKING.set_channel_status(3))
-        self.checkBox_CH4.clicked.connect(lambda: Controller_Client_TCP.WORKING.set_channel_status(4))
+        # controllo i canali attivi nella scheda e faccio corrispodere la grafica
+        if self.list_status_checkbox[3] == 1:
+                self.checkBox_CH1.setChecked(True)
+        if self.list_status_checkbox[2] == 1:
+                self.checkBox_CH2.setChecked(True)
+        if self.list_status_checkbox[1] == 1:
+                self.checkBox_CH3.setChecked(True)
+        if self.list_status_checkbox[0] == 1:
+                self.checkBox_CH4.setChecked(True)
+        
+        # setup dei segnali
+        self.checkBox_CH1.stateChanged.connect(lambda: self.on_click(1))
+        self.checkBox_CH2.stateChanged.connect(lambda: self.on_click(2))
+        self.checkBox_CH3.stateChanged.connect(lambda: self.on_click(3))
+        self.checkBox_CH4.stateChanged.connect(lambda: self.on_click(4))
+        self.pushButton.clicked.connect(self.finalizing_setup)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
+    def on_click(self, ID):
+        
+        if self.list_status_checkbox[abs(ID-4)] == 0:
+            self.list_status_checkbox[abs(ID-4)] = 1       # ENABLED CHANNEL
+        else:
+            self.list_status_checkbox[abs(ID-4)] = 0       # DISABLED CHANNEL
+        print("STATUS CHN" + str(ID) + " = " + str(self.list_status_checkbox[abs(ID-4)]) + "; status-checkbox = " + str(self.list_status_checkbox))
+      
+    def finalizing_setup(self):
+        print(self.list_status_checkbox)
+        Controller_Client_TCP.DATA_INTERACTIONS.setup_full_update(self.list_status_checkbox)
 
     #------------------------------------------------------------------------------------------------------------------# 
 
@@ -841,6 +878,7 @@ class Ui_SetupWindow(object):
         self.label_CH4_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">SENS. [mV/V]</span></p></body></html>", None))
         self.checkBox_CH4.setText(QCoreApplication.translate("MainWindow", u"OFF", None))
         self.label_CH4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">FONDOSCALA [?]</span></p></body></html>", None))
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"CONCLUDI SETUP", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700;\">IMPOSTAZIONI SG600</span></p></body></html>", None))
     # retranslateUi
 
