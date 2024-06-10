@@ -10,7 +10,7 @@ class SLAVE:
     port="COM4"
     baudrate=38400
     bytesize=8
-    parity="N"
+    parity="E"
     stopbits=1
     ID=1
    
@@ -47,5 +47,5 @@ if __name__ == "__main__":
     run()
     print("Connessione avvenuta con successo!")
     # print(TESTING.read_MachineID())
-    res=client.read_input_registers(0, 2, 1)
+    res=client.read_exception_status(slave=SLAVE.ID)
     print(res)
