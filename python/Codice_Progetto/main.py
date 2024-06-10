@@ -3,7 +3,7 @@ from PySide6.QtWidgets import QApplication, QMainWindow
 from View_QT_HomePage import Ui_MainWindow  # Import the generated UI class
 from View_QT_SetupPage import Ui_SetupWindow
 import Logger as Logger
-import Controller_Client_TCP
+import Controller_Client_TCP_Laumas as Controller_Client_TCP_Laumas
 from threading import Thread
 from time import sleep
 
@@ -21,8 +21,8 @@ def run_logger():
 
 def data_update_mV():
     while Logger.DATA.loop_status:
-        result_list = Controller_Client_TCP.WORKING.read_holding_registers_mV()
-        Controller_Client_TCP.DATA.LIST_mV_VALUE = result_list
+        result_list = Controller_Client_TCP_Laumas.WORKING.read_holding_registers_mV()
+        Controller_Client_TCP_Laumas.DATA.LIST_mV_VALUE = result_list
 
 def closed_last_window_signal():
     Logger.DATA.loop_status=False

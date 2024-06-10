@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout,
     QLCDNumber, QLabel, QLineEdit, QMainWindow,
     QPushButton, QSizePolicy, QVBoxLayout, QWidget)
-import Controller_Client_TCP as Controller_Client_TCP
+import Controller_Client_TCP_Laumas as Controller_Client_TCP_Laumas
 import Logger
 from View_QT_SetupPage import Ui_SetupWindow
 from time import sleep
@@ -1020,16 +1020,16 @@ class Ui_MainWindow(object):
            
     def update_CH1(self):
         if self.comboBox_1.currentText() == "mV":
-                list_mV = Controller_Client_TCP.DATA_INTERACTIONS.get_mv()
+                list_mV = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_mv()
                 self.lcdNumber_1.display(list_mV[0])
         elif self.comboBox_1.currentText() == "Kg":
-                list_Kg = Controller_Client_TCP.DATA_INTERACTIONS.get_Kg()
+                list_Kg = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_Kg()
                 self.lcdNumber_1.display(list_Kg[0])
         elif self.comboBox_1.currentText() == "N":
-                list_N = Controller_Client_TCP.DATA_INTERACTIONS.get_N()
+                list_N = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_N()
                 self.lcdNumber_1.display(list_N[0])
         elif self.comboBox_1.currentText() == "Nm":
-                list_Nm = Controller_Client_TCP.DATA_INTERACTIONS.get_Nm()
+                list_Nm = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_Nm()
                 self.lcdNumber_1.display(list_Nm[0]) 
         else:
                 print("Error: something went wrong in the selection of the measuring unit in CH1!")       
@@ -1037,16 +1037,16 @@ class Ui_MainWindow(object):
 
     def update_CH2(self):
         if self.comboBox_2.currentText() == "mV":
-                list_mV = Controller_Client_TCP.DATA_INTERACTIONS.get_mv()
+                list_mV = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_mv()
                 self.lcdNumber_2.display(list_mV[1])
         elif self.comboBox_2.currentText() == "Kg":
-                list_Kg = Controller_Client_TCP.DATA_INTERACTIONS.get_Kg()
+                list_Kg = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_Kg()
                 self.lcdNumber_2.display(list_Kg[1])
         elif self.comboBox_2.currentText() == "N":
-                list_N = Controller_Client_TCP.DATA_INTERACTIONS.get_N()
+                list_N = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_N()
                 self.lcdNumber_2.display(list_N[1])
         elif self.comboBox_2.currentText() == "Nm":
-                list_Nm = Controller_Client_TCP.DATA_INTERACTIONS.get_Nm()
+                list_Nm = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_Nm()
                 self.lcdNumber_2.display(list_Nm[1]) 
         else:
                 print("Error: something went wrong in the selection of the measuring unit in CH2!")       
@@ -1055,16 +1055,16 @@ class Ui_MainWindow(object):
 
     def update_CH3(self):
         if self.comboBox_3.currentText() == "mV":
-                list_mV = Controller_Client_TCP.DATA_INTERACTIONS.get_mv()
+                list_mV = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_mv()
                 self.lcdNumber_3.display(list_mV[2])
         elif self.comboBox_3.currentText() == "Kg":
-                list_Kg = Controller_Client_TCP.DATA_INTERACTIONS.get_Kg()
+                list_Kg = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_Kg()
                 self.lcdNumber_3.display(list_Kg[2])
         elif self.comboBox_3.currentText() == "N":
-                list_N = Controller_Client_TCP.DATA_INTERACTIONS.get_N()
+                list_N = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_N()
                 self.lcdNumber_3.display(list_N[2])
         elif self.comboBox_3.currentText() == "Nm":
-                list_Nm = Controller_Client_TCP.DATA_INTERACTIONS.get_Nm()
+                list_Nm = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_Nm()
                 self.lcdNumber_3.display(list_Nm[2]) 
         else:
                 print("Error: something went wrong in the selection of the measuring unit in CH3!")       
@@ -1072,16 +1072,16 @@ class Ui_MainWindow(object):
 
     def update_CH4(self):
         if self.comboBox_4.currentText() == "mV":
-                list_mV = Controller_Client_TCP.DATA_INTERACTIONS.get_mv()
+                list_mV = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_mv()
                 self.lcdNumber_4.display(list_mV[3])
         elif self.comboBox_4.currentText() == "Kg":
-                list_Kg = Controller_Client_TCP.DATA_INTERACTIONS.get_Kg()
+                list_Kg = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_Kg()
                 self.lcdNumber_4.display(list_Kg[3])
         elif self.comboBox_4.currentText() == "N":
-                list_N = Controller_Client_TCP.DATA_INTERACTIONS.get_N()
+                list_N = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_N()
                 self.lcdNumber_4.display(list_N[3])
         elif self.comboBox_4.currentText() == "Nm":
-                list_Nm = Controller_Client_TCP.DATA_INTERACTIONS.get_Nm()
+                list_Nm = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_Nm()
                 self.lcdNumber_4.display(list_Nm[3]) 
         else:
                 print("Error: something went wrong in the selection of the measuring unit in CH4!")       

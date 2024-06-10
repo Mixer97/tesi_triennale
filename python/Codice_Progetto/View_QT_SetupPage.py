@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QCheckBox, QGridLayout, QHBoxLayout,
     QLCDNumber, QLabel, QMainWindow, QPushButton,
     QSizePolicy, QVBoxLayout, QWidget)
-import Controller_Client_TCP as Controller_Client_TCP
+import Controller_Client_TCP_Laumas as Controller_Client_TCP_Laumas
 from time import sleep
 
 var = False
@@ -33,7 +33,7 @@ class Ui_SetupWindow(object):
     def setupUi(self, MainWindow):
             
         while self.list_status_checkbox == [0,0,0,0]:     
-                self.list_status_checkbox=Controller_Client_TCP.WORKING.read_channels_active() 
+                self.list_status_checkbox=Controller_Client_TCP_Laumas.WORKING.read_channels_active() 
             
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
@@ -851,7 +851,7 @@ class Ui_SetupWindow(object):
       
     def finalizing_setup(self):
         print(self.list_status_checkbox)
-        Controller_Client_TCP.DATA_INTERACTIONS.setup_full_update(self.list_status_checkbox)
+        Controller_Client_TCP_Laumas.DATA_INTERACTIONS.setup_full_update(self.list_status_checkbox)
 
     #------------------------------------------------------------------------------------------------------------------# 
 

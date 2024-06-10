@@ -52,7 +52,7 @@ class DATA:
     LIST_SENSIBILITY = [0,2.0302,0,1]
     LIST_FULLSCALE = [10,50,10,10]
     LIST_mV_ZERO = [1,-3.16,1,-0.21]
-    LEVER_ARM = 1 # meters
+    LEVER_LENGTH = 1 # meters
     STATUS_CHANNELS = [0,0,0,0] # settato da setupPage
     
 
@@ -386,7 +386,7 @@ class UTILS:
 
         risultati = client.read_holding_registers(address=ADDRESS.REGISTER_1_WR1_high, count=2, slave=SLAVE.ID)
         while risultati.isError():
-            risultati = client.write_registers(address=ADDRESS.REGISTER_1_WR1_high, count=2, slave=SLAVE.ID)
+            risultati = client.read_holding_registers(address=ADDRESS.REGISTER_1_WR1_high, count=2, slave=SLAVE.ID)
         
         # print("high and low: " + str(risultati.registers[0]) + " " + str(risultati.registers[1]))
 
@@ -451,7 +451,7 @@ class DATA_INTERACTIONS:
         i = 0
         for i in range(0, len(DATA.LIST_mV_VALUE)):
             if DATA.LIST_SENSIBILITY[i]!=0:
-                DATA.LIST_Nm_VALUE[i] = DATA.LEVER_ARM*9.81*(DATA.LIST_FULLSCALE[i]/(SLAVE.CHN_VOLTAGE*DATA.LIST_SENSIBILITY[i]))*(DATA.LIST_mV_ZERO[i] - DATA.LIST_mV_VALUE[i])
+                DATA.LIST_Nm_VALUE[i] = DATA.LEVER_LENGTH*9.81*(DATA.LIST_FULLSCALE[i]/(SLAVE.CHN_VOLTAGE*DATA.LIST_SENSIBILITY[i]))*(DATA.LIST_mV_ZERO[i] - DATA.LIST_mV_VALUE[i])
             else:
                 DATA.LIST_Nm_VALUE[i] = 0
         return DATA.LIST_Nm_VALUE

@@ -30,3 +30,9 @@ tesi triennale presso Easting Electronics
 
     **NUOVO PROBLEMA**: quando concludo Il setup ho una chance che non vada in porto la modifica della scheda, che la app non si chiuda del tutto quando la chiudo e che il display si rompa.  
     OSS: quando l'interfaccia è chiusa non ho problemi <<valutare stoppare l' interfaccia e il logger mentre si fa il setup>>
+
+10/06 
+    Problema da risolvere: non riuscivo a fare riconoscere una package da parte di python, nonostante lo avessi        installato sul venv corretto.   
+        Ho osservato che sebbene il comando pip list mi dava il package come installato, nella cartella fisica non era presente. Ho provato poi a copiare e incollare la cartella del package che volevo fare riconoscere e la cosa sembra avere funzionato (per quanto il problema rimanga).
+    Problema da risolvere: sono riuscito a realizzare una connessione con la scheda Z-4AI(-1) tramite RS-485.
+        Appena riuscirò a capire come comunicare informazione aggiornerò la lista.

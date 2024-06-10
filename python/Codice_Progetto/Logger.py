@@ -1,6 +1,6 @@
 # importing the module 
 import pandas as pd 
-import Controller_Client_TCP as Controller_Client_TCP
+import Controller_Client_TCP_Laumas as Controller_Client_TCP_Laumas
 import time
 from time import sleep
 import csv
@@ -72,16 +72,16 @@ def logger(nome_CSV):
 
 def update_CH1():
     if DATA.text_lcd[0] == "mV":
-            list_mV = Controller_Client_TCP.DATA_INTERACTIONS.get_mv()
+            list_mV = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_mv()
             DATA.result_list[0]=list_mV[0]
     elif DATA.text_lcd[0] == "Kg":
-            list_Kg = Controller_Client_TCP.DATA_INTERACTIONS.get_Kg()
+            list_Kg = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_Kg()
             DATA.result_list[0]=list_Kg[0]
     elif DATA.text_lcd[0] == "N":
-            list_N = Controller_Client_TCP.DATA_INTERACTIONS.get_N()
+            list_N = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_N()
             DATA.result_list[0]=list_N[0]
     elif DATA.text_lcd[0] == "Nm":
-            list_Nm = Controller_Client_TCP.DATA_INTERACTIONS.get_Nm()
+            list_Nm = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_Nm()
             DATA.result_list[0]=list_Nm[0]
     else:
             print("Error: something went wrong in the selection of the measuring unit in CH1!")       
@@ -89,16 +89,16 @@ def update_CH1():
             
 def update_CH2():
     if DATA.text_lcd[1] == "mV":
-            list_mV = Controller_Client_TCP.DATA_INTERACTIONS.get_mv()
+            list_mV = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_mv()
             DATA.result_list[1]=list_mV[1]
     elif DATA.text_lcd[1] == "Kg":
-            list_Kg = Controller_Client_TCP.DATA_INTERACTIONS.get_Kg()
+            list_Kg = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_Kg()
             DATA.result_list[1]=list_Kg[1]
     elif DATA.text_lcd[1] == "N":
-            list_N = Controller_Client_TCP.DATA_INTERACTIONS.get_N()
+            list_N = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_N()
             DATA.result_list[1]=list_N[1]
     elif DATA.text_lcd[1] == "Nm":
-            list_Nm = Controller_Client_TCP.DATA_INTERACTIONS.get_Nm()
+            list_Nm = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_Nm()
             DATA.result_list[1]=list_Nm[1]
     else:
             print("Error: something went wrong in the selection of the measuring unit in CH2!")       
@@ -106,16 +106,16 @@ def update_CH2():
             
 def update_CH3():
     if DATA.text_lcd[2] == "mV":
-            list_mV = Controller_Client_TCP.DATA_INTERACTIONS.get_mv()
+            list_mV = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_mv()
             DATA.result_list[2]=list_mV[2]
     elif DATA.text_lcd[2] == "Kg":
-            list_Kg = Controller_Client_TCP.DATA_INTERACTIONS.get_Kg()
+            list_Kg = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_Kg()
             DATA.result_list[2]=list_Kg[2]
     elif DATA.text_lcd[2] == "N":
-            list_N = Controller_Client_TCP.DATA_INTERACTIONS.get_N()
+            list_N = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_N()
             DATA.result_list[2]=list_N[2]
     elif DATA.text_lcd[2] == "Nm":
-            list_Nm = Controller_Client_TCP.DATA_INTERACTIONS.get_Nm()
+            list_Nm = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_Nm()
             DATA.result_list[2]=list_Nm[2]
     else:
             print("Error: something went wrong in the selection of the measuring unit in CH3!")       
@@ -123,16 +123,16 @@ def update_CH3():
             
 def update_CH4():
     if DATA.text_lcd[3] == "mV":
-            list_mV = Controller_Client_TCP.DATA_INTERACTIONS.get_mv()
+            list_mV = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_mv()
             DATA.result_list[3]=list_mV[3]
     elif DATA.text_lcd[3] == "Kg":
-            list_Kg = Controller_Client_TCP.DATA_INTERACTIONS.get_Kg()
+            list_Kg = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_Kg()
             DATA.result_list[3]=list_Kg[3]
     elif DATA.text_lcd[3] == "N":
-            list_N = Controller_Client_TCP.DATA_INTERACTIONS.get_N()
+            list_N = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_N()
             DATA.result_list[3]=list_N[3]
     elif DATA.text_lcd[3] == "Nm":
-            list_Nm = Controller_Client_TCP.DATA_INTERACTIONS.get_Nm()
+            list_Nm = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_Nm()
             DATA.result_list[3]=list_Nm[3]
     else:
             print("Error: something went wrong in the selection of the measuring unit in CH4!")       
