@@ -3,37 +3,51 @@ from pymodbus.framer import Framer
 from pymodbus import pymodbus_apply_logging_config
 from time import sleep
 import sys
+import serial
 
 # print(sys.prefix)
 
-class SLAVE:
-    port="COM4"
-    baudrate=38400
+class SLAVE:        # Comunicazione su RS-232
+    port="COM8"
+    baudrate=2400
     bytesize=8
-    parity="E"
+    parity="N"
     stopbits=1
     ID=1
-   
-client = ModbusSerialClient(method='rtu', port=SLAVE.port, baudrate=SLAVE.baudrate, bytesize=SLAVE.bytesize, parity=SLAVE.parity, stopbits=SLAVE.stopbits)
-connection = client.connect()   
 
-def run():
+client = ModbusSerialClient(
+    method='rtu',
+    port=SLAVE.port,
+    baudrate=SLAVE.baudrate,
+    bytesize=SLAVE.bytesize,
+    parity=SLAVE.parity,
+    stopbits=SLAVE.stopbits
+)
+
+ 
+
+def connect():
     
+    connection = client.connect() 
     for i in range(1,11):
         if connection:
-                break
+            print("Connessione avvenuta!")
+            return True
         else: 
             print(f"ERROR! connessione al dispostivo presente sulla COM-port {SLAVE.port} fallita.\n tentativo di riconnessione numero: {i}\\10")
+            connection = client.connect() 
             sleep(0.5)
-        exit()
+    print("Connessione fallita dopo 10 tentativi!")
+    return False
+                
 
 class TESTING:
     
-   def read_MachineID():
+    def read_MachineID():
 
-        risultati = client.read_holding_registers(address=40001, count=1, slave=SLAVE.ID)
+        risultati = client.read_holding_registers(address=0, count=1, slave=SLAVE.ID)
         while risultati.isError():
-            risultati = client.read_holding_registers(address=40001, count=1, slave=SLAVE.ID)
+            risultati = client.read_holding_registers(address=0, count=1, slave=SLAVE.ID)
         
         # print("high and low: " + str(risultati.registers[0]) + " " + str(risultati.registers[1]))
 
@@ -41,11 +55,24 @@ class TESTING:
 
         return risultati_elaborati
 
+    def read_registers(start_address, count):
+        if connect():
+            try:
+                response = client.read_holding_registers(address=start_address, count=count, slave=SLAVE.ID)
+                if not response.isError():
+                    return response.registers
+                else:
+                    print("Errore nella lettura dei registri.")
+            except Exception as e:
+                print(f"Eccezione durante la lettura dei registri: {e}")
+        else:
+            print("Connessione non riuscita.")
+        return None
 
 
 if __name__ == "__main__":
-    run()
-    print("Connessione avvenuta con successo!")
-    # print(TESTING.read_MachineID())
-    res=client.read_exception_status(slave=SLAVE.ID)
-    print(res)
+    print(TESTING.read_MachineID().registers)
+    registers = TESTING.read_registers(start_address=15, count=10)
+    print(f"Registri letti: {registers}")
+    
+    
