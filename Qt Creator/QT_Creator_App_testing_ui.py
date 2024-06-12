@@ -599,11 +599,11 @@ class Ui_MainWindow(object):
 "")
         self.gridLayout_2 = QGridLayout(self.widget_12)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.widget1 = QWidget(self.widget_12)
-        self.widget1.setObjectName(u"widget1")
-        sizePolicy.setHeightForWidth(self.widget1.sizePolicy().hasHeightForWidth())
-        self.widget1.setSizePolicy(sizePolicy)
-        self.widget1.setStyleSheet(u"QWidget {\n"
+        self.widget_1 = QWidget(self.widget_12)
+        self.widget_1.setObjectName(u"widget_1")
+        sizePolicy.setHeightForWidth(self.widget_1.sizePolicy().hasHeightForWidth())
+        self.widget_1.setSizePolicy(sizePolicy)
+        self.widget_1.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(125, 225, 10); \n"
 "	border-style: outset;\n"
 "    border-width: 2px;\n"
@@ -611,9 +611,9 @@ class Ui_MainWindow(object):
 "	border-radius: 20px;\n"
 "}\n"
 "")
-        self.horizontalLayout_6 = QHBoxLayout(self.widget1)
+        self.horizontalLayout_6 = QHBoxLayout(self.widget_1)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.label = QLabel(self.widget1)
+        self.label = QLabel(self.widget_1)
         self.label.setObjectName(u"label")
         self.label.setFont(font)
         self.label.setStyleSheet(u"QWidget {\n"
@@ -630,7 +630,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_6.addWidget(self.label, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
-        self.pushButton_Interfaccia = QPushButton(self.widget1)
+        self.pushButton_Interfaccia = QPushButton(self.widget_1)
         self.pushButton_Interfaccia.setObjectName(u"pushButton_Interfaccia")
         sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
         sizePolicy1.setHorizontalStretch(0)
@@ -663,20 +663,20 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6.addWidget(self.pushButton_Interfaccia)
 
 
-        self.gridLayout_2.addWidget(self.widget1, 1, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.widget_1, 1, 0, 1, 1)
 
-        self.widget2 = QWidget(self.widget_12)
-        self.widget2.setObjectName(u"widget2")
-        self.widget2.setStyleSheet(u"QWidget {\n"
+        self.widget_9 = QWidget(self.widget_12)
+        self.widget_9.setObjectName(u"widget_9")
+        self.widget_9.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(125, 225, 10); \n"
 "	border-style: outset;\n"
 "    border-width: 2px;\n"
 "    border-color:rgb(63, 156, 23);\n"
 "	border-radius: 20px;\n"
 "}")
-        self.horizontalLayout_8 = QHBoxLayout(self.widget2)
+        self.horizontalLayout_8 = QHBoxLayout(self.widget_9)
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
-        self.label_5 = QLabel(self.widget2)
+        self.label_5 = QLabel(self.widget_9)
         self.label_5.setObjectName(u"label_5")
         self.label_5.setFont(font)
         self.label_5.setStyleSheet(u"QWidget {\n"
@@ -693,7 +693,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_8.addWidget(self.label_5, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
-        self.pushButton_Registrazione = QPushButton(self.widget2)
+        self.pushButton_Registrazione = QPushButton(self.widget_9)
         self.pushButton_Registrazione.setObjectName(u"pushButton_Registrazione")
         sizePolicy1.setHeightForWidth(self.pushButton_Registrazione.sizePolicy().hasHeightForWidth())
         self.pushButton_Registrazione.setSizePolicy(sizePolicy1)
@@ -720,27 +720,27 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.addWidget(self.pushButton_Registrazione)
 
 
-        self.gridLayout_2.addWidget(self.widget2, 2, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.widget_9, 2, 0, 1, 1)
 
-        self.widget3 = QWidget(self.widget_12)
-        self.widget3.setObjectName(u"widget3")
+        self.widget_8 = QWidget(self.widget_12)
+        self.widget_8.setObjectName(u"widget_8")
         sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
         sizePolicy2.setHorizontalStretch(0)
         sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.widget3.sizePolicy().hasHeightForWidth())
-        self.widget3.setSizePolicy(sizePolicy2)
-        self.widget3.setMinimumSize(QSize(0, 100))
-        self.widget3.setStyleSheet(u"QWidget {\n"
+        sizePolicy2.setHeightForWidth(self.widget_8.sizePolicy().hasHeightForWidth())
+        self.widget_8.setSizePolicy(sizePolicy2)
+        self.widget_8.setMinimumSize(QSize(0, 100))
+        self.widget_8.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(213, 213, 213); \n"
 "	border-style: outset;\n"
 "    border-width: 2px;\n"
 "    border-color:rgb(103, 98, 93);\n"
 "	border-radius: 20px;\n"
 "}")
-        self.horizontalLayout = QHBoxLayout(self.widget3)
+        self.horizontalLayout = QHBoxLayout(self.widget_8)
         self.horizontalLayout.setSpacing(7)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.label_impostazioni = QLabel(self.widget3)
+        self.label_impostazioni = QLabel(self.widget_8)
         self.label_impostazioni.setObjectName(u"label_impostazioni")
         sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Ignored)
         sizePolicy3.setHorizontalStretch(0)
@@ -762,7 +762,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.label_impostazioni, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
-        self.pushButton_impostazioni = QPushButton(self.widget3)
+        self.pushButton_impostazioni = QPushButton(self.widget_8)
         self.pushButton_impostazioni.setObjectName(u"pushButton_impostazioni")
         sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Ignored)
         sizePolicy4.setHorizontalStretch(0)
@@ -788,7 +788,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addWidget(self.pushButton_impostazioni)
 
 
-        self.gridLayout_2.addWidget(self.widget3, 0, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.widget_8, 0, 0, 1, 1)
 
 
         self.gridLayout_10.addWidget(self.widget_12, 0, 0, 1, 1)

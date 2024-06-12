@@ -4,3 +4,5 @@ COSE DA FARE
     - Collegamento delle fuzionalità per le finestre di setup
     - Rendere le finsetre unstreachable
     - Rendere le lable modificabili dall'utente
+    - Collegare i toggle dei colori delle checkbox
+    - 
