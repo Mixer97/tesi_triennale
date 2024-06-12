@@ -32,7 +32,14 @@ tesi triennale presso Easting Electronics
     OSS: quando l'interfaccia è chiusa non ho problemi <<valutare stoppare l' interfaccia e il logger mentre si fa il setup>>
 
 10/06 
-    Problema da risolvere: non riuscivo a fare riconoscere una package da parte di python, nonostante lo avessi        installato sul venv corretto.   
+    Problema da risolvere: non riuscivo a fare riconoscere una package da parte di python, nonostante lo avessi installato sul venv corretto.   
         Ho osservato che sebbene il comando pip list mi dava il package come installato, nella cartella fisica non era presente. Ho provato poi a copiare e incollare la cartella del package che volevo fare riconoscere e la cosa sembra avere funzionato (per quanto il problema rimanga).
-    Problema da risolvere: sono riuscito a realizzare una connessione con la scheda Z-4AI(-1) tramite RS-485.
+    Problema da risolvere: sono riuscito a realizzare una connessione con la scheda Z-4AI(-1) tramite RS-232.
         Appena riuscirò a capire come comunicare informazione aggiornerò la lista.
+
+11/06
+    Problema risolo: comunicazione con la scheda viene fatta con RS-232 e con impostazioni segnate sul tablet.
+    Nuovo obiettivo: decidere cosa mettere dentro una finestra di dialogo per il setup dei canali.
+
+12/06
+    Continuazione sul lavoro delle finestre di setup per i vari canali

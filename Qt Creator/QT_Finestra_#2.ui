@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1105</width>
-    <height>690</height>
+    <width>1159</width>
+    <height>611</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -107,9 +107,9 @@ QLabel{
                 </property>
                 <property name="styleSheet">
                  <string notr="true">QWidget {
-	background-color:rgb(160, 171, 168); 
+	background-color:rgb(180, 191, 168); 
 	border-style: outset;
-    border-width: 2px;
+    border-width: 3px;
     border-color:rgb(200, 200, 200);
 	border-radius: 20px;
 }
@@ -317,9 +317,9 @@ QLabel{
                 </property>
                 <property name="styleSheet">
                  <string notr="true">QWidget {
-	background-color:rgb(160, 171, 168); 
+	background-color:rgb(180, 191, 168); 
 	border-style: outset;
-    border-width: 2px;
+    border-width: 3px;
     border-color:rgb(200, 200, 200);
 	border-radius: 20px;
 }
@@ -527,9 +527,9 @@ QLabel{
                 </property>
                 <property name="styleSheet">
                  <string notr="true">QWidget {
-	background-color:rgb(160, 171, 168); 
+	background-color:rgb(180, 191, 168); 
 	border-style: outset;
-    border-width: 2px;
+    border-width: 3px;
     border-color:rgb(200, 200, 200);
 	border-radius: 20px;
 }
@@ -737,9 +737,9 @@ QLabel{
                 </property>
                 <property name="styleSheet">
                  <string notr="true">QWidget {
-	background-color:rgb(160, 171, 168); 
+	background-color:rgb(180, 191, 168); 
 	border-style: outset;
-    border-width: 2px;
+    border-width: 3px;
     border-color:rgb(200, 200, 200);
 	border-radius: 20px;
 }
@@ -898,18 +898,18 @@ QLCDNumber{
        <widget class="QWidget" name="widget_2" native="true">
         <property name="styleSheet">
          <string notr="true">QWidget {
-	background-color:orange; 
+	background-color: rgb(178, 193, 255);
 	border-style: outset;
     border-width: 4px;
     border-color: black;
 }
 </string>
         </property>
-        <layout class="QGridLayout" name="gridLayout_26">
-         <item row="2" column="0">
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="4" column="0" colspan="2">
           <layout class="QGridLayout" name="gridLayout_27">
-           <item row="0" column="0">
-            <widget class="QPushButton" name="pushButton">
+           <item row="1" column="0">
+            <widget class="QPushButton" name="pushButton_concludi_setup">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Ignored">
                <horstretch>0</horstretch>
@@ -918,15 +918,18 @@ QLCDNumber{
              </property>
              <property name="font">
               <font>
-               <pointsize>30</pointsize>
+               <pointsize>25</pointsize>
               </font>
+             </property>
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
              </property>
              <property name="styleSheet">
               <string notr="true">QWidget {
-	background-color:rgb(138, 139, 135); 
+	background-color: rgb(255, 236, 89);
 	border-style: outset;
-    border-width: 2px;
-    border-color: grey;
+    border-width: 6px;
+	border-color: rgb(211, 181, 13);
 	border-style: outset;
 	border-radius: 20px;
 }
@@ -936,22 +939,252 @@ QPushButton{
 </string>
              </property>
              <property name="text">
-              <string>CONCLUDI SETUP</string>
+              <string>APPLICA CAMBIAMENTI</string>
              </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QWidget" name="widget" native="true">
+             <property name="styleSheet">
+              <string notr="true">QWidget {
+	background-color: rgb(215, 230, 255);
+	border-style: outset;
+    border-width: 2px;
+	border-color: rgb(169, 152, 255);
+	border-radius: 20px;
+}</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_12">
+              <item row="1" column="0">
+               <layout class="QGridLayout" name="gridLayout_2">
+                <property name="horizontalSpacing">
+                 <number>7</number>
+                </property>
+                <property name="verticalSpacing">
+                 <number>0</number>
+                </property>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_CHSG600">
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+    border: 2px solid black;
+    border-radius: 0px;
+	background-color: rgb(198, 213, 255);
+	border-style: outset;
+    border-width: 2px;
+	border-color: rgb(95, 140, 212);
+}
+QLabel{
+	color: rgb(0,0,0);
+}
+</string>
+                  </property>
+                  <property name="text">
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;FONDOSCALA [V]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                  </property>
+                  <property name="textFormat">
+                   <enum>Qt::RichText</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLCDNumber" name="lcdNumber_fondoscala_CHSG600">
+                  <property name="styleSheet">
+                   <string notr="true">QWidget {
+	background-color:white; 
+	border-style: outset;
+    border-width: 2px;
+    border-color: black;
+	border-radius: 0px;
+}
+QLCDNumber{
+	color: rgb(0,0,0);
+}
+</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="0" column="0">
+               <layout class="QGridLayout" name="gridLayout_10">
+                <item row="0" column="0">
+                 <widget class="QCheckBox" name="checkBox_CHSG600">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QCheckBox {
+    spacing: 10px;
+	color: rgb(0, 0, 0);
+	background-color: rgb(198, 170, 255);
+	padding: 10px;
+	font: 700 12pt &quot;Segoe UI&quot;;
+	border-style: outset;
+    border-width: 2px;
+	border-color: rgb(95, 140, 212);
+	border-radius: 20px;
+}
+
+QCheckBox::checked {
+	background-color: rgb(198, 213, 255);
+}
+
+QCheckBox::indicator {
+    width: 26px;
+    height: 26px;
+	Background-color: green;
+	border-width: 2px;
+    border-radius: 10px;
+    border-color: black;
+    border-style: outset;
+}
+
+QCheckBox::indicator:unchecked {
+	width: 26px;
+    height: 26px;
+	Background-color: white;
+	border-width: 2px;
+    border-radius: 10px;
+    border-color: black;
+    border-style: outset;
+}
+
+
+</string>
+                  </property>
+                  <property name="text">
+                   <string>OFF</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="0" column="2">
+               <layout class="QGridLayout" name="gridLayout_11">
+                <item row="0" column="0">
+                 <widget class="QPushButton" name="pushButton_setup_CHSG600">
+                  <property name="maximumSize">
+                   <size>
+                    <width>20000</width>
+                    <height>20000</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>20</pointsize>
+                    <italic>false</italic>
+                    <bold>false</bold>
+                    <underline>false</underline>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QWidget {
+	background-color:rgb(180, 191, 168); 
+	border-style: outset;
+    border-width: 3px;
+    border-color:rgb(200, 200, 200);
+	border-radius: 20px;
+}
+QPushButton{
+	color: rgb(0,0,0);
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>SETUP</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="1" column="2">
+               <layout class="QGridLayout" name="gridLayout_5">
+                <property name="verticalSpacing">
+                 <number>0</number>
+                </property>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_sensCHSG600">
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+    border: 2px solid black;
+    border-radius: 0px;
+	background-color: rgb(198, 213, 255);
+	border-style: outset;
+    border-width: 2px;
+	border-color: rgb(95, 140, 212);
+}
+QLabel{
+	color: rgb(0,0,0);
+}
+</string>
+                  </property>
+                  <property name="text">
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;SENS. [mV/V]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                  </property>
+                  <property name="textFormat">
+                   <enum>Qt::RichText</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLCDNumber" name="lcdNumber_sens_CHSG600">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QWidget {
+	background-color:white; 
+	border-style: outset;
+    border-width: 2px;
+    border-color: black;
+	border-radius: 0px;
+}
+QLCDNumber{
+	color: rgb(0,0,0);
+}
+</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
             </widget>
            </item>
           </layout>
          </item>
-         <item row="0" column="0">
-          <layout class="QGridLayout" name="gridLayout_25">
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_3">
-             <property name="styleSheet">
-              <string notr="true">QLabel{
+         <item row="0" column="0" colspan="2">
+          <widget class="QLabel" name="label_Impost_SG600">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>100</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel{
 	color: rgb(0,0,0);
 	background-color: rgb(32, 151, 255);
 	border-style: outset;
-    border-width: 4px;
+    border-width: 2px;
     border-color: rgb(133, 10, 255);
 	border-radius: 10px;
 	background: 
@@ -959,22 +1192,14 @@ QPushButton{
 qlineargradient(spread:pad, x1:0.502, y1:0, x2:0.479, y2:1, stop:0.028169 rgba(255, 67, 67, 255), stop:1 rgba(84, 184, 255, 255))
 }
 </string>
-             </property>
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:700;&quot;&gt;IMPOSTAZIONI SG600&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-             <property name="textFormat">
-              <enum>Qt::RichText</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <layout class="QGridLayout" name="gridLayout_29"/>
-           </item>
-          </layout>
-         </item>
-         <item row="1" column="0">
-          <layout class="QGridLayout" name="gridLayout_28"/>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:700;&quot;&gt;IMPOSTAZIONI SG600&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="textFormat">
+            <enum>Qt::RichText</enum>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>

@@ -1,0 +1,6 @@
+COSE DA FARE
+
+    - Realizzazione delle finestre per il setup dei canali
+    - Collegamento delle fuzionalità per le finestre di setup
+    - Rendere le finsetre unstreachable
+    - Rendere le lable modificabili dall'utente

@@ -31,7 +31,7 @@ def connect():
     connection = client.connect() 
     for i in range(1,11):
         if connection:
-            print("Connessione avvenuta!")
+            print("Connessione avvenuta con successo.")
             return True
         else: 
             print(f"ERROR! connessione al dispostivo presente sulla COM-port {SLAVE.port} fallita.\n tentativo di riconnessione numero: {i}\\10")
@@ -55,6 +55,8 @@ class TESTING:
 
         return risultati_elaborati
 
+class UTILS:
+
     def read_registers(start_address, count):
         if connect():
             try:
@@ -71,8 +73,8 @@ class TESTING:
 
 
 if __name__ == "__main__":
-    print(TESTING.read_MachineID().registers)
-    registers = TESTING.read_registers(start_address=15, count=10)
+    # print(TESTING.read_MachineID().registers)
+    registers = UTILS.read_registers(start_address=16, count=1)
     print(f"Registri letti: {registers}")
     
     
