@@ -1044,6 +1044,8 @@ class Ui_SetupWindow(object):
         if self.list_status_checkbox[0] == 1:
                 self.checkBox_CH4.setChecked(True)
         
+        self.timer1 = QTimer()
+        
         # setup dei segnali
         self.checkBox_CH1.stateChanged.connect(lambda: self.on_click(1))
         self.checkBox_CH2.stateChanged.connect(lambda: self.on_click(2))
@@ -1055,7 +1057,8 @@ class Ui_SetupWindow(object):
         self.pushButton_setup_CH3.clicked.connect(self.open_setup_CH3_window)
         self.pushButton_setup_CH4.clicked.connect(self.open_setup_CH4_window)
         self.pushButton_setup_CHSG600.clicked.connect(self.open_setup_SG600_window)
-
+        
+        
     def open_setup_CH1_window(self):
         self.setup_window = Canale_Setup_1()
         self.setup_window.show()
@@ -1075,20 +1078,26 @@ class Ui_SetupWindow(object):
     def open_setup_SG600_window(self):
         self.setup_window = Canale_Setup_SG600()
         self.setup_window.show()
+        
     
     # Funzione per gestire i canali attivi/disattivi con un click
     def on_click(self, ID):  
-        if self.list_status_checkbox[abs(ID-4)] == 0:
-            self.list_status_checkbox[abs(ID-4)] = 1       # ENABLED CHANNEL
-        else:
-            self.list_status_checkbox[abs(ID-4)] = 0       # DISABLED CHANNEL
+        self.list_status_checkbox[abs(ID-4)] = int(not(self.list_status_checkbox[abs(ID-4)]))
         print("STATUS CHN" + str(ID) + " = " + str(self.list_status_checkbox[abs(ID-4)]) + "; status-checkbox = " + str(self.list_status_checkbox))
     
     # Impostazioni vengono salvate definitivamente nella scheda a seguito di questa funzione
     def finalizing_setup(self):
         print(self.list_status_checkbox)
         Controller_Client_TCP_Laumas.DATA_INTERACTIONS.setup_full_update(self.list_status_checkbox)
-        sleep(0.2)
+        # sleep(0.2)
+        self.lcdNumber_CH1_2.display(Controller_Client_TCP_Laumas.DATA.LIST_FULLSCALE[0])
+        self.lcdNumber_CH2_2.display(Controller_Client_TCP_Laumas.DATA.LIST_FULLSCALE[1])
+        self.lcdNumber_CH3_2.display(Controller_Client_TCP_Laumas.DATA.LIST_FULLSCALE[2])
+        self.lcdNumber_CH4_2.display(Controller_Client_TCP_Laumas.DATA.LIST_FULLSCALE[3])
+        self.lcdNumber_CH1.display(Controller_Client_TCP_Laumas.DATA.LIST_SENSIBILITY[0])
+        self.lcdNumber_CH2.display(Controller_Client_TCP_Laumas.DATA.LIST_SENSIBILITY[1])
+        self.lcdNumber_CH3.display(Controller_Client_TCP_Laumas.DATA.LIST_SENSIBILITY[2])
+        self.lcdNumber_CH4.display(Controller_Client_TCP_Laumas.DATA.LIST_SENSIBILITY[3])
 
     #------------------------------------------------------------------------------------------------------------------# 
     

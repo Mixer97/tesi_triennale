@@ -9,7 +9,7 @@
 ################################################################################
 
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
+    QMetaObject, QObject, QPoint, QRect, QTimer, 
     QSize, QTime, QUrl, Qt)
 from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
@@ -18,6 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QDialog, QGridLayout, QHBoxLayout,
     QLabel, QLayout, QLineEdit, QPushButton,
     QSizePolicy, QWidget)
+import Controller_Client_TCP_Laumas
 
 class Ui_Canale_Setup_1(object):
     def setupUi(self, Canale_Setup):
@@ -233,25 +234,29 @@ class Ui_Canale_Setup_1(object):
         self.retranslateUi(Canale_Setup)
 
         QMetaObject.connectSlotsByName(Canale_Setup)
-    # setupUi
+        # setupUi
     
     #------------------------------------------------------------------------------------------------------------------------#
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        
+        # Setup dei segnali
+        self.lineEdit_fondoscala.textChanged.connect(self.update_fondoscala)
+        self.lineEdit_sensibilita.textChanged.connect(self.update_sensibilità)
 
-
-
+        
+    def update_fondoscala(self):
+        new_value = self.lineEdit_fondoscala.text() 
+        if is_number_tryexcept(new_value):
+            Controller_Client_TCP_Laumas.DATA.LIST_FULLSCALE[0] = float(new_value)
+        else:
+            print("Valore inserito non rappresenta un numero")       
+            
+    def update_sensibilità(self):
+        new_value = self.lineEdit_sensibilita.text() 
+        if is_number_tryexcept(new_value):
+            Controller_Client_TCP_Laumas.DATA.LIST_SENSIBILITY[0] = float(new_value)
+        else:
+            print("Valore inserito non rappresenta un numero")
+    
 
     #------------------------------------------------------------------------------------------------------------------------#
 
@@ -265,3 +270,11 @@ class Ui_Canale_Setup_1(object):
         self.label_fondoscala_setup.setText(QCoreApplication.translate("Canale_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">FONDOSCALA</span></p></body></html>", None))
     # retranslateUi
 
+
+def is_number_tryexcept(s):
+    """ Returns True if string is a number. """
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False

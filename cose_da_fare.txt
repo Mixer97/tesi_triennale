@@ -1,4 +1,4 @@
-COSE DA FARE
+COSE DA FARE:
 
     [[- Realizzazione delle finestre per il setup dei canali]]
     - Collegamento delle fuzionalità per le finestre di setup
@@ -6,4 +6,8 @@ COSE DA FARE
     [[- Rendere le lable modificabili dall'utente]]
     - Realizzazione del setup dell'SG600
     - Collegare i toggle dei colori delle checkbox
-    -
+
+
+BUG SCOPERTI:
+
+    - Programma smette di aggiornare la lista delle misure in mV quando si danno troppi comandi per on/off canali.

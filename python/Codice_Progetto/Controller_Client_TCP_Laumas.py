@@ -2,7 +2,7 @@ from time import sleep
 from pymodbus.client import ModbusTcpClient
 from pymodbus.framer import Framer
 import View_QT_HomePage as View_QT_HomePage
-from View_QT_SetupPage import Ui_SetupWindow
+# from View_QT_SetupPage import Ui_SetupWindow
 
 class SLAVE:
     ID=1
@@ -49,9 +49,9 @@ class DATA:
     LIST_Kg_VALUE = [0,0,0,0]
     LIST_Nm_VALUE = [0,0,0,0]
     LIST_N_VALUE = [0,0,0,0]
-    LIST_SENSIBILITY = [0,2.0302,0,1]
-    LIST_FULLSCALE = [10,50,10,10]
-    LIST_mV_ZERO = [1,-3.16,1,-0.21]
+    LIST_SENSIBILITY = [1,2.0302,0,1] # settato dalle varie setup pages
+    LIST_FULLSCALE = [10,50,10,10] # settato dalle varie setup pages
+    LIST_mV_ZERO = [1,-3.16,1,-0.21] # settato dalle varie setup pages
     LEVER_LENGTH = 1 # meters
     STATUS_CHANNELS = [0,0,0,0] # settato da setupPage
     
