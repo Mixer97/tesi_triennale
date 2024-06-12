@@ -24,6 +24,7 @@ from Dialog_setup_1_ui import Ui_Canale_Setup_1
 from Dialog_setup_2_ui import Ui_Canale_Setup_2
 from Dialog_setup_3_ui import Ui_Canale_Setup_3
 from Dialog_setup_4_ui import Ui_Canale_Setup_4
+from Dialog_setup_SG600_ui import Ui_SG600_Setup
 
 var = False
 
@@ -59,6 +60,13 @@ class Canale_Setup_4(QDialog):
         # Setup the user interface
         self.ui.setupUi(self)
                         
+class Canale_Setup_SG600(QDialog):
+    def __init__(self):
+        super().__init__()
+        # Create an instance of the generated UI class
+        self.ui = Ui_SG600_Setup()
+        # Setup the user interface
+        self.ui.setupUi(self)
 
 class Ui_SetupWindow(object):
     
@@ -1046,6 +1054,7 @@ class Ui_SetupWindow(object):
         self.pushButton_setup_CH2.clicked.connect(self.open_setup_CH2_window)
         self.pushButton_setup_CH3.clicked.connect(self.open_setup_CH3_window)
         self.pushButton_setup_CH4.clicked.connect(self.open_setup_CH4_window)
+        self.pushButton_setup_CHSG600.clicked.connect(self.open_setup_SG600_window)
 
     def open_setup_CH1_window(self):
         self.setup_window = Canale_Setup_1()
@@ -1062,19 +1071,24 @@ class Ui_SetupWindow(object):
     def open_setup_CH4_window(self):
         self.setup_window = Canale_Setup_4()
         self.setup_window.show()
-    
-    def on_click(self, ID):
         
+    def open_setup_SG600_window(self):
+        self.setup_window = Canale_Setup_SG600()
+        self.setup_window.show()
+    
+    # Funzione per gestire i canali attivi/disattivi con un click
+    def on_click(self, ID):  
         if self.list_status_checkbox[abs(ID-4)] == 0:
             self.list_status_checkbox[abs(ID-4)] = 1       # ENABLED CHANNEL
         else:
             self.list_status_checkbox[abs(ID-4)] = 0       # DISABLED CHANNEL
         print("STATUS CHN" + str(ID) + " = " + str(self.list_status_checkbox[abs(ID-4)]) + "; status-checkbox = " + str(self.list_status_checkbox))
-      
+    
+    # Impostazioni vengono salvate definitivamente nella scheda a seguito di questa funzione
     def finalizing_setup(self):
         print(self.list_status_checkbox)
         Controller_Client_TCP_Laumas.DATA_INTERACTIONS.setup_full_update(self.list_status_checkbox)
-        sleep(2)
+        sleep(0.2)
 
     #------------------------------------------------------------------------------------------------------------------# 
     

@@ -1,8 +1,9 @@
 COSE DA FARE
 
-    - Realizzazione delle finestre per il setup dei canali
+    [[- Realizzazione delle finestre per il setup dei canali]]
     - Collegamento delle fuzionalità per le finestre di setup
-    - Rendere le finsetre unstreachable
-    - Rendere le lable modificabili dall'utente
+    [[- Rendere le finestre unstreachable]]
+    [[- Rendere le lable modificabili dall'utente]]
+    - Realizzazione del setup dell'SG600
     - Collegare i toggle dei colori delle checkbox
-    - 
+    -
