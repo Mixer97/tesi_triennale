@@ -733,32 +733,6 @@ class Ui_MainWindow(object):
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout_27 = QGridLayout()
         self.gridLayout_27.setObjectName(u"gridLayout_27")
-        self.pushButton_concludi_setup = QPushButton(self.widget_2)
-        self.pushButton_concludi_setup.setObjectName(u"pushButton_concludi_setup")
-        sizePolicy = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Ignored)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.pushButton_concludi_setup.sizePolicy().hasHeightForWidth())
-        self.pushButton_concludi_setup.setSizePolicy(sizePolicy)
-        font1 = QFont()
-        font1.setPointSize(25)
-        self.pushButton_concludi_setup.setFont(font1)
-        self.pushButton_concludi_setup.setCursor(QCursor(Qt.PointingHandCursor))
-        self.pushButton_concludi_setup.setStyleSheet(u"QWidget {\n"
-"	background-color: rgb(255, 236, 89);\n"
-"	border-style: outset;\n"
-"    border-width: 6px;\n"
-"	border-color: rgb(211, 181, 13);\n"
-"	border-style: outset;\n"
-"	border-radius: 20px;\n"
-"}\n"
-"QPushButton{\n"
-"	color: rgb(0,0,0);\n"
-"}\n"
-"")
-
-        self.gridLayout_27.addWidget(self.pushButton_concludi_setup, 1, 0, 1, 1)
-
         self.widget = QWidget(self.widget_2)
         self.widget.setObjectName(u"widget")
         self.widget.setStyleSheet(u"QWidget {\n"
@@ -815,11 +789,11 @@ class Ui_MainWindow(object):
         self.gridLayout_10.setObjectName(u"gridLayout_10")
         self.checkBox_CHSG600 = QCheckBox(self.widget)
         self.checkBox_CHSG600.setObjectName(u"checkBox_CHSG600")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Preferred)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.checkBox_CHSG600.sizePolicy().hasHeightForWidth())
-        self.checkBox_CHSG600.setSizePolicy(sizePolicy1)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.checkBox_CHSG600.sizePolicy().hasHeightForWidth())
+        self.checkBox_CHSG600.setSizePolicy(sizePolicy)
         self.checkBox_CHSG600.setCursor(QCursor(Qt.PointingHandCursor))
         self.checkBox_CHSG600.setStyleSheet(u"QCheckBox {\n"
 "    spacing: 10px;\n"
@@ -932,6 +906,32 @@ class Ui_MainWindow(object):
 
         self.gridLayout_27.addWidget(self.widget, 0, 0, 1, 1)
 
+        self.pushButton_concludi_setup = QPushButton(self.widget_2)
+        self.pushButton_concludi_setup.setObjectName(u"pushButton_concludi_setup")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Ignored)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.pushButton_concludi_setup.sizePolicy().hasHeightForWidth())
+        self.pushButton_concludi_setup.setSizePolicy(sizePolicy1)
+        font1 = QFont()
+        font1.setPointSize(25)
+        self.pushButton_concludi_setup.setFont(font1)
+        self.pushButton_concludi_setup.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_concludi_setup.setStyleSheet(u"QWidget {\n"
+"	background-color: rgb(255, 236, 89);\n"
+"	border-style: outset;\n"
+"    border-width: 6px;\n"
+"	border-color: rgb(211, 181, 13);\n"
+"	border-style: outset;\n"
+"	border-radius: 20px;\n"
+"}\n"
+"QPushButton{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+
+        self.gridLayout_27.addWidget(self.pushButton_concludi_setup, 1, 0, 1, 1)
+
 
         self.gridLayout.addLayout(self.gridLayout_27, 4, 0, 1, 2)
 
@@ -994,11 +994,11 @@ class Ui_MainWindow(object):
         self.label_CH4_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">SENS. [mV/V]</span></p></body></html>", None))
         self.checkBox_CH4.setText(QCoreApplication.translate("MainWindow", u"OFF", None))
         self.label_CH4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">FONDOSCALA [?]</span></p></body></html>", None))
-        self.pushButton_concludi_setup.setText(QCoreApplication.translate("MainWindow", u"CONCLUSIONE SETUP", None))
         self.label_CHSG600.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt;\">FONDOSCALA [?]</span></p></body></html>", None))
         self.checkBox_CHSG600.setText(QCoreApplication.translate("MainWindow", u"OFF", None))
         self.pushButton_setup_CHSG600.setText(QCoreApplication.translate("MainWindow", u"SETUP", None))
         self.label_sensCHSG600.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt;\">SENS. [mV/V]</span></p></body></html>", None))
+        self.pushButton_concludi_setup.setText(QCoreApplication.translate("MainWindow", u"CONCLUSIONE SETUP", None))
         self.label_Impost_SG600.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700;\">IMPOSTAZIONI SG600</span></p></body></html>", None))
     # retranslateUi
 

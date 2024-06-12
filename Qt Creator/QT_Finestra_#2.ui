@@ -908,41 +908,6 @@ QLCDNumber{
         <layout class="QGridLayout" name="gridLayout">
          <item row="4" column="0" colspan="2">
           <layout class="QGridLayout" name="gridLayout_27">
-           <item row="1" column="0">
-            <widget class="QPushButton" name="pushButton_concludi_setup">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Ignored">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>25</pointsize>
-              </font>
-             </property>
-             <property name="cursor">
-              <cursorShape>PointingHandCursor</cursorShape>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QWidget {
-	background-color: rgb(255, 236, 89);
-	border-style: outset;
-    border-width: 6px;
-	border-color: rgb(211, 181, 13);
-	border-style: outset;
-	border-radius: 20px;
-}
-QPushButton{
-	color: rgb(0,0,0);
-}
-</string>
-             </property>
-             <property name="text">
-              <string>CONCLUSIONE SETUP</string>
-             </property>
-            </widget>
-           </item>
            <item row="0" column="0">
             <widget class="QWidget" name="widget" native="true">
              <property name="styleSheet">
@@ -1161,6 +1126,41 @@ QLCDNumber{
                </layout>
               </item>
              </layout>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QPushButton" name="pushButton_concludi_setup">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Ignored">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>25</pointsize>
+              </font>
+             </property>
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QWidget {
+	background-color: rgb(255, 236, 89);
+	border-style: outset;
+    border-width: 6px;
+	border-color: rgb(211, 181, 13);
+	border-style: outset;
+	border-radius: 20px;
+}
+QPushButton{
+	color: rgb(0,0,0);
+}
+</string>
+             </property>
+             <property name="text">
+              <string>CONCLUSIONE SETUP</string>
+             </property>
             </widget>
            </item>
           </layout>

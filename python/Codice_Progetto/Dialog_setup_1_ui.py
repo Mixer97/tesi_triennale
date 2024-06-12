@@ -234,6 +234,26 @@ class Ui_Canale_Setup_1(object):
 
         QMetaObject.connectSlotsByName(Canale_Setup)
     # setupUi
+    
+    #------------------------------------------------------------------------------------------------------------------------#
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+    #------------------------------------------------------------------------------------------------------------------------#
 
     def retranslateUi(self, Canale_Setup):
         Canale_Setup.setWindowTitle(QCoreApplication.translate("Canale_Setup", u"Setup CH1", None))
