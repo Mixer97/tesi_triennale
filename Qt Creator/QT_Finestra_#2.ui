@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1159</width>
+    <width>976</width>
     <height>611</height>
    </rect>
   </property>
@@ -760,7 +760,7 @@ QPushButton{
                <number>0</number>
               </property>
               <item row="2" column="0">
-               <widget class="QLCDNumber" name="lcdNumber_CH4_2">
+               <widget class="QLCDNumber" name="lcdNumber_CH4">
                 <property name="styleSheet">
                  <string notr="true">QWidget {
 	background-color:white; 
@@ -861,7 +861,7 @@ QCheckBox::indicator:unchecked {
                </widget>
               </item>
               <item row="1" column="0" colspan="2">
-               <widget class="QLCDNumber" name="lcdNumber_CH4">
+               <widget class="QLCDNumber" name="lcdNumber_CH4_2">
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
@@ -939,7 +939,7 @@ QPushButton{
 </string>
              </property>
              <property name="text">
-              <string>APPLICA CAMBIAMENTI</string>
+              <string>CONCLUSIONE SETUP</string>
              </property>
             </widget>
            </item>
@@ -980,7 +980,7 @@ QLabel{
 </string>
                   </property>
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;FONDOSCALA [V]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;FONDOSCALA [?]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                   <property name="textFormat">
                    <enum>Qt::RichText</enum>

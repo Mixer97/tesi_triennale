@@ -23,7 +23,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1159, 611)
+        MainWindow.resize(976, 611)
         MainWindow.setStyleSheet(u"QWidget {\n"
 "	background-color:black; \n"
 "	border-style: outset;\n"
@@ -608,9 +608,9 @@ class Ui_MainWindow(object):
         self.gridLayout_22 = QGridLayout()
         self.gridLayout_22.setObjectName(u"gridLayout_22")
         self.gridLayout_22.setVerticalSpacing(0)
-        self.lcdNumber_CH4_2 = QLCDNumber(self.widget_5)
-        self.lcdNumber_CH4_2.setObjectName(u"lcdNumber_CH4_2")
-        self.lcdNumber_CH4_2.setStyleSheet(u"QWidget {\n"
+        self.lcdNumber_CH4 = QLCDNumber(self.widget_5)
+        self.lcdNumber_CH4.setObjectName(u"lcdNumber_CH4")
+        self.lcdNumber_CH4.setStyleSheet(u"QWidget {\n"
 "	background-color:white; \n"
 "	border-style: outset;\n"
 "    border-width: 2px;\n"
@@ -621,7 +621,7 @@ class Ui_MainWindow(object):
 "}\n"
 "")
 
-        self.gridLayout_22.addWidget(self.lcdNumber_CH4_2, 2, 0, 1, 1)
+        self.gridLayout_22.addWidget(self.lcdNumber_CH4, 2, 0, 1, 1)
 
         self.label_CH4_2 = QLabel(self.widget_5)
         self.label_CH4_2.setObjectName(u"label_CH4_2")
@@ -690,10 +690,10 @@ class Ui_MainWindow(object):
 
         self.gridLayout_24.addWidget(self.label_CH4, 0, 0, 1, 2)
 
-        self.lcdNumber_CH4 = QLCDNumber(self.widget_5)
-        self.lcdNumber_CH4.setObjectName(u"lcdNumber_CH4")
-        self.lcdNumber_CH4.setMinimumSize(QSize(0, 0))
-        self.lcdNumber_CH4.setStyleSheet(u"QWidget {\n"
+        self.lcdNumber_CH4_2 = QLCDNumber(self.widget_5)
+        self.lcdNumber_CH4_2.setObjectName(u"lcdNumber_CH4_2")
+        self.lcdNumber_CH4_2.setMinimumSize(QSize(0, 0))
+        self.lcdNumber_CH4_2.setStyleSheet(u"QWidget {\n"
 "	background-color:white; \n"
 "	border-style: outset;\n"
 "    border-width: 2px;\n"
@@ -704,7 +704,7 @@ class Ui_MainWindow(object):
 "}\n"
 "")
 
-        self.gridLayout_24.addWidget(self.lcdNumber_CH4, 1, 0, 1, 2)
+        self.gridLayout_24.addWidget(self.lcdNumber_CH4_2, 1, 0, 1, 2)
 
 
         self.gridLayout_20.addLayout(self.gridLayout_24, 2, 0, 2, 1)
@@ -994,8 +994,8 @@ class Ui_MainWindow(object):
         self.label_CH4_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">SENS. [mV/V]</span></p></body></html>", None))
         self.checkBox_CH4.setText(QCoreApplication.translate("MainWindow", u"OFF", None))
         self.label_CH4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">FONDOSCALA [?]</span></p></body></html>", None))
-        self.pushButton_concludi_setup.setText(QCoreApplication.translate("MainWindow", u"APPLICA CAMBIAMENTI", None))
-        self.label_CHSG600.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt;\">FONDOSCALA [V]</span></p></body></html>", None))
+        self.pushButton_concludi_setup.setText(QCoreApplication.translate("MainWindow", u"CONCLUSIONE SETUP", None))
+        self.label_CHSG600.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt;\">FONDOSCALA [?]</span></p></body></html>", None))
         self.checkBox_CHSG600.setText(QCoreApplication.translate("MainWindow", u"OFF", None))
         self.pushButton_setup_CHSG600.setText(QCoreApplication.translate("MainWindow", u"SETUP", None))
         self.label_sensCHSG600.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt;\">SENS. [mV/V]</span></p></body></html>", None))

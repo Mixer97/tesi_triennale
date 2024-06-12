@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Canale_1_Setup</class>
- <widget class="QDialog" name="Canale_1_Setup">
+ <class>Canale_Setup</class>
+ <widget class="QDialog" name="Canale_Setup">
   <property name="windowModality">
    <enum>Qt::WindowModal</enum>
   </property>
@@ -52,6 +52,9 @@
 }
 </string>
   </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="sizeConstraint">
     <enum>QLayout::SetNoConstraint</enum>
@@ -79,7 +82,7 @@
          <number>0</number>
         </property>
         <item row="0" column="0">
-         <widget class="QLabel" name="label_ch1_setup">
+         <widget class="QLabel" name="label_setup_title">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
             <horstretch>0</horstretch>
@@ -131,7 +134,7 @@ QLabel{
          <item row="0" column="1" colspan="2">
           <layout class="QGridLayout" name="gridLayout_5">
            <item row="0" column="0">
-            <widget class="QLineEdit" name="lineEdit">
+            <widget class="QLineEdit" name="lineEdit_sensibilita">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                <horstretch>0</horstretch>
@@ -155,10 +158,10 @@ QLabel{
 }</string>
              </property>
              <property name="text">
-              <string>inserire qui la sensibilità</string>
+              <string>-</string>
              </property>
              <property name="cursorPosition">
-              <number>27</number>
+              <number>1</number>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -173,7 +176,7 @@ QLabel{
          <item row="0" column="0">
           <layout class="QGridLayout" name="gridLayout">
            <item row="0" column="0">
-            <widget class="QLabel" name="label_sensib_setup_ch1">
+            <widget class="QLabel" name="label_sensib_setup">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                <horstretch>0</horstretch>
@@ -201,7 +204,7 @@ QLabel{
          <item row="3" column="0" colspan="3">
           <layout class="QGridLayout" name="gridLayout_9">
            <item row="0" column="0">
-            <widget class="QPushButton" name="pushButton">
+            <widget class="QPushButton" name="pushButton_azzeramento_tara">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
                <horstretch>0</horstretch>
@@ -243,7 +246,7 @@ QLabel{
          <item row="2" column="1" colspan="2">
           <layout class="QGridLayout" name="gridLayout_6">
            <item row="0" column="1">
-            <widget class="QLineEdit" name="lineEdit_2">
+            <widget class="QLineEdit" name="lineEdit_fondoscala">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                <horstretch>0</horstretch>
@@ -267,7 +270,7 @@ QLabel{
 }</string>
              </property>
              <property name="text">
-              <string>inserire qui il fondoscala</string>
+              <string>-</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -279,7 +282,7 @@ QLabel{
          <item row="2" column="0">
           <layout class="QGridLayout" name="gridLayout_3">
            <item row="0" column="0">
-            <widget class="QLabel" name="label_fondoscala_setup_ch1">
+            <widget class="QLabel" name="label_fondoscala_setup">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                <horstretch>0</horstretch>

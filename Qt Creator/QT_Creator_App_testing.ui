@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1101</width>
-    <height>679</height>
+    <width>972</width>
+    <height>664</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>853</width>
+    <height>664</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -749,9 +755,343 @@ QLCDNumber{
 }
 </string>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_14">
-         <item>
+        <layout class="QGridLayout" name="gridLayout_9">
+         <item row="2" column="0">
+          <layout class="QGridLayout" name="gridLayout_10">
+           <property name="sizeConstraint">
+            <enum>QLayout::SetDefaultConstraint</enum>
+           </property>
+           <item row="0" column="0">
+            <widget class="QWidget" name="widget_12" native="true">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QWidget {
+	background-color:orange; 
+	border-style: outset;
+    border-width: 1px;
+    border-color: black;
+}
+</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_2">
+              <item row="1" column="0">
+               <widget class="QWidget" name="widget" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QWidget {
+	background-color:rgb(125, 225, 10); 
+	border-style: outset;
+    border-width: 2px;
+    border-color:rgb(63, 156, 23);
+	border-radius: 20px;
+}
+</string>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_6">
+                 <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                  <widget class="QLabel" name="label">
+                   <property name="font">
+                    <font>
+                     <pointsize>17</pointsize>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QWidget {
+	background-color:rgb(125, 225, 10); 
+	border-style: outset;
+    border-width: 0px;
+    border-color:rgb(63, 156, 23);
+	border-radius: 20px;
+}
+QLabel{
+	color: rgb(0,0,0);
+}
+</string>
+                   </property>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;INTERFACCIA&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_Interfaccia">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>200</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>300</width>
+                     <height>200</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <pointsize>30</pointsize>
+                     <italic>false</italic>
+                     <bold>true</bold>
+                     <underline>false</underline>
+                     <strikeout>false</strikeout>
+                    </font>
+                   </property>
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QWidget {
+	background-color:green; 
+	border-style: outset;
+	border-style: outset;
+    border-width: 2px;
+    border-color: black;
+	border-radius: 20px;
+}
+QPushButton{
+	color: rgb(0,0,0);
+}
+</string>
+                   </property>
+                   <property name="text">
+                    <string>START</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QWidget" name="widget" native="true">
+                <property name="styleSheet">
+                 <string notr="true">QWidget {
+	background-color:rgb(125, 225, 10); 
+	border-style: outset;
+    border-width: 2px;
+    border-color:rgb(63, 156, 23);
+	border-radius: 20px;
+}</string>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_8">
+                 <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                  <widget class="QLabel" name="label_5">
+                   <property name="font">
+                    <font>
+                     <pointsize>17</pointsize>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QWidget {
+	background-color:rgb(125, 225, 10); 
+	border-style: outset;
+    border-width: 0px;
+    border-color:rgb(63, 156, 23);
+	border-radius: 20px;
+}
+QLabel{
+	color: rgb(0,0,0);
+}
+</string>
+                   </property>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;REGISTRAZIONE&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_Registrazione">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>200</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>300</width>
+                     <height>200</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <pointsize>30</pointsize>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QWidget {
+	background-color:green; 
+	border-style: outset;
+	border-style: outset;
+    border-width: 2px;
+    border-color: black;
+	border-radius: 20px;
+}
+QPushButton{
+	color: rgb(0,0,0);
+}
+</string>
+                   </property>
+                   <property name="text">
+                    <string>START</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QWidget" name="widget" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>100</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QWidget {
+	background-color:rgb(213, 213, 213); 
+	border-style: outset;
+    border-width: 2px;
+    border-color:rgb(103, 98, 93);
+	border-radius: 20px;
+}</string>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout">
+                 <property name="spacing">
+                  <number>7</number>
+                 </property>
+                 <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                  <widget class="QLabel" name="label_impostazioni">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Ignored">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="baseSize">
+                    <size>
+                     <width>0</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <pointsize>17</pointsize>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QWidget {
+	background-color:rgb(213, 213, 213); 
+	border-style: outset;
+    border-width: 0px;
+    border-color:rgb(103, 98, 93);
+	border-radius: 20px;
+}
+QLabel{
+	color: rgb(0,0,0);
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;IMPOSTAZIONI&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_impostazioni">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Minimum" vsizetype="Ignored">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>200</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <pointsize>30</pointsize>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QWidget {
+	background-color:rgb(138, 139, 135); 
+	border-style: outset;
+    border-width: 2px;
+    border-color: black;
+	border-style: outset;
+	border-radius: 20px;
+}
+QPushButton{
+	color: rgb(0,0,0);
+}
+</string>
+                   </property>
+                   <property name="text">
+                    <string>SETUP</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="0" column="0">
           <widget class="QWidget" name="widget_6" native="true">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
            <property name="styleSheet">
             <string notr="true">QWidget {
 	background-color:orange; 
@@ -762,8 +1102,14 @@ QLCDNumber{
 </string>
            </property>
            <layout class="QGridLayout" name="gridLayout">
-            <item row="0" column="0">
+            <item row="0" column="0" rowspan="2">
              <widget class="QWidget" name="widget_7" native="true">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="styleSheet">
                <string notr="true">QWidget {
 	background-color:rgb(255, 207, 84); 
@@ -774,25 +1120,45 @@ QLCDNumber{
 }</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_7">
-               <item row="0" column="1">
-                <widget class="QComboBox" name="comboBox_5">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="cursor">
-                  <cursorShape>PointingHandCursor</cursorShape>
-                 </property>
-                 <property name="mouseTracking">
-                  <bool>false</bool>
-                 </property>
-                 <property name="autoFillBackground">
-                  <bool>false</bool>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QComboBox {
+               <item row="0" column="0" colspan="2">
+                <layout class="QGridLayout" name="gridLayout_11">
+                 <item row="1" column="0">
+                  <widget class="QLabel" name="label_SG600">
+                   <property name="font">
+                    <font>
+                     <pointsize>17</pointsize>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QLabel{
+	color: rgb(0,0,0);
+}
+</string>
+                   </property>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;SG-600&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="QComboBox" name="comboBox_5">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
+                   <property name="mouseTracking">
+                    <bool>false</bool>
+                   </property>
+                   <property name="autoFillBackground">
+                    <bool>false</bool>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QComboBox {
     border: 3px solid gray;
     border-radius: 3px;
     padding: 1px 18px 1px 3px;
@@ -846,70 +1212,58 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
     top: 1px;
     left: 1px;
 }</string>
-                 </property>
-                 <property name="currentText">
-                  <string>mV</string>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>30</width>
-                   <height>30</height>
-                  </size>
-                 </property>
-                 <item>
-                  <property name="text">
-                   <string>mV</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Nm</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Kg</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>N</string>
-                  </property>
-                 </item>
-                </widget>
-               </item>
-               <item row="0" column="0">
-                <layout class="QVBoxLayout" name="verticalLayout_13">
-                 <item>
-                  <widget class="QLabel" name="label_SG600">
-                   <property name="font">
-                    <font>
-                     <pointsize>17</pointsize>
-                    </font>
                    </property>
-                   <property name="styleSheet">
-                    <string notr="true">QLabel{
-	color: rgb(0,0,0);
-}
-</string>
+                   <property name="currentText">
+                    <string>mV</string>
                    </property>
-                   <property name="text">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;SG-600&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <property name="iconSize">
+                    <size>
+                     <width>30</width>
+                     <height>30</height>
+                    </size>
                    </property>
+                   <item>
+                    <property name="text">
+                     <string>mV</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Nm</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Kg</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>N</string>
+                    </property>
+                   </item>
                   </widget>
                  </item>
                 </layout>
                </item>
-               <item row="1" column="0" colspan="2">
-                <widget class="QLCDNumber" name="lcdNumber_5">
-                 <property name="font">
-                  <font>
-                   <pointsize>9</pointsize>
-                   <bold>false</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QWidget {
+               <item row="1" column="0" rowspan="2" colspan="2">
+                <layout class="QGridLayout" name="gridLayout_8">
+                 <item row="1" column="1">
+                  <widget class="QLCDNumber" name="lcdNumber_temperature_SG600">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <pointsize>9</pointsize>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QWidget {
 	background-color:white; 
 	border-style: outset;
 	border-style: outset;
@@ -921,315 +1275,99 @@ QLCDNumber{
 	color: rgb(0,0,0);
 }
 </string>
-                 </property>
-                 <property name="digitCount">
-                  <number>7</number>
-                 </property>
-                 <property name="value" stdset="0">
-                  <double>0.000000000000000</double>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QWidget" name="widget" native="true">
-              <property name="styleSheet">
-               <string notr="true">QWidget {
-	background-color:rgb(213, 213, 213); 
+                   </property>
+                   <property name="digitCount">
+                    <number>7</number>
+                   </property>
+                   <property name="value" stdset="0">
+                    <double>0.000000000000000</double>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QLCDNumber" name="lcdNumber_main_SG600">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QWidget {
+	background-color:white; 
+	border-style: outset;
 	border-style: outset;
     border-width: 2px;
-    border-color:rgb(103, 98, 93);
-	border-radius: 20px;
-}</string>
-              </property>
-              <layout class="QHBoxLayout" name="horizontalLayout">
-               <property name="spacing">
-                <number>7</number>
-               </property>
-               <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                <widget class="QLabel" name="label_impostazioni">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Ignored">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="baseSize">
-                  <size>
-                   <width>0</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <pointsize>17</pointsize>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QWidget {
-	background-color:rgb(213, 213, 213); 
+    border-color: black;
+	border-radius: 10px;
+}
+QLCDNumber{
+	color: rgb(0,0,0);
+}
+</string>
+                   </property>
+                   <property name="digitCount">
+                    <number>7</number>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="label_6">
+                   <property name="font">
+                    <font>
+                     <pointsize>17</pointsize>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QWidget {
+	background-color:rgb(255, 207, 84); 
 	border-style: outset;
-    border-width: 0px;
-    border-color:rgb(103, 98, 93);
+    border-width: 2px;
+    border-color: rgb(255, 106, 0);
 	border-radius: 20px;
 }
 QLabel{
 	color: rgb(0,0,0);
-}</string>
-                 </property>
-                 <property name="text">
-                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;IMPOSTAZIONI&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="pushButton_impostazioni">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Minimum" vsizetype="Ignored">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <pointsize>30</pointsize>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="cursor">
-                  <cursorShape>PointingHandCursor</cursorShape>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QWidget {
-	background-color:rgb(138, 139, 135); 
+}
+</string>
+                   </property>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Main Channel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QLabel" name="label_7">
+                   <property name="font">
+                    <font>
+                     <pointsize>17</pointsize>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QWidget {
+	background-color:rgb(255, 207, 84); 
 	border-style: outset;
     border-width: 2px;
-    border-color: black;
-	border-style: outset;
+    border-color: rgb(255, 106, 0);
 	border-radius: 20px;
 }
-QPushButton{
+QLabel{
 	color: rgb(0,0,0);
 }
 </string>
-                 </property>
-                 <property name="text">
-                  <string>SETUP</string>
-                 </property>
-                </widget>
+                   </property>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Temperature&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
                </item>
               </layout>
              </widget>
             </item>
            </layout>
           </widget>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_6">
-           <item>
-            <widget class="QWidget" name="widget_12" native="true">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QWidget {
-	background-color:orange; 
-	border-style: outset;
-    border-width: 1px;
-    border-color: black;
-}
-</string>
-             </property>
-             <layout class="QGridLayout" name="gridLayout_2">
-              <item row="0" column="0">
-               <widget class="QWidget" name="widget" native="true">
-                <property name="styleSheet">
-                 <string notr="true">QWidget {
-	background-color:rgb(125, 225, 10); 
-	border-style: outset;
-    border-width: 2px;
-    border-color:rgb(63, 156, 23);
-	border-radius: 20px;
-}
-</string>
-                </property>
-                <layout class="QHBoxLayout" name="horizontalLayout_6">
-                 <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                  <widget class="QLabel" name="label">
-                   <property name="font">
-                    <font>
-                     <pointsize>17</pointsize>
-                    </font>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QWidget {
-	background-color:rgb(125, 225, 10); 
-	border-style: outset;
-    border-width: 0px;
-    border-color:rgb(63, 156, 23);
-	border-radius: 20px;
-}
-QLabel{
-	color: rgb(0,0,0);
-}
-</string>
-                   </property>
-                   <property name="text">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;INTERFACCIA&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QPushButton" name="pushButton_Interfaccia">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>200</width>
-                     <height>140</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>300</width>
-                     <height>200</height>
-                    </size>
-                   </property>
-                   <property name="font">
-                    <font>
-                     <pointsize>30</pointsize>
-                     <italic>false</italic>
-                     <bold>true</bold>
-                     <underline>false</underline>
-                     <strikeout>false</strikeout>
-                    </font>
-                   </property>
-                   <property name="cursor">
-                    <cursorShape>PointingHandCursor</cursorShape>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QWidget {
-	background-color:green; 
-	border-style: outset;
-	border-style: outset;
-    border-width: 2px;
-    border-color: black;
-	border-radius: 20px;
-}
-QPushButton{
-	color: rgb(0,0,0);
-}
-</string>
-                   </property>
-                   <property name="text">
-                    <string>START</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QWidget" name="widget" native="true">
-                <property name="styleSheet">
-                 <string notr="true">QWidget {
-	background-color:rgb(125, 225, 10); 
-	border-style: outset;
-    border-width: 2px;
-    border-color:rgb(63, 156, 23);
-	border-radius: 20px;
-}</string>
-                </property>
-                <layout class="QHBoxLayout" name="horizontalLayout_8">
-                 <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                  <widget class="QLabel" name="label_5">
-                   <property name="font">
-                    <font>
-                     <pointsize>17</pointsize>
-                    </font>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QWidget {
-	background-color:rgb(125, 225, 10); 
-	border-style: outset;
-    border-width: 0px;
-    border-color:rgb(63, 156, 23);
-	border-radius: 20px;
-}
-QLabel{
-	color: rgb(0,0,0);
-}
-</string>
-                   </property>
-                   <property name="text">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;REGISTRAZIONE&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QPushButton" name="pushButton_Registrazione">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>200</width>
-                     <height>140</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>300</width>
-                     <height>200</height>
-                    </size>
-                   </property>
-                   <property name="font">
-                    <font>
-                     <pointsize>30</pointsize>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="cursor">
-                    <cursorShape>PointingHandCursor</cursorShape>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QWidget {
-	background-color:green; 
-	border-style: outset;
-	border-style: outset;
-    border-width: 2px;
-    border-color: black;
-	border-radius: 20px;
-}
-QPushButton{
-	color: rgb(0,0,0);
-}
-</string>
-                   </property>
-                   <property name="text">
-                    <string>START</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-          </layout>
          </item>
         </layout>
        </widget>
