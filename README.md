@@ -42,4 +42,6 @@ tesi triennale presso Easting Electronics
     Nuovo obiettivo: decidere cosa mettere dentro una finestra di dialogo per il setup dei canali.
 
 12/06
-    Continuazione sul lavoro delle finestre di setup per i vari canali
+    Continuazione sul lavoro delle finestre di setup per i vari canali.
+    Rimane da implementare quello che ho fatto per setup Dialog 1 su gli altri setup e anche di implementare per tutti il bottone per azzerare.
+    I menù a tendina devono essere colorati in modo diverso quando scendono e non devono essere tondeggianti.
