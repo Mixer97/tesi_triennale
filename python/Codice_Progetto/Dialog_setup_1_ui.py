@@ -238,7 +238,13 @@ class Ui_Canale_Setup_1(object):
     
     #------------------------------------------------------------------------------------------------------------------------#
         
+        # Setup dei valori iniziali delle lineEdit
+        self.lineEdit_fondoscala.setText(str(Controller_Client_TCP_Laumas.DATA.LIST_FULLSCALE[0]))
+        self.lineEdit_sensibilita.setText(str(Controller_Client_TCP_Laumas.DATA.LIST_SENSIBILITY[0]))
+
+        
         # Setup dei segnali
+        self.lineEdit_fondoscala
         self.lineEdit_fondoscala.textChanged.connect(self.update_fondoscala)
         self.lineEdit_sensibilita.textChanged.connect(self.update_sensibilità)
 

@@ -1034,6 +1034,8 @@ class Ui_MainWindow(object):
     #------------------------------------------------------------------------------------------------------------------#
     # Codice aggiunto da me
     
+        
+    
     # setup segnali
         self.pushButton_Interfaccia.clicked.connect(self.pulsante_interfaccia_click)                  # pulsanti interfaccia e registrazione
         self.pushButton_Registrazione.clicked.connect(self.pulsante_registrazione_click)              #
@@ -1049,7 +1051,7 @@ class Ui_MainWindow(object):
         self.pushButton_impostazioni.clicked.connect(self.open_setup_window)                 #
         self.timer1.timeout.connect(self.check)                                         # Check per chiusura dei timer alla chiusura dell'ultima finestra
         self.timer2.timeout.connect(self.check)                                         #
-        
+        # self.pulsante_registrazione_click()
 
     def open_setup_window(self):
         self.setup_window = SetupWindow()
@@ -1196,8 +1198,6 @@ class Ui_MainWindow(object):
     def update_SG600_temp(self):
         temp_mV = Controller_Client_MODBUS_Seneca.DATA_INTERACTIONS.get_mV_temp()
         self.lcdNumber_temperature_SG600.display(temp_mV)
-
-        
         
         
     #------------------------------------------------------------------------------------------------------------------#     
@@ -1248,6 +1248,6 @@ class Ui_MainWindow(object):
 
         self.comboBox_5.setCurrentText(QCoreApplication.translate("MainWindow", u"mV", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Main Channel</p></body></html>", None))
-        self.label_7.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Temperature</p></body></html>", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Temperature [C]</p></body></html>", None))
     # retranslateUi
 

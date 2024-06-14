@@ -53,4 +53,7 @@ tesi triennale presso Easting Electronics
     Implementato funzionamento del logger con successo per la registrazione di valri in mV dei due canali dell'SG600.
     Attivazione del canale 1 di default nel caso ci sia la disattivazione di ogni canale.
     Gestione della configurazione 0000 fatta con successo. 
+
+14/06
+    Inizio la giornata lavorando sulle schermate di setup dei vari canali della scheda laumas.
     

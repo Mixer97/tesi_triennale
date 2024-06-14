@@ -10,10 +10,19 @@ COSE DA FARE:
     - il canale creato di temperatura misura in tensione ma voglio solo la misura in gradi Celsius
     - schermi lcd per SG600 displayano solamente le caratteristiche del canale main e non quelle del canale temperatura
     - Implementare una finestra modale che non permette di agire per 3 secondi dopo una richiesta di configurazione
-
+    - All' apertura delle finestre di setup voglio che ci sia la lettura del fondoscala e sensibilità che sono già presenti
+    - Implementazione scrittura e visualizzazione con lo zero dei millivolt (capire la logica che ci sta dietro)
 
 BUG SCOPERTI:
 
-    - Programma smette di aggiornare la lista delle misure in mV quando si danno troppi comandi per on/off canali
+    [[- Programma smette di aggiornare la lista delle misure in mV quando si danno troppi comandi per on/off canali]]
     - Scheda della Seneca ha problemi con l'impostazione della scala normalizzata, riesce a impostarla da app ma nei registri risultano sempre la scala: 0/10000
-    - Problema con i timer che continuano il loop anche anche con le finestre chiuse
+    [[- Problema con i timer che continuano il loop anche anche con le finestre chiuse]]
+    - Problema con l'handling del programma quando le schede non sono collegate
+    - Bug che avviene ogni tanto all'inizio dell'esecuzione del programma
+
+
+    classe in più : BANCO DI MISURA  -----> contiene i controller e contriene i thread con start e stop in modo che l'interfaccia parli solo con banco di misura.
+                    annidare la struttura dati in un contenitore unico provvisto di getter e setter per riuscire a poterla aggiornare in futuro in modo efficace.
+                    esempio: quando vado ad accedere a ch1_laumas_mV voglio farlo tramite la classe banco taratura.
+                    Poblema da risolvere: riuscire a fare capire la notazione posizionale dei vettori a chiunque acceda al codice.

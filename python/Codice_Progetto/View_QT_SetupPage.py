@@ -1035,7 +1035,21 @@ class Ui_SetupWindow(object):
     
     #------------------------------------------------------------------------------------------------------------------# 
 
-        # Imposto sensibilità e fondoscala dei canali
+
+
+
+        # Imposto sensibilità, fondoscala e numero di cifre dei canali
+        self.lcdNumber_CH1_2.setDigitCount(7)
+        self.lcdNumber_CH2_2.setDigitCount(7)
+        self.lcdNumber_CH3_2.setDigitCount(7)
+        self.lcdNumber_CH4_2.setDigitCount(7)
+        self.lcdNumber_CH1.setDigitCount(7)
+        self.lcdNumber_CH2.setDigitCount(7)
+        self.lcdNumber_CH3.setDigitCount(7)
+        self.lcdNumber_CH4.setDigitCount(7)
+        self.lcdNumber_fondoscala_CHSG600.setDigitCount(7)
+        self.lcdNumber_sens_CHSG600.setDigitCount(7)
+        
         self.lcdNumber_CH1_2.display(Controller_Client_TCP_Laumas.DATA.LIST_FULLSCALE[0])
         self.lcdNumber_CH2_2.display(Controller_Client_TCP_Laumas.DATA.LIST_FULLSCALE[1])
         self.lcdNumber_CH3_2.display(Controller_Client_TCP_Laumas.DATA.LIST_FULLSCALE[2])
