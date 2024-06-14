@@ -45,3 +45,12 @@ tesi triennale presso Easting Electronics
     Continuazione sul lavoro delle finestre di setup per i vari canali.
     Rimane da implementare quello che ho fatto per setup Dialog 1 su gli altri setup e anche di implementare per tutti il bottone per azzerare.
     I menù a tendina devono essere colorati in modo diverso quando scendono e non devono essere tondeggianti.
+
+13/06
+    Inizio a connettere i due client in modo che vengano attivati dello stesso pulsante e fermati pure.
+    Nello specifico inizio la modifica del Logger.
+    Ho iniziato a implementare la lettura del registro dalla scheda mediante loop. Dovrebbe funzionare tutto e nel pomeriggio collego i due lcd ai valori e vedo se tornano.
+    Implementato funzionamento del logger con successo per la registrazione di valri in mV dei due canali dell'SG600.
+    Attivazione del canale 1 di default nel caso ci sia la disattivazione di ogni canale.
+    Gestione della configurazione 0000 fatta con successo. 
+    

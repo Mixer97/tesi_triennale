@@ -1,13 +1,19 @@
 COSE DA FARE:
 
     [[- Realizzazione delle finestre per il setup dei canali]]
-    - Collegamento delle fuzionalità per le finestre di setup
+    - Collegamento delle fuzionalità per le finestre di setup (finire la 1 e iniziare la 2,3,4)
     [[- Rendere le finestre unstreachable]]
     [[- Rendere le lable modificabili dall'utente]]
-    - Realizzazione del setup dell'SG600
+    [[- Realizzazione del setup dell'SG600]]
+    - collegare i funzionamenti della finestra di setup per SG600
     - Collegare i toggle dei colori delle checkbox
+    - il canale creato di temperatura misura in tensione ma voglio solo la misura in gradi Celsius
+    - schermi lcd per SG600 displayano solamente le caratteristiche del canale main e non quelle del canale temperatura
+    - Implementare una finestra modale che non permette di agire per 3 secondi dopo una richiesta di configurazione
 
 
 BUG SCOPERTI:
 
-    - Programma smette di aggiornare la lista delle misure in mV quando si danno troppi comandi per on/off canali.
+    - Programma smette di aggiornare la lista delle misure in mV quando si danno troppi comandi per on/off canali
+    - Scheda della Seneca ha problemi con l'impostazione della scala normalizzata, riesce a impostarla da app ma nei registri risultano sempre la scala: 0/10000
+    - Problema con i timer che continuano il loop anche anche con le finestre chiuse

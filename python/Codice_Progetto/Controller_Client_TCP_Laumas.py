@@ -45,7 +45,7 @@ class CMDR_COMMANDS:
     COMMAND_9 = 9
     
 class DATA:
-    LIST_mV_VALUE = [0,0,0,0]
+    LIST_mV_VALUE = [0,0,0,0]   # Aggiornato dal main in un thread separato
     LIST_Kg_VALUE = [0,0,0,0]
     LIST_Nm_VALUE = [0,0,0,0]
     LIST_N_VALUE = [0,0,0,0]
@@ -79,11 +79,15 @@ class WORKING:
             # Inviare il comando 6902 a CMDR (abilitare lettura in mV)
             UTILS.write_CMDR(CMDR_COMMANDS.COMMAND_6902)
 
+            
             # Lettura holding registers (52...55)
             risultatimV=client.read_holding_registers(address=ADDRESS.REGISTER_3, count=4, slave=SLAVE.ID)
+            
 
             while risultatimV.registers==[0,0,0,0]:
                 risultatimV=client.read_holding_registers(address=ADDRESS.REGISTER_3, count=4, slave=SLAVE.ID)
+                UTILS.write_CMDR(CMDR_COMMANDS.COMMAND_6902)
+
 
             # Conversione
             for value in range(4):
@@ -97,6 +101,7 @@ class WORKING:
 
             # Inviare il comando 6903 a CMDR (disabilitare lettura in mV)
             UTILS.write_CMDR(CMDR_COMMANDS.COMMAND_6903)
+
             
             return risultatimV.registers
 

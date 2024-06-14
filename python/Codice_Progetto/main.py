@@ -1,9 +1,11 @@
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow
 from View_QT_HomePage import Ui_MainWindow  # Import the generated UI class
+import View_QT_HomePage
 from View_QT_SetupPage import Ui_SetupWindow
 import Logger as Logger
 import Controller_Client_TCP_Laumas as Controller_Client_TCP_Laumas
+import Controller_Client_MODBUS_Seneca
 from threading import Thread
 from time import sleep
 
@@ -21,11 +23,17 @@ def run_logger():
 
 def data_update_mV():
     while Logger.DATA.loop_status:
-        result_list = Controller_Client_TCP_Laumas.WORKING.read_holding_registers_mV()
-        Controller_Client_TCP_Laumas.DATA.LIST_mV_VALUE = result_list
+        # print("data_update")
+        result_list_laumas = Controller_Client_TCP_Laumas.WORKING.read_holding_registers_mV()   # celle di carico 1-4
+        result_list_SG600 = Controller_Client_MODBUS_Seneca.WORKING.read_holding_registers_mV() # canale main e canale temp
+        Controller_Client_TCP_Laumas.DATA.LIST_mV_VALUE = result_list_laumas
+        Controller_Client_MODBUS_Seneca.DATA.canale_principale_mV = result_list_SG600[0]
+        Controller_Client_MODBUS_Seneca.DATA.canale_temperatura_mV = result_list_SG600[1]
 
 def closed_last_window_signal():
     Logger.DATA.loop_status=False
+    View_QT_HomePage.timerStop=True
+    
 
 
 if __name__ == "__main__":

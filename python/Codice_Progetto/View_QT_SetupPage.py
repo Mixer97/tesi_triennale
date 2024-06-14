@@ -19,6 +19,7 @@ from PySide6.QtWidgets import (QApplication, QCheckBox, QGridLayout, QHBoxLayout
     QLCDNumber, QLabel, QMainWindow, QPushButton,
     QSizePolicy, QVBoxLayout, QWidget)
 import Controller_Client_TCP_Laumas as Controller_Client_TCP_Laumas
+import Controller_Client_MODBUS_Seneca
 from time import sleep
 from Dialog_setup_1_ui import Ui_Canale_Setup_1
 from Dialog_setup_2_ui import Ui_Canale_Setup_2
@@ -1034,6 +1035,18 @@ class Ui_SetupWindow(object):
     
     #------------------------------------------------------------------------------------------------------------------# 
 
+        # Imposto sensibilità e fondoscala dei canali
+        self.lcdNumber_CH1_2.display(Controller_Client_TCP_Laumas.DATA.LIST_FULLSCALE[0])
+        self.lcdNumber_CH2_2.display(Controller_Client_TCP_Laumas.DATA.LIST_FULLSCALE[1])
+        self.lcdNumber_CH3_2.display(Controller_Client_TCP_Laumas.DATA.LIST_FULLSCALE[2])
+        self.lcdNumber_CH4_2.display(Controller_Client_TCP_Laumas.DATA.LIST_FULLSCALE[3])
+        self.lcdNumber_CH1.display(Controller_Client_TCP_Laumas.DATA.LIST_SENSIBILITY[0])
+        self.lcdNumber_CH2.display(Controller_Client_TCP_Laumas.DATA.LIST_SENSIBILITY[1])
+        self.lcdNumber_CH3.display(Controller_Client_TCP_Laumas.DATA.LIST_SENSIBILITY[2])
+        self.lcdNumber_CH4.display(Controller_Client_TCP_Laumas.DATA.LIST_SENSIBILITY[3])
+        self.lcdNumber_fondoscala_CHSG600.display(Controller_Client_MODBUS_Seneca.DATA.fondo_scala_principale)
+        self.lcdNumber_sens_CHSG600.display(Controller_Client_MODBUS_Seneca.DATA.sensibilità_principale)
+        
         # controllo i canali attivi nella scheda e faccio corrispodere la grafica
         if self.list_status_checkbox[3] == 1:
                 self.checkBox_CH1.setChecked(True)
@@ -1087,6 +1100,9 @@ class Ui_SetupWindow(object):
     
     # Impostazioni vengono salvate definitivamente nella scheda a seguito di questa funzione
     def finalizing_setup(self):
+        if self.list_status_checkbox == [0,0,0,0]:      # Controllo che la configurazione sia valida
+                print("Configurazione invalida, ripristino alla configurazione base con canale 1 ON.")
+                self.checkBox_CH1.setChecked(True)
         print(self.list_status_checkbox)
         Controller_Client_TCP_Laumas.DATA_INTERACTIONS.setup_full_update(self.list_status_checkbox)
         # sleep(0.2)
@@ -1098,6 +1114,8 @@ class Ui_SetupWindow(object):
         self.lcdNumber_CH2.display(Controller_Client_TCP_Laumas.DATA.LIST_SENSIBILITY[1])
         self.lcdNumber_CH3.display(Controller_Client_TCP_Laumas.DATA.LIST_SENSIBILITY[2])
         self.lcdNumber_CH4.display(Controller_Client_TCP_Laumas.DATA.LIST_SENSIBILITY[3])
+        self.lcdNumber_fondoscala_CHSG600.display(Controller_Client_MODBUS_Seneca.DATA.fondo_scala_principale)
+        self.lcdNumber_sens_CHSG600.display(Controller_Client_MODBUS_Seneca.DATA.sensibilità_principale)
 
     #------------------------------------------------------------------------------------------------------------------# 
     

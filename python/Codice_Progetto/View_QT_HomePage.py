@@ -21,12 +21,14 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout
 import Controller_Client_TCP_Laumas as Controller_Client_TCP_Laumas
 import Logger
 from View_QT_SetupPage import Ui_SetupWindow
+import Controller_Client_MODBUS_Seneca
 from time import sleep
 
 
 startStop = False
 status_pulsante_interfaccia = 1
 status_pulsante_registrazione = 1
+timerStop = False
 
 class SetupWindow(QMainWindow):
     def __init__(self):
@@ -1033,26 +1035,37 @@ class Ui_MainWindow(object):
     # Codice aggiunto da me
     
     # setup segnali
-        self.pushButton_Interfaccia.clicked.connect(self.pulsante_interfaccia_click)
-        self.pushButton_Registrazione.clicked.connect(self.pulsante_registrazione_click)
-        self.timer1 = QTimer()
-        self.timer2 = QTimer()
-        self.timer1.timeout.connect(self.update_CH1)
-        self.timer1.timeout.connect(self.update_CH2)
-        self.timer1.timeout.connect(self.update_CH3)
-        self.timer1.timeout.connect(self.update_CH4)
-        self.timer2.timeout.connect(self.setter_lcdDisplay_text_logger)
-        self.pushButton_impostazioni.clicked.connect(self.open_setup_window)
+        self.pushButton_Interfaccia.clicked.connect(self.pulsante_interfaccia_click)                  # pulsanti interfaccia e registrazione
+        self.pushButton_Registrazione.clicked.connect(self.pulsante_registrazione_click)              #
+        self.timer1 = QTimer()                                                                   # Timer
+        self.timer2 = QTimer()                                                                   #
+        self.timer1.timeout.connect(self.update_CH1)                                         # Update degli lcd
+        self.timer1.timeout.connect(self.update_CH2)                                         #
+        self.timer1.timeout.connect(self.update_CH3)                                         #
+        self.timer1.timeout.connect(self.update_CH4)                                         #   
+        self.timer1.timeout.connect(self.update_SG600_main)                                  #
+        self.timer1.timeout.connect(self.update_SG600_temp)                                  #
+        self.timer2.timeout.connect(self.setter_lcdDisplay_text_logger)                      #
+        self.pushButton_impostazioni.clicked.connect(self.open_setup_window)                 #
+        self.timer1.timeout.connect(self.check)                                         # Check per chiusura dei timer alla chiusura dell'ultima finestra
+        self.timer2.timeout.connect(self.check)                                         #
         
+
     def open_setup_window(self):
         self.setup_window = SetupWindow()
         self.setup_window.show()
+    
+    def check(self):
+        if timerStop == True:
+            self.timer1.stop()
+            self.timer2.stop()
         
     def setter_lcdDisplay_text_logger(self):
         Logger.DATA.text_lcd[0]=self.comboBox_1.currentText()
         Logger.DATA.text_lcd[1]=self.comboBox_2.currentText()
         Logger.DATA.text_lcd[2]=self.comboBox_3.currentText()
         Logger.DATA.text_lcd[3]=self.comboBox_4.currentText()
+        Logger.DATA.text_lcd_SG600_main_temp[0]=self.comboBox_5.currentText()
     
     def pulsante_interfaccia_click(self):
         # Check della condizione del pulsante e poi cambio il tipo e gestisco il timer
@@ -1069,7 +1082,9 @@ class Ui_MainWindow(object):
                 self.lcdNumber_1.display(0)
                 self.lcdNumber_2.display(0)
                 self.lcdNumber_3.display(0)
-                self.lcdNumber_4.display(0)         
+                self.lcdNumber_4.display(0)
+                self.lcdNumber_main_SG600.display(0)     
+                self.lcdNumber_temperature_SG600.display(0)      
                 self.pushButton_Interfaccia.setStyleSheet("background-color: green; border-style: outset; border-width: 2px; border-color: black; color: black")
                 self.label.setStyleSheet("QWidget { background-color:rgb(125, 225, 10); border-style: outset; border-width: 0px; border-color:rgb(63, 156, 23); border-radius: 20px; } QLabel { color: rgb(0,0,0); }")
                 self.widget1.setStyleSheet("QWidget { background-color:rgb(125, 225, 10); border-style: outset; border-width: 2px; border-color:rgb(63, 156, 23); border-radius: 20px; }")
@@ -1168,6 +1183,23 @@ class Ui_MainWindow(object):
                 print("Error: something went wrong in the selection of the measuring unit in CH4!")       
                 exit(1)
     
+    
+    def update_SG600_main(self):
+        if self.comboBox_5.currentText() == "mV":
+                main_mV = Controller_Client_MODBUS_Seneca.DATA_INTERACTIONS.get_mV_main()
+                self.lcdNumber_main_SG600.display(main_mV)
+        else:
+            print("Error: something went wrong in the selection of the measuring unit in SG600_main!")       
+            exit(1)
+                
+                
+    def update_SG600_temp(self):
+        temp_mV = Controller_Client_MODBUS_Seneca.DATA_INTERACTIONS.get_mV_temp()
+        self.lcdNumber_temperature_SG600.display(temp_mV)
+
+        
+        
+        
     #------------------------------------------------------------------------------------------------------------------#     
     
 

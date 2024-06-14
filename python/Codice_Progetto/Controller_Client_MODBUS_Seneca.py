@@ -14,6 +14,28 @@ class SLAVE:        # Comunicazione su RS-232
     parity="N"
     stopbits=1
     ID=1
+    
+class DATA:
+    # status canale
+    status_canali_SG600=0
+    
+    # main
+    canale_principale_mV=0
+    canale_principale_Nm=0
+    sensibilità_principale=2.0000
+    fondo_scala_principale=10000
+    lever_length=1
+    zero_main=0
+    
+    # temp
+    canale_temperatura_mV=0
+    canale_temperatura_C=0
+    sensibilità_temperatura=0
+    fondo_scala_temperatura=0
+    zero_temp=0
+    
+    
+
 
 client = ModbusSerialClient(
     method='rtu',
@@ -31,7 +53,6 @@ def connect():
     connection = client.connect() 
     for i in range(1,11):
         if connection:
-            print("Connessione avvenuta con successo.")
             return True
         else: 
             print(f"ERROR! connessione al dispostivo presente sulla COM-port {SLAVE.port} fallita.\n tentativo di riconnessione numero: {i}\\10")
@@ -44,16 +65,24 @@ def connect():
 class TESTING:
     
     def read_MachineID():
-
         risultati = client.read_holding_registers(address=0, count=1, slave=SLAVE.ID)
         while risultati.isError():
             risultati = client.read_holding_registers(address=0, count=1, slave=SLAVE.ID)
-        
         # print("high and low: " + str(risultati.registers[0]) + " " + str(risultati.registers[1]))
-
         risultati_elaborati = risultati
-
         return risultati_elaborati
+
+class WORKING:
+    
+    def read_holding_registers_mV():
+        list_results_mV = [0,0]
+        while list_results_mV == [0,0]:
+            list_results_mV = UTILS.read_registers(start_address=16, count=2)
+        return list_results_mV
+            
+
+
+
 
 class UTILS:
 
@@ -72,9 +101,33 @@ class UTILS:
         return None
 
 
+class DATA_INTERACTIONS:
+
+    def get_mV_main():
+        return DATA.canale_principale_mV
+
+
+    # def get_Nm_main():
+    #     if DATA.sensibilità_principale!=0:
+    #         DATA.canale_principale_Nm = DATA.lever_length*9.81*(DATA.fondo_scala_principale/(SLAVE.CHN_VOLTAGE*DATA.LIST_SENSIBILITY[i]))*(DATA.LIST_mV_ZERO[i] - DATA.LIST_mV_VALUE[i])
+    #     else:
+    #         DATA.LIST_Nm_VALUE[i] = 0
+    #     return DATA.LIST_Nm_VALUE
+    
+    def get_mV_temp():
+        return DATA.canale_temperatura_mV
+    
+    # def get_C_temp():
+    #     return DATA.canale_temperatura_C
+        
+
+
+
 if __name__ == "__main__":
     # print(TESTING.read_MachineID().registers)
-    registers = UTILS.read_registers(start_address=16, count=1)
-    print(f"Registri letti: {registers}")
+    DATA.canale_principale_mv = UTILS.read_registers(start_address=16, count=1)
+    test=UTILS.read_registers(start_address=24, count=6)
+    print(f"Registri letti: {DATA.canale_principale_mv}")
+    print(f"Registri letti normalizzati: {test}")
     
     
