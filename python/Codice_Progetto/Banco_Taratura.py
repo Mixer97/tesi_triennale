@@ -36,148 +36,16 @@ import serial
 # DEFINIZIONE COSTRUTTORI PER LE VARIE FINESTRE DELL'APPLICAZIONE
 
 class MainWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self, controller_TCP, controller_MODBUS, logger):
         super().__init__()
         # Create an instance of the generated UI class
         self.ui = Ui_MainWindow()
         # Setup the user interface
-        self.ui.setupUi(self)
-        
-class SetupWindow(QMainWindow):
-    def __init__(self):
-        super().__init__()
-        # Create an instance of the generated UI class
-        self.ui = Ui_SetupWindow()
-        # Setup the user interface
-        self.ui.setupUi(self)
-        
-class Canale_Setup_1(QDialog):
-    def __init__(self):
-        super().__init__()
-        # Create an instance of the generated UI class
-        self.ui = Ui_Canale_Setup_1()
-        # Setup the user interface
-        self.ui.setupUi(self)
-        
-class Canale_Setup_2(QDialog):
-    def __init__(self):
-        super().__init__()
-        # Create an instance of the generated UI class
-        self.ui = Ui_Canale_Setup_2()
-        # Setup the user interface
-        self.ui.setupUi(self)
-                
-class Canale_Setup_3(QDialog):
-    def __init__(self):
-        super().__init__()
-        # Create an instance of the generated UI class
-        self.ui = Ui_Canale_Setup_3()
-        # Setup the user interface
-        self.ui.setupUi(self)
-        
-class Canale_Setup_4(QDialog):
-    def __init__(self):
-        super().__init__()
-        # Create an instance of the generated UI class
-        self.ui = Ui_Canale_Setup_4()
-        # Setup the user interface
-        self.ui.setupUi(self)
-                        
-class Canale_Setup_SG600(QDialog):
-    def __init__(self):
-        super().__init__()
-        # Create an instance of the generated UI class
-        self.ui = Ui_SG600_Setup()
-        # Setup the user interface
-        self.ui.setupUi(self)
-
-
-
-
+        self.ui.setupUi(self, controller_TCP, controller_MODBUS, logger)
 
 class BANCO_DI_TARATURA:
     
-    
-  
-    # class Z4AI: 
-        
-    #     class SLAVE:       
-    #         Z4AI_COM_port="COM8"
-    #         Z4AI_baudrate=2400
-    #         Z4AI_bytesize=8
-    #         Z4AI_parity="N"
-    #         Z4AI_stopbits=1
-    #         Z4AI_ID=1
-            
-    #     class DATA:
-    #         # status canale
-    #         Z4AI_status_canali_SG600=0
-            
-    #         # main
-    #         Z4AI_canale_principale_mV=0
-    #         Z4AI_canale_principale_Nm=0
-    #         Z4AI_sensibilità_principale=2.0000
-    #         Z4AI_fondo_scala_principale=10000
-    #         Z4AI_lever_length=1
-    #         Z4AI_zero_main=0
-            
-    #         # temp
-    #         Z4AI_canale_temperatura_mV=0
-    #         Z4AI_canale_temperatura_C=0
-    #         Z4AI_sensibilità_temperatura=0
-    #         Z4AI_fondo_scala_temperatura=0
-    #         Z4AI_zero_temp=0
-    
-    # class TLB4: 
-        
-    #     class SLAVE:  
-    #         TLB4_ID=1
-    #         TLB4_IP="10.2.0.170"
-    #         TLB4_PORT=10001
-    #         TLB4_BAUDRATE=9600
-    #         TLB4_TIMEOUT=5
-    #         TLB4_CHN_VOLTAGE=5
-        
-    #     class DATA:
-    #         TLB4_LIST_mV_VALUE = [0,0,0,0]   # Aggiornato dal main in un thread separato
-    #         TLB4_LIST_Kg_VALUE = [0,0,0,0]
-    #         TLB4_LIST_Nm_VALUE = [0,0,0,0]
-    #         TLB4_LIST_N_VALUE = [0,0,0,0]
-    #         TLB4_LIST_SENSIBILITY = [1,2.0302,0,1] # settato dalle varie setup pages
-    #         TLB4_LIST_FULLSCALE = [10,50,10,10] # settato dalle varie setup pages
-    #         TLB4_LIST_mV_ZERO = [1,-0.1,1,-0.21] # settato dalle varie setup pages
-    #         TLB4_LEVER_LENGTH = 1 # meters
-    #         TLB4_STATUS_CHANNELS = [0,0,0,0] # settato da setupPage
-
-    #     class ADDRESS:
-    #         TLB4_CMDR = 5
-    #         TLB4_REGISTER_SR1 = 6
-    #         TLB4_REGISTER_1_WR1_high = 50
-    #         TLB4_REGISTER_2_WR1_low = 51
-    #         TLB4_REGISTER_3 = 52
-    #         TLB4_REGISTER_AEXC = 61
-    #         TLB4_REGISTER_EXC = 63
-        
-    #     class CMDR_COMMANDS:
-    #         TLB4_COMMAND_6902 = 6902
-    #         TLB4_COMMAND_6903 = 6903
-    #         TLB4_COMMAND_6808 = 6808
-    #         TLB4_DISABLE_command_cargo = 6809
-    #         TLB4_CHANNEL_command_search = 6094
-    #         TLB4_COMMAND_6563 = 6563
-    #         TLB4_COMMAND_6564 = 6564
-    #         TLB4_COMMAND_6703 = 6703
-    #         TLB4_COMMAND_6704 = 6704
-    #         TLB4_COMMAND_6575 = 6575
-    #         TLB4_COMMAND_6576 = 6576
-    #         TLB4_COMMAND_100 = 100
-    #         TLB4_COMMAND_25 = 25
-    #         TLB4_COMMAND_27 = 27
-    #         TLB4_ENABLE_command_dosage_read = 6803
-    #         TLB4_COMMAND_6501 = 6501
-    #         TLB4_COMMAND_6502 = 6502
-    #         TLB4_COMMAND_7 = 7
-    #         TLB4_COMMAND_9 = 9
+    x=0
             
     # class GETTERS_TLB4_DATA:
         
@@ -296,31 +164,34 @@ class BANCO_DI_TARATURA:
 
 
 
-    # FUNZIONI NECESSARIE PER I THREAD
-    def run_logger():
-        Logger.logger(nome_CSV= "test")  
-
-    def data_update_mV():
-        while Logger.DATA.loop_status:
-            # print("data_update")
-            result_list_laumas = C_Laumas.WORKING.read_holding_registers_mV()   # celle di carico 1-4
-            result_list_SG600 = C_Seneca.WORKING.read_holding_registers_mV() # canale main e canale temp
-            C_Laumas.DATA.LIST_mV_VALUE = result_list_laumas
-            C_Seneca.DATA.canale_principale_mV = result_list_SG600[0]
-            C_Seneca.DATA.canale_temperatura_mV = result_list_SG600[1]
-
-    def closed_last_window_signal():
-        Logger.DATA.loop_status=False
-        View_QT_HomePage.timerStop=True
+# FUNZIONI NECESSARIE PER I THREAD
+def run_logger(controller_modbus, controller_tcp, logger):
+    logger.log_data(controller_TCP=controller_tcp, controller_MODBUS=controller_modbus)  
     
-    # MAIN PER ESEGUIRE L'APPLICAZIONE
-    if __name__ == "__main__":
-        app = QApplication(sys.argv)
-        window = MainWindow()
-        window.show()
-        app.lastWindowClosed.connect(closed_last_window_signal)
-        logger_thread = Thread(target=run_logger)
-        logger_thread.start()     
-        update_thread = Thread(target=data_update_mV)
-        update_thread.start()
-        sys.exit(app.exec())
+def data_update_mV(controller_modbus, controller_tcp, logger):
+    while logger.DATA.loop_status:
+        # print("data_update")
+        result_list_laumas = controller_tcp.read_holding_registers_mV()   # celle di carico 1-4
+        result_list_SG600 = controller_modbus.read_holding_registers_mV() # canale main e canale temp
+        controller_tcp.DATA.LIST_mV_VALUE = result_list_laumas
+        controller_modbus.DATA.canale_principale_mV = result_list_SG600[0]
+        controller_modbus.DATA.canale_temperatura_mV = result_list_SG600[1]
+        
+def closed_last_window_signal(logger, window):
+    logger.DATA.loop_status=False
+    window.timerStop=True
+
+# MAIN PER ESEGUIRE L'APPLICAZIONE
+if __name__ == "__main__":
+    controller_modbus=C_Seneca.Controller_MODBUS()
+    controller_tcp=C_Laumas.Controller_TCP()
+    logger=Logger.LOGGER(nome_CSV="Test")
+    app = QApplication(sys.argv)
+    window = MainWindow(controller_tcp, controller_modbus, logger)
+    window.show()
+    app.lastWindowClosed.connect(lambda: closed_last_window_signal(logger, window))
+    logger_thread = Thread(target=run_logger, args=(controller_modbus, controller_tcp, logger))
+    logger_thread.start()     
+    update_thread = Thread(target=data_update_mV, args=(controller_modbus, controller_tcp, logger))
+    update_thread.start()
+    sys.exit(app.exec())

@@ -56,4 +56,9 @@ tesi triennale presso Easting Electronics
 
 14/06
     Inizio la giornata lavorando sulle schermate di setup dei vari canali della scheda laumas.
+
+17/06
+    Ristrutturazione del codice secondo logica a oggetti e non statica.
+    Parti fatte e funzionanti: Controller_TCP, Controller_MODBUS, Main_TCP, Logger, Banco di taratura, DIalog_setup_1
+    (FARE ATTENZIONE CON IL CAST A STRING E FARE L'ASSEGAZIONE AL DI GUORI DI ESSA)
     

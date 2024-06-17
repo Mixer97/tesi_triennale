@@ -28,7 +28,7 @@ BUG SCOPERTI:
                     IDEA: istanziare invece di utilizzare le le classi in modo statico cosi da potere avere più istanze con dati separati.
                             voglio istanziare i due controller dentro BANCO DI TARATURA (NON CAMBIARE NULLA DEI DUE CONTROLLER, AL MOMENTO).
                             setter e getter non servono se lavoro sulle istanze dei controller.
-                            istanziare le classi dentro le varie wiew e imparare a lavorare con oggetti invece che in modo statico.
+                            istanziare le classi dentro le varie view e imparare a lavorare con oggetti invece che in modo statico.
                             buttare dentro il banco di taratura i thread e il file main.
                             infine interagire solamente mediante il banco di taratura per acquisire e dare informazioni.
 

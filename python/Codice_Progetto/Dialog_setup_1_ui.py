@@ -21,7 +21,10 @@ from PySide6.QtWidgets import (QApplication, QDialog, QGridLayout, QHBoxLayout,
 import Controller_Client_TCP_Laumas
 
 class Ui_Canale_Setup_1(object):
-    def setupUi(self, Canale_Setup):
+    def setupUi(self, Canale_Setup, controller_TCP, controller_MODBUS, logger):
+        self.controller_TCP = controller_TCP
+        self.controller_MODBUS = controller_MODBUS
+        self.logger = logger
         if not Canale_Setup.objectName():
             Canale_Setup.setObjectName(u"Canale_Setup")
         Canale_Setup.setWindowModality(Qt.WindowModal)
@@ -239,12 +242,14 @@ class Ui_Canale_Setup_1(object):
     #------------------------------------------------------------------------------------------------------------------------#
         
         # Setup dei valori iniziali delle lineEdit
-        self.lineEdit_fondoscala.setText(str(Controller_Client_TCP_Laumas.DATA.LIST_FULLSCALE[0]))
-        self.lineEdit_sensibilita.setText(str(Controller_Client_TCP_Laumas.DATA.LIST_SENSIBILITY[0]))
+        i=self.controller_TCP.DATA.LIST_FULLSCALE[0]
+        l=self.controller_TCP.DATA.LIST_SENSIBILITY[0]
+        self.lineEdit_fondoscala.setText(str(i))
+        self.lineEdit_sensibilita.setText(str(l))
 
         
         # Setup dei segnali
-        self.lineEdit_fondoscala
+        # self.lineEdit_fondoscala
         self.lineEdit_fondoscala.textChanged.connect(self.update_fondoscala)
         self.lineEdit_sensibilita.textChanged.connect(self.update_sensibilità)
 
@@ -252,14 +257,14 @@ class Ui_Canale_Setup_1(object):
     def update_fondoscala(self):
         new_value = self.lineEdit_fondoscala.text() 
         if is_number_tryexcept(new_value):
-            Controller_Client_TCP_Laumas.DATA.LIST_FULLSCALE[0] = float(new_value)
+            self.controller_TCP.DATA.LIST_FULLSCALE[0] = float(new_value)
         else:
             print("Valore inserito non rappresenta un numero")       
             
     def update_sensibilità(self):
         new_value = self.lineEdit_sensibilita.text() 
         if is_number_tryexcept(new_value):
-            Controller_Client_TCP_Laumas.DATA.LIST_SENSIBILITY[0] = float(new_value)
+            self.controller_TCP.DATA.LIST_SENSIBILITY[0] = float(new_value)
         else:
             print("Valore inserito non rappresenta un numero")
     

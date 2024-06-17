@@ -6,191 +6,200 @@ import time
 from time import sleep
 import csv
 
-class DATA:
-    startStop_logger=False
-    text_lcd=["mV","mV","mV","mV"]  # Viene aggiornata dalla Main_View in automatico
-    result_list_1_4=[0,0,0,0]
-    result_list_SG600_main_temp=[0,0]
-    text_lcd_SG600_main_temp=["mV","mV"]  # Viene aggiornato dalla Main View in automatico [[DA IMPLEMENTARE]] 
-    loop_status=True
-
-def logger(nome_CSV):
-    
-    path_CSV = 'C:\\Code_GIT\\tesi_triennale_Git\\python\\Codice_Progetto\\CSV\\' + str(nome_CSV) + ".csv"
-    
-    # Creazione liste per dataframe
-    list_time = []
-    list_cella1 = []
-    list_cella2 = []  
-    list_cella3 = [] 
-    list_cella4 = [] 
-    list_SG600_main = []
-    list_SG600_temp = []
-    list_unit_t = []
-    list_unit_1 = []
-    list_unit_2 = []
-    list_unit_3 = []
-    list_unit_4 = []
-    list_SG600_main_unit = []
-    list_SG600_temp_unit = []
-    
-    
-    
-     # creating the DataFrame 
-    my_df = {'Time': list_time,
-            'unit_Time':list_unit_t,  
-            'Cella_1': list_cella1,
-            'unit_1':list_unit_1, 
-            'Cella_2': list_cella2,
-            'unit_2':list_unit_2, 
-            'Cella_3': list_cella3,
-            'unit_3':list_unit_3, 
-            'Cella_4': list_cella4,  
-            'unit_4':list_unit_4,
-            'SG600_main':list_SG600_main,
-            'unit_main':list_SG600_main_unit,
-            'SG600_temp':list_SG600_temp,
-            'unit_temp':list_SG600_temp_unit,} 
-    
-    df = pd.DataFrame(my_df) 
-    
-    # saving the DataFrame as a CSV file 
-    df.to_csv(path_CSV, index=False)  
-            
-        # timer start
-    timer = 0
-    start_timer = time.time()  
         
-    while DATA.loop_status:
-        sleep(0.10)   # tmer per gestire la frequenza di campionamento del logger
-        if DATA.startStop_logger:
-            # Processing dei dati
-            stop_timer = time.time()
-            timer = stop_timer - start_timer
-
-            # Aggiornamento logger con unità di misura necessarie
-            update_CH1()
-            update_CH2()
-            update_CH3()
-            update_CH4()
-            update_SG600_main()
-            update_SG600_temp()
-            
-            # Scrittura di una riga
-            with open(path_CSV, mode="a", newline="") as csv_doc:
-                writer = csv.writer(csv_doc)
-                list_to_write = [timer,
-                                "s",
-                                DATA.result_list_1_4[0],
-                                DATA.text_lcd[0],
-                                DATA.result_list_1_4[1],
-                                DATA.text_lcd[1],
-                                DATA.result_list_1_4[2],
-                                DATA.text_lcd[2],
-                                DATA.result_list_1_4[3],
-                                DATA.text_lcd[3],
-                                DATA.result_list_SG600_main_temp[0],
-                                DATA.text_lcd_SG600_main_temp[0],
-                                DATA.result_list_SG600_main_temp[1],
-                                DATA.text_lcd_SG600_main_temp[1],
-                                ]
+class LOGGER:
+    
+    class DATA:
+        def __init__(self):
+            self.startStop_logger=False
+            self.text_lcd=["mV","mV","mV","mV"]  # Viene aggiornata dalla Main_View in automatico
+            self.result_list_1_4=[0,0,0,0]
+            self.result_list_SG600_main_temp=[0,0]
+            self.text_lcd_SG600_main_temp=["mV","mV"]  # Viene aggiornato dalla Main View in automatico [[DA IMPLEMENTARE]] 
+            self.loop_status=True
+    
+    def __init__(self, nome_CSV, starting_status=False):
+        self.DATA=LOGGER.DATA()
+        self.path_CSV = 'C:\\Code_GIT\\tesi_triennale_Git\\python\\Codice_Progetto\\CSV\\' + str(nome_CSV) + ".csv"
+        self.DATA.startStop_logger = starting_status
+        
+        # Creazione liste per dataframe
+        self.list_time = []
+        self.list_cella1 = []
+        self.list_cella2 = []  
+        self.list_cella3 = [] 
+        self.list_cella4 = [] 
+        self.list_SG600_main = []
+        self.list_SG600_temp = []
+        self.list_unit_t = []
+        self.list_unit_1 = []
+        self.list_unit_2 = []
+        self.list_unit_3 = []
+        self.list_unit_4 = []
+        self.list_SG600_main_unit = []
+        self.list_SG600_temp_unit = []
+        
+        
+        
+        # creating the DataFrame 
+        self.my_df = {'Time': self.list_time,
+                'unit_Time':self.list_unit_t,  
+                'Cella_1': self.list_cella1,
+                'unit_1':self.list_unit_1, 
+                'Cella_2': self.list_cella2,
+                'unit_2':self.list_unit_2, 
+                'Cella_3': self.list_cella3,
+                'unit_3':self.list_unit_3, 
+                'Cella_4': self.list_cella4,  
+                'unit_4':self.list_unit_4,
+                'SG600_main':self.list_SG600_main,
+                'unit_main':self.list_SG600_main_unit,
+                'SG600_temp':self.list_SG600_temp,
+                'unit_temp':self.list_SG600_temp_unit,} 
+        
+        self.df = pd.DataFrame(self.my_df) 
+        
+        # saving the DataFrame as a CSV file 
+        self.df.to_csv(self.path_CSV, index=False)  
                 
-                writer.writerow(list_to_write)  # Scrittura di una riga del CSV
-                print(list_to_write)    # Print di testing
+            # timer start
+        self.timer = 0
+        self.start_timer = time.time()  
+          
+    def log_data(self, controller_TCP, controller_MODBUS):  
+        self.controller_TCP = controller_TCP
+        self.controller_MODBUS = controller_MODBUS
+        while self.DATA.loop_status:
+            sleep(0.10)   # timer per gestire la frequenza di campionamento del logger
+            if self.DATA.startStop_logger:
+                # Processing dei dati
+                self.stop_timer = time.time()
+                self.timer = self.stop_timer - self.start_timer
 
-def update_CH1():
-    if DATA.text_lcd[0] == "mV":
-            list_mV = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_mv()
-            DATA.result_list_1_4[0]=list_mV[0]
-    elif DATA.text_lcd[0] == "Kg":
-            list_Kg = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_Kg()
-            DATA.result_list_1_4[0]=list_Kg[0]
-    elif DATA.text_lcd[0] == "N":
-            list_N = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_N()
-            DATA.result_list_1_4[0]=list_N[0]
-    elif DATA.text_lcd[0] == "Nm":
-            list_Nm = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_Nm()
-            DATA.result_list_1_4[0]=list_Nm[0]
-    else:
-            print("Error: something went wrong in the selection of the measuring unit in CH1!")       
-            exit(1)
-            
-def update_CH2():
-    if DATA.text_lcd[1] == "mV":
-            list_mV = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_mv()
-            DATA.result_list_1_4[1]=list_mV[1]
-    elif DATA.text_lcd[1] == "Kg":
-            list_Kg = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_Kg()
-            DATA.result_list_1_4[1]=list_Kg[1]
-    elif DATA.text_lcd[1] == "N":
-            list_N = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_N()
-            DATA.result_list_1_4[1]=list_N[1]
-    elif DATA.text_lcd[1] == "Nm":
-            list_Nm = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_Nm()
-            DATA.result_list_1_4[1]=list_Nm[1]
-    else:
-            print("Error: something went wrong in the selection of the measuring unit in CH2!")       
-            exit(1)
-            
-def update_CH3():
-    if DATA.text_lcd[2] == "mV":
-            list_mV = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_mv()
-            DATA.result_list_1_4[2]=list_mV[2]
-    elif DATA.text_lcd[2] == "Kg":
-            list_Kg = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_Kg()
-            DATA.result_list_1_4[2]=list_Kg[2]
-    elif DATA.text_lcd[2] == "N":
-            list_N = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_N()
-            DATA.result_list_1_4[2]=list_N[2]
-    elif DATA.text_lcd[2] == "Nm":
-            list_Nm = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_Nm()
-            DATA.result_list_1_4[2]=list_Nm[2]
-    else:
-            print("Error: something went wrong in the selection of the measuring unit in CH3!")       
-            exit(1)
-            
-def update_CH4():
-    if DATA.text_lcd[3] == "mV":
-            list_mV = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_mv()
-            DATA.result_list_1_4[3]=list_mV[3]
-    elif DATA.text_lcd[3] == "Kg":
-            list_Kg = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_Kg()
-            DATA.result_list_1_4[3]=list_Kg[3]
-    elif DATA.text_lcd[3] == "N":
-            list_N = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_N()
-            DATA.result_list_1_4[3]=list_N[3]
-    elif DATA.text_lcd[3] == "Nm":
-            list_Nm = Controller_Client_TCP_Laumas.DATA_INTERACTIONS.get_Nm()
-            DATA.result_list_1_4[3]=list_Nm[3]
-    else:
-            print("Error: something went wrong in the selection of the measuring unit in CH4!")       
-            exit(1)
-            
-def update_SG600_main():
-    if DATA.text_lcd_SG600_main_temp[0] == "mV":
-            main_mV = Controller_Client_MODBUS_Seneca.DATA_INTERACTIONS.get_mV_main()
-            DATA.result_list_SG600_main_temp[0]=main_mV
-#   elif DATA.text_lcd_SG600_main_temp[0] == "Nm":
-#           main_Nm = Controller_Client_MODBUS_Seneca.DATA_INTERACTIONS.get_Nm()
-#           DATA.result_list_SG600_main_temp[0]=main_Nm
-    else:
-            print("Error: something went wrong in the selection of the measuring unit in SG600 main!")       
-            exit(1)
-            
-def update_SG600_temp():
-    if DATA.text_lcd_SG600_main_temp[1] == "mV":
-            temp_mV = Controller_Client_MODBUS_Seneca.DATA_INTERACTIONS.get_mV_temp()
-            DATA.result_list_SG600_main_temp[1]=temp_mV
-#   elif DATA.text_lcd_SG600_main_temp[1] == "C":
-#           temp_C = Controller_Client_MODBUS_Seneca.DATA_INTERACTIONS.get_Nm()
-#           DATA.result_list_SG600_main_temp[1]=temp_C
-    else:
-            print("Error: something went wrong in the selection of the measuring unit in SG600 temp!")       
-            exit(1)
+                # Aggiornamento logger con unità di misura necessarie
+                self.update_CH1(self.controller_TCP)
+                self.update_CH2(self.controller_TCP)
+                self.update_CH3(self.controller_TCP)
+                self.update_CH4(self.controller_TCP)
+                self.update_SG600_main(self.controller_MODBUS)
+                self.update_SG600_temp(self.controller_MODBUS)
+                
+                # Scrittura di una riga
+                with open(self.path_CSV, mode="a", newline="") as csv_doc:
+                    writer = csv.writer(csv_doc)
+                    list_to_write = [self.timer,
+                                    "s",
+                                    self.DATA.result_list_1_4[0],
+                                    self.DATA.text_lcd[0],
+                                    self.DATA.result_list_1_4[1],
+                                    self.DATA.text_lcd[1],
+                                    self.DATA.result_list_1_4[2],
+                                    self.DATA.text_lcd[2],
+                                    self.DATA.result_list_1_4[3],
+                                    self.DATA.text_lcd[3],
+                                    self.DATA.result_list_SG600_main_temp[0],
+                                    self.DATA.text_lcd_SG600_main_temp[0],
+                                    self.DATA.result_list_SG600_main_temp[1],
+                                    self.DATA.text_lcd_SG600_main_temp[1],
+                                    ]
+                    
+                    writer.writerow(list_to_write)  # Scrittura di una riga del CSV
+                    print(list_to_write)    # Print di testing
 
+    def update_CH1(self, controller_TCP):
+        if self.DATA.text_lcd[0] == "mV":
+                list_mV = Controller_Client_TCP_Laumas.Controller_TCP.get_mv(controller_TCP)
+                self.DATA.result_list_1_4[0]=list_mV[0]
+        elif self.DATA.text_lcd[0] == "Kg":
+                list_Kg = Controller_Client_TCP_Laumas.Controller_TCP.get_Kg(controller_TCP)
+                self.DATA.result_list_1_4[0]=list_Kg[0]
+        elif self.DATA.text_lcd[0] == "N":
+                list_N = Controller_Client_TCP_Laumas.Controller_TCP.get_N(controller_TCP)
+                self.DATA.result_list_1_4[0]=list_N[0]
+        elif self.DATA.text_lcd[0] == "Nm":
+                list_Nm = Controller_Client_TCP_Laumas.Controller_TCP.get_Nm(controller_TCP)
+                self.DATA.result_list_1_4[0]=list_Nm[0]
+        else:
+                print("Error: something went wrong in the selection of the measuring unit in CH1!")       
+                exit(1)
+                
+    def update_CH2(self, controller_TCP):
+        if self.DATA.text_lcd[1] == "mV":
+                list_mV = Controller_Client_TCP_Laumas.Controller_TCP.get_mv(controller_TCP)
+                self.DATA.result_list_1_4[1]=list_mV[1]
+        elif self.DATA.text_lcd[1] == "Kg":
+                list_Kg = Controller_Client_TCP_Laumas.Controller_TCP.get_Kg(controller_TCP)
+                self.DATA.result_list_1_4[1]=list_Kg[1]
+        elif self.DATA.text_lcd[1] == "N":
+                list_N = Controller_Client_TCP_Laumas.Controller_TCP.get_N(controller_TCP)
+                self.DATA.result_list_1_4[1]=list_N[1]
+        elif self.DATA.text_lcd[1] == "Nm":
+                list_Nm = Controller_Client_TCP_Laumas.Controller_TCP.get_Nm(controller_TCP)
+                self.DATA.result_list_1_4[1]=list_Nm[1]
+        else:
+                print("Error: something went wrong in the selection of the measuring unit in CH2!")       
+                exit(1)
+                
+    def update_CH3(self, controller_TCP):
+        if self.DATA.text_lcd[2] == "mV":
+                list_mV = Controller_Client_TCP_Laumas.Controller_TCP.get_mv(controller_TCP)
+                self.DATA.result_list_1_4[2]=list_mV[2]
+        elif self.DATA.text_lcd[2] == "Kg":
+                list_Kg = Controller_Client_TCP_Laumas.Controller_TCP.get_Kg(controller_TCP)
+                self.DATA.result_list_1_4[2]=list_Kg[2]
+        elif self.DATA.text_lcd[2] == "N":
+                list_N = Controller_Client_TCP_Laumas.Controller_TCP.get_N(controller_TCP)
+                self.DATA.result_list_1_4[2]=list_N[2]
+        elif self.DATA.text_lcd[2] == "Nm":
+                list_Nm = Controller_Client_TCP_Laumas.Controller_TCP.get_Nm(controller_TCP)
+                self.DATA.result_list_1_4[2]=list_Nm[2]
+        else:
+                print("Error: something went wrong in the selection of the measuring unit in CH3!")       
+                exit(1)
+                
+    def update_CH4(self, controller_TCP):
+        if self.DATA.text_lcd[3] == "mV":
+                list_mV = Controller_Client_TCP_Laumas.Controller_TCP.get_mv(controller_TCP)
+                self.DATA.result_list_1_4[3]=list_mV[3]
+        elif self.DATA.text_lcd[3] == "Kg":
+                list_Kg = Controller_Client_TCP_Laumas.Controller_TCP.get_Kg(controller_TCP)
+                self.DATA.result_list_1_4[3]=list_Kg[3]
+        elif self.DATA.text_lcd[3] == "N":
+                list_N = Controller_Client_TCP_Laumas.Controller_TCP.get_N(controller_TCP)
+                self.DATA.result_list_1_4[3]=list_N[3]
+        elif self.DATA.text_lcd[3] == "Nm":
+                list_Nm = Controller_Client_TCP_Laumas.Controller_TCP.get_Nm(controller_TCP)
+                self.DATA.result_list_1_4[3]=list_Nm[3]
+        else:
+                print("Error: something went wrong in the selection of the measuring unit in CH4!")       
+                exit(1)
+                
+    def update_SG600_main(self, controller_MODBUS):
+        if self.DATA.text_lcd_SG600_main_temp[0] == "mV":
+                main_mV = Controller_Client_MODBUS_Seneca.Controller_MODBUS.get_mV_main(controller_MODBUS)
+                self.DATA.result_list_SG600_main_temp[0]=main_mV
+    #   elif self.DATA.text_lcd_SG600_main_temp[0] == "Nm":
+    #           main_Nm = controller_MODBUS.get_Nm()
+    #           self.DATA.result_list_SG600_main_temp[0]=main_Nm
+        else:
+                print("Error: something went wrong in the selection of the measuring unit in SG600 main!")       
+                exit(1)
+                
+    def update_SG600_temp(self, controller_MODBUS):
+        if self.DATA.text_lcd_SG600_main_temp[1] == "mV":
+                temp_mV = Controller_Client_MODBUS_Seneca.Controller_MODBUS.get_mV_temp(controller_MODBUS)
+                self.DATA.result_list_SG600_main_temp[1]=temp_mV
+    #   elif self.DATA.text_lcd_SG600_main_temp[1] == "C":
+    #           temp_C = controller_MODBUS.get_Nm()
+    #           self.DATA.result_list_SG600_main_temp[1]=temp_C
+        else:
+                print("Error: something went wrong in the selection of the measuring unit in SG600 temp!")       
+                exit(1)
 
 if __name__ == "__main__":
-    DATA.startStop_logger = True
-    logger(nome_CSV="test")
-        
-        
+    controllerTCP = Controller_Client_TCP_Laumas.Controller_TCP()
+    controllerMODBUS = Controller_Client_MODBUS_Seneca.Controller_MODBUS()
+    logger = LOGGER(nome_CSV="test", controller_TCP=controllerTCP, controller_MODBUS=controllerMODBUS, starting_status=True)
+
+            
+            

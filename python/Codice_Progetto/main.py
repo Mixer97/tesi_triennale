@@ -18,8 +18,8 @@ class MainWindow(QMainWindow):
         # Setup the user interface
         self.ui.setupUi(self)
 
-def run_logger():
-    Logger.logger(nome_CSV= "test")  
+def run_logger(controller_modbus, controller_tcp):
+    Logger.LOGGER("test", controller_modbus, controller_tcp)  
 
 def data_update_mV():
     while Logger.DATA.loop_status:
@@ -37,15 +37,19 @@ def closed_last_window_signal():
 
 
 if __name__ == "__main__":
+    controller_modbus=Controller_Client_MODBUS_Seneca()
+    controller_tcp=Controller_Client_TCP_Laumas()
+    
+    # Create and start a thread for the logger and for data acquisition    
+    logger_thread = Thread(target=run_logger, args=(controller_modbus, controller_tcp))
+    logger_thread.start()     
+    update_thread = Thread(target=data_update_mV)
+    update_thread.start()
+    
     app = QApplication(sys.argv)
     window = MainWindow()
     window.show()
     app.lastWindowClosed.connect(closed_last_window_signal)
-    # Create and start a thread for the logger and for data acquisition
-    logger_thread = Thread(target=run_logger)
-    logger_thread.start()     
-    update_thread = Thread(target=data_update_mV)
-    update_thread.start()
     sys.exit(app.exec())
 
 

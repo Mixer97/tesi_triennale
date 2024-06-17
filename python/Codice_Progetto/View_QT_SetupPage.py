@@ -30,44 +30,44 @@ from Dialog_setup_SG600_ui import Ui_SG600_Setup
 var = False
 
 class Canale_Setup_1(QDialog):
-    def __init__(self):
+    def __init__(self, controller_TCP, controller_MODBUS, logger):
         super().__init__()
         # Create an instance of the generated UI class
         self.ui = Ui_Canale_Setup_1()
         # Setup the user interface
-        self.ui.setupUi(self)
+        self.ui.setupUi(self, controller_TCP, controller_MODBUS, logger)
         
 class Canale_Setup_2(QDialog):
-    def __init__(self):
+    def __init__(self, controller_TCP, controller_MODBUS, logger):
         super().__init__()
         # Create an instance of the generated UI class
         self.ui = Ui_Canale_Setup_2()
         # Setup the user interface
-        self.ui.setupUi(self)
+        self.ui.setupUi(self, controller_TCP, controller_MODBUS, logger)
                 
 class Canale_Setup_3(QDialog):
-    def __init__(self):
+    def __init__(self, controller_TCP, controller_MODBUS, logger):
         super().__init__()
         # Create an instance of the generated UI class
         self.ui = Ui_Canale_Setup_3()
         # Setup the user interface
-        self.ui.setupUi(self)
+        self.ui.setupUi(self, controller_TCP, controller_MODBUS, logger)
         
 class Canale_Setup_4(QDialog):
-    def __init__(self):
+    def __init__(self, controller_TCP, controller_MODBUS, logger):
         super().__init__()
         # Create an instance of the generated UI class
         self.ui = Ui_Canale_Setup_4()
         # Setup the user interface
-        self.ui.setupUi(self)
+        self.ui.setupUi(self, controller_TCP, controller_MODBUS, logger)
                         
 class Canale_Setup_SG600(QDialog):
-    def __init__(self):
+    def __init__(self, controller_TCP, controller_MODBUS, logger):
         super().__init__()
         # Create an instance of the generated UI class
         self.ui = Ui_SG600_Setup()
         # Setup the user interface
-        self.ui.setupUi(self)
+        self.ui.setupUi(self, controller_TCP, controller_MODBUS, logger)
 
 class Ui_SetupWindow(object):
     
@@ -75,10 +75,12 @@ class Ui_SetupWindow(object):
     list_status_checkbox = [0,0,0,0]   #[CH4, CH3, CH2, CH1]     
     status_timer = False  
           
-    def setupUi(self, MainWindow):
-            
+    def setupUi(self, MainWindow, controller_TCP, controller_MODBUS, logger):
+        self.controller_TCP = controller_TCP
+        self.controller_MODBUS = controller_MODBUS
+        self.logger = logger
         while self.list_status_checkbox == [0,0,0,0]:     
-            self.list_status_checkbox=Controller_Client_TCP_Laumas.WORKING.read_channels_active() 
+            self.list_status_checkbox=self.controller_TCP.read_channels_active() 
             
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
@@ -1050,16 +1052,16 @@ class Ui_SetupWindow(object):
         self.lcdNumber_fondoscala_CHSG600.setDigitCount(7)
         self.lcdNumber_sens_CHSG600.setDigitCount(7)
         
-        self.lcdNumber_CH1_2.display(Controller_Client_TCP_Laumas.DATA.LIST_FULLSCALE[0])
-        self.lcdNumber_CH2_2.display(Controller_Client_TCP_Laumas.DATA.LIST_FULLSCALE[1])
-        self.lcdNumber_CH3_2.display(Controller_Client_TCP_Laumas.DATA.LIST_FULLSCALE[2])
-        self.lcdNumber_CH4_2.display(Controller_Client_TCP_Laumas.DATA.LIST_FULLSCALE[3])
-        self.lcdNumber_CH1.display(Controller_Client_TCP_Laumas.DATA.LIST_SENSIBILITY[0])
-        self.lcdNumber_CH2.display(Controller_Client_TCP_Laumas.DATA.LIST_SENSIBILITY[1])
-        self.lcdNumber_CH3.display(Controller_Client_TCP_Laumas.DATA.LIST_SENSIBILITY[2])
-        self.lcdNumber_CH4.display(Controller_Client_TCP_Laumas.DATA.LIST_SENSIBILITY[3])
-        self.lcdNumber_fondoscala_CHSG600.display(Controller_Client_MODBUS_Seneca.DATA.fondo_scala_principale)
-        self.lcdNumber_sens_CHSG600.display(Controller_Client_MODBUS_Seneca.DATA.sensibilità_principale)
+        self.lcdNumber_CH1_2.display(self.controller_TCP.DATA.LIST_FULLSCALE[0])
+        self.lcdNumber_CH2_2.display(self.controller_TCP.DATA.LIST_FULLSCALE[1])
+        self.lcdNumber_CH3_2.display(self.controller_TCP.DATA.LIST_FULLSCALE[2])
+        self.lcdNumber_CH4_2.display(self.controller_TCP.DATA.LIST_FULLSCALE[3])
+        self.lcdNumber_CH1.display(self.controller_TCP.DATA.LIST_SENSIBILITY[0])
+        self.lcdNumber_CH2.display(self.controller_TCP.DATA.LIST_SENSIBILITY[1])
+        self.lcdNumber_CH3.display(self.controller_TCP.DATA.LIST_SENSIBILITY[2])
+        self.lcdNumber_CH4.display(self.controller_TCP.DATA.LIST_SENSIBILITY[3])
+        self.lcdNumber_fondoscala_CHSG600.display(self.controller_MODBUS.DATA.fondo_scala_principale)
+        self.lcdNumber_sens_CHSG600.display(self.controller_MODBUS.DATA.sensibilità_principale)
         
         # controllo i canali attivi nella scheda e faccio corrispodere la grafica
         if self.list_status_checkbox[3] == 1:
@@ -1087,23 +1089,23 @@ class Ui_SetupWindow(object):
         
         
     def open_setup_CH1_window(self):
-        self.setup_window = Canale_Setup_1()
+        self.setup_window = Canale_Setup_1(controller_MODBUS=self.controller_MODBUS, controller_TCP=self.controller_TCP, logger=self.logger)
         self.setup_window.show()
         
     def open_setup_CH2_window(self):
-        self.setup_window = Canale_Setup_2()
+        self.setup_window = Canale_Setup_2(controller_MODBUS=self.controller_MODBUS, controller_TCP=self.controller_TCP, logger=self.logger)
         self.setup_window.show()
 
     def open_setup_CH3_window(self):
-        self.setup_window = Canale_Setup_3()
+        self.setup_window = Canale_Setup_3(controller_MODBUS=self.controller_MODBUS, controller_TCP=self.controller_TCP, logger=self.logger)
         self.setup_window.show()
 
     def open_setup_CH4_window(self):
-        self.setup_window = Canale_Setup_4()
+        self.setup_window = Canale_Setup_4(controller_MODBUS=self.controller_MODBUS, controller_TCP=self.controller_TCP, logger=self.logger)
         self.setup_window.show()
         
     def open_setup_SG600_window(self):
-        self.setup_window = Canale_Setup_SG600()
+        self.setup_window = Canale_Setup_SG600(controller_MODBUS=self.controller_MODBUS, controller_TCP=self.controller_TCP, logger=self.logger)
         self.setup_window.show()
         
     
@@ -1118,18 +1120,18 @@ class Ui_SetupWindow(object):
                 print("Configurazione invalida, ripristino alla configurazione base con canale 1 ON.")
                 self.checkBox_CH1.setChecked(True)
         print(self.list_status_checkbox)
-        Controller_Client_TCP_Laumas.DATA_INTERACTIONS.setup_full_update(self.list_status_checkbox)
+        self.controller_TCP.setup_full_update(self.list_status_checkbox)
         # sleep(0.2)
-        self.lcdNumber_CH1_2.display(Controller_Client_TCP_Laumas.DATA.LIST_FULLSCALE[0])
-        self.lcdNumber_CH2_2.display(Controller_Client_TCP_Laumas.DATA.LIST_FULLSCALE[1])
-        self.lcdNumber_CH3_2.display(Controller_Client_TCP_Laumas.DATA.LIST_FULLSCALE[2])
-        self.lcdNumber_CH4_2.display(Controller_Client_TCP_Laumas.DATA.LIST_FULLSCALE[3])
-        self.lcdNumber_CH1.display(Controller_Client_TCP_Laumas.DATA.LIST_SENSIBILITY[0])
-        self.lcdNumber_CH2.display(Controller_Client_TCP_Laumas.DATA.LIST_SENSIBILITY[1])
-        self.lcdNumber_CH3.display(Controller_Client_TCP_Laumas.DATA.LIST_SENSIBILITY[2])
-        self.lcdNumber_CH4.display(Controller_Client_TCP_Laumas.DATA.LIST_SENSIBILITY[3])
-        self.lcdNumber_fondoscala_CHSG600.display(Controller_Client_MODBUS_Seneca.DATA.fondo_scala_principale)
-        self.lcdNumber_sens_CHSG600.display(Controller_Client_MODBUS_Seneca.DATA.sensibilità_principale)
+        self.lcdNumber_CH1_2.display(self.controller_TCP.DATA.LIST_FULLSCALE[0])
+        self.lcdNumber_CH2_2.display(self.controller_TCP.DATA.LIST_FULLSCALE[1])
+        self.lcdNumber_CH3_2.display(self.controller_TCP.DATA.LIST_FULLSCALE[2])
+        self.lcdNumber_CH4_2.display(self.controller_TCP.DATA.LIST_FULLSCALE[3])
+        self.lcdNumber_CH1.display(self.controller_TCP.DATA.LIST_SENSIBILITY[0])
+        self.lcdNumber_CH2.display(self.controller_TCP.DATA.LIST_SENSIBILITY[1])
+        self.lcdNumber_CH3.display(self.controller_TCP.DATA.LIST_SENSIBILITY[2])
+        self.lcdNumber_CH4.display(self.controller_TCP.DATA.LIST_SENSIBILITY[3])
+        self.lcdNumber_fondoscala_CHSG600.display(self.controller_MODBUS.DATA.fondo_scala_principale)
+        self.lcdNumber_sens_CHSG600.display(self.controller_MODBUS.DATA.sensibilità_principale)
 
     #------------------------------------------------------------------------------------------------------------------# 
     
