@@ -23,6 +23,13 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QCheckBox, QGridLayout, QHBoxLayout, QDialog,
     QLCDNumber, QLabel, QMainWindow, QPushButton,
     QSizePolicy, QVBoxLayout, QWidget)
+from pymodbus.client import ModbusTcpClient
+from pymodbus.client import ModbusSerialClient
+from pymodbus.framer import Framer
+from pymodbus import pymodbus_apply_logging_config
+from time import sleep
+import sys
+import serial
 
 
 
@@ -84,138 +91,208 @@ class Canale_Setup_SG600(QDialog):
         # Setup the user interface
         self.ui.setupUi(self)
 
-# DATI APPLICAZIONE
 
-class SLAVE:        
-    COM_port_Z4AI="COM8"
-    baudrate_Z4AI=2400
-    bytesize_Z4AI=8
-    parity_Z4AI="N"
-    stopbits_Z4AI=1
-    ID_Z4AI=1
-    
-    ID_TLB4=1
-    IP_TLB4="10.2.0.170"
-    PORT_TLB4=10001
-    BAUDRATE_TLB4=9600
-    TIMEOUT_TLB4=5
-    CHN_VOLTAGE_TLB4=5
-    
-class DATA:
-    # status canale
-    status_canali_SG600=0
-    
-    # main
-    canale_principale_mV=0
-    canale_principale_Nm=0
-    sensibilità_principale=2.0000
-    fondo_scala_principale=10000
-    lever_length=1
-    zero_main=0
-    
-    # temp
-    canale_temperatura_mV=0
-    canale_temperatura_C=0
-    sensibilità_temperatura=0
-    fondo_scala_temperatura=0
-    zero_temp=0
-    
-    LIST_mV_VALUE = [0,0,0,0]   # Aggiornato dal main in un thread separato
-    LIST_Kg_VALUE = [0,0,0,0]
-    LIST_Nm_VALUE = [0,0,0,0]
-    LIST_N_VALUE = [0,0,0,0]
-    LIST_SENSIBILITY = [1,2.0302,0,1] # settato dalle varie setup pages
-    LIST_FULLSCALE = [10,50,10,10] # settato dalle varie setup pages
-    LIST_mV_ZERO = [1,-0.1,1,-0.21] # settato dalle varie setup pages
-    LEVER_LENGTH = 1 # meters
-    STATUS_CHANNELS = [0,0,0,0] # settato da setupPage
 
-class ADDRESS:
-    CMDR = 5
-    REGISTER_SR1 = 6
-    REGISTER_1_WR1_high = 50
-    REGISTER_2_WR1_low = 51
-    REGISTER_3 = 52
-    REGISTER_AEXC = 61
-    REGISTER_EXC = 63
-    
-class CMDR_COMMANDS:
-    COMMAND_6902 = 6902
-    COMMAND_6903 = 6903
-    COMMAND_6808 = 6808
-    DISABLE_command_cargo = 6809
-    CHANNEL_command_search = 6094
-    COMMAND_6563 = 6563
-    COMMAND_6564 = 6564
-    COMMAND_6703 = 6703
-    COMMAND_6704 = 6704
-    COMMAND_6575 = 6575
-    COMMAND_6576 = 6576
-    COMMAND_100 = 100
-    COMMAND_25 = 25
-    COMMAND_27 = 27
-    ENABLE_command_dosage_read = 6803
-    COMMAND_6501 = 6501
-    COMMAND_6502 = 6502
-    COMMAND_7 = 7
-    COMMAND_9 = 9
 
-     
+
 class BANCO_DI_TARATURA:
     
-    # """GETTERS TLB4 [scheda Laumas]"""
     
-    # # GETTER INFO SLAVE TLB4
-    # def get_slave_TLB4_id():
-    #     return C_Laumas.SLAVE.ID
-    # def get_slave_TLB4_port():
-    #     return C_Laumas.SLAVE.PORT
-    # def get_slave_TLB4_baudrate():
-    #     return C_Laumas.SLAVE.BAUDRATE
-    # def get_slave_TLB4_timeout():
-    #     return C_Laumas.SLAVE.TIMEOUT
-    # def get_slave_TLB4_ip():
-    #     return C_Laumas.SLAVE.IP
-    # def get_slave_TLB4_ChVoltage():   
-    #     return C_Laumas.SLAVE.CHN_VOLTAGE
-    
-    # # GETTER INDIRIZZI REGISTRI DELLA SCHEDA [ indirizzo_vero-40001 = indirizzo_utilizzato ]
-    # def get_TLB4_CMDR_address():
-    #     return C_Laumas.ADDRESS.CMDR 
-    # def get_TLB4_REGISTER_SR1_address():
-    #     return C_Laumas.ADDRESS.REGISTER_SR1 
-    # def get_TLB4_REGISTER_WR1_HIGH_address():
-    #     return C_Laumas.ADDRESS.REGISTER_1_WR1_high 
-    # def get_TLB4_REGISTER_WR1_LOW__address():
-    #     return C_Laumas.ADDRESS.REGISTER_2_WR1_low
-    # def get_TLB4_REGISTER_3_address(): 
-    #     return C_Laumas.ADDRESS.REGISTER_3
-    # def get_TLB4_REGISTER_AEXC_address():
-    #     return C_Laumas.ADDRESS.REGISTER_AEXC 
-    # def get_TLB4_REGISTER_EXC_address():
-    #     return C_Laumas.ADDRESS.REGISTER_EXC
+  
+    # class Z4AI: 
         
-    # # GETTER DATI RELATIVI TLB4
-    # # GETTER VALORI mV
-    # def get_TLB4_CH1_value_mV():
-    #     return C_Laumas.DATA.LIST_mV_VALUE[0]
-    # def get_TLB4_CH2_value_mV():
-    #     return C_Laumas.DATA.LIST_mV_VALUE[1]
-    # def get_TLB4_CH3_value_mV():
-    #     return C_Laumas.DATA.LIST_mV_VALUE[2]
-    # def get_TLB4_CH4_value_mV():
-    #     return C_Laumas.DATA.LIST_mV_VALUE[3]
+    #     class SLAVE:       
+    #         Z4AI_COM_port="COM8"
+    #         Z4AI_baudrate=2400
+    #         Z4AI_bytesize=8
+    #         Z4AI_parity="N"
+    #         Z4AI_stopbits=1
+    #         Z4AI_ID=1
+            
+    #     class DATA:
+    #         # status canale
+    #         Z4AI_status_canali_SG600=0
+            
+    #         # main
+    #         Z4AI_canale_principale_mV=0
+    #         Z4AI_canale_principale_Nm=0
+    #         Z4AI_sensibilità_principale=2.0000
+    #         Z4AI_fondo_scala_principale=10000
+    #         Z4AI_lever_length=1
+    #         Z4AI_zero_main=0
+            
+    #         # temp
+    #         Z4AI_canale_temperatura_mV=0
+    #         Z4AI_canale_temperatura_C=0
+    #         Z4AI_sensibilità_temperatura=0
+    #         Z4AI_fondo_scala_temperatura=0
+    #         Z4AI_zero_temp=0
     
-    # # GETTER VALORI Kg
-    # def get_TLB4_CH1_value_Kg():
-    #     return C_Laumas.DATA.LIST_Kg_VALUE[0]
-    # def get_TLB4_CH2_value_Kg():
-    #     return C_Laumas.DATA.LIST_Kg_VALUE[1]
-    # def get_TLB4_CH3_value_Kg():
-    #     return C_Laumas.DATA.LIST_Kg_VALUE[2]
-    # def get_TLB4_CH4_value_Kg():
-    #     return C_Laumas.DATA.LIST_Kg_VALUE[3]    
+    # class TLB4: 
+        
+    #     class SLAVE:  
+    #         TLB4_ID=1
+    #         TLB4_IP="10.2.0.170"
+    #         TLB4_PORT=10001
+    #         TLB4_BAUDRATE=9600
+    #         TLB4_TIMEOUT=5
+    #         TLB4_CHN_VOLTAGE=5
+        
+    #     class DATA:
+    #         TLB4_LIST_mV_VALUE = [0,0,0,0]   # Aggiornato dal main in un thread separato
+    #         TLB4_LIST_Kg_VALUE = [0,0,0,0]
+    #         TLB4_LIST_Nm_VALUE = [0,0,0,0]
+    #         TLB4_LIST_N_VALUE = [0,0,0,0]
+    #         TLB4_LIST_SENSIBILITY = [1,2.0302,0,1] # settato dalle varie setup pages
+    #         TLB4_LIST_FULLSCALE = [10,50,10,10] # settato dalle varie setup pages
+    #         TLB4_LIST_mV_ZERO = [1,-0.1,1,-0.21] # settato dalle varie setup pages
+    #         TLB4_LEVER_LENGTH = 1 # meters
+    #         TLB4_STATUS_CHANNELS = [0,0,0,0] # settato da setupPage
+
+    #     class ADDRESS:
+    #         TLB4_CMDR = 5
+    #         TLB4_REGISTER_SR1 = 6
+    #         TLB4_REGISTER_1_WR1_high = 50
+    #         TLB4_REGISTER_2_WR1_low = 51
+    #         TLB4_REGISTER_3 = 52
+    #         TLB4_REGISTER_AEXC = 61
+    #         TLB4_REGISTER_EXC = 63
+        
+    #     class CMDR_COMMANDS:
+    #         TLB4_COMMAND_6902 = 6902
+    #         TLB4_COMMAND_6903 = 6903
+    #         TLB4_COMMAND_6808 = 6808
+    #         TLB4_DISABLE_command_cargo = 6809
+    #         TLB4_CHANNEL_command_search = 6094
+    #         TLB4_COMMAND_6563 = 6563
+    #         TLB4_COMMAND_6564 = 6564
+    #         TLB4_COMMAND_6703 = 6703
+    #         TLB4_COMMAND_6704 = 6704
+    #         TLB4_COMMAND_6575 = 6575
+    #         TLB4_COMMAND_6576 = 6576
+    #         TLB4_COMMAND_100 = 100
+    #         TLB4_COMMAND_25 = 25
+    #         TLB4_COMMAND_27 = 27
+    #         TLB4_ENABLE_command_dosage_read = 6803
+    #         TLB4_COMMAND_6501 = 6501
+    #         TLB4_COMMAND_6502 = 6502
+    #         TLB4_COMMAND_7 = 7
+    #         TLB4_COMMAND_9 = 9
+            
+    # class GETTERS_TLB4_DATA:
+        
+    #     # mV
+    #     def get_TLB4_CH1_mV_Value():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_mV_VALUE[3]
+    #     def get_TLB4_CH2_mV_Value():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_mV_VALUE[2]
+    #     def get_TLB4_CH3_mV_Value():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_mV_VALUE[1]
+    #     def get_TLB4_CH4_mV_Value():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_mV_VALUE[0]
+        
+    #     # Kg
+    #     def get_TLB4_CH1_Kg_Value():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_Kg_VALUE[3]
+    #     def get_TLB4_CH2_Kg_Value():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_Kg_VALUE[2]
+    #     def get_TLB4_CH3_Kg_Value():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_Kg_VALUE[1]
+    #     def get_TLB4_CH4_Kg_Value():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_Kg_VALUE[0]
+        
+    #     # Nm
+    #     def get_TLB4_CH1_Nm_Value():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_Nm_VALUE[3]
+    #     def get_TLB4_CH2_Nm_Value():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_Nm_VALUE[2]
+    #     def get_TLB4_CH3_Nm_Value():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_Nm_VALUE[1]
+    #     def get_TLB4_CH4_Nm_Value():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_Nm_VALUE[0]
+        
+    #     # N
+    #     def get_TLB4_CH1_N_Value():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_N_VALUE[3]
+    #     def get_TLB4_CH2_N_Value():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_N_VALUE[2]
+    #     def get_TLB4_CH3_N_Value():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_N_VALUE[1]
+    #     def get_TLB4_CH4_N_Value():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_N_VALUE[0]
+        
+    #     # Sensibilità
+    #     def get_TLB4_CH1_SENSIBILITY():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_SENSIBILITY[3]
+    #     def get_TLB4_CH2_SENSIBILITY():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_SENSIBILITY[2]
+    #     def get_TLB4_CH3_SENSIBILITY():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_SENSIBILITY[1]
+    #     def get_TLB4_CH4_SENSIBILITY():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_SENSIBILITY[0]
+        
+    #     # Fondoscala
+    #     def get_TLB4_CH1_FULLSCALE():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_FULLSCALE[3]
+    #     def get_TLB4_CH2_FULLSCALE():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_FULLSCALE[2]
+    #     def get_TLB4_CH3_FULLSCALE():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_FULLSCALE[1]
+    #     def get_TLB4_CH4_FULLSCALE():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_FULLSCALE[0]
+        
+    #     # Zeri
+    #     def get_TLB4_CH1_mV_ZERO():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_mV_ZERO[3]
+    #     def get_TLB4_CH2_mV_ZERO():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_mV_ZERO[2]
+    #     def get_TLB4_CH3_mV_ZERO():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_mV_ZERO[1]
+    #     def get_TLB4_CH4_mV_ZERO():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_LIST_mV_ZERO[0]
     
+    #     # Status canali
+    #     def get_TLB4_CH1_STATUS_CHANNELS():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_STATUS_CHANNELS[3]
+    #     def get_TLB4_CH2_STATUS_CHANNELS():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_STATUS_CHANNELS[2]
+    #     def get_TLB4_CH3_STATUS_CHANNELS():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_STATUS_CHANNELS[1]
+    #     def get_TLB4_CH4_STATUS_CHANNELS():
+    #         return BANCO_DI_TARATURA.TLB4.DATA.TLB4_STATUS_CHANNELS[0]
+
+    # class GETTERS_Z4AI_DATA:
+    #     pass
+    
+    # class SETTERS_TLB4_DATA:
+    #     pass
+    
+    # class SETTERS_Z4AI_DATA:
+    #     pass
+
+
+
+
+    # client_TLB4 = ModbusTcpClient(host=TLB4.SLAVE.TLB4_IP,
+    #                               port=TLB4.SLAVE.TLB4_PORT,
+    #                               baudrate=TLB4.SLAVE.TLB4_BAUDRATE,
+    #                               timeout=TLB4.SLAVE.TLB4_TIMEOUT,
+    #                               framer=Framer.RTU
+    #                               )
+
+    # client_Z4AI = ModbusSerialClient(method='rtu',
+    #                             port=Z4AI.SLAVE.Z4AI_COM_port,
+    #                             baudrate=Z4AI.SLAVE.Z4AI_baudrate,
+    #                             bytesize=Z4AI.SLAVE.Z4AI_bytesize,
+    #                             parity=Z4AI.SLAVE.Z4AI_parity,
+    #                             stopbits=Z4AI.SLAVE.Z4AI_stopbits
+    #                             )
+
+
+
+
+
+
 
 
 

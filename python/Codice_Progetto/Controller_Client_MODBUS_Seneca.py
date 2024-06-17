@@ -34,8 +34,6 @@ class DATA:
     fondo_scala_temperatura=0
     zero_temp=0
     
-    
-
 
 client = ModbusSerialClient(
     method='rtu',
@@ -125,9 +123,9 @@ class DATA_INTERACTIONS:
 
 if __name__ == "__main__":
     # print(TESTING.read_MachineID().registers)
-    DATA.canale_principale_mv = UTILS.read_registers(start_address=16, count=1)
+    DATA.canale_principale_mV = UTILS.read_registers(start_address=16, count=1)
     test=UTILS.read_registers(start_address=24, count=6)
-    print(f"Registri letti: {DATA.canale_principale_mv}")
+    print(f"Registri letti: {DATA.canale_principale_mV}")
     print(f"Registri letti normalizzati: {test}")
     
     

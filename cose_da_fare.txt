@@ -22,7 +22,17 @@ BUG SCOPERTI:
     - Bug che avviene ogni tanto all'inizio dell'esecuzione del programma
 
 
-    classe in più : BANCO DI MISURA  -----> contiene i controller e contriene i thread con start e stop in modo che l'interfaccia parli solo con banco di misura.
+    classe in più : BANCO DI MISURA  -----> contiene i controller e contiene i thread con start e stop in modo che l'interfaccia parli solo con banco di misura.
                     annidare la struttura dati in un contenitore unico provvisto di getter e setter per riuscire a poterla aggiornare in futuro in modo efficace.
-                    esempio: quando vado ad accedere a ch1_laumas_mV voglio farlo tramite la classe banco taratura.
-                    Poblema da risolvere: riuscire a fare capire la notazione posizionale dei vettori a chiunque acceda al codice.
+
+                    IDEA: istanziare invece di utilizzare le le classi in modo statico cosi da potere avere più istanze con dati separati.
+                            voglio istanziare i due controller dentro BANCO DI TARATURA (NON CAMBIARE NULLA DEI DUE CONTROLLER, AL MOMENTO).
+                            setter e getter non servono se lavoro sulle istanze dei controller.
+                            istanziare le classi dentro le varie wiew e imparare a lavorare con oggetti invece che in modo statico.
+                            buttare dentro il banco di taratura i thread e il file main.
+                            infine interagire solamente mediante il banco di taratura per acquisire e dare informazioni.
+
+
+                        Istanziare nel codice le classi necessarie per evitare di fare chiamate statiche.
+
+                        vista MVC da studiare per capire meglio come si realizza una web app
