@@ -59,6 +59,9 @@ tesi triennale presso Easting Electronics
 
 17/06
     Ristrutturazione del codice secondo logica a oggetti e non statica.
-    Parti fatte e funzionanti: Controller_TCP, Controller_MODBUS, Main_TCP, Logger, Banco di taratura, DIalog_setup_1
-    (FARE ATTENZIONE CON IL CAST A STRING E FARE L'ASSEGAZIONE AL DI GUORI DI ESSA)
+    Parti fatte e funzionanti: Controller_TCP, Controller_MODBUS, Main_TCP, Logger, Banco di taratura, Dialog_setup_1
+    (FARE ATTENZIONE CON IL CAST A STRING E FARE L'ASSEGAZIONE AL DI FUORI DI ESSA)
     
+18/06
+    Ho capito meglio la programmazione a oggetti, ora sto facendo dei cambiamenti per dare in input un solo oggetto di cuimi interessano i vari campi.
+    Ristrutturazione efficace: Banco_di_taratura, Main_window, i 2 controller, Logger, 

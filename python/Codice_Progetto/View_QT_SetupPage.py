@@ -26,59 +26,67 @@ from Dialog_setup_2_ui import Ui_Canale_Setup_2
 from Dialog_setup_3_ui import Ui_Canale_Setup_3
 from Dialog_setup_4_ui import Ui_Canale_Setup_4
 from Dialog_setup_SG600_ui import Ui_SG600_Setup
-
-var = False
+from Banco_Taratura import BANCO_DI_TARATURA
 
 class Canale_Setup_1(QDialog):
-    def __init__(self, controller_TCP, controller_MODBUS, logger):
+    def __init__(self, banco_di_taratura):
         super().__init__()
+        self.banco_di_taratura=banco_di_taratura
         # Create an instance of the generated UI class
         self.ui = Ui_Canale_Setup_1()
         # Setup the user interface
-        self.ui.setupUi(self, controller_TCP, controller_MODBUS, logger)
+        self.ui.setupUi(self, self.banco_di_taratura)
         
 class Canale_Setup_2(QDialog):
-    def __init__(self, controller_TCP, controller_MODBUS, logger):
+    def __init__(self, banco_di_taratura):
         super().__init__()
+        self.banco_di_taratura=banco_di_taratura
         # Create an instance of the generated UI class
         self.ui = Ui_Canale_Setup_2()
         # Setup the user interface
-        self.ui.setupUi(self, controller_TCP, controller_MODBUS, logger)
+        self.ui.setupUi(self, self.banco_di_taratura)
                 
 class Canale_Setup_3(QDialog):
-    def __init__(self, controller_TCP, controller_MODBUS, logger):
+    def __init__(self, banco_di_taratura):
         super().__init__()
+        self.banco_di_taratura=banco_di_taratura
         # Create an instance of the generated UI class
         self.ui = Ui_Canale_Setup_3()
         # Setup the user interface
-        self.ui.setupUi(self, controller_TCP, controller_MODBUS, logger)
+        self.ui.setupUi(self, self.banco_di_taratura)
         
 class Canale_Setup_4(QDialog):
-    def __init__(self, controller_TCP, controller_MODBUS, logger):
+    def __init__(self, banco_di_taratura):
         super().__init__()
+        self.banco_di_taratura=banco_di_taratura
         # Create an instance of the generated UI class
         self.ui = Ui_Canale_Setup_4()
         # Setup the user interface
-        self.ui.setupUi(self, controller_TCP, controller_MODBUS, logger)
+        self.ui.setupUi(self, self.banco_di_taratura)
                         
 class Canale_Setup_SG600(QDialog):
-    def __init__(self, controller_TCP, controller_MODBUS, logger):
+    def __init__(self, banco_di_taratura):
         super().__init__()
+        self.banco_di_taratura=banco_di_taratura
         # Create an instance of the generated UI class
         self.ui = Ui_SG600_Setup()
         # Setup the user interface
-        self.ui.setupUi(self, controller_TCP, controller_MODBUS, logger)
+        self.ui.setupUi(self, self.banco_di_taratura)
 
 class Ui_SetupWindow(object):
     
-    update_status = False
-    list_status_checkbox = [0,0,0,0]   #[CH4, CH3, CH2, CH1]     
-    status_timer = False  
+
           
-    def setupUi(self, MainWindow, controller_TCP, controller_MODBUS, logger):
-        self.controller_TCP = controller_TCP
-        self.controller_MODBUS = controller_MODBUS
-        self.logger = logger
+    def setupUi(self, MainWindow, banco_di_taratura:BANCO_DI_TARATURA):
+        self.banco_di_taratura = banco_di_taratura
+        self.controller_TCP = banco_di_taratura.controller_tcp
+        self.controller_MODBUS = banco_di_taratura.controller_modbus
+        self.logger = banco_di_taratura.logger
+        
+        self.update_status = banco_di_taratura.update_status # bool [FALSE]
+        self.list_status_checkbox = banco_di_taratura.list_status_checkbox  # list
+        self.status_timer = banco_di_taratura.status_timer  # bool [FALSE]
+        
         while self.list_status_checkbox == [0,0,0,0]:     
             self.list_status_checkbox=self.controller_TCP.read_channels_active() 
             
@@ -1089,23 +1097,23 @@ class Ui_SetupWindow(object):
         
         
     def open_setup_CH1_window(self):
-        self.setup_window = Canale_Setup_1(controller_MODBUS=self.controller_MODBUS, controller_TCP=self.controller_TCP, logger=self.logger)
+        self.setup_window = Canale_Setup_1(banco_di_taratura=self.banco_di_taratura)
         self.setup_window.show()
         
     def open_setup_CH2_window(self):
-        self.setup_window = Canale_Setup_2(controller_MODBUS=self.controller_MODBUS, controller_TCP=self.controller_TCP, logger=self.logger)
+        self.setup_window = Canale_Setup_2(banco_di_taratura=self.banco_di_taratura)
         self.setup_window.show()
 
     def open_setup_CH3_window(self):
-        self.setup_window = Canale_Setup_3(controller_MODBUS=self.controller_MODBUS, controller_TCP=self.controller_TCP, logger=self.logger)
+        self.setup_window = Canale_Setup_3(banco_di_taratura=self.banco_di_taratura)
         self.setup_window.show()
 
     def open_setup_CH4_window(self):
-        self.setup_window = Canale_Setup_4(controller_MODBUS=self.controller_MODBUS, controller_TCP=self.controller_TCP, logger=self.logger)
+        self.setup_window = Canale_Setup_4(banco_di_taratura=self.banco_di_taratura)
         self.setup_window.show()
         
     def open_setup_SG600_window(self):
-        self.setup_window = Canale_Setup_SG600(controller_MODBUS=self.controller_MODBUS, controller_TCP=self.controller_TCP, logger=self.logger)
+        self.setup_window = Canale_Setup_SG600(banco_di_taratura=self.banco_di_taratura)
         self.setup_window.show()
         
     

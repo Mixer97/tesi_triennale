@@ -19,12 +19,15 @@ from PySide6.QtWidgets import (QApplication, QDialog, QGridLayout, QHBoxLayout,
     QLabel, QLayout, QLineEdit, QPushButton,
     QSizePolicy, QWidget)
 import Controller_Client_TCP_Laumas
+from Banco_Taratura import BANCO_DI_TARATURA
 
 class Ui_Canale_Setup_1(object):
-    def setupUi(self, Canale_Setup, controller_TCP, controller_MODBUS, logger):
-        self.controller_TCP = controller_TCP
-        self.controller_MODBUS = controller_MODBUS
-        self.logger = logger
+    def setupUi(self, Canale_Setup, banco_di_taratura:BANCO_DI_TARATURA):
+        self.banco_di_taratura = banco_di_taratura
+        self.controller_TCP = banco_di_taratura.controller_tcp
+        self.controller_MODBUS = banco_di_taratura.controller_modbus
+        self.logger = banco_di_taratura.logger
+        
         if not Canale_Setup.objectName():
             Canale_Setup.setObjectName(u"Canale_Setup")
         Canale_Setup.setWindowModality(Qt.WindowModal)

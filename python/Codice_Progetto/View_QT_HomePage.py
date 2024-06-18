@@ -23,27 +23,46 @@ import Logger
 from View_QT_SetupPage import Ui_SetupWindow
 import Controller_Client_MODBUS_Seneca
 from time import sleep
+from Banco_Taratura import BANCO_DI_TARATURA
 
 
-startStop = False
-status_pulsante_interfaccia = 1
-status_pulsante_registrazione = 1
-timerStop = False
+# startStop = False
+# status_pulsante_interfaccia = 1
+# status_pulsante_registrazione = 1
+# timerStop = False
 
+# DEFINIZIONE COSTRUTTORE MAIN WINDOW
+
+class MainWindow(QMainWindow):
+    def __init__(self, banco_di_taratura):
+        super().__init__()
+        self.banco_di_taratura = banco_di_taratura
+        # Create an instance of the generated UI class
+        self.ui = Ui_MainWindow()
+        # Setup the user interface
+        self.ui.setupUi(self, banco_di_taratura=self.banco_di_taratura)
 
 class SetupWindow(QMainWindow):
-    def __init__(self, controller_TCP, controller_MODBUS, logger):
+    def __init__(self, banco_di_taratura):
         super().__init__()
+        self.banco_di_taratura = banco_di_taratura
         # Create an instance of the generated UI class
         self.ui = Ui_SetupWindow()
         # Setup the user interface
-        self.ui.setupUi(self, controller_TCP, controller_MODBUS, logger)
+        self.ui.setupUi(self, self.banco_di_taratura)
         
 class Ui_MainWindow(object):
-    def setupUi(self, MainWindow, controller_TCP, controller_MODBUS, logger):
-        self.logger = logger
-        self.controller_TCP = controller_TCP
-        self.controller_MODBUS = controller_MODBUS
+    def setupUi(self, MainWindow, banco_di_taratura:BANCO_DI_TARATURA):
+        self.banco_di_taratura = banco_di_taratura
+        self.logger = banco_di_taratura.logger
+        self.controller_TCP = banco_di_taratura.controller_tcp
+        self.controller_MODBUS = banco_di_taratura.controller_modbus
+        
+        self.startStop = False
+        self.status_pulsante_interfaccia = 1
+        self.status_pulsante_registrazione = 1
+        self.timerStop = False
+        
         # self.Seneca_Controller=Controller_Client_MODBUS_Seneca()
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
@@ -1043,47 +1062,47 @@ class Ui_MainWindow(object):
     
     # setup segnali
         self.pushButton_Interfaccia.clicked.connect(self.pulsante_interfaccia_click)                                    # pulsanti interfaccia e registrazione
-        self.pushButton_Registrazione.clicked.connect(lambda: self.pulsante_registrazione_click(logger))                   #
+        self.pushButton_Registrazione.clicked.connect(self.pulsante_registrazione_click)                   #
         self.timer1 = QTimer()                                                                                             # Timer
         self.timer2 = QTimer()                                                                                             #
-        self.timer1.timeout.connect(lambda: self.update_CH1(controller_TCP))                                         # Update degli lcd
-        self.timer1.timeout.connect(lambda: self.update_CH2(controller_TCP))                                         #
-        self.timer1.timeout.connect(lambda: self.update_CH3(controller_TCP))                                         #
-        self.timer1.timeout.connect(lambda: self.update_CH4(controller_TCP))                                         #   
-        self.timer1.timeout.connect(lambda: self.update_SG600_main(controller_MODBUS))                               #
-        self.timer1.timeout.connect(lambda: self.update_SG600_temp(controller_MODBUS))                               #
-        self.timer2.timeout.connect(lambda: self.setter_lcdDisplay_text_logger(logger))                                              #
+        self.timer1.timeout.connect(self.update_CH1)                                         # Update degli lcd
+        self.timer1.timeout.connect(self.update_CH2)                                         #
+        self.timer1.timeout.connect(self.update_CH3)                                         #
+        self.timer1.timeout.connect(self.update_CH4)                                         #   
+        self.timer1.timeout.connect(self.update_SG600_main)                               #
+        self.timer1.timeout.connect(self.update_SG600_temp)                               #
+        self.timer2.timeout.connect(self.setter_lcdDisplay_text_logger)                                              #
         self.pushButton_impostazioni.clicked.connect(self.open_setup_window)                                         #
         self.timer1.timeout.connect(self.check)                                                                    # Check per chiusura dei timer alla chiusura dell'ultima finestra
         self.timer2.timeout.connect(self.check)                                                                    #
         # self.pulsante_registrazione_click()
 
     def open_setup_window(self):
-        self.setup_window = SetupWindow(controller_MODBUS=self.controller_MODBUS, controller_TCP=self.controller_TCP, logger=self.logger)
+        self.setup_window = SetupWindow(self.banco_di_taratura)
         self.setup_window.show()
     
     def check(self):
-        if timerStop == True:
+        if self.timerStop == True:
             self.timer1.stop()
             self.timer2.stop()
         
-    def setter_lcdDisplay_text_logger(self, logger):
-        logger.DATA.text_lcd[0]=self.comboBox_1.currentText()
-        logger.DATA.text_lcd[1]=self.comboBox_2.currentText()
-        logger.DATA.text_lcd[2]=self.comboBox_3.currentText()
-        logger.DATA.text_lcd[3]=self.comboBox_4.currentText()
-        logger.DATA.text_lcd_SG600_main_temp[0]=self.comboBox_5.currentText()
+    def setter_lcdDisplay_text_logger(self):
+        self.logger.DATA.text_lcd[0]=self.comboBox_1.currentText()
+        self.logger.DATA.text_lcd[1]=self.comboBox_2.currentText()
+        self.logger.DATA.text_lcd[2]=self.comboBox_3.currentText()
+        self.logger.DATA.text_lcd[3]=self.comboBox_4.currentText()
+        self.logger.DATA.text_lcd_SG600_main_temp[0]=self.comboBox_5.currentText()
     
     def pulsante_interfaccia_click(self):
         # Check della condizione del pulsante e poi cambio il tipo e gestisco il timer
-        global status_pulsante_interfaccia
-        if status_pulsante_interfaccia % 2 != 0:
+
+        if self.status_pulsante_interfaccia % 2 != 0:
                 self.timer1.start(100)          # In millisecondi
                 self.pushButton_Interfaccia.setText("STOP")
                 self.pushButton_Interfaccia.setStyleSheet("background-color: red; border-style: outset; border-width: 2px; border-color: black; color: black")
                 self.label.setStyleSheet("QWidget { background-color:rgb(255, 69, 72); border-style: outset; border-width: 0px; border-color:rgb(255, 111, 113); border-radius: 20px; } QLabel { color: rgb(0,0,0); }")
                 self.widget1.setStyleSheet("QWidget { background-color:rgb(255, 69, 72); border-style: outset; border-width: 2px; border-color:rgb(255, 111, 113); border-radius: 20px; }")
-                status_pulsante_interfaccia = status_pulsante_interfaccia + 1
+                self.status_pulsante_interfaccia = self.status_pulsante_interfaccia + 1
         else:     
                 self.timer1.stop()
                 self.lcdNumber_1.display(0)
@@ -1096,112 +1115,111 @@ class Ui_MainWindow(object):
                 self.label.setStyleSheet("QWidget { background-color:rgb(125, 225, 10); border-style: outset; border-width: 0px; border-color:rgb(63, 156, 23); border-radius: 20px; } QLabel { color: rgb(0,0,0); }")
                 self.widget1.setStyleSheet("QWidget { background-color:rgb(125, 225, 10); border-style: outset; border-width: 2px; border-color:rgb(63, 156, 23); border-radius: 20px; }")
                 self.pushButton_Interfaccia.setText("START")
-                status_pulsante_interfaccia = status_pulsante_interfaccia + 1
+                self.status_pulsante_interfaccia = self.status_pulsante_interfaccia + 1
     
-    def pulsante_registrazione_click(self, logger):
+    def pulsante_registrazione_click(self):
         # Check della condizione del pulsante e poi cambio il tipo e gestisco il logger
-        global status_pulsante_registrazione
-        if status_pulsante_registrazione % 2 != 0:
+        if self.status_pulsante_registrazione % 2 != 0:
                 self.timer2.start(100)          # In millisecondi       
-                logger.DATA.startStop_logger = True
+                self.logger.DATA.startStop_logger = True
                 self.pushButton_Registrazione.setText("STOP")
                 self.label_5.setStyleSheet("QWidget { background-color:rgb(255, 69, 72); border-style: outset; border-width: 0px; border-color:rgb(255, 111, 113); border-radius: 20px; } QLabel { color: rgb(0,0,0); }")
                 self.pushButton_Registrazione.setStyleSheet("background-color: red; border-style: outset; border-width: 2px; border-color: black; color: black")
                 self.widget2.setStyleSheet("QWidget { background-color:rgb(255, 69, 72); border-style: outset; border-width: 2px; border-color:rgb(255, 111, 113); border-radius: 20px; }")
-                status_pulsante_registrazione = status_pulsante_registrazione + 1
+                self.status_pulsante_registrazione = self.status_pulsante_registrazione + 1
         else:
                 self.timer2.stop()     
-                logger.DATA.startStop_logger  = False     
+                self.logger.DATA.startStop_logger  = False     
                 self.pushButton_Registrazione.setText("START")     
                 self.label_5.setStyleSheet("QWidget { background-color:rgb(125, 225, 10); border-style: outset; border-width: 0px; border-color:rgb(63, 156, 23); border-radius: 20px; } QLabel { color: rgb(0,0,0); }")
                 self.pushButton_Registrazione.setStyleSheet("background-color: green; border-style: outset; border-width: 2px; border-color: black; color: black")
                 self.widget2.setStyleSheet("QWidget { background-color:rgb(125, 225, 10); border-style: outset; border-width: 2px; border-color:rgb(63, 156, 23); border-radius: 20px; }")
-                status_pulsante_registrazione = status_pulsante_registrazione + 1
+                self.status_pulsante_registrazione = self.status_pulsante_registrazione + 1
                 
            
            # "QWidget { background-color:rgb(255, 69, 72); border-style: outset; border-width: 2px; border-color:rgb(255, 111, 113); border-radius: 20px; }"
            
-    def update_CH1(self, controller_TCP):
+    def update_CH1(self):
         if self.comboBox_1.currentText() == "mV":
-                list_mV = controller_TCP.get_mv()
+                list_mV = self.controller_TCP.get_mv()
                 self.lcdNumber_1.display(list_mV[0])
         elif self.comboBox_1.currentText() == "Kg":
-                list_Kg = controller_TCP.get_Kg()
+                list_Kg = self.controller_TCP.get_Kg()
                 self.lcdNumber_1.display(list_Kg[0])
         elif self.comboBox_1.currentText() == "N":
-                list_N = controller_TCP.get_N()
+                list_N = self.controller_TCP.get_N()
                 self.lcdNumber_1.display(list_N[0])
         elif self.comboBox_1.currentText() == "Nm":
-                list_Nm = controller_TCP.get_Nm()
+                list_Nm = self.controller_TCP.get_Nm()
                 self.lcdNumber_1.display(list_Nm[0]) 
         else:
                 print("Error: something went wrong in the selection of the measuring unit in CH1!")       
                 exit(1)
 
-    def update_CH2(self, controller_TCP):
+    def update_CH2(self):
         if self.comboBox_2.currentText() == "mV":
-                list_mV = controller_TCP.get_mv()
+                list_mV = self.controller_TCP.get_mv()
                 self.lcdNumber_2.display(list_mV[1])
         elif self.comboBox_2.currentText() == "Kg":
-                list_Kg = controller_TCP.get_Kg()
+                list_Kg = self.controller_TCP.get_Kg()
                 self.lcdNumber_2.display(list_Kg[1])
         elif self.comboBox_2.currentText() == "N":
-                list_N = controller_TCP.get_N()
+                list_N = self.controller_TCP.get_N()
                 self.lcdNumber_2.display(list_N[1])
         elif self.comboBox_2.currentText() == "Nm":
-                list_Nm = controller_TCP.get_Nm()
+                list_Nm = self.controller_TCP.get_Nm()
                 self.lcdNumber_2.display(list_Nm[1]) 
         else:
                 print("Error: something went wrong in the selection of the measuring unit in CH2!")       
                 exit(1)
 
 
-    def update_CH3(self, controller_TCP):
+    def update_CH3(self):
         if self.comboBox_3.currentText() == "mV":
-                list_mV = controller_TCP.get_mv()
+                list_mV = self.controller_TCP.get_mv()
                 self.lcdNumber_3.display(list_mV[2])
         elif self.comboBox_3.currentText() == "Kg":
-                list_Kg = controller_TCP.get_Kg()
+                list_Kg = self.controller_TCP.get_Kg()
                 self.lcdNumber_3.display(list_Kg[2])
         elif self.comboBox_3.currentText() == "N":
-                list_N = controller_TCP.get_N()
+                list_N = self.controller_TCP.get_N()
                 self.lcdNumber_3.display(list_N[2])
         elif self.comboBox_3.currentText() == "Nm":
-                list_Nm = controller_TCP.get_Nm()
+                list_Nm = self.controller_TCP.get_Nm()
                 self.lcdNumber_3.display(list_Nm[2]) 
         else:
                 print("Error: something went wrong in the selection of the measuring unit in CH3!")       
                 exit(1)
 
-    def update_CH4(self, controller_TCP):
+    def update_CH4(self):
         if self.comboBox_4.currentText() == "mV":
-                list_mV = controller_TCP.get_mv()
+                list_mV = self.controller_TCP.get_mv()
                 self.lcdNumber_4.display(list_mV[3])
         elif self.comboBox_4.currentText() == "Kg":
-                list_Kg = controller_TCP.get_Kg()
+                list_Kg = self.controller_TCP.get_Kg()
                 self.lcdNumber_4.display(list_Kg[3])
         elif self.comboBox_4.currentText() == "N":
-                list_N = controller_TCP.get_N()
+                list_N = self.controller_TCP.get_N()
                 self.lcdNumber_4.display(list_N[3])
         elif self.comboBox_4.currentText() == "Nm":
-                list_Nm = controller_TCP.get_Nm()
+                list_Nm = self.controller_TCP.get_Nm()
                 self.lcdNumber_4.display(list_Nm[3]) 
         else:
                 print("Error: something went wrong in the selection of the measuring unit in CH4!")       
                 exit(1)
     
     
-    def update_SG600_main(self, controller_MODBUS):
+    def update_SG600_main(self):
         if self.comboBox_5.currentText() == "mV":
-                main_mV = controller_MODBUS.get_mV_main()
+                main_mV = self.controller_MODBUS.get_mV_main()
                 self.lcdNumber_main_SG600.display(main_mV)
         else:
             print("Error: something went wrong in the selection of the measuring unit in SG600_main!")       
             exit(1)
                 
                 
-    def update_SG600_temp(self, controller_MODBUS):
-        temp_mV = controller_MODBUS.get_mV_temp()
+    def update_SG600_temp(self):
+        temp_mV = self.controller_MODBUS.get_mV_temp()
         self.lcdNumber_temperature_SG600.display(temp_mV)
         
         
