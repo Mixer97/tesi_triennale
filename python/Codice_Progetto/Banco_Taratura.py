@@ -27,6 +27,11 @@ class BANCO_DI_TARATURA:
         self.status_pulsante_registrazione = 1
         self.timerStop = False
         
+        # variabili per setup page
+        self.update_status = False
+        self.list_status_checkbox = [0,0,0,0]   #[CH4, CH3, CH2, CH1]     
+        self.status_timer = False  
+        
     # metodi comuni a tutte le istanze da metter qui
 
 

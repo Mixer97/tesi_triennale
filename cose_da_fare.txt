@@ -22,6 +22,9 @@ BUG SCOPERTI:
     - Bug che avviene ogni tanto all'inizio dell'esecuzione del programma
 
 
+
+OBIETTIVI:
+
     classe in più : BANCO DI MISURA  -----> contiene i controller e contiene i thread con start e stop in modo che l'interfaccia parli solo con banco di misura.
                     annidare la struttura dati in un contenitore unico provvisto di getter e setter per riuscire a poterla aggiornare in futuro in modo efficace.
 
@@ -36,3 +39,11 @@ BUG SCOPERTI:
                         Istanziare nel codice le classi necessarie per evitare di fare chiamate statiche.
 
                         vista MVC da studiare per capire meglio come si realizza una web app
+
+
+
+FRAMEWORK:
+    - requisiti: documentazione, requisiti tecnici e capire se quel framework basta per farlo, se servono pulgin e se sti plugin sono decenti.
+    - decisione fra Flask, Django e Pyramid.
+    - decidere anche in funzione della tesi (decisione argomentata)
+    - learning curve da valutare

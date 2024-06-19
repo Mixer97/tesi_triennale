@@ -64,4 +64,7 @@ tesi triennale presso Easting Electronics
     
 18/06
     Ho capito meglio la programmazione a oggetti, ora sto facendo dei cambiamenti per dare in input un solo oggetto di cuimi interessano i vari campi.
-    Ristrutturazione efficace: Banco_di_taratura, Main_window, i 2 controller, Logger, 
+    Ristrutturazione efficace: Banco_di_taratura, Main_window, i 2 controller, Logger, finita.
+
+19/06
+    Ho impostato la classe banco_di_taratura in modo che il metodo run possa essere invocato su di essa, cosi da potere avere più istanze in contemporanea.
