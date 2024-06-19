@@ -1,0 +1,3 @@
+19/06
+    flask run --> comando da usare da shell per lanciare la webapp. (necessario essere nella cartella della webapp)
+    Jinja si occupa delle operazioni che si possono fare con la sostituzione delle {...} nei template files.
