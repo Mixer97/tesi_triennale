@@ -1,6 +1,6 @@
 # tesi_triennale_Git
 
-# tesi triennale presso Easting Electronics
+## tesi triennale presso Easting Electronics
 
 
 28/05:
