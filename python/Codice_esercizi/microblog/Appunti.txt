@@ -8,8 +8,10 @@
                              {% extends "base.html" %} --> usato per estendere un template
     url_for() --> funzione utilizzata per generare un URL dell'applicazione, usata invece di scrivere URL direttamente.
 
-
+21/06
 
 
 
 Chapter attuale: 3
+
+installare: Docker desktop (installer dal sito)

@@ -1,17 +1,21 @@
 COSE DA FARE:
 
     [[- Realizzazione delle finestre per il setup dei canali]]
-    - Collegamento delle fuzionalità per le finestre di setup (finire la 1 e iniziare la 2,3,4)
+    [[- Collegamento delle fuzionalità per le finestre di setup (finire la 1 e iniziare la 2,3,4)]]
     [[- Rendere le finestre unstreachable]]
     [[- Rendere le lable modificabili dall'utente]]
     [[- Realizzazione del setup dell'SG600]]
+    [[- All' apertura delle finestre di setup voglio che ci sia la lettura del fondoscala e sensibilità che sono già presenti]]
     - collegare i funzionamenti della finestra di setup per SG600
     - Collegare i toggle dei colori delle checkbox
     - il canale creato di temperatura misura in tensione ma voglio solo la misura in gradi Celsius
     - schermi lcd per SG600 displayano solamente le caratteristiche del canale main e non quelle del canale temperatura
     - Implementare una finestra modale che non permette di agire per 3 secondi dopo una richiesta di configurazione
-    - All' apertura delle finestre di setup voglio che ci sia la lettura del fondoscala e sensibilità che sono già presenti
     - Implementazione scrittura e visualizzazione con lo zero dei millivolt (capire la logica che ci sta dietro)
+    - impostare salvataggio selle impostazioni su JSON (IMPORTANTE)
+    - spostare valore frequenza logger 
+    - implementazione parte di visualizzazione grafica della applicazione
+    - implementazione parte di gestione della misura e calcolo della stabilità
 
 BUG SCOPERTI:
 
@@ -19,7 +23,8 @@ BUG SCOPERTI:
     - Scheda della Seneca ha problemi con l'impostazione della scala normalizzata, riesce a impostarla da app ma nei registri risultano sempre la scala: 0/10000
     [[- Problema con i timer che continuano il loop anche anche con le finestre chiuse]]
     - Problema con l'handling del programma quando le schede non sono collegate
-    - Bug che avviene ogni tanto all'inizio dell'esecuzione del programma
+    - Problema handling del CSV quando è aperto
+    - Bug che avviene ogni tanto all'inizio dell'esecuzione del programma (forse risolto)
 
 
 
@@ -38,15 +43,3 @@ OBIETTIVI:
                             Istanziare nel codice le classi necessarie per evitare di fare chiamate statiche. 
 
 
-
-
-FRAMEWORK:
-    - requisiti: documentazione, requisiti tecnici e capire se quel framework basta per farlo, se servono pulgin e se sti plugin sono decenti.
-    - decisione fra Flask, Django e Pyramid.
-    - decidere anche in funzione della tesi (decisione argomentata)
-    - learning curve da valutare
-
-    DECISIONE: uso Flask (con Jinja) per back-end e JS\HTML\CSS per front-end
-    
-    --> framework CSS: permette di avere tutti gli stili organizzati in classi e basta chiamare quelle per gli oggetti.
-    --> framework JS: attenzione a non avere conflitti con jinja (cioè non deve usare {{...}} per variabili; se lo fa devo togliere Jinja o gestire i conflitti.)

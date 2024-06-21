@@ -70,6 +70,6 @@
     installare: Docker desktop (installer dal sito),
                 {{Podman (gestire immagini virtuali) --> se non voglio usare solo comandi da riga di comando}}
 
-    Incontro con Emanuele per decidere cosa fare. Scartata idea della webapp. Continuare a lavorare con QT per creare una applicazione in loco. L'idea è quella di andare poi a lavorare con un docker che ha dentro Graphana e {{applicazione che serve per fare da database per segnali che variano nel tempo}} e nel quale gira l'applicazione.
+    Incontro con Emanuele per decidere cosa fare. Scartata idea della webapp. Continuare a lavorare con QT per creare una applicazione in loco. L'idea è quella di andare poi a lavorare con un docker che ha dentro GRAPHANA (grafici e collegamento tramite web) e INFLUX (database con estensione per Python e si accede da web per vedere il funzionamento) e nel quale gira l'applicazione.
         Necessaria implementazione della parte gestione misura (settaggio delgli step di misura e acquisizione del dato quando arrivato alla stabilità).
-        Necessaria implementazione della parte grafica per visualizzazione dei dati 
+        Necessaria implementazione della parte grafica per visualizzazione dei dati.

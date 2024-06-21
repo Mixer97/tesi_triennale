@@ -71,7 +71,7 @@ class LOGGER:
         self.controller_TCP = controller_TCP
         self.controller_MODBUS = controller_MODBUS
         while self.DATA.loop_status:
-            sleep(0.10)   # timer per gestire la frequenza di campionamento del logger
+            sleep(0.005)   # timer per gestire la frequenza di campionamento del logger (frequenza più alta possibile per non avere duplicati)
             if self.DATA.startStop_logger:
                 # Processing dei dati
                 self.stop_timer = time.time()
