@@ -1,6 +1,6 @@
 # tesi_triennale_Git
 
-tesi triennale presso Easting Electronics
+# tesi triennale presso Easting Electronics
 
 
 28/05:
@@ -66,3 +66,10 @@ tesi triennale presso Easting Electronics
     Ho capito meglio la programmazione a oggetti, ora sto facendo dei cambiamenti per dare in input un solo oggetto di cuimi interessano i vari campi.
     Ristrutturazione efficace: Banco_di_taratura, Main_window, i 2 controller, Logger, finita.
 
+21/06
+    installare: Docker desktop (installer dal sito),
+                {{Podman (gestire immagini virtuali) --> se non voglio usare solo comandi da riga di comando}}
+
+    Incontro con Emanuele per decidere cosa fare. Scartata idea della webapp. Continuare a lavorare con QT per creare una applicazione in loco. L'idea è quella di andare poi a lavorare con un docker che ha dentro Graphana e {{applicazione che serve per fare da database per segnali che variano nel tempo}} e nel quale gira l'applicazione.
+        Necessaria implementazione della parte gestione misura (settaggio delgli step di misura e acquisizione del dato quando arrivato alla stabilità).
+        Necessaria implementazione della parte grafica per visualizzazione dei dati 
