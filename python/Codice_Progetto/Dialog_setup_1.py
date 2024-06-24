@@ -1,9 +1,10 @@
 from PySide6.QtWidgets import QDialog
 from Dialog_setup_1_ui import Ui_Canale_Setup_1
+from Banco_Taratura import BANCO_DI_TARATURA
 
 
 class Canale_Setup_1(QDialog):
-    def __init__(self, banco_di_taratura):
+    def __init__(self, banco_di_taratura:BANCO_DI_TARATURA):
         super().__init__()
         self.banco_di_taratura=banco_di_taratura
         # Create an instance of the generated UI class
