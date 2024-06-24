@@ -57,10 +57,10 @@ class Ui_MainWindow(object):
         self.controller_TCP = banco_di_taratura.controller_tcp
         self.controller_MODBUS = banco_di_taratura.controller_modbus
         
-        self.startStop = False
-        self.status_pulsante_interfaccia = 1
-        self.status_pulsante_registrazione = 1
-        self.timerStop = False
+        self.startStop = banco_di_taratura.startStop
+        self.status_pulsante_interfaccia = banco_di_taratura.status_pulsante_interfaccia
+        self.status_pulsante_registrazione = banco_di_taratura.status_pulsante_registrazione
+        self.timerStop = banco_di_taratura.timerStop
         
         # self.Seneca_Controller=Controller_Client_MODBUS_Seneca()
         if not MainWindow.objectName():
