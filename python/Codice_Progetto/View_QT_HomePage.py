@@ -39,7 +39,7 @@ class MainWindow(QMainWindow):
         # Create an instance of the generated UI class
         self.ui = Ui_MainWindow()
         # Setup the user interface
-        self.ui.setupUi(self, banco_di_taratura=self.banco_di_taratura)
+        self.ui.setupUi(self, banco_di_taratura)
 
 class SetupWindow(QMainWindow):
     def __init__(self, banco_di_taratura):

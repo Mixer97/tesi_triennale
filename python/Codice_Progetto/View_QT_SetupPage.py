@@ -26,16 +26,9 @@ from Dialog_setup_3_ui import Ui_Canale_Setup_3
 from Dialog_setup_4_ui import Ui_Canale_Setup_4
 from Dialog_setup_SG600_ui import Ui_SG600_Setup
 from Banco_Taratura import BANCO_DI_TARATURA
+from Dialog_setup_1 import Canale_Setup_1
 
-class Canale_Setup_1(QDialog):
-    def __init__(self, banco_di_taratura):
-        super().__init__()
-        self.banco_di_taratura=banco_di_taratura
-        # Create an instance of the generated UI class
-        self.ui = Ui_Canale_Setup_1()
-        # Setup the user interface
-        self.ui.setupUi(self, self.banco_di_taratura)
-        
+
 class Canale_Setup_2(QDialog):
     def __init__(self, banco_di_taratura):
         super().__init__()

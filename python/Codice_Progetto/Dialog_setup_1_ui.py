@@ -21,11 +21,8 @@ from PySide6.QtWidgets import (QApplication, QDialog, QGridLayout, QHBoxLayout,
 from Banco_Taratura import BANCO_DI_TARATURA
 
 class Ui_Canale_Setup_1(object):
-    def setupUi(self, Canale_Setup, banco_di_taratura:BANCO_DI_TARATURA):
-        self.banco_di_taratura = banco_di_taratura
-        self.controller_TCP = banco_di_taratura.controller_tcp
-        self.controller_MODBUS = banco_di_taratura.controller_modbus
-        self.logger = banco_di_taratura.logger
+    def setupUi(self, Canale_Setup):
+
         
         if not Canale_Setup.objectName():
             Canale_Setup.setObjectName(u"Canale_Setup")
@@ -243,32 +240,32 @@ class Ui_Canale_Setup_1(object):
     
     #------------------------------------------------------------------------------------------------------------------------#
         
-        # Setup dei valori iniziali delle lineEdit
-        i=self.controller_TCP.DATA.LIST_FULLSCALE[0]
-        l=self.controller_TCP.DATA.LIST_SENSIBILITY[0]
-        self.lineEdit_fondoscala.setText(str(i))
-        self.lineEdit_sensibilita.setText(str(l))
+    #     # Setup dei valori iniziali delle lineEdit
+    #     i=self.controller_TCP.DATA.LIST_FULLSCALE[0]
+    #     l=self.controller_TCP.DATA.LIST_SENSIBILITY[0]
+    #     self.lineEdit_fondoscala.setText(str(i))
+    #     self.lineEdit_sensibilita.setText(str(l))
 
         
-        # Setup dei segnali
-        # self.lineEdit_fondoscala
-        self.lineEdit_fondoscala.textChanged.connect(self.update_fondoscala)
-        self.lineEdit_sensibilita.textChanged.connect(self.update_sensibilità)
+    #     # Setup dei segnali
+    #     # self.lineEdit_fondoscala
+    #     self.lineEdit_fondoscala.textChanged.connect(self.update_fondoscala)
+    #     self.lineEdit_sensibilita.textChanged.connect(self.update_sensibilità)
 
         
-    def update_fondoscala(self):
-        new_value = self.lineEdit_fondoscala.text() 
-        if is_number_tryexcept(new_value):
-            self.controller_TCP.DATA.LIST_FULLSCALE[0] = float(new_value)
-        else:
-            print("Valore inserito non rappresenta un numero")       
+    # def update_fondoscala(self):
+    #     new_value = self.lineEdit_fondoscala.text() 
+    #     if is_number_tryexcept(new_value):
+    #         self.controller_TCP.DATA.LIST_FULLSCALE[0] = float(new_value)
+    #     else:
+    #         print("Valore inserito non rappresenta un numero")       
             
-    def update_sensibilità(self):
-        new_value = self.lineEdit_sensibilita.text() 
-        if is_number_tryexcept(new_value):
-            self.controller_TCP.DATA.LIST_SENSIBILITY[0] = float(new_value)
-        else:
-            print("Valore inserito non rappresenta un numero")
+    # def update_sensibilità(self):
+    #     new_value = self.lineEdit_sensibilita.text() 
+    #     if is_number_tryexcept(new_value):
+    #         self.controller_TCP.DATA.LIST_SENSIBILITY[0] = float(new_value)
+    #     else:
+    #         print("Valore inserito non rappresenta un numero")
     
 
     #------------------------------------------------------------------------------------------------------------------------#
