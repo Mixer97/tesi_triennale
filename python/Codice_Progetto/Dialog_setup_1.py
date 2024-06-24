@@ -2,7 +2,7 @@ from PySide6.QtWidgets import QDialog
 from Dialog_setup_1_ui import Ui_Canale_Setup_1
 
 
-class Canale_Setup_1(QDialog, Ui_Canale_Setup_1):
+class Canale_Setup_1(QDialog):
     def __init__(self, banco_di_taratura):
         super().__init__()
         self.banco_di_taratura=banco_di_taratura
