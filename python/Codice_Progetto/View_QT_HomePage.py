@@ -21,7 +21,6 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout
 import Controller_Client_TCP_Laumas as Controller_Client_TCP_Laumas
 import Logger
 from View_QT_SetupPage import Ui_SetupWindow
-import Controller_Client_MODBUS_Seneca
 from time import sleep
 from Banco_Taratura import BANCO_DI_TARATURA
 

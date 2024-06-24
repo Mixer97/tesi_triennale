@@ -19,7 +19,6 @@ from PySide6.QtWidgets import (QApplication, QCheckBox, QGridLayout, QHBoxLayout
     QLCDNumber, QLabel, QMainWindow, QPushButton,
     QSizePolicy, QVBoxLayout, QWidget)
 import Controller_Client_TCP_Laumas as Controller_Client_TCP_Laumas
-import Controller_Client_MODBUS_Seneca
 from time import sleep
 from Dialog_setup_1_ui import Ui_Canale_Setup_1
 from Dialog_setup_2_ui import Ui_Canale_Setup_2

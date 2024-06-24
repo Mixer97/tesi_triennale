@@ -18,7 +18,6 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QDialog, QGridLayout, QHBoxLayout,
     QLabel, QLayout, QLineEdit, QPushButton,
     QSizePolicy, QWidget)
-import Controller_Client_TCP_Laumas
 from Banco_Taratura import BANCO_DI_TARATURA
 
 class Ui_Canale_Setup_3(object):
