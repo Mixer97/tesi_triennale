@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'QT_Finestra_#2.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.0
+## Created by: Qt User Interface Compiler version 6.7.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -19,19 +19,19 @@ from PySide6.QtWidgets import (QApplication, QCheckBox, QGridLayout, QHBoxLayout
     QLCDNumber, QLabel, QMainWindow, QPushButton,
     QSizePolicy, QVBoxLayout, QWidget)
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        if not MainWindow.objectName():
-            MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(976, 611)
-        MainWindow.setStyleSheet(u"QWidget {\n"
+class Ui_SetupWindow(object):
+    def setupUi(self, SetupWindow):
+        if not SetupWindow.objectName():
+            SetupWindow.setObjectName(u"SetupWindow")
+        SetupWindow.resize(976, 611)
+        SetupWindow.setStyleSheet(u"QWidget {\n"
 "	background-color:black; \n"
 "	border-style: outset;\n"
 "    border-width: 4px;\n"
 "    border-color: black;\n"
 "}\n"
 "")
-        self.centralwidget = QWidget(MainWindow)
+        self.centralwidget = QWidget(SetupWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"QWidget {\n"
 "	background-color:black; \n"
@@ -99,7 +99,7 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setUnderline(False)
         self.pushButton_setup_CH1.setFont(font)
-        self.pushButton_setup_CH1.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_setup_CH1.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_setup_CH1.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(180, 191, 168); \n"
 "	border-style: outset;\n"
@@ -151,7 +151,7 @@ class Ui_MainWindow(object):
         self.gridLayout_43.setObjectName(u"gridLayout_43")
         self.checkBox_CH1 = QCheckBox(self.widget_8)
         self.checkBox_CH1.setObjectName(u"checkBox_CH1")
-        self.checkBox_CH1.setCursor(QCursor(Qt.PointingHandCursor))
+        self.checkBox_CH1.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.checkBox_CH1.setStyleSheet(u"QCheckBox {\n"
 "    spacing: 10px;\n"
 "	color: rgb(0, 0, 0);\n"
@@ -262,7 +262,7 @@ class Ui_MainWindow(object):
         self.pushButton_setup_CH2.setObjectName(u"pushButton_setup_CH2")
         self.pushButton_setup_CH2.setMaximumSize(QSize(20000, 20000))
         self.pushButton_setup_CH2.setFont(font)
-        self.pushButton_setup_CH2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_setup_CH2.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_setup_CH2.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(180, 191, 168); \n"
 "	border-style: outset;\n"
@@ -314,7 +314,7 @@ class Ui_MainWindow(object):
         self.gridLayout_38.setObjectName(u"gridLayout_38")
         self.checkBox_CH2 = QCheckBox(self.widget_7)
         self.checkBox_CH2.setObjectName(u"checkBox_CH2")
-        self.checkBox_CH2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.checkBox_CH2.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.checkBox_CH2.setStyleSheet(u"QCheckBox {\n"
 "    spacing: 10px;\n"
 "	color: rgb(0, 0, 0);\n"
@@ -425,7 +425,7 @@ class Ui_MainWindow(object):
         self.pushButton_setup_CH3.setObjectName(u"pushButton_setup_CH3")
         self.pushButton_setup_CH3.setMaximumSize(QSize(20000, 20000))
         self.pushButton_setup_CH3.setFont(font)
-        self.pushButton_setup_CH3.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_setup_CH3.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_setup_CH3.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(180, 191, 168); \n"
 "	border-style: outset;\n"
@@ -477,7 +477,7 @@ class Ui_MainWindow(object):
         self.gridLayout_33.setObjectName(u"gridLayout_33")
         self.checkBox_CH3 = QCheckBox(self.widget_6)
         self.checkBox_CH3.setObjectName(u"checkBox_CH3")
-        self.checkBox_CH3.setCursor(QCursor(Qt.PointingHandCursor))
+        self.checkBox_CH3.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.checkBox_CH3.setStyleSheet(u"QCheckBox {\n"
 "    spacing: 10px;\n"
 "	color: rgb(0, 0, 0);\n"
@@ -588,7 +588,7 @@ class Ui_MainWindow(object):
         self.pushButton_setup_CH4.setObjectName(u"pushButton_setup_CH4")
         self.pushButton_setup_CH4.setMaximumSize(QSize(20000, 20000))
         self.pushButton_setup_CH4.setFont(font)
-        self.pushButton_setup_CH4.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_setup_CH4.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_setup_CH4.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(180, 191, 168); \n"
 "	border-style: outset;\n"
@@ -640,7 +640,7 @@ class Ui_MainWindow(object):
         self.gridLayout_23.setObjectName(u"gridLayout_23")
         self.checkBox_CH4 = QCheckBox(self.widget_5)
         self.checkBox_CH4.setObjectName(u"checkBox_CH4")
-        self.checkBox_CH4.setCursor(QCursor(Qt.PointingHandCursor))
+        self.checkBox_CH4.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.checkBox_CH4.setStyleSheet(u"QCheckBox {\n"
 "    spacing: 10px;\n"
 "	color: rgb(0, 0, 0);\n"
@@ -794,7 +794,7 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.checkBox_CHSG600.sizePolicy().hasHeightForWidth())
         self.checkBox_CHSG600.setSizePolicy(sizePolicy)
-        self.checkBox_CHSG600.setCursor(QCursor(Qt.PointingHandCursor))
+        self.checkBox_CHSG600.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.checkBox_CHSG600.setStyleSheet(u"QCheckBox {\n"
 "    spacing: 10px;\n"
 "	color: rgb(0, 0, 0);\n"
@@ -845,7 +845,7 @@ class Ui_MainWindow(object):
         self.pushButton_setup_CHSG600.setObjectName(u"pushButton_setup_CHSG600")
         self.pushButton_setup_CHSG600.setMaximumSize(QSize(20000, 20000))
         self.pushButton_setup_CHSG600.setFont(font)
-        self.pushButton_setup_CHSG600.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_setup_CHSG600.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_setup_CHSG600.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(180, 191, 168); \n"
 "	border-style: outset;\n"
@@ -916,7 +916,7 @@ class Ui_MainWindow(object):
         font1 = QFont()
         font1.setPointSize(25)
         self.pushButton_concludi_setup.setFont(font1)
-        self.pushButton_concludi_setup.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_concludi_setup.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_concludi_setup.setStyleSheet(u"QWidget {\n"
 "	background-color: rgb(255, 236, 89);\n"
 "	border-style: outset;\n"
@@ -965,40 +965,40 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_7.addLayout(self.Lay_R)
 
-        MainWindow.setCentralWidget(self.centralwidget)
+        SetupWindow.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(MainWindow)
+        self.retranslateUi(SetupWindow)
 
-        QMetaObject.connectSlotsByName(MainWindow)
+        QMetaObject.connectSlotsByName(SetupWindow)
     # setupUi
 
-    def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.label_toggle_CHN_1.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700; color:#00aa00;\">CANALE 1</span></p></body></html>", None))
-        self.pushButton_setup_CH1.setText(QCoreApplication.translate("MainWindow", u"SETUP", None))
-        self.label_sensCH1.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">SENS. [mV/V]</span></p></body></html>", None))
-        self.checkBox_CH1.setText(QCoreApplication.translate("MainWindow", u"OFF", None))
-        self.label_CH1.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">FONDOSCALA [?]</span></p></body></html>", None))
-        self.label_toggle_CHN_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700; color:#00aa00;\">CANALE 2</span></p></body></html>", None))
-        self.pushButton_setup_CH2.setText(QCoreApplication.translate("MainWindow", u"SETUP", None))
-        self.label_CH2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">SENS. [mV/V]</span></p></body></html>", None))
-        self.checkBox_CH2.setText(QCoreApplication.translate("MainWindow", u"OFF", None))
-        self.label_CH2_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">FONDOSCALA [?]</span></p></body></html>", None))
-        self.label_toggle_CHN_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700; color:#00aa00;\">CANALE 3</span></p></body></html>", None))
-        self.pushButton_setup_CH3.setText(QCoreApplication.translate("MainWindow", u"SETUP", None))
-        self.label_CH3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">SENS. [mV/V]</span></p></body></html>", None))
-        self.checkBox_CH3.setText(QCoreApplication.translate("MainWindow", u"OFF", None))
-        self.label_CH3_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">FONDOSCALA [?]</span></p></body></html>", None))
-        self.label_toggle_CHN_4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700; color:#00aa00;\">CANALE 4</span></p></body></html>", None))
-        self.pushButton_setup_CH4.setText(QCoreApplication.translate("MainWindow", u"SETUP", None))
-        self.label_CH4_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">SENS. [mV/V]</span></p></body></html>", None))
-        self.checkBox_CH4.setText(QCoreApplication.translate("MainWindow", u"OFF", None))
-        self.label_CH4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">FONDOSCALA [?]</span></p></body></html>", None))
-        self.label_CHSG600.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt;\">FONDOSCALA [?]</span></p></body></html>", None))
-        self.checkBox_CHSG600.setText(QCoreApplication.translate("MainWindow", u"OFF", None))
-        self.pushButton_setup_CHSG600.setText(QCoreApplication.translate("MainWindow", u"SETUP", None))
-        self.label_sensCHSG600.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt;\">SENS. [mV/V]</span></p></body></html>", None))
-        self.pushButton_concludi_setup.setText(QCoreApplication.translate("MainWindow", u"CONCLUSIONE SETUP", None))
-        self.label_Impost_SG600.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700;\">IMPOSTAZIONI SG600</span></p></body></html>", None))
+    def retranslateUi(self, SetupWindow):
+        SetupWindow.setWindowTitle(QCoreApplication.translate("SetupWindow", u"MainWindow", None))
+        self.label_toggle_CHN_1.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700; color:#00aa00;\">CANALE 1</span></p></body></html>", None))
+        self.pushButton_setup_CH1.setText(QCoreApplication.translate("SetupWindow", u"SETUP", None))
+        self.label_sensCH1.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">SENS. [mV/V]</span></p></body></html>", None))
+        self.checkBox_CH1.setText(QCoreApplication.translate("SetupWindow", u"OFF", None))
+        self.label_CH1.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">FONDOSCALA [?]</span></p></body></html>", None))
+        self.label_toggle_CHN_2.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700; color:#00aa00;\">CANALE 2</span></p></body></html>", None))
+        self.pushButton_setup_CH2.setText(QCoreApplication.translate("SetupWindow", u"SETUP", None))
+        self.label_CH2.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">SENS. [mV/V]</span></p></body></html>", None))
+        self.checkBox_CH2.setText(QCoreApplication.translate("SetupWindow", u"OFF", None))
+        self.label_CH2_2.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">FONDOSCALA [?]</span></p></body></html>", None))
+        self.label_toggle_CHN_3.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700; color:#00aa00;\">CANALE 3</span></p></body></html>", None))
+        self.pushButton_setup_CH3.setText(QCoreApplication.translate("SetupWindow", u"SETUP", None))
+        self.label_CH3.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">SENS. [mV/V]</span></p></body></html>", None))
+        self.checkBox_CH3.setText(QCoreApplication.translate("SetupWindow", u"OFF", None))
+        self.label_CH3_2.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">FONDOSCALA [?]</span></p></body></html>", None))
+        self.label_toggle_CHN_4.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700; color:#00aa00;\">CANALE 4</span></p></body></html>", None))
+        self.pushButton_setup_CH4.setText(QCoreApplication.translate("SetupWindow", u"SETUP", None))
+        self.label_CH4_2.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">SENS. [mV/V]</span></p></body></html>", None))
+        self.checkBox_CH4.setText(QCoreApplication.translate("SetupWindow", u"OFF", None))
+        self.label_CH4.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">FONDOSCALA [?]</span></p></body></html>", None))
+        self.label_CHSG600.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt;\">FONDOSCALA [?]</span></p></body></html>", None))
+        self.checkBox_CHSG600.setText(QCoreApplication.translate("SetupWindow", u"OFF", None))
+        self.pushButton_setup_CHSG600.setText(QCoreApplication.translate("SetupWindow", u"SETUP", None))
+        self.label_sensCHSG600.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt;\">SENS. [mV/V]</span></p></body></html>", None))
+        self.pushButton_concludi_setup.setText(QCoreApplication.translate("SetupWindow", u"CONCLUSIONE SETUP", None))
+        self.label_Impost_SG600.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700;\">IMPOSTAZIONI SG600</span></p></body></html>", None))
     # retranslateUi
 
