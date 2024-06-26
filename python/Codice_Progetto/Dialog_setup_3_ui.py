@@ -21,11 +21,7 @@ from PySide6.QtWidgets import (QApplication, QDialog, QGridLayout, QHBoxLayout,
 from Banco_Taratura import BANCO_DI_TARATURA
 
 class Ui_Canale_Setup_3(object):
-    def setupUi(self, Canale_Setup, banco_di_taratura:BANCO_DI_TARATURA):
-        self.banco_di_taratura = banco_di_taratura
-        self.controller_TCP = banco_di_taratura.controller_tcp
-        self.controller_MODBUS = banco_di_taratura.controller_modbus
-        self.logger = banco_di_taratura.logger
+    def setupUi(self, Canale_Setup):
 
         if not Canale_Setup.objectName():
             Canale_Setup.setObjectName(u"Canale_Setup")
@@ -241,38 +237,6 @@ class Ui_Canale_Setup_3(object):
         QMetaObject.connectSlotsByName(Canale_Setup)
     # setupUi
     
-    
- #------------------------------------------------------------------------------------------------------------------------#
-        
-        # Setup dei valori iniziali delle lineEdit
-        i=self.controller_TCP.DATA.LIST_FULLSCALE[2]
-        l=self.controller_TCP.DATA.LIST_SENSIBILITY[2]
-        self.lineEdit_fondoscala.setText(str(i))
-        self.lineEdit_sensibilita.setText(str(l))
-        
-        # Setup dei segnali
-        self.lineEdit_fondoscala
-        self.lineEdit_fondoscala.textChanged.connect(self.update_fondoscala)
-        self.lineEdit_sensibilita.textChanged.connect(self.update_sensibilità)
-
-        
-    def update_fondoscala(self):
-        new_value = self.lineEdit_fondoscala.text() 
-        if is_number_tryexcept(new_value):
-            self.controller_TCP.DATA.LIST_FULLSCALE[2] = float(new_value)
-        else:
-            print("Valore inserito non rappresenta un numero")       
-            
-    def update_sensibilità(self):
-        new_value = self.lineEdit_sensibilita.text() 
-        if is_number_tryexcept(new_value):
-            self.controller_TCP.DATA.LIST_SENSIBILITY[2] = float(new_value)
-        else:
-            print("Valore inserito non rappresenta un numero")
-    
-
-    #------------------------------------------------------------------------------------------------------------------------#
-
 
     def retranslateUi(self, Canale_Setup):
         Canale_Setup.setWindowTitle(QCoreApplication.translate("Canale_Setup", u"Setup CH3", None))
@@ -283,11 +247,3 @@ class Ui_Canale_Setup_3(object):
         self.lineEdit_fondoscala.setText(QCoreApplication.translate("Canale_Setup", u"", None))
         self.label_fondoscala_setup.setText(QCoreApplication.translate("Canale_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">FONDOSCALA</span></p></body></html>", None))
     # retranslateUi
-
-def is_number_tryexcept(s):
-    """ Returns True if string is a number. """
-    try:
-        float(s)
-        return True
-    except ValueError:
-        return False

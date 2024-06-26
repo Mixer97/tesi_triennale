@@ -20,46 +20,17 @@ from PySide6.QtWidgets import (QApplication, QCheckBox, QGridLayout, QHBoxLayout
     QSizePolicy, QVBoxLayout, QWidget)
 import Controller_Client_TCP_Laumas as Controller_Client_TCP_Laumas
 from time import sleep
-from Dialog_setup_3_ui import Ui_Canale_Setup_3
-from Dialog_setup_4_ui import Ui_Canale_Setup_4
-from Dialog_setup_SG600_ui import Ui_SG600_Setup
+from Dialog_setup_SG600 import Canale_Setup_SG600
 from Banco_Taratura import BANCO_DI_TARATURA
 from Dialog_setup_1 import Canale_Setup_1
 from Dialog_setup_2 import Canale_Setup_2
+from Dialog_setup_3 import Canale_Setup_3
+from Dialog_setup_4 import Canale_Setup_4
 
 
-
-class Canale_Setup_3(QDialog):
-    def __init__(self, banco_di_taratura):
-        super().__init__()
-        self.banco_di_taratura=banco_di_taratura
-        # Create an instance of the generated UI class
-        self.ui = Ui_Canale_Setup_3()
-        # Setup the user interface
-        self.ui.setupUi(self, self.banco_di_taratura)
-        
-class Canale_Setup_4(QDialog):
-    def __init__(self, banco_di_taratura):
-        super().__init__()
-        self.banco_di_taratura=banco_di_taratura
-        # Create an instance of the generated UI class
-        self.ui = Ui_Canale_Setup_4()
-        # Setup the user interface
-        self.ui.setupUi(self, self.banco_di_taratura)
-                        
-class Canale_Setup_SG600(QDialog):
-    def __init__(self, banco_di_taratura):
-        super().__init__()
-        self.banco_di_taratura=banco_di_taratura
-        # Create an instance of the generated UI class
-        self.ui = Ui_SG600_Setup()
-        # Setup the user interface
-        self.ui.setupUi(self, self.banco_di_taratura)
 
 class Ui_SetupWindow(object):
     
-
-          
     def setupUi(self, MainWindow, banco_di_taratura:BANCO_DI_TARATURA):
         self.banco_di_taratura = banco_di_taratura
         self.controller_TCP = banco_di_taratura.controller_tcp
