@@ -70,7 +70,7 @@ class MainWindow(QMainWindow):
                 self.ui.pushButton_Interfaccia.setText("STOP")
                 self.ui.pushButton_Interfaccia.setStyleSheet("background-color: red; border-style: outset; border-width: 2px; border-color: black; color: black")
                 self.ui.label.setStyleSheet("QWidget { background-color:rgb(255, 69, 72); border-style: outset; border-width: 0px; border-color:rgb(255, 111, 113); border-radius: 20px; } QLabel { color: rgb(0,0,0); }")
-                self.ui.widget1.setStyleSheet("QWidget { background-color:rgb(255, 69, 72); border-style: outset; border-width: 2px; border-color:rgb(255, 111, 113); border-radius: 20px; }")
+                self.ui.widget_sfond_interfaccia.setStyleSheet("QWidget { background-color:rgb(255, 69, 72); border-style: outset; border-width: 2px; border-color:rgb(255, 111, 113); border-radius: 20px; }")
                 self.status_pulsante_interfaccia = self.status_pulsante_interfaccia + 1
         else:     
                 self.timer1.stop()
@@ -82,7 +82,7 @@ class MainWindow(QMainWindow):
                 self.ui.lcdNumber_temperature_SG600.display(0)      
                 self.ui.pushButton_Interfaccia.setStyleSheet("background-color: green; border-style: outset; border-width: 2px; border-color: black; color: black")
                 self.ui.label.setStyleSheet("QWidget { background-color:rgb(125, 225, 10); border-style: outset; border-width: 0px; border-color:rgb(63, 156, 23); border-radius: 20px; } QLabel { color: rgb(0,0,0); }")
-                self.ui.widget1.setStyleSheet("QWidget { background-color:rgb(125, 225, 10); border-style: outset; border-width: 2px; border-color:rgb(63, 156, 23); border-radius: 20px; }")
+                self.ui.widget_sfond_interfaccia.setStyleSheet("QWidget { background-color:rgb(125, 225, 10); border-style: outset; border-width: 2px; border-color:rgb(63, 156, 23); border-radius: 20px; }")
                 self.ui.pushButton_Interfaccia.setText("START")
                 self.status_pulsante_interfaccia = self.status_pulsante_interfaccia + 1
     
@@ -94,7 +94,7 @@ class MainWindow(QMainWindow):
                 self.ui.pushButton_Registrazione.setText("STOP")
                 self.ui.label_5.setStyleSheet("QWidget { background-color:rgb(255, 69, 72); border-style: outset; border-width: 0px; border-color:rgb(255, 111, 113); border-radius: 20px; } QLabel { color: rgb(0,0,0); }")
                 self.ui.pushButton_Registrazione.setStyleSheet("background-color: red; border-style: outset; border-width: 2px; border-color: black; color: black")
-                self.ui.widget2.setStyleSheet("QWidget { background-color:rgb(255, 69, 72); border-style: outset; border-width: 2px; border-color:rgb(255, 111, 113); border-radius: 20px; }")
+                self.ui.widget_sfondo_registrazione.setStyleSheet("QWidget { background-color:rgb(255, 69, 72); border-style: outset; border-width: 2px; border-color:rgb(255, 111, 113); border-radius: 20px; }")
                 self.status_pulsante_registrazione = self.status_pulsante_registrazione + 1
         else:
                 self.timer2.stop()     
@@ -102,7 +102,7 @@ class MainWindow(QMainWindow):
                 self.ui.pushButton_Registrazione.setText("START")     
                 self.ui.label_5.setStyleSheet("QWidget { background-color:rgb(125, 225, 10); border-style: outset; border-width: 0px; border-color:rgb(63, 156, 23); border-radius: 20px; } QLabel { color: rgb(0,0,0); }")
                 self.ui.pushButton_Registrazione.setStyleSheet("background-color: green; border-style: outset; border-width: 2px; border-color: black; color: black")
-                self.ui.widget2.setStyleSheet("QWidget { background-color:rgb(125, 225, 10); border-style: outset; border-width: 2px; border-color:rgb(63, 156, 23); border-radius: 20px; }")
+                self.ui.widget_sfondo_registrazione.setStyleSheet("QWidget { background-color:rgb(125, 225, 10); border-style: outset; border-width: 2px; border-color:rgb(63, 156, 23); border-radius: 20px; }")
                 self.status_pulsante_registrazione = self.status_pulsante_registrazione + 1
                 
            

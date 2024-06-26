@@ -3,30 +3,26 @@
 ################################################################################
 ## Form generated from reading UI file 'QT_Creator_App_testing.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.0
+## Created by: Qt User Interface Compiler version 6.7.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect, QTimer,
+    QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
 from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout, QLayout,
-    QLCDNumber, QLabel, QLineEdit, QMainWindow,
+from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout,
+    QLCDNumber, QLabel, QLayout, QMainWindow,
     QPushButton, QSizePolicy, QVBoxLayout, QWidget)
 import Controller_Client_TCP_Laumas as Controller_Client_TCP_Laumas
 from time import sleep
 
-
-        
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-
-        # self.Seneca_Controller=Controller_Client_MODBUS_Seneca()
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(972, 664)
@@ -86,7 +82,7 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.comboBox_1.sizePolicy().hasHeightForWidth())
         self.comboBox_1.setSizePolicy(sizePolicy)
-        self.comboBox_1.setCursor(QCursor(Qt.PointingHandCursor))
+        self.comboBox_1.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.comboBox_1.setMouseTracking(False)
         self.comboBox_1.setAutoFillBackground(False)
         self.comboBox_1.setStyleSheet(u"QComboBox {\n"
@@ -220,7 +216,7 @@ class Ui_MainWindow(object):
         self.comboBox_2.setObjectName(u"comboBox_2")
         sizePolicy.setHeightForWidth(self.comboBox_2.sizePolicy().hasHeightForWidth())
         self.comboBox_2.setSizePolicy(sizePolicy)
-        self.comboBox_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.comboBox_2.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.comboBox_2.setMouseTracking(False)
         self.comboBox_2.setAutoFillBackground(False)
         self.comboBox_2.setStyleSheet(u"QComboBox {\n"
@@ -342,7 +338,7 @@ class Ui_MainWindow(object):
         self.comboBox_3.setObjectName(u"comboBox_3")
         sizePolicy.setHeightForWidth(self.comboBox_3.sizePolicy().hasHeightForWidth())
         self.comboBox_3.setSizePolicy(sizePolicy)
-        self.comboBox_3.setCursor(QCursor(Qt.PointingHandCursor))
+        self.comboBox_3.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.comboBox_3.setMouseTracking(False)
         self.comboBox_3.setAutoFillBackground(False)
         self.comboBox_3.setStyleSheet(u"QComboBox {\n"
@@ -483,7 +479,7 @@ class Ui_MainWindow(object):
         self.comboBox_4.setObjectName(u"comboBox_4")
         sizePolicy.setHeightForWidth(self.comboBox_4.sizePolicy().hasHeightForWidth())
         self.comboBox_4.setSizePolicy(sizePolicy)
-        self.comboBox_4.setCursor(QCursor(Qt.PointingHandCursor))
+        self.comboBox_4.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.comboBox_4.setMouseTracking(False)
         self.comboBox_4.setAutoFillBackground(False)
         self.comboBox_4.setStyleSheet(u"QComboBox {\n"
@@ -605,11 +601,11 @@ class Ui_MainWindow(object):
 "")
         self.gridLayout_2 = QGridLayout(self.widget_12)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.widget1 = QWidget(self.widget_12)
-        self.widget1.setObjectName(u"widget1")
-        sizePolicy.setHeightForWidth(self.widget1.sizePolicy().hasHeightForWidth())
-        self.widget1.setSizePolicy(sizePolicy)
-        self.widget1.setStyleSheet(u"QWidget {\n"
+        self.widget_sfond_interfaccia = QWidget(self.widget_12)
+        self.widget_sfond_interfaccia.setObjectName(u"widget_sfond_interfaccia")
+        sizePolicy.setHeightForWidth(self.widget_sfond_interfaccia.sizePolicy().hasHeightForWidth())
+        self.widget_sfond_interfaccia.setSizePolicy(sizePolicy)
+        self.widget_sfond_interfaccia.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(125, 225, 10); \n"
 "	border-style: outset;\n"
 "    border-width: 2px;\n"
@@ -617,9 +613,9 @@ class Ui_MainWindow(object):
 "	border-radius: 20px;\n"
 "}\n"
 "")
-        self.horizontalLayout_6 = QHBoxLayout(self.widget1)
+        self.horizontalLayout_6 = QHBoxLayout(self.widget_sfond_interfaccia)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.label = QLabel(self.widget1)
+        self.label = QLabel(self.widget_sfond_interfaccia)
         self.label.setObjectName(u"label")
         self.label.setFont(font)
         self.label.setStyleSheet(u"QWidget {\n"
@@ -636,7 +632,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_6.addWidget(self.label, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
-        self.pushButton_Interfaccia = QPushButton(self.widget1)
+        self.pushButton_Interfaccia = QPushButton(self.widget_sfond_interfaccia)
         self.pushButton_Interfaccia.setObjectName(u"pushButton_Interfaccia")
         sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
         sizePolicy1.setHorizontalStretch(0)
@@ -652,7 +648,7 @@ class Ui_MainWindow(object):
         font3.setUnderline(False)
         font3.setStrikeOut(False)
         self.pushButton_Interfaccia.setFont(font3)
-        self.pushButton_Interfaccia.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_Interfaccia.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_Interfaccia.setStyleSheet(u"QWidget {\n"
 "	background-color:green; \n"
 "	border-style: outset;\n"
@@ -669,20 +665,20 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6.addWidget(self.pushButton_Interfaccia)
 
 
-        self.gridLayout_2.addWidget(self.widget1, 1, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.widget_sfond_interfaccia, 1, 0, 1, 1)
 
-        self.widget2 = QWidget(self.widget_12)
-        self.widget2.setObjectName(u"widget2")
-        self.widget2.setStyleSheet(u"QWidget {\n"
+        self.widget_sfondo_registrazione = QWidget(self.widget_12)
+        self.widget_sfondo_registrazione.setObjectName(u"widget_sfondo_registrazione")
+        self.widget_sfondo_registrazione.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(125, 225, 10); \n"
 "	border-style: outset;\n"
 "    border-width: 2px;\n"
 "    border-color:rgb(63, 156, 23);\n"
 "	border-radius: 20px;\n"
 "}")
-        self.horizontalLayout_8 = QHBoxLayout(self.widget2)
+        self.horizontalLayout_8 = QHBoxLayout(self.widget_sfondo_registrazione)
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
-        self.label_5 = QLabel(self.widget2)
+        self.label_5 = QLabel(self.widget_sfondo_registrazione)
         self.label_5.setObjectName(u"label_5")
         self.label_5.setFont(font)
         self.label_5.setStyleSheet(u"QWidget {\n"
@@ -699,7 +695,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_8.addWidget(self.label_5, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
-        self.pushButton_Registrazione = QPushButton(self.widget2)
+        self.pushButton_Registrazione = QPushButton(self.widget_sfondo_registrazione)
         self.pushButton_Registrazione.setObjectName(u"pushButton_Registrazione")
         sizePolicy1.setHeightForWidth(self.pushButton_Registrazione.sizePolicy().hasHeightForWidth())
         self.pushButton_Registrazione.setSizePolicy(sizePolicy1)
@@ -709,7 +705,7 @@ class Ui_MainWindow(object):
         font4.setPointSize(30)
         font4.setBold(True)
         self.pushButton_Registrazione.setFont(font4)
-        self.pushButton_Registrazione.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_Registrazione.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_Registrazione.setStyleSheet(u"QWidget {\n"
 "	background-color:green; \n"
 "	border-style: outset;\n"
@@ -726,27 +722,27 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.addWidget(self.pushButton_Registrazione)
 
 
-        self.gridLayout_2.addWidget(self.widget2, 2, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.widget_sfondo_registrazione, 2, 0, 1, 1)
 
-        self.widget3 = QWidget(self.widget_12)
-        self.widget3.setObjectName(u"widget3")
+        self.widget_sfondo_impostazioni = QWidget(self.widget_12)
+        self.widget_sfondo_impostazioni.setObjectName(u"widget_sfondo_impostazioni")
         sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
         sizePolicy2.setHorizontalStretch(0)
         sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.widget3.sizePolicy().hasHeightForWidth())
-        self.widget3.setSizePolicy(sizePolicy2)
-        self.widget3.setMinimumSize(QSize(0, 100))
-        self.widget3.setStyleSheet(u"QWidget {\n"
+        sizePolicy2.setHeightForWidth(self.widget_sfondo_impostazioni.sizePolicy().hasHeightForWidth())
+        self.widget_sfondo_impostazioni.setSizePolicy(sizePolicy2)
+        self.widget_sfondo_impostazioni.setMinimumSize(QSize(0, 100))
+        self.widget_sfondo_impostazioni.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(213, 213, 213); \n"
 "	border-style: outset;\n"
 "    border-width: 2px;\n"
 "    border-color:rgb(103, 98, 93);\n"
 "	border-radius: 20px;\n"
 "}")
-        self.horizontalLayout = QHBoxLayout(self.widget3)
+        self.horizontalLayout = QHBoxLayout(self.widget_sfondo_impostazioni)
         self.horizontalLayout.setSpacing(7)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.label_impostazioni = QLabel(self.widget3)
+        self.label_impostazioni = QLabel(self.widget_sfondo_impostazioni)
         self.label_impostazioni.setObjectName(u"label_impostazioni")
         sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Ignored)
         sizePolicy3.setHorizontalStretch(0)
@@ -768,7 +764,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.label_impostazioni, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
-        self.pushButton_impostazioni = QPushButton(self.widget3)
+        self.pushButton_impostazioni = QPushButton(self.widget_sfondo_impostazioni)
         self.pushButton_impostazioni.setObjectName(u"pushButton_impostazioni")
         sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Ignored)
         sizePolicy4.setHorizontalStretch(0)
@@ -777,7 +773,7 @@ class Ui_MainWindow(object):
         self.pushButton_impostazioni.setSizePolicy(sizePolicy4)
         self.pushButton_impostazioni.setMinimumSize(QSize(200, 0))
         self.pushButton_impostazioni.setFont(font4)
-        self.pushButton_impostazioni.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_impostazioni.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_impostazioni.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(138, 139, 135); \n"
 "	border-style: outset;\n"
@@ -794,7 +790,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addWidget(self.pushButton_impostazioni)
 
 
-        self.gridLayout_2.addWidget(self.widget3, 0, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.widget_sfondo_impostazioni, 0, 0, 1, 1)
 
 
         self.gridLayout_10.addWidget(self.widget_12, 0, 0, 1, 1)
@@ -848,7 +844,7 @@ class Ui_MainWindow(object):
         self.comboBox_5.setObjectName(u"comboBox_5")
         sizePolicy.setHeightForWidth(self.comboBox_5.sizePolicy().hasHeightForWidth())
         self.comboBox_5.setSizePolicy(sizePolicy)
-        self.comboBox_5.setCursor(QCursor(Qt.PointingHandCursor))
+        self.comboBox_5.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.comboBox_5.setMouseTracking(False)
         self.comboBox_5.setAutoFillBackground(False)
         self.comboBox_5.setStyleSheet(u"QComboBox {\n"
@@ -1015,19 +1011,9 @@ class Ui_MainWindow(object):
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
-    
-    
-    
-    #------------------------------------------------------------------------------------------------------------------#
-    # Codice aggiunto da me
-    
-        
-    #------------------------------------------------------------------------------------------------------------------#     
-    
-
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Home Window", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.comboBox_1.setItemText(0, QCoreApplication.translate("MainWindow", u"mV", None))
         self.comboBox_1.setItemText(1, QCoreApplication.translate("MainWindow", u"Nm", None))
         self.comboBox_1.setItemText(2, QCoreApplication.translate("MainWindow", u"Kg", None))
@@ -1070,6 +1056,6 @@ class Ui_MainWindow(object):
 
         self.comboBox_5.setCurrentText(QCoreApplication.translate("MainWindow", u"mV", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Main Channel</p></body></html>", None))
-        self.label_7.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Temperature [C]</p></body></html>", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Temperature</p></body></html>", None))
     # retranslateUi
 

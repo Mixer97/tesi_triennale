@@ -786,7 +786,7 @@ QLCDNumber{
              </property>
              <layout class="QGridLayout" name="gridLayout_2">
               <item row="1" column="0">
-               <widget class="QWidget" name="widget_1" native="true">
+               <widget class="QWidget" name="widget_sfond_interfaccia" native="true">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                   <horstretch>0</horstretch>
@@ -884,7 +884,7 @@ QPushButton{
                </widget>
               </item>
               <item row="2" column="0">
-               <widget class="QWidget" name="widget_9" native="true">
+               <widget class="QWidget" name="widget_sfondo_registrazione" native="true">
                 <property name="styleSheet">
                  <string notr="true">QWidget {
 	background-color:rgb(125, 225, 10); 
@@ -972,7 +972,7 @@ QPushButton{
                </widget>
               </item>
               <item row="0" column="0">
-               <widget class="QWidget" name="widget_8" native="true">
+               <widget class="QWidget" name="widget_sfondo_impostazioni" native="true">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
                   <horstretch>0</horstretch>
