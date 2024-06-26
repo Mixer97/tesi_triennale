@@ -2,7 +2,6 @@ from time import sleep
 from pymodbus.client import ModbusTcpClient
 from pymodbus.framer import Framer
 import View_QT_HomePage as View_QT_HomePage
-# from View_QT_SetupPage import Ui_SetupWindow
 
 
 class Controller_TCP:

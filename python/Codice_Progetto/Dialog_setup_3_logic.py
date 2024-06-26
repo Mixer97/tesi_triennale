@@ -1,27 +1,33 @@
-
+from __future__ import annotations
 from PySide6.QtWidgets import QDialog
-from Dialog_setup_4_ui import Ui_Canale_Setup_4
-from Banco_Taratura import BANCO_DI_TARATURA
+from Dialog_setup_3_ui import Ui_Canale_Setup_3
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from Banco_Taratura import BANCO_DI_TARATURA
 
 
 
-class Canale_Setup_4(QDialog):
+
+
+
+class Canale_Setup_3(QDialog):
     def __init__(self, banco_di_taratura:BANCO_DI_TARATURA):
         super().__init__()
         self.banco_di_taratura=banco_di_taratura
         # Create an instance of the generated UI class
-        self.ui = Ui_Canale_Setup_4()
+        self.ui = Ui_Canale_Setup_3()
         # Setup the user interface
         self.ui.setupUi(self)
-                        
+        
         self.controller_TCP = banco_di_taratura.controller_tcp
         self.controller_MODBUS = banco_di_taratura.controller_modbus
         self.logger = banco_di_taratura.logger
         
-                
+        
         # Setup dei valori iniziali delle lineEdit
-        i=self.controller_TCP.DATA.LIST_FULLSCALE[3]
-        l=self.controller_TCP.DATA.LIST_SENSIBILITY[3]
+        i=self.controller_TCP.DATA.LIST_FULLSCALE[2]
+        l=self.controller_TCP.DATA.LIST_SENSIBILITY[2]
         self.ui.lineEdit_fondoscala.setText(str(i))
         self.ui.lineEdit_sensibilita.setText(str(l))
         
@@ -34,17 +40,17 @@ class Canale_Setup_4(QDialog):
     def update_fondoscala(self):
         new_value = self.ui.lineEdit_fondoscala.text() 
         if is_number_tryexcept(new_value):
-            self.controller_TCP.DATA.LIST_FULLSCALE[3] = float(new_value)
+            self.controller_TCP.DATA.LIST_FULLSCALE[2] = float(new_value)
         else:
             print("Valore inserito non rappresenta un numero")       
             
     def update_sensibilità(self):
         new_value = self.ui.lineEdit_sensibilita.text() 
         if is_number_tryexcept(new_value):
-            self.controller_TCP.DATA.LIST_SENSIBILITY[3] = float(new_value)
+            self.controller_TCP.DATA.LIST_SENSIBILITY[2] = float(new_value)
         else:
             print("Valore inserito non rappresenta un numero")
-
+    
 
 def is_number_tryexcept(s):
     """ Returns True if string is a number. """

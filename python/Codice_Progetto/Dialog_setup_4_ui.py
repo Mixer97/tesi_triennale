@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QDialog, QGridLayout, QHBoxLayout,
     QLabel, QLayout, QLineEdit, QPushButton,
     QSizePolicy, QWidget)
-from Banco_Taratura import BANCO_DI_TARATURA
+
 
 class Ui_Canale_Setup_4(object):
     def setupUi(self, Canale_Setup):

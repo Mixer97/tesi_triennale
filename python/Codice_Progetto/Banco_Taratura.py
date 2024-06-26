@@ -1,6 +1,6 @@
+from __future__ import annotations
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow
-import View_QT_HomePage      # Import the generated UI class
 import Logger as Logger
 import Controller_Client_TCP_Laumas as C_Laumas
 import Controller_Client_MODBUS_Seneca as C_Seneca
@@ -9,6 +9,7 @@ from time import sleep
 from pymodbus import pymodbus_apply_logging_config
 from time import sleep
 import sys
+from View_QT_HomePage_logic import MainWindow
 
 
 
@@ -57,7 +58,7 @@ def closed_last_window_signal(banco_di_taratura:BANCO_DI_TARATURA, window:QMainW
 if __name__ == "__main__":
     banco=BANCO_DI_TARATURA()
     app = QApplication(sys.argv)
-    window = View_QT_HomePage.MainWindow(banco_di_taratura=banco)
+    window = MainWindow(banco_di_taratura=banco)
     window.show()
     app.lastWindowClosed.connect(lambda: closed_last_window_signal(banco, window))
     logger_thread = Thread(target=run_logger, args=(banco.controller_tcp, banco.controller_modbus, banco.logger))

@@ -5,7 +5,6 @@ import Controller_Client_MODBUS_Seneca
 import time
 from time import sleep
 import csv
-# import Banco_Taratura
 
         
 class LOGGER:
