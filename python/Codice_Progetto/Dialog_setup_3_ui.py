@@ -236,14 +236,15 @@ class Ui_Canale_Setup_3(object):
 
         QMetaObject.connectSlotsByName(Canale_Setup)
     # setupUi
-    
+
 
     def retranslateUi(self, Canale_Setup):
         Canale_Setup.setWindowTitle(QCoreApplication.translate("Canale_Setup", u"Setup CH3", None))
-        self.label_setup_title.setText(QCoreApplication.translate("Canale_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:20pt; font-weight:700; color:#00aa00;\">CANALE 3</span></p></body></html>", None))
+        self.label_setup_title.setText(QCoreApplication.translate("Canale_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:20pt; font-weight:700; color:#00aa00;\">CANALE 2</span></p></body></html>", None))
         self.lineEdit_sensibilita.setText(QCoreApplication.translate("Canale_Setup", u"", None))
         self.label_sensib_setup.setText(QCoreApplication.translate("Canale_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">SENSIBILITA'</span></p></body></html>", None))
         self.pushButton_azzeramento_tara.setText(QCoreApplication.translate("Canale_Setup", u"AZZERAMENTO TARA", None))
         self.lineEdit_fondoscala.setText(QCoreApplication.translate("Canale_Setup", u"", None))
         self.label_fondoscala_setup.setText(QCoreApplication.translate("Canale_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">FONDOSCALA</span></p></body></html>", None))
     # retranslateUi
+
