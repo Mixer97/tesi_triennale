@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'QT_Creator_App_testing.ui'
+## Form generated from reading UI file 'View_QT_HomePage.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -80,19 +80,18 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.comboBox_1.sizePolicy().hasHeightForWidth())
         self.comboBox_1.setSizePolicy(sizePolicy)
+        font = QFont()
+        font.setPointSize(15)
+        self.comboBox_1.setFont(font)
         self.comboBox_1.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.comboBox_1.setMouseTracking(False)
         self.comboBox_1.setAutoFillBackground(False)
         self.comboBox_1.setStyleSheet(u"QComboBox {\n"
 "    border: 3px solid gray;\n"
 "    border-radius: 3px;\n"
-"    padding: 1px 18px 1px 3px;\n"
+"    padding: 1px 1px 1px 10px;\n"
 "    min-width: 6em;\n"
-"	border-radius: 20px;\n"
-"}\n"
-"\n"
-"QComboBox{\n"
-"	color: rgb(0,0,0);\n"
+"    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */\n"
 "}\n"
 "\n"
 "QComboBox:editable {\n"
@@ -100,43 +99,25 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QComboBox:!editable, QComboBox::drop-down:editable {\n"
-"     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                 stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
-"                                 stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
-"}\n"
-"\n"
-"/* QComboBox gets the \"on\" state when the popup is open */\n"
-"QComboBox:!editable:on, QComboBox::drop-down:editable:on {\n"
 "    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                stop: 0 #D3D3D3, stop: 0.4 #D8D8D8,\n"
-"                                stop: 0.5 #DDDDDD, stop: 1.0 #E1E1E1);\n"
+"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
 "}\n"
 "\n"
-"QComboBox:on { /* shift the text when the popup opens */\n"
-"    padding-top: 3px;\n"
-"    padding-left: 4px"
-                        ";\n"
-"}\n"
 "\n"
-"QComboBox::drop-down {\n"
-"    subcontrol-origin: padding;\n"
-"    subcontrol-position: top right;\n"
-"    width: 15px;\n"
-"\n"
-"    border-left-width: 1px;\n"
-"    border-left-color: darkgray;\n"
-"    border-left-style: solid; /* just a single line */\n"
-"    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
-"    border-bottom-right-radius: 3px;\n"
-"}\n"
-"\n"
-"QComboBox::down-arrow {\n"
-"    image: url(/usr/share/icons/crystalsvg/16x16/actions/1downarrow.png);\n"
-"}\n"
-"\n"
-"QComboBox::down-arrow:on { /* shift the arrow when popup is open */\n"
-"    top: 1px;\n"
-"    left: 1px;\n"
+"/* Stile della tendina del QComboBox */\n"
+"QComboBox QAbstractItemView {\n"
+"    background-color:	qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3); ; /* Colore di sfondo della tendina */\n"
+"    selection-background-color: #3399FF; /* Colore di sfondo dell'elemento selezionato */\n"
+"    selection-color:rgb(106, 112, 113)"
+                        "; /* Colore del testo dell'elemento selezionato */\n"
+"    border: 3px solid gray;\n"
+"    border-radius: 3px;\n"
+"    padding: 1px 18px 1px 3px;\n"
+"    min-width: 6em;\n"
+"    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */\n"
 "}")
         self.comboBox_1.setIconSize(QSize(30, 30))
 
@@ -146,9 +127,9 @@ class Ui_MainWindow(object):
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
         self.label_1 = QLabel(self.widget)
         self.label_1.setObjectName(u"label_1")
-        font = QFont()
-        font.setPointSize(17)
-        self.label_1.setFont(font)
+        font1 = QFont()
+        font1.setPointSize(17)
+        self.label_1.setFont(font1)
         self.label_1.setStyleSheet(u"QLabel{\n"
 "	background-color:rgb(255, 207, 84); \n"
 "	border-style: outset;\n"
@@ -166,10 +147,10 @@ class Ui_MainWindow(object):
 
         self.lcdNumber_1 = QLCDNumber(self.widget)
         self.lcdNumber_1.setObjectName(u"lcdNumber_1")
-        font1 = QFont()
-        font1.setPointSize(9)
-        font1.setBold(False)
-        self.lcdNumber_1.setFont(font1)
+        font2 = QFont()
+        font2.setPointSize(9)
+        font2.setBold(False)
+        self.lcdNumber_1.setFont(font2)
         self.lcdNumber_1.setStyleSheet(u"QWidget {\n"
 "	background-color:white; \n"
 "	border-style: outset;\n"
@@ -214,19 +195,16 @@ class Ui_MainWindow(object):
         self.comboBox_2.setObjectName(u"comboBox_2")
         sizePolicy.setHeightForWidth(self.comboBox_2.sizePolicy().hasHeightForWidth())
         self.comboBox_2.setSizePolicy(sizePolicy)
+        self.comboBox_2.setFont(font)
         self.comboBox_2.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.comboBox_2.setMouseTracking(False)
         self.comboBox_2.setAutoFillBackground(False)
         self.comboBox_2.setStyleSheet(u"QComboBox {\n"
 "    border: 3px solid gray;\n"
 "    border-radius: 3px;\n"
-"    padding: 1px 18px 1px 3px;\n"
+"    padding: 1px 1px 1px 10px;\n"
 "    min-width: 6em;\n"
-"	border-radius: 20px;\n"
-"}\n"
-"\n"
-"QComboBox{\n"
-"	color: rgb(0,0,0);\n"
+"    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */\n"
 "}\n"
 "\n"
 "QComboBox:editable {\n"
@@ -234,43 +212,25 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QComboBox:!editable, QComboBox::drop-down:editable {\n"
-"     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                 stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
-"                                 stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
-"}\n"
-"\n"
-"/* QComboBox gets the \"on\" state when the popup is open */\n"
-"QComboBox:!editable:on, QComboBox::drop-down:editable:on {\n"
 "    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                stop: 0 #D3D3D3, stop: 0.4 #D8D8D8,\n"
-"                                stop: 0.5 #DDDDDD, stop: 1.0 #E1E1E1);\n"
+"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
 "}\n"
 "\n"
-"QComboBox:on { /* shift the text when the popup opens */\n"
-"    padding-top: 3px;\n"
-"    padding-left: 4px"
-                        ";\n"
-"}\n"
 "\n"
-"QComboBox::drop-down {\n"
-"    subcontrol-origin: padding;\n"
-"    subcontrol-position: top right;\n"
-"    width: 15px;\n"
-"\n"
-"    border-left-width: 1px;\n"
-"    border-left-color: darkgray;\n"
-"    border-left-style: solid; /* just a single line */\n"
-"    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
-"    border-bottom-right-radius: 3px;\n"
-"}\n"
-"\n"
-"QComboBox::down-arrow {\n"
-"    image: url(/usr/share/icons/crystalsvg/16x16/actions/1downarrow.png);\n"
-"}\n"
-"\n"
-"QComboBox::down-arrow:on { /* shift the arrow when popup is open */\n"
-"    top: 1px;\n"
-"    left: 1px;\n"
+"/* Stile della tendina del QComboBox */\n"
+"QComboBox QAbstractItemView {\n"
+"    background-color:	qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3); ; /* Colore di sfondo della tendina */\n"
+"    selection-background-color: #3399FF; /* Colore di sfondo dell'elemento selezionato */\n"
+"    selection-color:rgb(106, 112, 113)"
+                        "; /* Colore del testo dell'elemento selezionato */\n"
+"    border: 3px solid gray;\n"
+"    border-radius: 3px;\n"
+"    padding: 1px 18px 1px 3px;\n"
+"    min-width: 6em;\n"
+"    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */\n"
 "}")
         self.comboBox_2.setIconSize(QSize(30, 30))
 
@@ -280,7 +240,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.label_2 = QLabel(self.widget_3)
         self.label_2.setObjectName(u"label_2")
-        self.label_2.setFont(font)
+        self.label_2.setFont(font1)
         self.label_2.setStyleSheet(u"QLabel{\n"
 "	color: rgb(0,0,0);\n"
 "}\n"
@@ -336,19 +296,16 @@ class Ui_MainWindow(object):
         self.comboBox_3.setObjectName(u"comboBox_3")
         sizePolicy.setHeightForWidth(self.comboBox_3.sizePolicy().hasHeightForWidth())
         self.comboBox_3.setSizePolicy(sizePolicy)
+        self.comboBox_3.setFont(font)
         self.comboBox_3.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.comboBox_3.setMouseTracking(False)
         self.comboBox_3.setAutoFillBackground(False)
         self.comboBox_3.setStyleSheet(u"QComboBox {\n"
 "    border: 3px solid gray;\n"
 "    border-radius: 3px;\n"
-"    padding: 1px 18px 1px 3px;\n"
+"    padding: 1px 1px 1px 10px;\n"
 "    min-width: 6em;\n"
-"	border-radius: 20px;\n"
-"}\n"
-"\n"
-"QComboBox{\n"
-"	color: rgb(0,0,0);\n"
+"    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */\n"
 "}\n"
 "\n"
 "QComboBox:editable {\n"
@@ -356,43 +313,25 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QComboBox:!editable, QComboBox::drop-down:editable {\n"
-"     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                 stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
-"                                 stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
-"}\n"
-"\n"
-"/* QComboBox gets the \"on\" state when the popup is open */\n"
-"QComboBox:!editable:on, QComboBox::drop-down:editable:on {\n"
 "    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                stop: 0 #D3D3D3, stop: 0.4 #D8D8D8,\n"
-"                                stop: 0.5 #DDDDDD, stop: 1.0 #E1E1E1);\n"
+"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
 "}\n"
 "\n"
-"QComboBox:on { /* shift the text when the popup opens */\n"
-"    padding-top: 3px;\n"
-"    padding-left: 4px"
-                        ";\n"
-"}\n"
 "\n"
-"QComboBox::drop-down {\n"
-"    subcontrol-origin: padding;\n"
-"    subcontrol-position: top right;\n"
-"    width: 15px;\n"
-"\n"
-"    border-left-width: 1px;\n"
-"    border-left-color: darkgray;\n"
-"    border-left-style: solid; /* just a single line */\n"
-"    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
-"    border-bottom-right-radius: 3px;\n"
-"}\n"
-"\n"
-"QComboBox::down-arrow {\n"
-"    image: url(/usr/share/icons/crystalsvg/16x16/actions/1downarrow.png);\n"
-"}\n"
-"\n"
-"QComboBox::down-arrow:on { /* shift the arrow when popup is open */\n"
-"    top: 1px;\n"
-"    left: 1px;\n"
+"/* Stile della tendina del QComboBox */\n"
+"QComboBox QAbstractItemView {\n"
+"    background-color:	qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3); ; /* Colore di sfondo della tendina */\n"
+"    selection-background-color: #3399FF; /* Colore di sfondo dell'elemento selezionato */\n"
+"    selection-color:rgb(106, 112, 113)"
+                        "; /* Colore del testo dell'elemento selezionato */\n"
+"    border: 3px solid gray;\n"
+"    border-radius: 3px;\n"
+"    padding: 1px 18px 1px 3px;\n"
+"    min-width: 6em;\n"
+"    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */\n"
 "}")
         self.comboBox_3.setIconSize(QSize(30, 30))
 
@@ -402,7 +341,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
         self.label_3 = QLabel(self.widget_4)
         self.label_3.setObjectName(u"label_3")
-        self.label_3.setFont(font)
+        self.label_3.setFont(font1)
         self.label_3.setStyleSheet(u"QLabel{\n"
 "	color: rgb(0,0,0);\n"
 "}\n"
@@ -415,10 +354,10 @@ class Ui_MainWindow(object):
 
         self.lcdNumber_3 = QLCDNumber(self.widget_4)
         self.lcdNumber_3.setObjectName(u"lcdNumber_3")
-        font2 = QFont()
-        font2.setBold(False)
-        font2.setKerning(True)
-        self.lcdNumber_3.setFont(font2)
+        font3 = QFont()
+        font3.setBold(False)
+        font3.setKerning(True)
+        self.lcdNumber_3.setFont(font3)
         self.lcdNumber_3.setStyleSheet(u"QWidget {\n"
 "	background-color:white; \n"
 "	border-style: outset;\n"
@@ -458,7 +397,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_11.setObjectName(u"verticalLayout_11")
         self.label_4 = QLabel(self.widget_5)
         self.label_4.setObjectName(u"label_4")
-        self.label_4.setFont(font)
+        self.label_4.setFont(font1)
         self.label_4.setStyleSheet(u"QLabel{\n"
 "	color: rgb(0,0,0);\n"
 "}\n"
@@ -477,19 +416,16 @@ class Ui_MainWindow(object):
         self.comboBox_4.setObjectName(u"comboBox_4")
         sizePolicy.setHeightForWidth(self.comboBox_4.sizePolicy().hasHeightForWidth())
         self.comboBox_4.setSizePolicy(sizePolicy)
+        self.comboBox_4.setFont(font)
         self.comboBox_4.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.comboBox_4.setMouseTracking(False)
         self.comboBox_4.setAutoFillBackground(False)
         self.comboBox_4.setStyleSheet(u"QComboBox {\n"
 "    border: 3px solid gray;\n"
 "    border-radius: 3px;\n"
-"    padding: 1px 18px 1px 3px;\n"
+"    padding: 1px 1px 1px 10px;\n"
 "    min-width: 6em;\n"
-"	border-radius: 20px;\n"
-"}\n"
-"\n"
-"QComboBox{\n"
-"	color: rgb(0,0,0);\n"
+"    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */\n"
 "}\n"
 "\n"
 "QComboBox:editable {\n"
@@ -497,43 +433,25 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QComboBox:!editable, QComboBox::drop-down:editable {\n"
-"     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                 stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
-"                                 stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
-"}\n"
-"\n"
-"/* QComboBox gets the \"on\" state when the popup is open */\n"
-"QComboBox:!editable:on, QComboBox::drop-down:editable:on {\n"
 "    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                stop: 0 #D3D3D3, stop: 0.4 #D8D8D8,\n"
-"                                stop: 0.5 #DDDDDD, stop: 1.0 #E1E1E1);\n"
+"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
 "}\n"
 "\n"
-"QComboBox:on { /* shift the text when the popup opens */\n"
-"    padding-top: 3px;\n"
-"    padding-left: 4px"
-                        ";\n"
-"}\n"
 "\n"
-"QComboBox::drop-down {\n"
-"    subcontrol-origin: padding;\n"
-"    subcontrol-position: top right;\n"
-"    width: 15px;\n"
-"\n"
-"    border-left-width: 1px;\n"
-"    border-left-color: darkgray;\n"
-"    border-left-style: solid; /* just a single line */\n"
-"    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
-"    border-bottom-right-radius: 3px;\n"
-"}\n"
-"\n"
-"QComboBox::down-arrow {\n"
-"    image: url(/usr/share/icons/crystalsvg/16x16/actions/1downarrow.png);\n"
-"}\n"
-"\n"
-"QComboBox::down-arrow:on { /* shift the arrow when popup is open */\n"
-"    top: 1px;\n"
-"    left: 1px;\n"
+"/* Stile della tendina del QComboBox */\n"
+"QComboBox QAbstractItemView {\n"
+"    background-color:	qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3); ; /* Colore di sfondo della tendina */\n"
+"    selection-background-color: #3399FF; /* Colore di sfondo dell'elemento selezionato */\n"
+"    selection-color:rgb(106, 112, 113)"
+                        "; /* Colore del testo dell'elemento selezionato */\n"
+"    border: 3px solid gray;\n"
+"    border-radius: 3px;\n"
+"    padding: 1px 18px 1px 3px;\n"
+"    min-width: 6em;\n"
+"    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */\n"
 "}")
         self.comboBox_4.setIconSize(QSize(30, 30))
 
@@ -615,7 +533,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
         self.label = QLabel(self.widget_sfond_interfaccia)
         self.label.setObjectName(u"label")
-        self.label.setFont(font)
+        self.label.setFont(font1)
         self.label.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(125, 225, 10); \n"
 "	border-style: outset;\n"
@@ -639,13 +557,13 @@ class Ui_MainWindow(object):
         self.pushButton_Interfaccia.setSizePolicy(sizePolicy1)
         self.pushButton_Interfaccia.setMinimumSize(QSize(200, 0))
         self.pushButton_Interfaccia.setMaximumSize(QSize(300, 200))
-        font3 = QFont()
-        font3.setPointSize(30)
-        font3.setBold(True)
-        font3.setItalic(False)
-        font3.setUnderline(False)
-        font3.setStrikeOut(False)
-        self.pushButton_Interfaccia.setFont(font3)
+        font4 = QFont()
+        font4.setPointSize(30)
+        font4.setBold(True)
+        font4.setItalic(False)
+        font4.setUnderline(False)
+        font4.setStrikeOut(False)
+        self.pushButton_Interfaccia.setFont(font4)
         self.pushButton_Interfaccia.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_Interfaccia.setStyleSheet(u"QWidget {\n"
 "	background-color:green; \n"
@@ -678,7 +596,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
         self.label_5 = QLabel(self.widget_sfondo_registrazione)
         self.label_5.setObjectName(u"label_5")
-        self.label_5.setFont(font)
+        self.label_5.setFont(font1)
         self.label_5.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(125, 225, 10); \n"
 "	border-style: outset;\n"
@@ -699,10 +617,10 @@ class Ui_MainWindow(object):
         self.pushButton_Registrazione.setSizePolicy(sizePolicy1)
         self.pushButton_Registrazione.setMinimumSize(QSize(200, 0))
         self.pushButton_Registrazione.setMaximumSize(QSize(300, 200))
-        font4 = QFont()
-        font4.setPointSize(30)
-        font4.setBold(True)
-        self.pushButton_Registrazione.setFont(font4)
+        font5 = QFont()
+        font5.setPointSize(30)
+        font5.setBold(True)
+        self.pushButton_Registrazione.setFont(font5)
         self.pushButton_Registrazione.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_Registrazione.setStyleSheet(u"QWidget {\n"
 "	background-color:green; \n"
@@ -748,7 +666,7 @@ class Ui_MainWindow(object):
         sizePolicy3.setHeightForWidth(self.label_impostazioni.sizePolicy().hasHeightForWidth())
         self.label_impostazioni.setSizePolicy(sizePolicy3)
         self.label_impostazioni.setBaseSize(QSize(0, 0))
-        self.label_impostazioni.setFont(font)
+        self.label_impostazioni.setFont(font1)
         self.label_impostazioni.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(213, 213, 213); \n"
 "	border-style: outset;\n"
@@ -770,7 +688,7 @@ class Ui_MainWindow(object):
         sizePolicy4.setHeightForWidth(self.pushButton_impostazioni.sizePolicy().hasHeightForWidth())
         self.pushButton_impostazioni.setSizePolicy(sizePolicy4)
         self.pushButton_impostazioni.setMinimumSize(QSize(200, 0))
-        self.pushButton_impostazioni.setFont(font4)
+        self.pushButton_impostazioni.setFont(font5)
         self.pushButton_impostazioni.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_impostazioni.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(138, 139, 135); \n"
@@ -826,7 +744,7 @@ class Ui_MainWindow(object):
         self.gridLayout_11.setObjectName(u"gridLayout_11")
         self.label_SG600 = QLabel(self.widget_7)
         self.label_SG600.setObjectName(u"label_SG600")
-        self.label_SG600.setFont(font)
+        self.label_SG600.setFont(font1)
         self.label_SG600.setStyleSheet(u"QLabel{\n"
 "	color: rgb(0,0,0);\n"
 "}\n"
@@ -842,19 +760,16 @@ class Ui_MainWindow(object):
         self.comboBox_5.setObjectName(u"comboBox_5")
         sizePolicy.setHeightForWidth(self.comboBox_5.sizePolicy().hasHeightForWidth())
         self.comboBox_5.setSizePolicy(sizePolicy)
+        self.comboBox_5.setFont(font)
         self.comboBox_5.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.comboBox_5.setMouseTracking(False)
         self.comboBox_5.setAutoFillBackground(False)
         self.comboBox_5.setStyleSheet(u"QComboBox {\n"
 "    border: 3px solid gray;\n"
 "    border-radius: 3px;\n"
-"    padding: 1px 18px 1px 3px;\n"
+"    padding: 1px 1px 1px 10px;\n"
 "    min-width: 6em;\n"
-"	border-radius: 20px;\n"
-"}\n"
-"\n"
-"QComboBox{\n"
-"	color: rgb(0,0,0);\n"
+"    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */\n"
 "}\n"
 "\n"
 "QComboBox:editable {\n"
@@ -862,43 +777,25 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QComboBox:!editable, QComboBox::drop-down:editable {\n"
-"     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                 stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
-"                                 stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
-"}\n"
-"\n"
-"/* QComboBox gets the \"on\" state when the popup is open */\n"
-"QComboBox:!editable:on, QComboBox::drop-down:editable:on {\n"
 "    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                stop: 0 #D3D3D3, stop: 0.4 #D8D8D8,\n"
-"                                stop: 0.5 #DDDDDD, stop: 1.0 #E1E1E1);\n"
+"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
 "}\n"
 "\n"
-"QComboBox:on { /* shift the text when the popup opens */\n"
-"    padding-top: 3px;\n"
-"    padding-left: 4px"
-                        ";\n"
-"}\n"
 "\n"
-"QComboBox::drop-down {\n"
-"    subcontrol-origin: padding;\n"
-"    subcontrol-position: top right;\n"
-"    width: 15px;\n"
-"\n"
-"    border-left-width: 1px;\n"
-"    border-left-color: darkgray;\n"
-"    border-left-style: solid; /* just a single line */\n"
-"    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
-"    border-bottom-right-radius: 3px;\n"
-"}\n"
-"\n"
-"QComboBox::down-arrow {\n"
-"    image: url(/usr/share/icons/crystalsvg/16x16/actions/1downarrow.png);\n"
-"}\n"
-"\n"
-"QComboBox::down-arrow:on { /* shift the arrow when popup is open */\n"
-"    top: 1px;\n"
-"    left: 1px;\n"
+"/* Stile della tendina del QComboBox */\n"
+"QComboBox QAbstractItemView {\n"
+"    background-color:	qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3); ; /* Colore di sfondo della tendina */\n"
+"    selection-background-color: #3399FF; /* Colore di sfondo dell'elemento selezionato */\n"
+"    selection-color:rgb(106, 112, 113)"
+                        "; /* Colore del testo dell'elemento selezionato */\n"
+"    border: 3px solid gray;\n"
+"    border-radius: 3px;\n"
+"    padding: 1px 18px 1px 3px;\n"
+"    min-width: 6em;\n"
+"    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */\n"
 "}")
         self.comboBox_5.setIconSize(QSize(30, 30))
 
@@ -916,7 +813,7 @@ class Ui_MainWindow(object):
         sizePolicy5.setVerticalStretch(0)
         sizePolicy5.setHeightForWidth(self.lcdNumber_temperature_SG600.sizePolicy().hasHeightForWidth())
         self.lcdNumber_temperature_SG600.setSizePolicy(sizePolicy5)
-        self.lcdNumber_temperature_SG600.setFont(font1)
+        self.lcdNumber_temperature_SG600.setFont(font2)
         self.lcdNumber_temperature_SG600.setStyleSheet(u"QWidget {\n"
 "	background-color:white; \n"
 "	border-style: outset;\n"
@@ -956,7 +853,7 @@ class Ui_MainWindow(object):
 
         self.label_6 = QLabel(self.widget_7)
         self.label_6.setObjectName(u"label_6")
-        self.label_6.setFont(font)
+        self.label_6.setFont(font1)
         self.label_6.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(255, 207, 84); \n"
 "	border-style: outset;\n"
@@ -973,7 +870,7 @@ class Ui_MainWindow(object):
 
         self.label_7 = QLabel(self.widget_7)
         self.label_7.setObjectName(u"label_7")
-        self.label_7.setFont(font)
+        self.label_7.setFont(font1)
         self.label_7.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(255, 207, 84); \n"
 "	border-style: outset;\n"

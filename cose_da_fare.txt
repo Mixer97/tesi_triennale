@@ -6,10 +6,10 @@ COSE DA FARE:
     [[- Rendere le lable modificabili dall'utente]]
     [[- Realizzazione del setup dell'SG600]]
     [[- All' apertura delle finestre di setup voglio che ci sia la lettura del fondoscala e sensibilità che sono già presenti]]
-    - collegare i funzionamenti della finestra di setup per SG600
+    [[- collegare i funzionamenti della finestra di setup per SG600]]
     - Collegare i toggle dei colori delle checkbox
     - il canale creato di temperatura misura in tensione ma voglio solo la misura in gradi Celsius
-    - schermi lcd per SG600 displayano solamente le caratteristiche del canale main e non quelle del canale temperatura
+    [[- schermi lcd per SG600 displayano solamente le caratteristiche del canale main e non quelle del canale temperatura]]
     - Implementare una finestra modale che non permette di agire per 3 secondi dopo una richiesta di configurazione
     - Implementazione scrittura e visualizzazione con lo zero dei millivolt (capire la logica che ci sta dietro)
     - impostare salvataggio selle impostazioni su JSON (IMPORTANTE)

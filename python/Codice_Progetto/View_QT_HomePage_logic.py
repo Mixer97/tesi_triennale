@@ -1,8 +1,9 @@
 from __future__ import annotations
 from PySide6.QtCore import QTimer
 from PySide6.QtWidgets import QMainWindow
-from View_QT_HomePage import Ui_MainWindow
+from View_QT_HomePage_ui import Ui_MainWindow
 from View_QT_SetupPage_logic import SetupWindow
+from Mainwindow_grafico_logic import GraphWindow
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -42,6 +43,7 @@ class MainWindow(QMainWindow):
         self.timer1.timeout.connect(self.update_SG600_temp)                               #
         self.timer2.timeout.connect(self.setter_lcdDisplay_text_logger)                                              #
         self.ui.pushButton_impostazioni.clicked.connect(self.open_setup_window)                                         #
+        self.ui.pushButton_impostazioni.clicked.connect(self.open_graph_window)                                         #
         self.timer1.timeout.connect(self.check)                                                                    # Check per chiusura dei timer alla chiusura dell'ultima finestra
         self.timer2.timeout.connect(self.check)                                                                    #
         # self.pulsante_registrazione_click()
@@ -49,6 +51,10 @@ class MainWindow(QMainWindow):
     def open_setup_window(self):
         self.setup_window = SetupWindow(self.banco_di_taratura)
         self.setup_window.show()
+        
+    def open_graph_window(self):
+        self.setup_graph = GraphWindow(self.banco_di_taratura)
+        self.setup_graph.show()
     
     def check(self):
         if self.timerStop == True:

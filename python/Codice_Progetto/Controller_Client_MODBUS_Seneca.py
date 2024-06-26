@@ -34,8 +34,8 @@ class Controller_MODBUS:
             # temp
             self.canale_temperatura_mV=0
             self.canale_temperatura_C=0
-            self.sensibilità_temperatura=0
-            self.fondo_scala_temperatura=0
+            self.sensibilità_temperatura=1
+            self.fondo_scala_temperatura=1
             self.zero_temp=0
             
     def __init__(self, port="COM8", baudrate=2400, bytesize=8, parity="N", stopbits=1, ID=1):

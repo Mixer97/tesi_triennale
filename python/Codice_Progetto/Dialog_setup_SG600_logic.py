@@ -37,6 +37,8 @@ class Canale_Setup_SG600(QDialog):
         # Setup dei segnali
         self.ui.lineEdit_fondoscala_main.textChanged.connect(self.update_fondoscala_main)
         self.ui.lineEdit_sensibilita_main.textChanged.connect(self.update_sensibilità_main)
+        self.ui.lineEdit_fondoscala_temp.textChanged.connect(self.update_fondoscala_temp)
+        self.ui.lineEdit_sensibilita_temp.textChanged.connect(self.update_sensibilità_temp)
 
         
     def update_fondoscala_main(self):
@@ -52,6 +54,21 @@ class Canale_Setup_SG600(QDialog):
             self.controller_MODBUS.DATA.sensibilità_principale = float(new_value)
         else:
             print("Valore inserito non rappresenta un numero")
+            
+    def update_fondoscala_temp(self):
+        new_value = self.ui.lineEdit_fondoscala_temp.text() 
+        if is_number_tryexcept(new_value):
+            self.controller_MODBUS.DATA.fondo_scala_temperatura = float(new_value)
+        else:
+            print("Valore inserito non rappresenta un numero")       
+            
+    def update_sensibilità_temp(self):
+        new_value = self.ui.lineEdit_sensibilita_temp.text() 
+        if is_number_tryexcept(new_value):
+            self.controller_MODBUS.DATA.sensibilità_temperatura = float(new_value)
+        else:
+            print("Valore inserito non rappresenta un numero")
+
 
 def is_number_tryexcept(s):
     """ Returns True if string is a number. """
