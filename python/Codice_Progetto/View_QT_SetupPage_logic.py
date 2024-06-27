@@ -28,7 +28,7 @@ class SetupWindow(QMainWindow):
         self.logger = banco_di_taratura.logger
         
         self.update_status = banco_di_taratura.update_status # bool [FALSE]
-        self.list_status_checkbox = banco_di_taratura.list_status_checkbox  # list
+        self.list_status_checkbox = banco_di_taratura.list_status_checkbox  # list status ordine:  [ch4, ch3, ch2, ch1]
         self.status_timer = banco_di_taratura.status_timer  # bool [FALSE]
         
         while self.list_status_checkbox == [0,0,0,0]:     
@@ -67,12 +67,16 @@ class SetupWindow(QMainWindow):
         # controllo i canali attivi nella scheda e faccio corrispodere la grafica
         if self.list_status_checkbox[3] == 1:
                 self.ui.checkBox_CH1.setChecked(True)
+                self.ui.checkBox_CH1.setText("ON")
         if self.list_status_checkbox[2] == 1:
                 self.ui.checkBox_CH2.setChecked(True)
+                self.ui.checkBox_CH2.setText("ON")
         if self.list_status_checkbox[1] == 1:
                 self.ui.checkBox_CH3.setChecked(True)
+                self.ui.checkBox_CH3.setText("ON")
         if self.list_status_checkbox[0] == 1:
                 self.ui.checkBox_CH4.setChecked(True)
+                self.ui.checkBox_CH4.setText("ON")
         
         self.timer1 = QTimer()
         
@@ -135,3 +139,24 @@ class SetupWindow(QMainWindow):
         self.ui.lcdNumber_sens_CHSG600.display(self.controller_MODBUS.DATA.sensibilità_principale)
         self.ui.lcdNumber_fondoscala_CHSG600_temp.display(self.controller_MODBUS.DATA.fondo_scala_temperatura)
         self.ui.lcdNumber_sens_CHSG600_temp.display(self.controller_MODBUS.DATA.sensibilità_temperatura)
+        
+        # Updtate dei testi dei checkbox
+        if self.list_status_checkbox[3]==0:
+            self.ui.checkBox_CH1.setText('OFF')
+        else:
+            self.ui.checkBox_CH1.setText('ON')
+        
+        if self.list_status_checkbox[2]==0:
+            self.ui.checkBox_CH2.setText('OFF')
+        else:
+            self.ui.checkBox_CH2.setText('ON')
+            
+        if self.list_status_checkbox[1]==0:
+            self.ui.checkBox_CH3.setText('OFF')
+        else:
+            self.ui.checkBox_CH3.setText('ON')
+            
+        if self.list_status_checkbox[0]==0:
+            self.ui.checkBox_CH4.setText('OFF')
+        else:
+            self.ui.checkBox_CH4.setText('ON')
