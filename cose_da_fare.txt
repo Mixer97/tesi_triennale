@@ -15,6 +15,7 @@ COSE DA FARE:
     - impostare salvataggio selle impostazioni su JSON (IMPORTANTE)
     - spostare valore frequenza logger 
     - implementazione parte di visualizzazione grafica della applicazione
+        - Problemi: update di valori legato alla scelta dell'unità di misura nel menu a tendina (richiamare lupdate dei valori anche per il grafico)
     - implementazione parte di gestione della misura e calcolo della stabilità
 
 BUG SCOPERTI:

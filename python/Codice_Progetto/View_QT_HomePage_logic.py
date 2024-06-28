@@ -43,7 +43,7 @@ class MainWindow(QMainWindow):
         self.timer1.timeout.connect(self.update_SG600_temp)                               #
         self.timer2.timeout.connect(self.setter_lcdDisplay_text_logger)                                              #
         self.ui.pushButton_impostazioni.clicked.connect(self.open_setup_window)                                         #
-        self.ui.pushButton_impostazioni.clicked.connect(self.open_graph_window)                                         #
+        self.ui.pushButton_Interfaccia.clicked.connect(self.open_graph_window)                                         #
         self.timer1.timeout.connect(self.check)                                                                    # Check per chiusura dei timer alla chiusura dell'ultima finestra
         self.timer2.timeout.connect(self.check)                                                                    #
         # self.pulsante_registrazione_click()

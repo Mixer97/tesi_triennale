@@ -51,7 +51,7 @@ class Controller_TCP:
         
     class DATA:
         def __init__(self):
-            self.LIST_mV_VALUE = [0,0,0,0]   # Aggiornato dal main in un thread separato
+            self.LIST_mV_VALUE = [0,0,0,0]  #[1,2,3,4] # Aggiornato dal main in un thread separato
             self.LIST_Kg_VALUE = [0,0,0,0]
             self.LIST_Nm_VALUE = [0,0,0,0]
             self.LIST_N_VALUE = [0,0,0,0]
