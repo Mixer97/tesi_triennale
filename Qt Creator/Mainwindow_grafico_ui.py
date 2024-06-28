@@ -39,7 +39,8 @@ class Ui_GraphWindow(object):
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.gridWidget = QWidget(self.centralwidget)
         self.gridWidget.setObjectName(u"gridWidget")
-        self.gridWidget.setStyleSheet(u"background-color: rgb(251, 255, 246);")
+        self.gridWidget.setStyleSheet(u"background-color: rgb(251, 255, 246);\n"
+"border-width: 1px")
         self.horizontalLayout = QHBoxLayout(self.gridWidget)
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName(u"horizontalLayout")

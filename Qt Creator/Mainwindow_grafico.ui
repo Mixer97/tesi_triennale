@@ -27,7 +27,8 @@
     <item row="0" column="0">
      <widget class="QWidget" name="gridWidget" native="true">
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(251, 255, 246);</string>
+       <string notr="true">background-color: rgb(251, 255, 246);
+border-width: 1px</string>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <property name="spacing">
