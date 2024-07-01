@@ -26,6 +26,8 @@ class Controller_MODBUS:
             # main
             self.canale_principale_mV=0
             self.canale_principale_Nm=0
+            self.canale_principale_Kg=0
+            self.canale_principale_N=0
             self.sensibilità_principale=2.0000
             self.fondo_scala_principale=10000
             self.lever_length=1

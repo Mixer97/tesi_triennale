@@ -76,3 +76,13 @@
 
 28/06
     Continuo sul lavoro dei grafici. Realizzare una media mobile per fare il grafico
+
+01/07
+    Setup banco con pesi [V], 
+    far partire il grafico quando l'applicazione parte[V],
+    - Problema: il grafico non funziona quando mostra valori non messi nelle combobox
+    pulsanti per cambiare canale,
+    creazione classe canale con buffer o senza,
+    aggiornamento valori separato dalle ComboBox,
+    setting per visualizzazione scala automatica o manuale.
+    imparare come settare i vari canali dalla combobox

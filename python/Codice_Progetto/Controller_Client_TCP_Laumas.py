@@ -124,6 +124,7 @@ class Controller_TCP:
 
             else:
                 print("Impossibile connettersi al dispositivo Modbus")
+                self.read_holding_registers_mV()
 
     def test_conversione(self, valore_input):
             list = self.value_to_HL(valore_input)
@@ -394,18 +395,23 @@ class Controller_TCP:
     
     def write_W1(self, value):
                 
-                list = self.value_to_HL(value)
-
+        if self.connect:        
+            list = self.value_to_HL(value)
+            write_result=self.client.write_registers(address=self.ADDRESS.REGISTER_1_WR1_high, values=list[0], slave=self.SLAVE.ID)
+            while write_result.isError():
                 write_result=self.client.write_registers(address=self.ADDRESS.REGISTER_1_WR1_high, values=list[0], slave=self.SLAVE.ID)
-                while write_result.isError():
-                    write_result=self.client.write_registers(address=self.ADDRESS.REGISTER_1_WR1_high, values=list[0], slave=self.SLAVE.ID)
-                
+            
+            write_result=self.client.write_registers(address=self.ADDRESS.REGISTER_2_WR1_low, values=list[1], slave=self.SLAVE.ID)
+            while write_result.isError():
                 write_result=self.client.write_registers(address=self.ADDRESS.REGISTER_2_WR1_low, values=list[1], slave=self.SLAVE.ID)
-                while write_result.isError():
-                    write_result=self.client.write_registers(address=self.ADDRESS.REGISTER_2_WR1_low, values=list[1], slave=self.SLAVE.ID)
     
+        else:
+            print("Errore nella scrittura di W1")
+            sleep(1)
+            self.write_W1()
+        
     def read_R1(self):
-
+        if self.connect:
             risultati = self.client.read_holding_registers(address=self.ADDRESS.REGISTER_1_WR1_high, count=2, slave=self.SLAVE.ID)
             while risultati.isError():
                 risultati = self.client.read_holding_registers(address=self.ADDRESS.REGISTER_1_WR1_high, count=2, slave=self.SLAVE.ID)
@@ -415,6 +421,10 @@ class Controller_TCP:
             risultati_elaborati = self.HL_to_value(risultati.registers)
 
             return risultati_elaborati
+        else:
+            print("Errore nella lettura di R1")
+            sleep(1)
+            self.read_R1()
     
     def read_EXC_AEXC(self):
 
