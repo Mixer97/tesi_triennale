@@ -79,10 +79,10 @@
 
 01/07
     Setup banco con pesi [V], 
-    far partire il grafico quando l'applicazione parte[V],
-    - Problema: il grafico non funziona quando mostra valori non messi nelle combobox
-    pulsanti per cambiare canale,
-    creazione classe canale con buffer o senza,
-    aggiornamento valori separato dalle ComboBox,
+    far partire il grafico quando l'applicazione parte [V],
+    - Problema: il grafico non funziona quando mostra valori non messi nelle combobox [V]
+    pulsanti per cambiare canale, [V]
+    creazione classe canale (da continuare a implementare), [V]
+    aggiornamento valori separato dalle ComboBox, [V]
     setting per visualizzazione scala automatica o manuale.
-    imparare come settare i vari canali dalla combobox
+    imparare come settare i vari canali dalla combobox [V]

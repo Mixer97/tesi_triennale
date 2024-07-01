@@ -35,6 +35,7 @@ class Graph:
         self.timer.setInterval(self.update_period)
         self.timer.timeout.connect(self.update_someData)
         self.timer.start()
+        
 
         # axis descriptions
         self.graph.setContentsMargins(10, 10, 10, 10)
@@ -55,7 +56,7 @@ class Graph:
         self.dataX = []
         self.ptr3 = 0
         self.counter = 0
-        self.graph.setRange(yRange=[-3,3], padding=2)
+        self.graph.setRange(yRange=[-5,5], padding=2)
         self.graph.setTitle(self.title)
 
     def media_esponenziale(self):

@@ -34,7 +34,8 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_Interfaccia.clicked.connect(self.pulsante_interfaccia_click)                                    # pulsanti interfaccia e registrazione
         self.ui.pushButton_Registrazione.clicked.connect(self.pulsante_registrazione_click)                   #
         self.timer1 = QTimer()                                                                                             # Timer
-        self.timer2 = QTimer()                                                                                             #
+        self.timer2 = QTimer()  
+        self.timer2.start(100)
         self.timer1.timeout.connect(self.update_CH1)                                         # Update degli lcd
         self.timer1.timeout.connect(self.update_CH2)                                         #
         self.timer1.timeout.connect(self.update_CH3)                                         #
@@ -42,10 +43,11 @@ class MainWindow(QMainWindow):
         self.timer1.timeout.connect(self.update_SG600_main)                               #
         self.timer1.timeout.connect(self.update_SG600_temp)                               #
         self.timer2.timeout.connect(self.setter_lcdDisplay_text_logger)                                              #
-        self.ui.pushButton_impostazioni.clicked.connect(self.open_setup_window)                                         #
+        self.ui.pushButton_impostazioni.clicked.connect(self.open_setup_window) 
+        self.pulsante_interfaccia_click()
         # self.ui.pushButton_Interfaccia.clicked.connect(self.open_graph_window)                                         #
         self.timer1.timeout.connect(self.check)                                                                    # Check per chiusura dei timer alla chiusura dell'ultima finestra
-        self.timer2.timeout.connect(self.check)                                                                    #
+        # self.timer2.timeout.connect(self.check)                                                                    #
         # self.pulsante_registrazione_click()
         self.open_graph_window()
 
@@ -60,7 +62,7 @@ class MainWindow(QMainWindow):
     def check(self):
         if self.timerStop == True:
             self.timer1.stop()
-            self.timer2.stop()
+        #     self.timer2.stop()
         
     def setter_lcdDisplay_text_logger(self):
         self.logger.DATA.text_lcd[0]=self.ui.comboBox_1.currentText()
@@ -96,7 +98,7 @@ class MainWindow(QMainWindow):
     def pulsante_registrazione_click(self):
         # Check della condizione del pulsante e poi cambio il tipo e gestisco il logger
         if self.status_pulsante_registrazione % 2 != 0:
-                self.timer2.start(100)          # In millisecondi       
+                # self.timer2.start(100)          # In millisecondi       
                 self.logger.DATA.startStop_logger = True
                 self.ui.pushButton_Registrazione.setText("STOP")
                 self.ui.label_5.setStyleSheet("QWidget { background-color:rgb(255, 69, 72); border-style: outset; border-width: 0px; border-color:rgb(255, 111, 113); border-radius: 20px; } QLabel { color: rgb(0,0,0); }")
@@ -104,7 +106,7 @@ class MainWindow(QMainWindow):
                 self.ui.widget_sfondo_registrazione.setStyleSheet("QWidget { background-color:rgb(255, 69, 72); border-style: outset; border-width: 2px; border-color:rgb(255, 111, 113); border-radius: 20px; }")
                 self.status_pulsante_registrazione = self.status_pulsante_registrazione + 1
         else:
-                self.timer2.stop()     
+                # self.timer2.stop()     
                 self.logger.DATA.startStop_logger  = False     
                 self.ui.pushButton_Registrazione.setText("START")     
                 self.ui.label_5.setStyleSheet("QWidget { background-color:rgb(125, 225, 10); border-style: outset; border-width: 0px; border-color:rgb(63, 156, 23); border-radius: 20px; } QLabel { color: rgb(0,0,0); }")

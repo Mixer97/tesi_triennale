@@ -521,14 +521,7 @@ class Ui_MainWindow(object):
         self.widget_sfond_interfaccia.setObjectName(u"widget_sfond_interfaccia")
         sizePolicy.setHeightForWidth(self.widget_sfond_interfaccia.sizePolicy().hasHeightForWidth())
         self.widget_sfond_interfaccia.setSizePolicy(sizePolicy)
-        self.widget_sfond_interfaccia.setStyleSheet(u"QWidget {\n"
-"	background-color:rgb(125, 225, 10); \n"
-"	border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-color:rgb(63, 156, 23);\n"
-"	border-radius: 20px;\n"
-"}\n"
-"")
+        self.widget_sfond_interfaccia.setStyleSheet(u"QWidget { background-color:rgb(255, 69, 72); border-style: outset; border-width: 2px; border-color:rgb(255, 111, 113); border-radius: 20px; }")
         self.horizontalLayout_6 = QHBoxLayout(self.widget_sfond_interfaccia)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
         self.label = QLabel(self.widget_sfond_interfaccia)
