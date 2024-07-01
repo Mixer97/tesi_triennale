@@ -190,7 +190,7 @@ border-width: 1px</string>
                      <number>0</number>
                     </property>
                     <item>
-                     <widget class="QPushButton" name="pushButton_6">
+                     <widget class="QPushButton" name="pushButton_autorange_solo_main">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
                         <horstretch>0</horstretch>
@@ -281,7 +281,7 @@ border-width: 1px</string>
                      <number>0</number>
                     </property>
                     <item>
-                     <widget class="QPushButton" name="pushButton_5">
+                     <widget class="QPushButton" name="pushButton_autorange_solo_temp">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
                         <horstretch>0</horstretch>
@@ -352,7 +352,7 @@ border-width: 1px</string>
                      <number>0</number>
                     </property>
                     <item>
-                     <widget class="QPushButton" name="pushButton_3">
+                     <widget class="QPushButton" name="pushButton_autorange_main">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
                         <horstretch>0</horstretch>
@@ -365,7 +365,7 @@ border-width: 1px</string>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="pushButton_2">
+                     <widget class="QPushButton" name="pushButton_autorange_temp">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
                         <horstretch>0</horstretch>
@@ -482,7 +482,7 @@ border-width: 1px</string>
                      <number>0</number>
                     </property>
                     <item>
-                     <widget class="QPushButton" name="pushButton_10">
+                     <widget class="QPushButton" name="pushButton_autorange_ch1">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
                         <horstretch>0</horstretch>
@@ -557,7 +557,7 @@ border-width: 1px</string>
                      <number>0</number>
                     </property>
                     <item>
-                     <widget class="QPushButton" name="pushButton_9">
+                     <widget class="QPushButton" name="pushButton_autorange_ch2">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
                         <horstretch>0</horstretch>
@@ -625,7 +625,7 @@ border-width: 1px</string>
                      <number>0</number>
                     </property>
                     <item>
-                     <widget class="QPushButton" name="pushButton">
+                     <widget class="QPushButton" name="pushButton_autorange_ch3">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
                         <horstretch>0</horstretch>
@@ -713,7 +713,7 @@ border-width: 1px</string>
                      <number>0</number>
                     </property>
                     <item>
-                     <widget class="QPushButton" name="pushButton_8">
+                     <widget class="QPushButton" name="pushButton_autorange_ch4">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
                         <horstretch>0</horstretch>
@@ -942,6 +942,32 @@ QComboBox QAbstractItemView {
             <string>Channel 4</string>
            </property>
           </item>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_time_window">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>130</y>
+            <width>151</width>
+            <height>28</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QWidget{
+	background-color:rgb(255, 255, 255); 
+	border-style: outset;
+    border-width: 2px;
+    border-color: rgb(255, 106, 0);
+	border-radius: 20;
+	color: rgb(0,0,0);
+}</string>
+          </property>
+          <property name="text">
+           <string>time-window</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </widget>
        </item>

@@ -16,8 +16,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
-    QHBoxLayout, QMainWindow, QPushButton, QSizePolicy,
-    QStackedWidget, QVBoxLayout, QWidget)
+    QHBoxLayout, QLineEdit, QMainWindow, QPushButton,
+    QSizePolicy, QStackedWidget, QVBoxLayout, QWidget)
 
 from pyqtgraph import PlotWidget
 
@@ -103,15 +103,15 @@ class Ui_GraphWindow(object):
         self.verticalLayout_4.setSpacing(0)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
-        self.pushButton_6 = QPushButton(self.frame_14)
-        self.pushButton_6.setObjectName(u"pushButton_6")
+        self.pushButton_autorange_solo_main = QPushButton(self.frame_14)
+        self.pushButton_autorange_solo_main.setObjectName(u"pushButton_autorange_solo_main")
         sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
         sizePolicy3.setHorizontalStretch(0)
         sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.pushButton_6.sizePolicy().hasHeightForWidth())
-        self.pushButton_6.setSizePolicy(sizePolicy3)
+        sizePolicy3.setHeightForWidth(self.pushButton_autorange_solo_main.sizePolicy().hasHeightForWidth())
+        self.pushButton_autorange_solo_main.setSizePolicy(sizePolicy3)
 
-        self.verticalLayout_4.addWidget(self.pushButton_6)
+        self.verticalLayout_4.addWidget(self.pushButton_autorange_solo_main)
 
 
         self.gridLayout_5.addWidget(self.frame_14, 0, 1, 3, 1)
@@ -148,12 +148,12 @@ class Ui_GraphWindow(object):
         self.verticalLayout_3.setSpacing(0)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.pushButton_5 = QPushButton(self.frame_17)
-        self.pushButton_5.setObjectName(u"pushButton_5")
-        sizePolicy3.setHeightForWidth(self.pushButton_5.sizePolicy().hasHeightForWidth())
-        self.pushButton_5.setSizePolicy(sizePolicy3)
+        self.pushButton_autorange_solo_temp = QPushButton(self.frame_17)
+        self.pushButton_autorange_solo_temp.setObjectName(u"pushButton_autorange_solo_temp")
+        sizePolicy3.setHeightForWidth(self.pushButton_autorange_solo_temp.sizePolicy().hasHeightForWidth())
+        self.pushButton_autorange_solo_temp.setSizePolicy(sizePolicy3)
 
-        self.verticalLayout_3.addWidget(self.pushButton_5)
+        self.verticalLayout_3.addWidget(self.pushButton_autorange_solo_temp)
 
 
         self.gridLayout_7.addWidget(self.frame_17, 0, 1, 3, 1)
@@ -176,22 +176,22 @@ class Ui_GraphWindow(object):
         self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.pushButton_3 = QPushButton(self.frame_11)
-        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.pushButton_autorange_main = QPushButton(self.frame_11)
+        self.pushButton_autorange_main.setObjectName(u"pushButton_autorange_main")
         sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
         sizePolicy4.setHorizontalStretch(0)
         sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.pushButton_3.sizePolicy().hasHeightForWidth())
-        self.pushButton_3.setSizePolicy(sizePolicy4)
+        sizePolicy4.setHeightForWidth(self.pushButton_autorange_main.sizePolicy().hasHeightForWidth())
+        self.pushButton_autorange_main.setSizePolicy(sizePolicy4)
 
-        self.verticalLayout_2.addWidget(self.pushButton_3)
+        self.verticalLayout_2.addWidget(self.pushButton_autorange_main)
 
-        self.pushButton_2 = QPushButton(self.frame_11)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-        sizePolicy4.setHeightForWidth(self.pushButton_2.sizePolicy().hasHeightForWidth())
-        self.pushButton_2.setSizePolicy(sizePolicy4)
+        self.pushButton_autorange_temp = QPushButton(self.frame_11)
+        self.pushButton_autorange_temp.setObjectName(u"pushButton_autorange_temp")
+        sizePolicy4.setHeightForWidth(self.pushButton_autorange_temp.sizePolicy().hasHeightForWidth())
+        self.pushButton_autorange_temp.setSizePolicy(sizePolicy4)
 
-        self.verticalLayout_2.addWidget(self.pushButton_2)
+        self.verticalLayout_2.addWidget(self.pushButton_autorange_temp)
 
 
         self.gridLayout_4.addWidget(self.frame_11, 0, 1, 4, 1)
@@ -246,12 +246,12 @@ class Ui_GraphWindow(object):
         self.horizontalLayout_5 = QHBoxLayout(self.frame_16)
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
         self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
-        self.pushButton_10 = QPushButton(self.frame_16)
-        self.pushButton_10.setObjectName(u"pushButton_10")
-        sizePolicy3.setHeightForWidth(self.pushButton_10.sizePolicy().hasHeightForWidth())
-        self.pushButton_10.setSizePolicy(sizePolicy3)
+        self.pushButton_autorange_ch1 = QPushButton(self.frame_16)
+        self.pushButton_autorange_ch1.setObjectName(u"pushButton_autorange_ch1")
+        sizePolicy3.setHeightForWidth(self.pushButton_autorange_ch1.sizePolicy().hasHeightForWidth())
+        self.pushButton_autorange_ch1.setSizePolicy(sizePolicy3)
 
-        self.horizontalLayout_5.addWidget(self.pushButton_10)
+        self.horizontalLayout_5.addWidget(self.pushButton_autorange_ch1)
 
 
         self.gridLayout_9.addWidget(self.frame_16, 0, 1, 1, 1)
@@ -279,12 +279,12 @@ class Ui_GraphWindow(object):
         self.horizontalLayout_4 = QHBoxLayout(self.frame_15)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
-        self.pushButton_9 = QPushButton(self.frame_15)
-        self.pushButton_9.setObjectName(u"pushButton_9")
-        sizePolicy3.setHeightForWidth(self.pushButton_9.sizePolicy().hasHeightForWidth())
-        self.pushButton_9.setSizePolicy(sizePolicy3)
+        self.pushButton_autorange_ch2 = QPushButton(self.frame_15)
+        self.pushButton_autorange_ch2.setObjectName(u"pushButton_autorange_ch2")
+        sizePolicy3.setHeightForWidth(self.pushButton_autorange_ch2.sizePolicy().hasHeightForWidth())
+        self.pushButton_autorange_ch2.setSizePolicy(sizePolicy3)
 
-        self.horizontalLayout_4.addWidget(self.pushButton_9)
+        self.horizontalLayout_4.addWidget(self.pushButton_autorange_ch2)
 
 
         self.gridLayout_8.addWidget(self.frame_15, 0, 1, 1, 1)
@@ -306,12 +306,12 @@ class Ui_GraphWindow(object):
         self.horizontalLayout_2 = QHBoxLayout(self.frame_12)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.pushButton = QPushButton(self.frame_12)
-        self.pushButton.setObjectName(u"pushButton")
-        sizePolicy3.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
-        self.pushButton.setSizePolicy(sizePolicy3)
+        self.pushButton_autorange_ch3 = QPushButton(self.frame_12)
+        self.pushButton_autorange_ch3.setObjectName(u"pushButton_autorange_ch3")
+        sizePolicy3.setHeightForWidth(self.pushButton_autorange_ch3.sizePolicy().hasHeightForWidth())
+        self.pushButton_autorange_ch3.setSizePolicy(sizePolicy3)
 
-        self.horizontalLayout_2.addWidget(self.pushButton)
+        self.horizontalLayout_2.addWidget(self.pushButton_autorange_ch3)
 
 
         self.gridLayout_3.addWidget(self.frame_12, 0, 1, 5, 1)
@@ -347,12 +347,12 @@ class Ui_GraphWindow(object):
         self.horizontalLayout_3 = QHBoxLayout(self.frame_13)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.pushButton_8 = QPushButton(self.frame_13)
-        self.pushButton_8.setObjectName(u"pushButton_8")
-        sizePolicy3.setHeightForWidth(self.pushButton_8.sizePolicy().hasHeightForWidth())
-        self.pushButton_8.setSizePolicy(sizePolicy3)
+        self.pushButton_autorange_ch4 = QPushButton(self.frame_13)
+        self.pushButton_autorange_ch4.setObjectName(u"pushButton_autorange_ch4")
+        sizePolicy3.setHeightForWidth(self.pushButton_autorange_ch4.sizePolicy().hasHeightForWidth())
+        self.pushButton_autorange_ch4.setSizePolicy(sizePolicy3)
 
-        self.horizontalLayout_3.addWidget(self.pushButton_8)
+        self.horizontalLayout_3.addWidget(self.pushButton_autorange_ch4)
 
 
         self.gridLayout_6.addWidget(self.frame_13, 0, 1, 1, 1)
@@ -479,6 +479,18 @@ class Ui_GraphWindow(object):
 "    min-width: 6em;\n"
 "    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */\n"
 "}")
+        self.lineEdit_time_window = QLineEdit(self.frame_2)
+        self.lineEdit_time_window.setObjectName(u"lineEdit_time_window")
+        self.lineEdit_time_window.setGeometry(QRect(20, 130, 151, 28))
+        self.lineEdit_time_window.setStyleSheet(u"QWidget{\n"
+"	background-color:rgb(255, 255, 255); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 20;\n"
+"	color: rgb(0,0,0);\n"
+"}")
+        self.lineEdit_time_window.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout.addWidget(self.frame_2)
 
@@ -494,14 +506,14 @@ class Ui_GraphWindow(object):
 
     def retranslateUi(self, GraphWindow):
         GraphWindow.setWindowTitle(QCoreApplication.translate("GraphWindow", u"MainWindow", None))
-        self.pushButton_6.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
-        self.pushButton_5.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
-        self.pushButton_3.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
-        self.pushButton_2.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
-        self.pushButton_10.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
-        self.pushButton_9.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
-        self.pushButton.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
-        self.pushButton_8.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
+        self.pushButton_autorange_solo_main.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
+        self.pushButton_autorange_solo_temp.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
+        self.pushButton_autorange_main.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
+        self.pushButton_autorange_temp.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
+        self.pushButton_autorange_ch1.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
+        self.pushButton_autorange_ch2.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
+        self.pushButton_autorange_ch3.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
+        self.pushButton_autorange_ch4.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
         self.comboBox_Main_Temp.setItemText(0, QCoreApplication.translate("GraphWindow", u"Main Channel", None))
         self.comboBox_Main_Temp.setItemText(1, QCoreApplication.translate("GraphWindow", u"Temperature Channel", None))
         self.comboBox_Main_Temp.setItemText(2, QCoreApplication.translate("GraphWindow", u"Main + Temperature Channel", None))
@@ -511,5 +523,6 @@ class Ui_GraphWindow(object):
         self.comboBox_Ch_1234.setItemText(2, QCoreApplication.translate("GraphWindow", u"Channel 3", None))
         self.comboBox_Ch_1234.setItemText(3, QCoreApplication.translate("GraphWindow", u"Channel 4", None))
 
+        self.lineEdit_time_window.setText(QCoreApplication.translate("GraphWindow", u"time-window", None))
     # retranslateUi
 

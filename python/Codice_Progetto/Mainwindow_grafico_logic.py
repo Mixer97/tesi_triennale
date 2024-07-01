@@ -27,7 +27,7 @@ class Graph:
         self.result_media_passato = 1
         self.update_period = 15
         self.GraphWindow = GraphWindow
-        self.max_points = 1000
+        self.time_window = 5  # In secondi
         self.alpha = 0.02
         
         # segnale di refresh       
@@ -36,6 +36,7 @@ class Graph:
         self.timer.timeout.connect(self.update_someData)
         self.timer.start()
         
+        self.GraphWindow.ui.lineEdit_time_window.editingFinished.connect(self.change_time_window)
 
         # axis descriptions
         self.graph.setContentsMargins(10, 10, 10, 10)
@@ -56,8 +57,13 @@ class Graph:
         self.dataX = []
         self.ptr3 = 0
         self.counter = 0
-        self.graph.setRange(yRange=[-5,5], padding=2)
+        self.graph.setRange(yRange=(-5,5), padding=0.2)
         self.graph.setTitle(self.title)
+    
+    def change_time_window(self):
+        time_inserted = int(self.GraphWindow.ui.lineEdit_time_window.text())
+        self.time_window = time_inserted
+        self.graph.setRange(xRange=(-self.time_window/2, +self.time_window/2))
 
     def media_esponenziale(self):
         x=self.get_data()
@@ -169,11 +175,13 @@ class Graph:
         
         # Append new random value to data list
         self.dataY.append(self.media_esponenziale())
-        self.dataX.append(time.time() - self.GraphWindow.start_time)
+        actual_time = time.time()
+        difference = actual_time - self.GraphWindow.start_time
+        self.dataX.append(difference)
 
         # Update pointer
         self.counter = self.counter + 1
-        if self.counter > self.max_points:
+        if difference > self.time_window:
             self.dataX.pop(0)
             self.dataY.pop(0)
             self.counter = self.counter - 1 # pointer back to max range
@@ -226,9 +234,12 @@ class GraphWindow(QMainWindow):
         self.graph_ch3 = Graph(self, graph=graph_ch3, channel=channel_ch3, title='CH3')
         self.graph_ch4 = Graph(self, graph=graph_ch4, channel=channel_ch4, title='CH4')
         
+        # Setup segnali
         self.ui.comboBox_Main_Temp.activated.connect(self.ui.stackedWidget_SG600.setCurrentIndex)
         self.ui.comboBox_Ch_1234.activated.connect(self.ui.stackedWidget_Laumas.setCurrentIndex)
         
+        self.ui.pushButton_autorange_ch1.clicked.connect(self.ui.graphWidget_solo_channel_1.getPlotItem().getViewBox().autoRange)
+            
         
 if __name__ == "__main__":
     app = QApplication(sys.argv)
