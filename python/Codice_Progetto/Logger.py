@@ -17,6 +17,7 @@ class LOGGER:
             self.result_list_SG600_main_temp=[0,0]
             self.text_lcd_SG600_main_temp=["mV","mV"]  # Viene aggiornato dalla Main View in automatico [[DA IMPLEMENTARE]] 
             self.loop_status=True
+            self.periodo_logger=0.005
     
     def __init__(self, nome_CSV, starting_status=False):
         self.DATA=LOGGER.DATA()
@@ -70,7 +71,7 @@ class LOGGER:
         self.controller_TCP = controller_TCP
         self.controller_MODBUS = controller_MODBUS
         while self.DATA.loop_status:
-            sleep(0.005)   # timer per gestire la frequenza di campionamento del logger (frequenza più alta possibile per non avere duplicati)
+            sleep(self.DATA.periodo_logger)   # timer per gestire la frequenza di campionamento del logger (frequenza più alta possibile per non avere duplicati)
             if self.DATA.startStop_logger:
                 # Processing dei dati
                 self.stop_timer = time.time()

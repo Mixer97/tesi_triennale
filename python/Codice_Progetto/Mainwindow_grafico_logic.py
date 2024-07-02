@@ -2,10 +2,12 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 from PySide6.QtWidgets import QMainWindow, QGraphicsView, QGraphicsScene, QGraphicsItem, QApplication
+from PySide6.QtCore import QSize
 from PySide6.QtCore import QTimer
 import  PySide6.QtCore
 from Mainwindow_grafico_ui import Ui_GraphWindow
 import pyqtgraph as pg
+from pyqtgraph import PlotWidget
 import sys
 from time import sleep
 from random import randint, random
@@ -14,10 +16,13 @@ import sys
 
 if TYPE_CHECKING:
     from Banco_Taratura import BANCO_DI_TARATURA
+    from View_QT_HomePage_logic import MainWindow
 
 
 class Graph:
-    def __init__(self, GraphWindow:GraphWindow, graph, channel, title):
+    def __init__(self, GraphWindow:GraphWindow, graph:PlotWidget, channel, title):
+        
+
         
         self.channel = channel
         self.graph = graph
@@ -29,13 +34,16 @@ class Graph:
         self.GraphWindow = GraphWindow
         self.time_window = 5  # In secondi
         self.alpha = 0.02
+        self.autorange_status = False
         
         # segnale di refresh       
         self.timer = QTimer()
         self.timer.setInterval(self.update_period)
         self.timer.timeout.connect(self.update_someData)
+        self.timer.timeout.connect(self.autorange)
         self.timer.start()
         
+        # Segnale di update dell'asse x
         self.GraphWindow.ui.lineEdit_time_window.editingFinished.connect(self.change_time_window)
 
         # axis descriptions
@@ -46,24 +54,35 @@ class Graph:
         self.graph.setLabel('bottom', self.axisY_desc)
         
         # Impostazione del grafico
-        self.pen1 = pg.mkPen(color=('g'), width=1, style=PySide6.QtCore.Qt.SolidLine)
+        self.pen1 = pg.mkPen(color=('r'), width=1, style=PySide6.QtCore.Qt.SolidLine)
         self.graph.setDownsampling(mode='peak')
         self.graph.setClipToView(True)
         self.graph.setLimits(xMin=-100)
-        self.graph.setLimits(yMin=-1000)
-        self.graph.setLimits(yMax=1000)
+        self.graph.setLimits(yMin=-10000)
+        self.graph.setLimits(yMax=10000)
         self.curve4 = self.graph.plot(pen=self.pen1)
         self.dataY = []
         self.dataX = []
         self.ptr3 = 0
         self.counter = 0
         self.graph.setRange(yRange=(-5,5), padding=0.2)
-        self.graph.setTitle(self.title)
+        self.graph.setTitle(self.title)           
+    
+    def autorange(self):
+        if self.autorange_status:
+            self.graph.getPlotItem().getViewBox().autoRange()
+    
+    def change_status_autorange(self):
+        self.autorange_status = not(self.autorange_status)
     
     def change_time_window(self):
         time_inserted = int(self.GraphWindow.ui.lineEdit_time_window.text())
-        self.time_window = time_inserted
-        self.graph.setRange(xRange=(-self.time_window/2, +self.time_window/2))
+        if time_inserted>0 or time_inserted<1000:
+            self.time_window = time_inserted
+        else:
+            self.time_window = 10
+        self.graph.setRange(xRange=(self.dataX[0], self.dataX[0]+self.time_window))
+
 
     def media_esponenziale(self):
         x=self.get_data()
@@ -181,7 +200,7 @@ class Graph:
 
         # Update pointer
         self.counter = self.counter + 1
-        if difference > self.time_window:
+        while self.dataX[0] < difference - self.time_window:
             self.dataX.pop(0)
             self.dataY.pop(0)
             self.counter = self.counter - 1 # pointer back to max range
@@ -189,11 +208,10 @@ class Graph:
         # Update plot data
         self.curve4.setData(self.dataX, self.dataY)
         
-        
 
 
 class GraphWindow(QMainWindow):
-    def __init__(self, banco_di_taratura:BANCO_DI_TARATURA):
+    def __init__(self, banco_di_taratura:BANCO_DI_TARATURA, homepage:MainWindow):
         super().__init__()
         self.banco_di_taratura = banco_di_taratura
         # Create an instance of the generated UI class
@@ -201,6 +219,7 @@ class GraphWindow(QMainWindow):
         # Setup the user interface
         self.ui.setupUi(self)
         self.start_time = time.time()
+        self.homepage = homepage
         
         # grafici disponibili
         graph_main = self.ui.graphWidget_SG600_main
@@ -234,11 +253,35 @@ class GraphWindow(QMainWindow):
         self.graph_ch3 = Graph(self, graph=graph_ch3, channel=channel_ch3, title='CH3')
         self.graph_ch4 = Graph(self, graph=graph_ch4, channel=channel_ch4, title='CH4')
         
+        self.graph_vector = [self.graph_main,
+                             self.graph_soloMain,
+                             self.graph_soloTemp, 
+                             self.graph_temp, 
+                             self.graph_ch1,
+                             self.graph_ch2,
+                             self.graph_ch3,
+                             self.graph_ch4]
+        
         # Setup segnali
         self.ui.comboBox_Main_Temp.activated.connect(self.ui.stackedWidget_SG600.setCurrentIndex)
         self.ui.comboBox_Ch_1234.activated.connect(self.ui.stackedWidget_Laumas.setCurrentIndex)
+    
+        self.ui.pushButton_autorange_ch1.clicked.connect(self.graph_ch1.change_status_autorange)
+        self.ui.pushButton_autorange_ch2.clicked.connect(self.graph_ch2.change_status_autorange)
+        self.ui.pushButton_autorange_ch3.clicked.connect(self.graph_ch3.change_status_autorange)
+        self.ui.pushButton_autorange_ch4.clicked.connect(self.graph_ch4.change_status_autorange)
+        self.ui.pushButton_autorange_temp.clicked.connect(self.graph_temp.change_status_autorange)
+        self.ui.pushButton_autorange_solo_temp.clicked.connect(self.graph_soloTemp.change_status_autorange)
+        self.ui.pushButton_autorange_main.clicked.connect(self.graph_main.change_status_autorange)
+        self.ui.pushButton_autorange_solo_main.clicked.connect(self.graph_soloMain.change_status_autorange)
         
-        self.ui.pushButton_autorange_ch1.clicked.connect(self.ui.graphWidget_solo_channel_1.getPlotItem().getViewBox().autoRange)
+        # Segnale per torare a home page
+        self.ui.pushButton_home.clicked.connect(self.show_home_window)
+        
+    def show_home_window(self):
+        self.homepage.show()
+        self.close()
+        
             
         
 if __name__ == "__main__":

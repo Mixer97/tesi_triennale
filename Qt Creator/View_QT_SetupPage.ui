@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>976</width>
-    <height>611</height>
+    <height>647</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -32,8 +32,164 @@
 }
 </string>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_7">
-    <item>
+   <layout class="QGridLayout" name="gridLayout_13">
+    <property name="topMargin">
+     <number>5</number>
+    </property>
+    <property name="verticalSpacing">
+     <number>2</number>
+    </property>
+    <item row="0" column="0" colspan="2">
+     <widget class="QFrame" name="frame_navigation">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QWidget {
+	background-color:rgb(138, 137, 135); 
+	border-style: outset;
+    border-width: 1px;
+    border-color: rgb(71, 71, 71);
+}
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="frame">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QFrame" name="frame_3">
+            <property name="styleSheet">
+             <string notr="true">    border-width: 0px;</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_2">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="pushButton_home">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>200</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>14</pointsize>
+                 <italic>false</italic>
+                 <bold>false</bold>
+                 <strikeout>false</strikeout>
+                </font>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	border-width: 1px;
+	background-color:rgb(107, 107, 107);
+	color: rgb(0, 0, 0);
+}
+
+QPushButton::pressed{
+	border-width: 1px;
+	background-color:rgb(56, 56, 56);
+	color: rgb(0, 0, 0);
+
+
+}</string>
+               </property>
+               <property name="text">
+                <string>HOME</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="1" column="0">
      <layout class="QHBoxLayout" name="Lay_L">
       <item>
        <widget class="QWidget" name="Wid_L" native="true">
@@ -192,7 +348,7 @@ QCheckBox::indicator {
 QCheckBox::indicator:unchecked {
 	width: 26px;
     height: 26px;
-	Background-color: white;
+	Background-color:red;
 	border-width: 2px;
     border-radius: 10px;
     border-color: black;
@@ -402,7 +558,7 @@ QCheckBox::indicator {
 QCheckBox::indicator:unchecked {
 	width: 26px;
     height: 26px;
-	Background-color: white;
+	Background-color: red;
 	border-width: 2px;
     border-radius: 10px;
     border-color: black;
@@ -612,7 +768,7 @@ QCheckBox::indicator {
 QCheckBox::indicator:unchecked {
 	width: 26px;
     height: 26px;
-	Background-color: white;
+	Background-color: red;
 	border-width: 2px;
     border-radius: 10px;
     border-color: black;
@@ -822,7 +978,7 @@ QCheckBox::indicator {
 QCheckBox::indicator:unchecked {
 	width: 26px;
     height: 26px;
-	Background-color: white;
+	Background-color: red;
 	border-width: 2px;
     border-radius: 10px;
     border-color: black;
@@ -892,7 +1048,7 @@ QLCDNumber{
       </item>
      </layout>
     </item>
-    <item>
+    <item row="1" column="1">
      <layout class="QHBoxLayout" name="Lay_R">
       <item>
        <widget class="QWidget" name="widget_2" native="true">

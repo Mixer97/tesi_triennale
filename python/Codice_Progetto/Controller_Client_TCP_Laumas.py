@@ -77,7 +77,7 @@ class Controller_TCP:
     # Connessione al dispositivo Modbus
     def connect(self):
         connection = self.client.connect() 
-        for i in range(1,11):
+        for i in range(1,3):
             if connection:
                 return True
             else: 

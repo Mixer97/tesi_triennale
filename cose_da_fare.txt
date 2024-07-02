@@ -7,16 +7,17 @@ COSE DA FARE:
     [[- Realizzazione del setup dell'SG600]]
     [[- All' apertura delle finestre di setup voglio che ci sia la lettura del fondoscala e sensibilità che sono già presenti]]
     [[- collegare i funzionamenti della finestra di setup per SG600]]
+     [[- schermi lcd per SG600 displayano solamente le caratteristiche del canale main e non quelle del canale temperatura]]
     - Collegare i toggle dei colori delle checkbox
     - il canale creato di temperatura misura in tensione ma voglio solo la misura in gradi Celsius
-    [[- schermi lcd per SG600 displayano solamente le caratteristiche del canale main e non quelle del canale temperatura]]
-    - Implementare una finestra modale che non permette di agire per 3 secondi dopo una richiesta di configurazione
     - Implementazione scrittura e visualizzazione con lo zero dei millivolt (capire la logica che ci sta dietro)
     - impostare salvataggio selle impostazioni su JSON (IMPORTANTE)
     - spostare valore frequenza logger 
     - implementazione parte di visualizzazione grafica della applicazione
         - Problemi: update di valori legato alla scelta dell'unità di misura nel menu a tendina (richiamare lupdate dei valori anche per il grafico)
     - implementazione parte di gestione della misura e calcolo della stabilità
+    - sistemare il menù a tendina per l'SG600
+    - sistemare la visualizzazione della temperatura (la voglio in Celsius)
 
 BUG SCOPERTI:
 

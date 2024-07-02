@@ -11,17 +11,19 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from Banco_Taratura import BANCO_DI_TARATURA
+    from View_QT_HomePage_logic import MainWindow
 
 
 
 class SetupWindow(QMainWindow):
-    def __init__(self, banco_di_taratura:BANCO_DI_TARATURA):
+    def __init__(self, banco_di_taratura:BANCO_DI_TARATURA, homepage:MainWindow):
         super().__init__()
         self.banco_di_taratura = banco_di_taratura
         # Create an instance of the generated UI class
         self.ui = Ui_SetupWindow()
         # Setup the user interface
         self.ui.setupUi(self)
+        self.homepage = homepage
 
         self.controller_TCP = banco_di_taratura.controller_tcp
         self.controller_MODBUS = banco_di_taratura.controller_modbus
@@ -91,6 +93,13 @@ class SetupWindow(QMainWindow):
         self.ui.pushButton_setup_CH3.clicked.connect(self.open_setup_CH3_window)
         self.ui.pushButton_setup_CH4.clicked.connect(self.open_setup_CH4_window)
         self.ui.pushButton_setup_CHSG600.clicked.connect(self.open_setup_SG600_window)
+        
+        # segnale per ritorno alla homapage
+        self.ui.pushButton_home.clicked.connect(self.show_home_window)
+        
+    def show_home_window(self):
+        self.homepage.show()
+        self.close()
         
         
     def open_setup_CH1_window(self):

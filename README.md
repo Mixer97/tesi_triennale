@@ -84,5 +84,13 @@
     pulsanti per cambiare canale, [V]
     creazione classe canale (da continuare a implementare), [V]
     aggiornamento valori separato dalle ComboBox, [V]
-    setting per visualizzazione scala automatica o manuale.
+    setting per visualizzazione scala automatica o manuale. [V]
     imparare come settare i vari canali dalla combobox [V]
+    necessario capire come fare laggiornamento del range dell asse x e y [V]
+
+02/07
+    bottoni per muoversi fra le varie finestre (barra in alto): [V]
+        - Istanziazione delle vaire paigne va fatta nella classe e non nel metodo: [V]
+          (cosi posso mostrare l'istanza quando voglio)
+
+    cambiare nome asse quando cambia l'unità di misura

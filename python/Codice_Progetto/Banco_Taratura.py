@@ -58,12 +58,16 @@ def closed_last_window_signal(banco_di_taratura:BANCO_DI_TARATURA, window:QMainW
 # MAIN PER ESEGUIRE L'APPLICAZIONE
 if __name__ == "__main__":
     banco=BANCO_DI_TARATURA()
-    app = QApplication(sys.argv)
-    window = MainWindow(banco_di_taratura=banco)
-    window.show()
-    app.lastWindowClosed.connect(lambda: closed_last_window_signal(banco, window))
-    logger_thread = Thread(target=run_logger, args=(banco.controller_tcp, banco.controller_modbus, banco.logger))
-    logger_thread.start()     
-    update_thread = Thread(target=data_update_mV, args=(banco.controller_tcp, banco.controller_modbus, banco.logger))
-    update_thread.start()
-    sys.exit(app.exec())
+    if banco.controller_tcp.connect():
+        app = QApplication(sys.argv)
+        window = MainWindow(banco_di_taratura=banco)
+        window.show()
+        app.lastWindowClosed.connect(lambda: closed_last_window_signal(banco, window))
+        logger_thread = Thread(target=run_logger, args=(banco.controller_tcp, banco.controller_modbus, banco.logger))
+        logger_thread.start()     
+        update_thread = Thread(target=data_update_mV, args=(banco.controller_tcp, banco.controller_modbus, banco.logger))
+        update_thread.start()
+        sys.exit(app.exec())
+    else:
+        print("Problema connessione con scheda laumas")
+        exit()

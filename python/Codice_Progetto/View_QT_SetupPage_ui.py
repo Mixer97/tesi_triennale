@@ -15,15 +15,15 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QCheckBox, QGridLayout, QHBoxLayout,
-    QLCDNumber, QLabel, QMainWindow, QPushButton,
-    QSizePolicy, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QCheckBox, QFrame, QGridLayout,
+    QHBoxLayout, QLCDNumber, QLabel, QMainWindow,
+    QPushButton, QSizePolicy, QVBoxLayout, QWidget)
 
 class Ui_SetupWindow(object):
     def setupUi(self, SetupWindow):
         if not SetupWindow.objectName():
             SetupWindow.setObjectName(u"SetupWindow")
-        SetupWindow.resize(976, 611)
+        SetupWindow.resize(976, 647)
         SetupWindow.setStyleSheet(u"QWidget {\n"
 "	background-color:black; \n"
 "	border-style: outset;\n"
@@ -40,8 +40,84 @@ class Ui_SetupWindow(object):
 "    border-color: black;\n"
 "}\n"
 "")
-        self.horizontalLayout_7 = QHBoxLayout(self.centralwidget)
-        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.gridLayout_13 = QGridLayout(self.centralwidget)
+        self.gridLayout_13.setObjectName(u"gridLayout_13")
+        self.gridLayout_13.setVerticalSpacing(2)
+        self.gridLayout_13.setContentsMargins(-1, 5, -1, -1)
+        self.frame_navigation = QFrame(self.centralwidget)
+        self.frame_navigation.setObjectName(u"frame_navigation")
+        self.frame_navigation.setMinimumSize(QSize(0, 40))
+        self.frame_navigation.setMaximumSize(QSize(16777215, 40))
+        self.frame_navigation.setStyleSheet(u"QWidget {\n"
+"	background-color:rgb(138, 137, 135); \n"
+"	border-style: outset;\n"
+"    border-width: 1px;\n"
+"    border-color: rgb(71, 71, 71);\n"
+"}\n"
+"")
+        self.frame_navigation.setFrameShape(QFrame.StyledPanel)
+        self.frame_navigation.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_3 = QHBoxLayout(self.frame_navigation)
+        self.horizontalLayout_3.setSpacing(0)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.frame = QFrame(self.frame_navigation)
+        self.frame.setObjectName(u"frame")
+        self.frame.setFrameShape(QFrame.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_4 = QHBoxLayout(self.frame)
+        self.horizontalLayout_4.setSpacing(0)
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.frame_3 = QFrame(self.frame)
+        self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setStyleSheet(u"    border-width: 0px;")
+        self.frame_3.setFrameShape(QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_2 = QVBoxLayout(self.frame_3)
+        self.verticalLayout_2.setSpacing(0)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.pushButton_home = QPushButton(self.frame_3)
+        self.pushButton_home.setObjectName(u"pushButton_home")
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_home.sizePolicy().hasHeightForWidth())
+        self.pushButton_home.setSizePolicy(sizePolicy)
+        self.pushButton_home.setMaximumSize(QSize(200, 16777215))
+        font = QFont()
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setStrikeOut(False)
+        self.pushButton_home.setFont(font)
+        self.pushButton_home.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.pushButton_home.setStyleSheet(u"QPushButton{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(107, 107, 107);\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"\n"
+"QPushButton::pressed{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(56, 56, 56);\n"
+"	color: rgb(0, 0, 0);\n"
+"\n"
+"\n"
+"}")
+
+        self.verticalLayout_2.addWidget(self.pushButton_home)
+
+
+        self.horizontalLayout_4.addWidget(self.frame_3)
+
+
+        self.horizontalLayout_3.addWidget(self.frame)
+
+
+        self.gridLayout_13.addWidget(self.frame_navigation, 0, 0, 1, 2)
+
         self.Lay_L = QHBoxLayout()
         self.Lay_L.setObjectName(u"Lay_L")
         self.Wid_L = QWidget(self.centralwidget)
@@ -93,12 +169,12 @@ class Ui_SetupWindow(object):
         self.pushButton_setup_CH1 = QPushButton(self.widget_8)
         self.pushButton_setup_CH1.setObjectName(u"pushButton_setup_CH1")
         self.pushButton_setup_CH1.setMaximumSize(QSize(20000, 20000))
-        font = QFont()
-        font.setPointSize(20)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setUnderline(False)
-        self.pushButton_setup_CH1.setFont(font)
+        font1 = QFont()
+        font1.setPointSize(20)
+        font1.setBold(False)
+        font1.setItalic(False)
+        font1.setUnderline(False)
+        self.pushButton_setup_CH1.setFont(font1)
         self.pushButton_setup_CH1.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_setup_CH1.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(180, 191, 168); \n"
@@ -173,7 +249,7 @@ class Ui_SetupWindow(object):
 "QCheckBox::indicator:unchecked {\n"
 "	width: 26px;\n"
 "    height: 26px;\n"
-"	Background-color: white;\n"
+"	Background-color:red;\n"
 "	border-width: 2px;\n"
 "    border-radius: 10px;\n"
 "    border-color: black;\n"
@@ -261,7 +337,7 @@ class Ui_SetupWindow(object):
         self.pushButton_setup_CH2 = QPushButton(self.widget_7)
         self.pushButton_setup_CH2.setObjectName(u"pushButton_setup_CH2")
         self.pushButton_setup_CH2.setMaximumSize(QSize(20000, 20000))
-        self.pushButton_setup_CH2.setFont(font)
+        self.pushButton_setup_CH2.setFont(font1)
         self.pushButton_setup_CH2.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_setup_CH2.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(180, 191, 168); \n"
@@ -336,7 +412,7 @@ class Ui_SetupWindow(object):
 "QCheckBox::indicator:unchecked {\n"
 "	width: 26px;\n"
 "    height: 26px;\n"
-"	Background-color: white;\n"
+"	Background-color: red;\n"
 "	border-width: 2px;\n"
 "    border-radius: 10px;\n"
 "    border-color: black;\n"
@@ -424,7 +500,7 @@ class Ui_SetupWindow(object):
         self.pushButton_setup_CH3 = QPushButton(self.widget_6)
         self.pushButton_setup_CH3.setObjectName(u"pushButton_setup_CH3")
         self.pushButton_setup_CH3.setMaximumSize(QSize(20000, 20000))
-        self.pushButton_setup_CH3.setFont(font)
+        self.pushButton_setup_CH3.setFont(font1)
         self.pushButton_setup_CH3.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_setup_CH3.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(180, 191, 168); \n"
@@ -499,7 +575,7 @@ class Ui_SetupWindow(object):
 "QCheckBox::indicator:unchecked {\n"
 "	width: 26px;\n"
 "    height: 26px;\n"
-"	Background-color: white;\n"
+"	Background-color: red;\n"
 "	border-width: 2px;\n"
 "    border-radius: 10px;\n"
 "    border-color: black;\n"
@@ -587,7 +663,7 @@ class Ui_SetupWindow(object):
         self.pushButton_setup_CH4 = QPushButton(self.widget_5)
         self.pushButton_setup_CH4.setObjectName(u"pushButton_setup_CH4")
         self.pushButton_setup_CH4.setMaximumSize(QSize(20000, 20000))
-        self.pushButton_setup_CH4.setFont(font)
+        self.pushButton_setup_CH4.setFont(font1)
         self.pushButton_setup_CH4.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_setup_CH4.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(180, 191, 168); \n"
@@ -662,7 +738,7 @@ class Ui_SetupWindow(object):
 "QCheckBox::indicator:unchecked {\n"
 "	width: 26px;\n"
 "    height: 26px;\n"
-"	Background-color: white;\n"
+"	Background-color: red;\n"
 "	border-width: 2px;\n"
 "    border-radius: 10px;\n"
 "    border-color: black;\n"
@@ -716,7 +792,7 @@ class Ui_SetupWindow(object):
         self.Lay_L.addWidget(self.Wid_L)
 
 
-        self.horizontalLayout_7.addLayout(self.Lay_L)
+        self.gridLayout_13.addLayout(self.Lay_L, 1, 0, 1, 1)
 
         self.Lay_R = QHBoxLayout()
         self.Lay_R.setObjectName(u"Lay_R")
@@ -956,14 +1032,14 @@ class Ui_SetupWindow(object):
 
         self.pushButton_concludi_setup = QPushButton(self.widget_2)
         self.pushButton_concludi_setup.setObjectName(u"pushButton_concludi_setup")
-        sizePolicy = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Ignored)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.pushButton_concludi_setup.sizePolicy().hasHeightForWidth())
-        self.pushButton_concludi_setup.setSizePolicy(sizePolicy)
-        font1 = QFont()
-        font1.setPointSize(25)
-        self.pushButton_concludi_setup.setFont(font1)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Ignored)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.pushButton_concludi_setup.sizePolicy().hasHeightForWidth())
+        self.pushButton_concludi_setup.setSizePolicy(sizePolicy1)
+        font2 = QFont()
+        font2.setPointSize(25)
+        self.pushButton_concludi_setup.setFont(font2)
         self.pushButton_concludi_setup.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_concludi_setup.setStyleSheet(u"QWidget {\n"
 "	background-color: rgb(255, 236, 89);\n"
@@ -985,17 +1061,17 @@ class Ui_SetupWindow(object):
 
         self.pushButton_setup_CHSG600 = QPushButton(self.widget_2)
         self.pushButton_setup_CHSG600.setObjectName(u"pushButton_setup_CHSG600")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.pushButton_setup_CHSG600.sizePolicy().hasHeightForWidth())
-        self.pushButton_setup_CHSG600.setSizePolicy(sizePolicy1)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.pushButton_setup_CHSG600.sizePolicy().hasHeightForWidth())
+        self.pushButton_setup_CHSG600.setSizePolicy(sizePolicy2)
         self.pushButton_setup_CHSG600.setMinimumSize(QSize(0, 0))
         self.pushButton_setup_CHSG600.setMaximumSize(QSize(16777215, 100))
-        font2 = QFont()
-        font2.setPointSize(20)
-        font2.setBold(False)
-        self.pushButton_setup_CHSG600.setFont(font2)
+        font3 = QFont()
+        font3.setPointSize(20)
+        font3.setBold(False)
+        self.pushButton_setup_CHSG600.setFont(font3)
         self.pushButton_setup_CHSG600.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_setup_CHSG600.setStyleSheet(u"QPushButton{\n"
 "	color: rgb(0,0,0);\n"
@@ -1016,7 +1092,7 @@ class Ui_SetupWindow(object):
         self.Lay_R.addWidget(self.widget_2)
 
 
-        self.horizontalLayout_7.addLayout(self.Lay_R)
+        self.gridLayout_13.addLayout(self.Lay_R, 1, 1, 1, 1)
 
         SetupWindow.setCentralWidget(self.centralwidget)
 
@@ -1027,6 +1103,7 @@ class Ui_SetupWindow(object):
 
     def retranslateUi(self, SetupWindow):
         SetupWindow.setWindowTitle(QCoreApplication.translate("SetupWindow", u"MainWindow", None))
+        self.pushButton_home.setText(QCoreApplication.translate("SetupWindow", u"HOME", None))
         self.label_toggle_CHN_1.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700; color:#00aa00;\">CANALE 1</span></p></body></html>", None))
         self.pushButton_setup_CH1.setText(QCoreApplication.translate("SetupWindow", u"SETUP", None))
         self.label_sensCH1.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">SENS. [mV/V]</span></p></body></html>", None))

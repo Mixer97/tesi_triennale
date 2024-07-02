@@ -18,17 +18,28 @@
     <string notr="true">QWidget {
 	background-color:black; 
 	border-style: outset;
-    border-width: 2px;
+    border-width: 1px;
     border-color: black;
 }
 </string>
    </property>
    <layout class="QGridLayout" name="gridLayout_2">
-    <item row="0" column="0">
+    <property name="topMargin">
+     <number>5</number>
+    </property>
+    <property name="verticalSpacing">
+     <number>2</number>
+    </property>
+    <item row="1" column="0">
      <widget class="QWidget" name="gridWidget" native="true">
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(251, 255, 246);
-border-width: 1px</string>
+       <string notr="true">QWidget {
+	background-color:orange; 
+	border-style: outset;
+    border-width: 1px;
+    border-color: black;
+}
+</string>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <property name="spacing">
@@ -59,6 +70,9 @@ border-width: 1px</string>
            <width>200</width>
            <height>0</height>
           </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">    border-width: 2px;</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -93,6 +107,37 @@ border-width: 1px</string>
            <number>0</number>
           </property>
           <item row="1" column="0">
+           <widget class="QFrame" name="frame_4">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">    border-width: 1px;</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
            <widget class="QFrame" name="frame_5">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -159,6 +204,19 @@ border-width: 1px</string>
                  <property name="spacing">
                   <number>0</number>
                  </property>
+                 <item row="1" column="0">
+                  <widget class="PlotWidget" name="graphWidget_SG600_solo_main" native="true">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(26, 49, 255);</string>
+                   </property>
+                  </widget>
+                 </item>
                  <item row="0" column="1" rowspan="3">
                   <widget class="QFrame" name="frame_14">
                    <property name="maximumSize">
@@ -197,25 +255,37 @@ border-width: 1px</string>
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QWidget {
+	background-color:rgb(255, 106, 106); 
+	border-style: outset;
+    border-width: 1px;
+    border-color:rgb(255, 137, 137);
+	color: rgb(0,0,0);
+}
+
+QPushButton::checked {
+	background-color:rgb(152, 29, 24);
+    border-color:rgb(77, 33, 33);
+}
+
+</string>
+                      </property>
                       <property name="text">
-                       <string>PushButton</string>
+                       <string/>
+                      </property>
+                      <property name="checkable">
+                       <bool>true</bool>
+                      </property>
+                      <property name="checked">
+                       <bool>false</bool>
                       </property>
                      </widget>
                     </item>
                    </layout>
-                  </widget>
-                 </item>
-                 <item row="1" column="0">
-                  <widget class="PlotWidget" name="graphWidget_SG600_solo_main" native="true">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(26, 49, 255);</string>
-                   </property>
                   </widget>
                  </item>
                 </layout>
@@ -288,8 +358,30 @@ border-width: 1px</string>
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QWidget {
+	background-color:rgb(255, 106, 106); 
+	border-style: outset;
+    border-width: 1px;
+    border-color:rgb(255, 137, 137);
+	color: rgb(0,0,0);
+}
+
+QPushButton::checked {
+	background-color:rgb(152, 29, 24);
+    border-color:rgb(77, 33, 33);
+}
+
+</string>
+                      </property>
                       <property name="text">
-                       <string>PushButton</string>
+                       <string/>
+                      </property>
+                      <property name="checkable">
+                       <bool>true</bool>
                       </property>
                      </widget>
                     </item>
@@ -359,8 +451,30 @@ border-width: 1px</string>
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QWidget {
+	background-color:rgb(255, 106, 106); 
+	border-style: outset;
+    border-width: 1px;
+    border-color:rgb(255, 137, 137);
+	color: rgb(0,0,0);
+}
+
+QPushButton::checked {
+	background-color:rgb(152, 29, 24);
+    border-color:rgb(77, 33, 33);
+}
+
+</string>
+                      </property>
                       <property name="text">
-                       <string>PushButton</string>
+                       <string/>
+                      </property>
+                      <property name="checkable">
+                       <bool>true</bool>
                       </property>
                      </widget>
                     </item>
@@ -372,8 +486,30 @@ border-width: 1px</string>
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QWidget {
+	background-color:rgb(255, 106, 106); 
+	border-style: outset;
+    border-width: 1px;
+    border-color:rgb(255, 137, 137);
+	color: rgb(0,0,0);
+}
+
+QPushButton::checked {
+	background-color:rgb(152, 29, 24);
+    border-color:rgb(77, 33, 33);
+}
+
+</string>
+                      </property>
                       <property name="text">
-                       <string>PushButton</string>
+                       <string/>
+                      </property>
+                      <property name="checkable">
+                       <bool>true</bool>
                       </property>
                      </widget>
                     </item>
@@ -489,8 +625,30 @@ border-width: 1px</string>
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QWidget {
+	background-color:rgb(255, 106, 106); 
+	border-style: outset;
+    border-width: 1px;
+    border-color:rgb(255, 137, 137);
+	color: rgb(0,0,0);
+}
+
+QPushButton::checked {
+	background-color:rgb(152, 29, 24);
+    border-color:rgb(77, 33, 33);
+}
+
+</string>
+                      </property>
                       <property name="text">
-                       <string>PushButton</string>
+                       <string/>
+                      </property>
+                      <property name="checkable">
+                       <bool>true</bool>
                       </property>
                      </widget>
                     </item>
@@ -564,8 +722,30 @@ border-width: 1px</string>
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QWidget {
+	background-color:rgb(255, 106, 106); 
+	border-style: outset;
+    border-width: 1px;
+    border-color:rgb(255, 137, 137);
+	color: rgb(0,0,0);
+}
+
+QPushButton::checked {
+	background-color:rgb(152, 29, 24);
+    border-color:rgb(77, 33, 33);
+}
+
+</string>
+                      </property>
                       <property name="text">
-                       <string>PushButton</string>
+                       <string/>
+                      </property>
+                      <property name="checkable">
+                       <bool>true</bool>
                       </property>
                      </widget>
                     </item>
@@ -632,8 +812,30 @@ border-width: 1px</string>
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QWidget {
+	background-color:rgb(255, 106, 106); 
+	border-style: outset;
+    border-width: 1px;
+    border-color:rgb(255, 137, 137);
+	color: rgb(0,0,0);
+}
+
+QPushButton::checked {
+	background-color:rgb(152, 29, 24);
+    border-color:rgb(77, 33, 33);
+}
+
+</string>
+                      </property>
                       <property name="text">
-                       <string>PushButton</string>
+                       <string/>
+                      </property>
+                      <property name="checkable">
+                       <bool>true</bool>
                       </property>
                      </widget>
                     </item>
@@ -720,8 +922,30 @@ border-width: 1px</string>
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QWidget {
+	background-color:rgb(255, 106, 106); 
+	border-style: outset;
+    border-width: 1px;
+    border-color:rgb(255, 137, 137);
+	color: rgb(0,0,0);
+}
+
+QPushButton::checked {
+	background-color:rgb(152, 29, 24);
+    border-color:rgb(77, 33, 33);
+}
+
+</string>
+                      </property>
                       <property name="text">
-                       <string>PushButton</string>
+                       <string/>
+                      </property>
+                      <property name="checkable">
+                       <bool>true</bool>
                       </property>
                      </widget>
                     </item>
@@ -733,68 +957,6 @@ border-width: 1px</string>
               </widget>
              </item>
             </layout>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QFrame" name="frame_4">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QFrame" name="frame_6">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="baseSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
            </widget>
           </item>
          </layout>
@@ -813,6 +975,9 @@ border-width: 1px</string>
            <width>200</width>
            <height>0</height>
           </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">    border-width: 1px;</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -965,10 +1130,109 @@ QComboBox QAbstractItemView {
           <property name="text">
            <string>time-window</string>
           </property>
+          <property name="maxLength">
+           <number>20</number>
+          </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
+          <property name="clearButtonEnabled">
+           <bool>true</bool>
+          </property>
          </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QFrame" name="frame_navigation">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QWidget {
+	background-color:rgb(138, 137, 135); 
+	border-style: outset;
+    border-width: 1px;
+    border-color: rgb(71, 71, 71);
+}
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="pushButton_home">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>200</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+           <italic>false</italic>
+           <bold>false</bold>
+           <strikeout>false</strikeout>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	border-width: 1px;
+	background-color:rgb(107, 107, 107);
+	color: rgb(0, 0, 0);
+}
+
+QPushButton::pressed{
+	border-width: 1px;
+	background-color:rgb(56, 56, 56);
+	color: rgb(0, 0, 0);
+
+
+}</string>
+         </property>
+         <property name="text">
+          <string>HOME</string>
+         </property>
         </widget>
        </item>
       </layout>

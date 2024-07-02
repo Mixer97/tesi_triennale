@@ -4,6 +4,7 @@ from PySide6.QtWidgets import QMainWindow
 from View_QT_HomePage_ui import Ui_MainWindow
 from View_QT_SetupPage_logic import SetupWindow
 from Mainwindow_grafico_logic import GraphWindow
+from PySide6.QtCore import QSize
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -19,6 +20,7 @@ class MainWindow(QMainWindow):
         # Setup the user interface
         self.ui.setupUi(self)
         
+        
         self.logger = banco_di_taratura.logger
         self.controller_TCP = banco_di_taratura.controller_tcp
         self.controller_MODBUS = banco_di_taratura.controller_modbus
@@ -28,35 +30,32 @@ class MainWindow(QMainWindow):
         self.status_pulsante_registrazione = banco_di_taratura.status_pulsante_registrazione
         self.timerStop = banco_di_taratura.timerStop
         
-                
+        self.setup_window = SetupWindow(self.banco_di_taratura, self)
+        self.setup_graph = GraphWindow(self.banco_di_taratura, self)
     
     # setup segnali
-        self.ui.pushButton_Interfaccia.clicked.connect(self.pulsante_interfaccia_click)                                    # pulsanti interfaccia e registrazione
-        self.ui.pushButton_Registrazione.clicked.connect(self.pulsante_registrazione_click)                   #
-        self.timer1 = QTimer()                                                                                             # Timer
+        self.ui.pushButton_Interfaccia.clicked.connect(self.pulsante_interfaccia_click)  # pulsanti interfaccia e registrazione
+        self.ui.pushButton_Registrazione.clicked.connect(self.pulsante_registrazione_click)  
+        self.timer1 = QTimer()     # Timer
         self.timer2 = QTimer()  
         self.timer2.start(100)
-        self.timer1.timeout.connect(self.update_CH1)                                         # Update degli lcd
-        self.timer1.timeout.connect(self.update_CH2)                                         #
-        self.timer1.timeout.connect(self.update_CH3)                                         #
-        self.timer1.timeout.connect(self.update_CH4)                                         #   
-        self.timer1.timeout.connect(self.update_SG600_main)                               #
-        self.timer1.timeout.connect(self.update_SG600_temp)                               #
-        self.timer2.timeout.connect(self.setter_lcdDisplay_text_logger)                                              #
-        self.ui.pushButton_impostazioni.clicked.connect(self.open_setup_window) 
-        self.pulsante_interfaccia_click()
-        # self.ui.pushButton_Interfaccia.clicked.connect(self.open_graph_window)                                         #
-        self.timer1.timeout.connect(self.check)                                                                    # Check per chiusura dei timer alla chiusura dell'ultima finestra
-        # self.timer2.timeout.connect(self.check)                                                                    #
-        # self.pulsante_registrazione_click()
-        self.open_graph_window()
+        self.timer1.timeout.connect(self.update_CH1)   # Update degli lcd
+        self.timer1.timeout.connect(self.update_CH2)                        
+        self.timer1.timeout.connect(self.update_CH3)                        
+        self.timer1.timeout.connect(self.update_CH4)                           
+        self.timer1.timeout.connect(self.update_SG600_main)              
+        self.timer1.timeout.connect(self.update_SG600_temp)              
+        self.timer2.timeout.connect(self.setter_lcdDisplay_text_logger)                             
+        self.ui.pushButton_setup_page.clicked.connect(self.show_setup_window) 
+        self.pulsante_interfaccia_click()       # click iniziale per avviare l'interfaccia             
+        self.timer1.timeout.connect(self.check)     # Check per chiusura dei timer alla chiusura dell'ultima finestra
+        self.show_graph_window()         # Mostra il la finestra con il grafico all' apertura
+        self.ui.pushButton_grafico.clicked.connect(self.show_graph_window)
 
-    def open_setup_window(self):
-        self.setup_window = SetupWindow(self.banco_di_taratura)
+    def show_setup_window(self):
         self.setup_window.show()
         
-    def open_graph_window(self):
-        self.setup_graph = GraphWindow(self.banco_di_taratura)
+    def show_graph_window(self):
         self.setup_graph.show()
     
     def check(self):
