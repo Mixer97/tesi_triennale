@@ -246,15 +246,12 @@ QLabel{
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">QWidget {
+                    <string notr="true">QPushButton {
 	background-color:green; 
-	border-style: outset;
 	border-style: outset;
     border-width: 2px;
     border-color: black;
 	border-radius: 20px;
-}
-QPushButton{
 	color: rgb(0,0,0);
 }
 </string>
@@ -330,6 +327,9 @@ QPushButton{
                  </item>
                  <item row="1" column="1">
                   <widget class="QComboBox" name="comboBox_5">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                      <horstretch>0</horstretch>
@@ -345,7 +345,7 @@ QPushButton{
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="mouseTracking">
-                    <bool>false</bool>
+                    <bool>true</bool>
                    </property>
                    <property name="autoFillBackground">
                     <bool>false</bool>
@@ -359,8 +359,10 @@ QPushButton{
     color: rgb(0, 0, 0); /* Colore del testo del QComboBox */
 }
 
-QComboBox:editable {
-    background: white;
+QComboBox:hover, QPushButton:hover
+{
+    border: 1px solid rgb(202, 203, 194);
+    color: white;
 }
 
 QComboBox:!editable, QComboBox::drop-down:editable {
@@ -590,7 +592,7 @@ QLabel{
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="mouseTracking">
-                 <bool>false</bool>
+                 <bool>true</bool>
                 </property>
                 <property name="autoFillBackground">
                  <bool>false</bool>
@@ -604,8 +606,10 @@ QLabel{
     color: rgb(0, 0, 0); /* Colore del testo del QComboBox */
 }
 
-QComboBox:editable {
-    background: white;
+QComboBox:hover, QPushButton:hover
+{
+    border: 1px solid rgb(202, 203, 194);
+    color: white;
 }
 
 QComboBox:!editable, QComboBox::drop-down:editable {
@@ -753,7 +757,7 @@ QLCDNumber{
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="mouseTracking">
-                 <bool>false</bool>
+                 <bool>true</bool>
                 </property>
                 <property name="autoFillBackground">
                  <bool>false</bool>
@@ -767,8 +771,10 @@ QLCDNumber{
     color: rgb(0, 0, 0); /* Colore del testo del QComboBox */
 }
 
-QComboBox:editable {
-    background: white;
+QComboBox:hover, QPushButton:hover
+{
+    border: 1px solid rgb(202, 203, 194);
+    color: white;
 }
 
 QComboBox:!editable, QComboBox::drop-down:editable {
@@ -902,7 +908,7 @@ QLCDNumber{
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="mouseTracking">
-                 <bool>false</bool>
+                 <bool>true</bool>
                 </property>
                 <property name="autoFillBackground">
                  <bool>false</bool>
@@ -916,8 +922,10 @@ QLCDNumber{
     color: rgb(0, 0, 0); /* Colore del testo del QComboBox */
 }
 
-QComboBox:editable {
-    background: white;
+QComboBox:hover, QPushButton:hover
+{
+    border: 1px solid rgb(202, 203, 194);
+    color: white;
 }
 
 QComboBox:!editable, QComboBox::drop-down:editable {
@@ -1079,7 +1087,7 @@ QLCDNumber{
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="mouseTracking">
-                 <bool>false</bool>
+                 <bool>true</bool>
                 </property>
                 <property name="autoFillBackground">
                  <bool>false</bool>
@@ -1093,8 +1101,10 @@ QLCDNumber{
     color: rgb(0, 0, 0); /* Colore del testo del QComboBox */
 }
 
-QComboBox:editable {
-    background: white;
+QComboBox:hover, QPushButton:hover
+{
+    border: 1px solid rgb(202, 203, 194);
+    color: white;
 }
 
 QComboBox:!editable, QComboBox::drop-down:editable {
@@ -1285,8 +1295,6 @@ QPushButton::pressed{
 	border-width: 1px;
 	background-color:rgb(56, 56, 56);
 	color: rgb(0, 0, 0);
-
-
 }</string>
             </property>
             <property name="text">

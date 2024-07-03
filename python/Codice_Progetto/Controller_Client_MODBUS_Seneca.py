@@ -105,12 +105,13 @@ class Controller_MODBUS:
     
     def get_mV_main(self):
         return self.DATA.canale_principale_mV
-    # def get_Nm_main():
-    #     if DATA.sensibilità_principale!=0:
-    #         DATA.canale_principale_Nm = DATA.lever_length*9.81*(DATA.fondo_scala_principale/(SLAVE.CHN_VOLTAGE*DATA.LIST_SENSIBILITY[i]))*(DATA.LIST_mV_ZERO[i] - DATA.LIST_mV_VALUE[i])
+    
+    # def get_Nm_main(self):
+    #     if self.DATA.sensibilità_principale!=0:
+    #         self.DATA.canale_principale_Nm = self.DATA.lever_length*9.81*(self.DATA.fondo_scala_principale/(self.SLAVE.CHN_VOLTAGE*self.DATA.LIST_SENSIBILITY[i]))*(self.DATA.LIST_mV_ZERO[i] - self.DATA.LIST_mV_VALUE[i])
     #     else:
-    #         DATA.LIST_Nm_VALUE[i] = 0
-    #     return DATA.LIST_Nm_VALUE
+    #         self.DATA.LIST_Nm_VALUE[i] = 0
+    #     return self.DATA.LIST_Nm_VALUE
     
     def get_mV_temp(self):
         return self.DATA.canale_temperatura_mV

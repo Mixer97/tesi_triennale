@@ -94,3 +94,8 @@
           (cosi posso mostrare l'istanza quando voglio)
 
     cambiare nome asse quando cambia l'unità di misura
+
+03/07
+    Scrivere un riassunto di ciò che ho fatto fino ad ora per poi scrivere la tesi
+    reset grafico con bottone
+    esempio di scrittura e lettura json con python

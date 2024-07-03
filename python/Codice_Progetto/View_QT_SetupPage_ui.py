@@ -176,15 +176,20 @@ class Ui_SetupWindow(object):
         font1.setUnderline(False)
         self.pushButton_setup_CH1.setFont(font1)
         self.pushButton_setup_CH1.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.pushButton_setup_CH1.setStyleSheet(u"QWidget {\n"
+        self.pushButton_setup_CH1.setStyleSheet(u"QPushButton {\n"
 "	background-color:rgb(180, 191, 168); \n"
 "	border-style: outset;\n"
 "    border-width: 3px;\n"
 "    border-color:rgb(200, 200, 200);\n"
 "	border-radius: 20px;\n"
-"}\n"
-"QPushButton{\n"
 "	color: rgb(0,0,0);\n"
+"}\n"
+"\n"
+"QPushButton::pressed{\n"
+"	border-width: 3px;\n"
+"	border-color: rgb(121, 121, 121);\n"
+"	background-color:rgb(99, 99, 99);\n"
+"	color: rgb(0, 0, 0);\n"
 "}")
 
         self.gridLayout_9.addWidget(self.pushButton_setup_CH1, 0, 0, 2, 1)
@@ -348,6 +353,12 @@ class Ui_SetupWindow(object):
 "}\n"
 "QPushButton{\n"
 "	color: rgb(0,0,0);\n"
+"}\n"
+"QPushButton::pressed{\n"
+"	border-width: 3px;\n"
+"	border-color: rgb(121, 121, 121);\n"
+"	background-color:rgb(99, 99, 99);\n"
+"	color: rgb(0, 0, 0);\n"
 "}")
 
         self.gridLayout_8.addWidget(self.pushButton_setup_CH2, 0, 0, 2, 1)
@@ -511,6 +522,12 @@ class Ui_SetupWindow(object):
 "}\n"
 "QPushButton{\n"
 "	color: rgb(0,0,0);\n"
+"}\n"
+"QPushButton::pressed{\n"
+"	border-width: 3px;\n"
+"	border-color: rgb(121, 121, 121);\n"
+"	background-color:rgb(99, 99, 99);\n"
+"	color: rgb(0, 0, 0);\n"
 "}")
 
         self.gridLayout_7.addWidget(self.pushButton_setup_CH3, 0, 0, 2, 1)
@@ -674,6 +691,12 @@ class Ui_SetupWindow(object):
 "}\n"
 "QPushButton{\n"
 "	color: rgb(0,0,0);\n"
+"}\n"
+"QPushButton::pressed{\n"
+"	border-width: 3px;\n"
+"	border-color: rgb(121, 121, 121);\n"
+"	background-color:rgb(99, 99, 99);\n"
+"	color: rgb(0, 0, 0);\n"
 "}")
 
         self.gridLayout_6.addWidget(self.pushButton_setup_CH4, 0, 0, 2, 1)
@@ -811,6 +834,11 @@ class Ui_SetupWindow(object):
         self.gridLayout_27.setObjectName(u"gridLayout_27")
         self.widget = QWidget(self.widget_2)
         self.widget.setObjectName(u"widget")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.widget.sizePolicy().hasHeightForWidth())
+        self.widget.setSizePolicy(sizePolicy1)
         self.widget.setStyleSheet(u"QWidget {\n"
 "	background-color: rgb(215, 230, 255);\n"
 "	border-style: outset;\n"
@@ -820,28 +848,6 @@ class Ui_SetupWindow(object):
 "}")
         self.gridLayout_12 = QGridLayout(self.widget)
         self.gridLayout_12.setObjectName(u"gridLayout_12")
-        self.gridLayout_4 = QGridLayout()
-        self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.label_Principale_SG600 = QLabel(self.widget)
-        self.label_Principale_SG600.setObjectName(u"label_Principale_SG600")
-        self.label_Principale_SG600.setStyleSheet(u"QLabel {\n"
-"    border: 2px solid black;\n"
-"    border-radius: 20px;\n"
-"	background-color: rgb(198, 213, 255);\n"
-"	border-style: outset;\n"
-"    border-width: 2px;\n"
-"	border-color: rgb(95, 140, 212);\n"
-"}\n"
-"QLabel{\n"
-"	color: rgb(0,0,0);\n"
-"}\n"
-"")
-
-        self.gridLayout_4.addWidget(self.label_Principale_SG600, 0, 0, 1, 1)
-
-
-        self.gridLayout_12.addLayout(self.gridLayout_4, 0, 0, 1, 1)
-
         self.gridLayout_3 = QGridLayout()
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.label_Temperatura_SG600_temp = QLabel(self.widget)
@@ -863,47 +869,6 @@ class Ui_SetupWindow(object):
 
 
         self.gridLayout_12.addLayout(self.gridLayout_3, 0, 1, 1, 1)
-
-        self.gridLayout_10 = QGridLayout()
-        self.gridLayout_10.setObjectName(u"gridLayout_10")
-        self.gridLayout_10.setVerticalSpacing(0)
-        self.lcdNumber_sens_CHSG600 = QLCDNumber(self.widget)
-        self.lcdNumber_sens_CHSG600.setObjectName(u"lcdNumber_sens_CHSG600")
-        self.lcdNumber_sens_CHSG600.setMinimumSize(QSize(0, 0))
-        self.lcdNumber_sens_CHSG600.setStyleSheet(u"QWidget {\n"
-"	background-color:white; \n"
-"	border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-color: black;\n"
-"	border-radius: 0px;\n"
-"}\n"
-"QLCDNumber{\n"
-"	color: rgb(0,0,0);\n"
-"}\n"
-"")
-
-        self.gridLayout_10.addWidget(self.lcdNumber_sens_CHSG600, 2, 0, 1, 1)
-
-        self.label_sensCHSG600 = QLabel(self.widget)
-        self.label_sensCHSG600.setObjectName(u"label_sensCHSG600")
-        self.label_sensCHSG600.setStyleSheet(u"QLabel {\n"
-"    border: 2px solid black;\n"
-"    border-radius: 0px;\n"
-"	background-color: rgb(198, 213, 255);\n"
-"	border-style: outset;\n"
-"    border-width: 2px;\n"
-"	border-color: rgb(95, 140, 212);\n"
-"}\n"
-"QLabel{\n"
-"	color: rgb(0,0,0);\n"
-"}\n"
-"")
-        self.label_sensCHSG600.setTextFormat(Qt.RichText)
-
-        self.gridLayout_10.addWidget(self.label_sensCHSG600, 1, 0, 1, 1)
-
-
-        self.gridLayout_12.addLayout(self.gridLayout_10, 1, 0, 1, 1)
 
         self.gridLayout_5 = QGridLayout()
         self.gridLayout_5.setObjectName(u"gridLayout_5")
@@ -946,6 +911,109 @@ class Ui_SetupWindow(object):
 
         self.gridLayout_12.addLayout(self.gridLayout_5, 1, 1, 1, 1)
 
+        self.gridLayout_11 = QGridLayout()
+        self.gridLayout_11.setObjectName(u"gridLayout_11")
+        self.gridLayout_11.setVerticalSpacing(0)
+        self.label_CHSG600_temp = QLabel(self.widget)
+        self.label_CHSG600_temp.setObjectName(u"label_CHSG600_temp")
+        self.label_CHSG600_temp.setStyleSheet(u"QLabel {\n"
+"    border: 2px solid black;\n"
+"    border-radius: 0px;\n"
+"	background-color: rgb(198, 213, 255);\n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"	border-color: rgb(95, 140, 212);\n"
+"}\n"
+"QLabel{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_CHSG600_temp.setTextFormat(Qt.RichText)
+
+        self.gridLayout_11.addWidget(self.label_CHSG600_temp, 0, 0, 1, 1)
+
+        self.lcdNumber_fondoscala_CHSG600_temp = QLCDNumber(self.widget)
+        self.lcdNumber_fondoscala_CHSG600_temp.setObjectName(u"lcdNumber_fondoscala_CHSG600_temp")
+        self.lcdNumber_fondoscala_CHSG600_temp.setStyleSheet(u"QWidget {\n"
+"	background-color:white; \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: black;\n"
+"	border-radius: 0px;\n"
+"}\n"
+"QLCDNumber{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+
+        self.gridLayout_11.addWidget(self.lcdNumber_fondoscala_CHSG600_temp, 1, 0, 1, 1)
+
+
+        self.gridLayout_12.addLayout(self.gridLayout_11, 2, 1, 1, 1)
+
+        self.gridLayout_4 = QGridLayout()
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.label_Principale_SG600 = QLabel(self.widget)
+        self.label_Principale_SG600.setObjectName(u"label_Principale_SG600")
+        self.label_Principale_SG600.setStyleSheet(u"QLabel {\n"
+"    border: 2px solid black;\n"
+"    border-radius: 20px;\n"
+"	background-color: rgb(198, 213, 255);\n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"	border-color: rgb(95, 140, 212);\n"
+"}\n"
+"QLabel{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+
+        self.gridLayout_4.addWidget(self.label_Principale_SG600, 0, 0, 1, 1)
+
+
+        self.gridLayout_12.addLayout(self.gridLayout_4, 0, 0, 1, 1)
+
+        self.gridLayout_10 = QGridLayout()
+        self.gridLayout_10.setObjectName(u"gridLayout_10")
+        self.gridLayout_10.setVerticalSpacing(0)
+        self.lcdNumber_sens_CHSG600 = QLCDNumber(self.widget)
+        self.lcdNumber_sens_CHSG600.setObjectName(u"lcdNumber_sens_CHSG600")
+        self.lcdNumber_sens_CHSG600.setMinimumSize(QSize(0, 0))
+        self.lcdNumber_sens_CHSG600.setStyleSheet(u"QWidget {\n"
+"	background-color:white; \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: black;\n"
+"	border-radius: 0px;\n"
+"}\n"
+"QLCDNumber{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+
+        self.gridLayout_10.addWidget(self.lcdNumber_sens_CHSG600, 2, 0, 1, 1)
+
+        self.label_sensCHSG600 = QLabel(self.widget)
+        self.label_sensCHSG600.setObjectName(u"label_sensCHSG600")
+        self.label_sensCHSG600.setStyleSheet(u"QLabel {\n"
+"    border: 2px solid black;\n"
+"    border-radius: 0px;\n"
+"	background-color: rgb(198, 213, 255);\n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"	border-color: rgb(95, 140, 212);\n"
+"}\n"
+"QLabel{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_sensCHSG600.setTextFormat(Qt.RichText)
+
+        self.gridLayout_10.addWidget(self.label_sensCHSG600, 1, 0, 1, 1)
+
+
+        self.gridLayout_12.addLayout(self.gridLayout_10, 1, 0, 1, 1)
+
         self.gridLayout_2 = QGridLayout()
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.gridLayout_2.setHorizontalSpacing(7)
@@ -987,58 +1055,39 @@ class Ui_SetupWindow(object):
 
         self.gridLayout_12.addLayout(self.gridLayout_2, 2, 0, 1, 1)
 
-        self.gridLayout_11 = QGridLayout()
-        self.gridLayout_11.setObjectName(u"gridLayout_11")
-        self.gridLayout_11.setVerticalSpacing(0)
-        self.label_CHSG600_temp = QLabel(self.widget)
-        self.label_CHSG600_temp.setObjectName(u"label_CHSG600_temp")
-        self.label_CHSG600_temp.setStyleSheet(u"QLabel {\n"
-"    border: 2px solid black;\n"
-"    border-radius: 0px;\n"
-"	background-color: rgb(198, 213, 255);\n"
-"	border-style: outset;\n"
-"    border-width: 2px;\n"
-"	border-color: rgb(95, 140, 212);\n"
-"}\n"
-"QLabel{\n"
-"	color: rgb(0,0,0);\n"
-"}\n"
-"")
-        self.label_CHSG600_temp.setTextFormat(Qt.RichText)
-
-        self.gridLayout_11.addWidget(self.label_CHSG600_temp, 0, 0, 1, 1)
-
-        self.lcdNumber_fondoscala_CHSG600_temp = QLCDNumber(self.widget)
-        self.lcdNumber_fondoscala_CHSG600_temp.setObjectName(u"lcdNumber_fondoscala_CHSG600_temp")
-        self.lcdNumber_fondoscala_CHSG600_temp.setStyleSheet(u"QWidget {\n"
-"	background-color:white; \n"
-"	border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-color: black;\n"
-"	border-radius: 0px;\n"
-"}\n"
-"QLCDNumber{\n"
-"	color: rgb(0,0,0);\n"
-"}\n"
-"")
-
-        self.gridLayout_11.addWidget(self.lcdNumber_fondoscala_CHSG600_temp, 1, 0, 1, 1)
-
-
-        self.gridLayout_12.addLayout(self.gridLayout_11, 2, 1, 1, 1)
-
 
         self.gridLayout_27.addWidget(self.widget, 0, 0, 1, 1)
 
-        self.pushButton_concludi_setup = QPushButton(self.widget_2)
-        self.pushButton_concludi_setup.setObjectName(u"pushButton_concludi_setup")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Ignored)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.pushButton_concludi_setup.sizePolicy().hasHeightForWidth())
-        self.pushButton_concludi_setup.setSizePolicy(sizePolicy1)
+        self.pushButton = QPushButton(self.widget_2)
+        self.pushButton.setObjectName(u"pushButton")
+        sizePolicy.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
+        self.pushButton.setSizePolicy(sizePolicy)
+        self.pushButton.setMinimumSize(QSize(0, 70))
         font2 = QFont()
         font2.setPointSize(25)
+        self.pushButton.setFont(font2)
+        self.pushButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.pushButton.setMouseTracking(False)
+        self.pushButton.setStyleSheet(u"QWidget {\n"
+"	background-color: rgb(136, 125, 255);\n"
+"	border-style: outset;\n"
+"    border-width: 6px;\n"
+"	border-color: rgb(136, 96, 255);\n"
+"	border-style: outset;\n"
+"	border-radius: 0px;\n"
+"}\n"
+"QPushButton{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+
+        self.gridLayout_27.addWidget(self.pushButton, 2, 0, 1, 1)
+
+        self.pushButton_concludi_setup = QPushButton(self.widget_2)
+        self.pushButton_concludi_setup.setObjectName(u"pushButton_concludi_setup")
+        sizePolicy.setHeightForWidth(self.pushButton_concludi_setup.sizePolicy().hasHeightForWidth())
+        self.pushButton_concludi_setup.setSizePolicy(sizePolicy)
+        self.pushButton_concludi_setup.setMinimumSize(QSize(0, 70))
         self.pushButton_concludi_setup.setFont(font2)
         self.pushButton_concludi_setup.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_concludi_setup.setStyleSheet(u"QWidget {\n"
@@ -1047,21 +1096,21 @@ class Ui_SetupWindow(object):
 "    border-width: 6px;\n"
 "	border-color: rgb(211, 181, 13);\n"
 "	border-style: outset;\n"
-"	border-radius: 20px;\n"
+"	border-radius: 0px;\n"
 "}\n"
 "QPushButton{\n"
 "	color: rgb(0,0,0);\n"
 "}\n"
 "")
 
-        self.gridLayout_27.addWidget(self.pushButton_concludi_setup, 1, 0, 1, 1)
+        self.gridLayout_27.addWidget(self.pushButton_concludi_setup, 3, 0, 1, 1)
 
 
         self.gridLayout.addLayout(self.gridLayout_27, 4, 0, 1, 2)
 
         self.pushButton_setup_CHSG600 = QPushButton(self.widget_2)
         self.pushButton_setup_CHSG600.setObjectName(u"pushButton_setup_CHSG600")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
         sizePolicy2.setHorizontalStretch(0)
         sizePolicy2.setVerticalStretch(0)
         sizePolicy2.setHeightForWidth(self.pushButton_setup_CHSG600.sizePolicy().hasHeightForWidth())
@@ -1080,9 +1129,14 @@ class Ui_SetupWindow(object):
 "    border-width: 2px;\n"
 "    border-color: rgb(133, 10, 255);\n"
 "	border-radius: 10px;\n"
-"	background: \n"
-"\n"
-"qlineargradient(spread:pad, x1:0.502, y1:0, x2:0.479, y2:1, stop:0.028169 rgba(255, 67, 67, 255), stop:1 rgba(84, 184, 255, 255))\n"
+"	background-color: qlineargradient(spread:pad, x1:0.502, y1:0, x2:0.479, y2:1, stop:0.028169 \n"
+"rgba(255, 67,67,255), stop:1 rgba(84, 184, 255, 255))\n"
+"}\n"
+"QPushButton::pressed{\n"
+"	border-width: 1px;\n"
+"	background-color:qlineargradient(spread:pad, x1:0.502, y1:0, x2:0.479, y2:1, stop:0.028169 \n"
+"rgba(84, 184, 255, 255), stop:1 rgba(255, 67,67,255));\n"
+"	color: rgb(0, 0, 0);\n"
 "}\n"
 "")
 
@@ -1124,12 +1178,13 @@ class Ui_SetupWindow(object):
         self.label_CH4_2.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">SENS. [mV/V]</span></p></body></html>", None))
         self.checkBox_CH4.setText(QCoreApplication.translate("SetupWindow", u"OFF", None))
         self.label_CH4.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">FONDOSCALA [?]</span></p></body></html>", None))
-        self.label_Principale_SG600.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700;\">Principale</span></p></body></html>", None))
         self.label_Temperatura_SG600_temp.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700;\">Temperatura</span></p></body></html>", None))
-        self.label_sensCHSG600.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">SENS. [mV/V]</span></p></body></html>", None))
         self.label_sensCHSG600_temp.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">SENS. [mV/V]</span></p></body></html>", None))
-        self.label_CHSG600.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">FONDOSCALA [?]</span></p></body></html>", None))
         self.label_CHSG600_temp.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">FONDOSCALA [?]</span></p></body></html>", None))
+        self.label_Principale_SG600.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700;\">Principale</span></p></body></html>", None))
+        self.label_sensCHSG600.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">SENS. [mV/V]</span></p></body></html>", None))
+        self.label_CHSG600.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">FONDOSCALA [?]</span></p></body></html>", None))
+        self.pushButton.setText(QCoreApplication.translate("SetupWindow", u"SALVATAGGIO SETUP", None))
         self.pushButton_concludi_setup.setText(QCoreApplication.translate("SetupWindow", u"CONCLUSIONE SETUP", None))
         self.pushButton_setup_CHSG600.setText(QCoreApplication.translate("SetupWindow", u"SETUP SG600", None))
     # retranslateUi

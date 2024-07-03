@@ -39,6 +39,16 @@ class Canale_Setup_SG600(QDialog):
         self.ui.lineEdit_sensibilita_main.textChanged.connect(self.update_sensibilità_main)
         self.ui.lineEdit_fondoscala_temp.textChanged.connect(self.update_fondoscala_temp)
         self.ui.lineEdit_sensibilita_temp.textChanged.connect(self.update_sensibilità_temp)
+        self.ui.pushButton_azzeramento_main.clicked.connect(self.update_zero_main)
+        self.ui.pushButton_azzeramento_main_2.clicked.connect(self.update_zero_temp)
+
+
+    def update_zero_main(self):
+        self.banco_di_taratura.controller_modbus.DATA.zero_main = self.banco_di_taratura.controller_modbus.DATA.canale_principale_mV
+
+
+    def update_zero_temp(self):
+        self.banco_di_taratura.controller_modbus.DATA.zero_temp = self.banco_di_taratura.controller_modbus.DATA.canale_temperatura_mV
 
         
     def update_fondoscala_main(self):

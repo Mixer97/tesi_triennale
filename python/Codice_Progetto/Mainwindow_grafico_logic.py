@@ -20,21 +20,22 @@ if TYPE_CHECKING:
 
 
 class Graph:
-    def __init__(self, GraphWindow:GraphWindow, graph:PlotWidget, channel, title):
-        
-
+    def __init__(self, GraphWindow:GraphWindow, graph:PlotWidget, channel, title, start_time):
         
         self.channel = channel
         self.graph = graph
         self.title = title
+        self.start_time = start_time    # Inizio tempo del grafico 
         self.recent_values = []  # List to store recent values
         # self.time_window = 1  # seconds for the moving average window
         self.result_media_passato = 1
-        self.update_period = 15
+        self.update_period = 15    # ogni quanti ms prende un campione per il grafico
         self.GraphWindow = GraphWindow
-        self.time_window = 5  # In secondi
-        self.alpha = 0.02
-        self.autorange_status = False
+        self.time_window = 5  # In secondi (tempo sull asse delle y)
+        self.media_window = 0.5 # In secondi (tempo sul quale fa la media mobile)
+        self.alpha = 0.1 # coefficiente per media esponenziale
+        self.autorange_status = False  # status del grafico riguardante autorange
+        self.buffer = [0]
         
         # segnale di refresh       
         self.timer = QTimer()
@@ -47,7 +48,7 @@ class Graph:
         self.GraphWindow.ui.lineEdit_time_window.editingFinished.connect(self.change_time_window)
 
         # axis descriptions
-        self.graph.setContentsMargins(10, 10, 10, 10)
+        # self.graph.setContentsMargins(100, 100, 100, 100)
         self.axisX_desc = "Voltage (mV)"
         self.axisY_desc = "Time (s)"
         self.graph.setLabel('right', self.axisX_desc)
@@ -66,7 +67,19 @@ class Graph:
         self.ptr3 = 0
         self.counter = 0
         self.graph.setRange(yRange=(-5,5), padding=0.2)
-        self.graph.setTitle(self.title)           
+        self.graph.setTitle(self.title) 
+                
+        
+    def reset_grafico(self): 
+        
+        # reset del timer
+        self.start_time = time.time()
+        
+        # Impostazione del grafico
+        self.dataY = []
+        self.dataX = []
+        self.ptr3 = 0
+        self.counter = 0 
     
     def autorange(self):
         if self.autorange_status:
@@ -87,9 +100,24 @@ class Graph:
     def media_esponenziale(self):
         x=self.get_data()
         true_alpha = self.alpha*self.update_period
-        result_media=true_alpha*x + (1-true_alpha)*self.result_media_passato
+        result_media = true_alpha*x + (1-true_alpha)*self.result_media_passato
         self.result_media_passato = result_media
         return result_media 
+    
+    def media_mobile(self):
+        x=self.get_data()
+        self.buffer.append(x)
+        update_period_seconds = self.update_period / 1000
+        numero_di_campioni_nel_buffer = self.media_window / update_period_seconds
+        while len(self.buffer) > numero_di_campioni_nel_buffer:
+            self.buffer.pop(0)
+        value = 0
+        for i in self.buffer:
+            value = value + i
+        media_value = value/len(self.buffer)
+        return media_value
+            
+        
     
     def get_data(self):
         if self.channel == 'ch1':
@@ -111,12 +139,20 @@ class Graph:
     def elaborate_data_ch1(self):
         if self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd[0] == 'mV':
             data = self.GraphWindow.banco_di_taratura.controller_tcp.DATA.LIST_mV_VALUE[0]
+            self.axisX_desc = "Voltage (mV)"
+            self.graph.setLabel('right', self.axisX_desc)
         elif self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd[0] == 'Kg':
             data = self.GraphWindow.banco_di_taratura.controller_tcp.DATA.LIST_Kg_VALUE[0]
+            self.axisX_desc = "Kilogrammi (Kg)"
+            self.graph.setLabel('right', self.axisX_desc)
         elif self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd[0] == 'N':
             data = self.GraphWindow.banco_di_taratura.controller_tcp.DATA.LIST_N_VALUE[0]
+            self.axisX_desc = "Newton (N)"
+            self.graph.setLabel('right', self.axisX_desc)
         elif self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd[0] == 'Nm':
             data = self.GraphWindow.banco_di_taratura.controller_tcp.DATA.LIST_Nm_VALUE[0]
+            self.axisX_desc = "Newton metri (Nm)"
+            self.graph.setLabel('right', self.axisX_desc)
         else:
             data = None
         return data
@@ -124,12 +160,20 @@ class Graph:
     def elaborate_data_ch2(self):
         if self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd[1] == 'mV':
             data = self.GraphWindow.banco_di_taratura.controller_tcp.DATA.LIST_mV_VALUE[1]
+            self.axisX_desc = "Voltage (mV)"
+            self.graph.setLabel('right', self.axisX_desc)
         elif self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd[1] == 'Kg':
             data = self.GraphWindow.banco_di_taratura.controller_tcp.DATA.LIST_Kg_VALUE[1]
+            self.axisX_desc = "Kilogrammi (Kg)"
+            self.graph.setLabel('right', self.axisX_desc)
         elif self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd[1] == 'N':
             data = self.GraphWindow.banco_di_taratura.controller_tcp.DATA.LIST_N_VALUE[1]
+            self.axisX_desc = "Newton (N)"
+            self.graph.setLabel('right', self.axisX_desc)
         elif self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd[1] == 'Nm':
             data = self.GraphWindow.banco_di_taratura.controller_tcp.DATA.LIST_Nm_VALUE[1]
+            self.axisX_desc = "Newton metri (Nm)"
+            self.graph.setLabel('right', self.axisX_desc)
         else:
             data = None
         return data
@@ -137,12 +181,20 @@ class Graph:
     def elaborate_data_ch3(self):
         if self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd[2] == 'mV':
             data = self.GraphWindow.banco_di_taratura.controller_tcp.DATA.LIST_mV_VALUE[2]
+            self.axisX_desc = "Voltage (mV)"
+            self.graph.setLabel('right', self.axisX_desc)
         elif self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd[2] == 'Kg':
             data = self.GraphWindow.banco_di_taratura.controller_tcp.DATA.LIST_Kg_VALUE[2]
+            self.axisX_desc = "Kilogrammi (Kg)"
+            self.graph.setLabel('right', self.axisX_desc)
         elif self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd[2] == 'N':
             data = self.GraphWindow.banco_di_taratura.controller_tcp.DATA.LIST_N_VALUE[2]
+            self.axisX_desc = "Newton (N)"
+            self.graph.setLabel('right', self.axisX_desc)
         elif self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd[2] == 'Nm':
             data = self.GraphWindow.banco_di_taratura.controller_tcp.DATA.LIST_Nm_VALUE[2]
+            self.axisX_desc = "Newton metri (Nm)"
+            self.graph.setLabel('right', self.axisX_desc)
         else:
             data = None
         return data
@@ -150,12 +202,20 @@ class Graph:
     def elaborate_data_ch4(self):
         if self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd[3] == 'mV':
             data = self.GraphWindow.banco_di_taratura.controller_tcp.DATA.LIST_mV_VALUE[3]
+            self.axisX_desc = "Voltage (mV)"
+            self.graph.setLabel('right', self.axisX_desc)
         elif self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd[3] == 'Kg':
             data = self.GraphWindow.banco_di_taratura.controller_tcp.DATA.LIST_Kg_VALUE[3]
+            self.axisX_desc = "Kilogrammi (Kg)"
+            self.graph.setLabel('right', self.axisX_desc)
         elif self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd[3] == 'N':
             data = self.GraphWindow.banco_di_taratura.controller_tcp.DATA.LIST_N_VALUE[3]
+            self.axisX_desc = "Newton (N)"
+            self.graph.setLabel('right', self.axisX_desc)
         elif self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd[3] == 'Nm':
             data = self.GraphWindow.banco_di_taratura.controller_tcp.DATA.LIST_Nm_VALUE[3]
+            self.axisX_desc = "Newton metri (Nm)"
+            self.graph.setLabel('right', self.axisX_desc)
         else:
             data = None
         return data
@@ -193,9 +253,10 @@ class Graph:
     def update_someData(self):
         
         # Append new random value to data list
-        self.dataY.append(self.media_esponenziale())
+        # self.dataY.append(self.media_esponenziale())
+        self.dataY.append(self.media_mobile())
         actual_time = time.time()
-        difference = actual_time - self.GraphWindow.start_time
+        difference = actual_time - self.start_time
         self.dataX.append(difference)
 
         # Update pointer
@@ -243,15 +304,15 @@ class GraphWindow(QMainWindow):
         self.controller_TCP = banco_di_taratura.controller_tcp
         self.controller_MODBUS = banco_di_taratura.controller_modbus
         
-        self.graph_main = Graph(self, graph=graph_main, channel=channel_main_ch, title='Main')
-        self.graph_soloMain = Graph(self, graph=graph_soloMain, channel=channel_main_ch, title='Main')
-        self.graph_temp = Graph(self, graph=graph_temp, channel=channel_temp_ch, title='Temp')
-        self.graph_soloTemp = Graph(self, graph=graph_soloTemp, channel=channel_temp_ch, title='Temp')
+        self.graph_main = Graph(self, graph=graph_main, channel=channel_main_ch, title='Main', start_time=self.start_time)
+        self.graph_soloMain = Graph(self, graph=graph_soloMain, channel=channel_main_ch, title='Main', start_time=self.start_time)
+        self.graph_temp = Graph(self, graph=graph_temp, channel=channel_temp_ch, title='Temp', start_time=self.start_time)
+        self.graph_soloTemp = Graph(self, graph=graph_soloTemp, channel=channel_temp_ch, title='Temp', start_time=self.start_time)
         
-        self.graph_ch1 = Graph(self, graph=graph_ch1, channel=channel_ch1, title='CH1')
-        self.graph_ch2 = Graph(self, graph=graph_ch2, channel=channel_ch2, title='CH2')
-        self.graph_ch3 = Graph(self, graph=graph_ch3, channel=channel_ch3, title='CH3')
-        self.graph_ch4 = Graph(self, graph=graph_ch4, channel=channel_ch4, title='CH4')
+        self.graph_ch1 = Graph(self, graph=graph_ch1, channel=channel_ch1, title='CH1', start_time=self.start_time)
+        self.graph_ch2 = Graph(self, graph=graph_ch2, channel=channel_ch2, title='CH2', start_time=self.start_time)
+        self.graph_ch3 = Graph(self, graph=graph_ch3, channel=channel_ch3, title='CH3', start_time=self.start_time)
+        self.graph_ch4 = Graph(self, graph=graph_ch4, channel=channel_ch4, title='CH4', start_time=self.start_time)
         
         self.graph_vector = [self.graph_main,
                              self.graph_soloMain,
@@ -275,12 +336,24 @@ class GraphWindow(QMainWindow):
         self.ui.pushButton_autorange_main.clicked.connect(self.graph_main.change_status_autorange)
         self.ui.pushButton_autorange_solo_main.clicked.connect(self.graph_soloMain.change_status_autorange)
         
+        self.ui.pushButton_reset_ch1.clicked.connect(self,self.graph_ch1.reset_grafico)
+        self.ui.pushButton_reset_ch2.clicked.connect(self.graph_ch2.reset_grafico)
+        self.ui.pushButton_reset_ch3.clicked.connect(self.graph_ch3.reset_grafico)
+        self.ui.pushButton_reset_ch4.clicked.connect(self.graph_ch4.reset_grafico)
+        self.ui.pushButton_reset_temp.clicked.connect(self.graph_temp.reset_grafico)
+        self.ui.pushButton_reset_solo_temp.clicked.connect(self.graph_soloTemp.reset_grafico)
+        self.ui.pushButton_reset_main.clicked.connect(self.graph_main.reset_grafico)
+        self.ui.pushButton_reset_solo_main.clicked.connect(self.graph_soloMain.reset_grafico)
+        
         # Segnale per torare a home page
         self.ui.pushButton_home.clicked.connect(self.show_home_window)
         
     def show_home_window(self):
         self.homepage.show()
         self.close()
+        
+
+        
         
             
         

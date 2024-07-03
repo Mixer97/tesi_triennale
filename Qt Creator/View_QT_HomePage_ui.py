@@ -179,15 +179,12 @@ class Ui_MainWindow(object):
         font2.setStrikeOut(False)
         self.pushButton_Interfaccia.setFont(font2)
         self.pushButton_Interfaccia.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.pushButton_Interfaccia.setStyleSheet(u"QWidget {\n"
+        self.pushButton_Interfaccia.setStyleSheet(u"QPushButton {\n"
 "	background-color:green; \n"
-"	border-style: outset;\n"
 "	border-style: outset;\n"
 "    border-width: 2px;\n"
 "    border-color: black;\n"
 "	border-radius: 20px;\n"
-"}\n"
-"QPushButton{\n"
 "	color: rgb(0,0,0);\n"
 "}\n"
 "")
@@ -250,13 +247,14 @@ class Ui_MainWindow(object):
         self.comboBox_5.addItem("")
         self.comboBox_5.addItem("")
         self.comboBox_5.setObjectName(u"comboBox_5")
+        self.comboBox_5.setEnabled(False)
         sizePolicy.setHeightForWidth(self.comboBox_5.sizePolicy().hasHeightForWidth())
         self.comboBox_5.setSizePolicy(sizePolicy)
         font3 = QFont()
         font3.setPointSize(15)
         self.comboBox_5.setFont(font3)
         self.comboBox_5.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.comboBox_5.setMouseTracking(False)
+        self.comboBox_5.setMouseTracking(True)
         self.comboBox_5.setAutoFillBackground(False)
         self.comboBox_5.setStyleSheet(u"QComboBox {\n"
 "    border: 3px solid gray;\n"
@@ -266,8 +264,10 @@ class Ui_MainWindow(object):
 "    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */\n"
 "}\n"
 "\n"
-"QComboBox:editable {\n"
-"    background: white;\n"
+"QComboBox:hover, QPushButton:hover\n"
+"{\n"
+"    border: 1px solid rgb(202, 203, 194);\n"
+"    color: white;\n"
 "}\n"
 "\n"
 "QComboBox:!editable, QComboBox::drop-down:editable {\n"
@@ -282,9 +282,9 @@ class Ui_MainWindow(object):
 "    background-color:	qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
 "                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
 "                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3); ; /* Colore di sfondo della tendina */\n"
-"    selection-background-color: #3399FF; /* Colore di sfondo dell'elemento selezionato */\n"
-"    selection-color:rgb(106, 112, 113)"
-                        "; /* Colore del testo dell'elemento selezionato */\n"
+"    selection-background-color: #3399FF; /* Colore di sfondo dell'eleme"
+                        "nto selezionato */\n"
+"    selection-color:rgb(106, 112, 113); /* Colore del testo dell'elemento selezionato */\n"
 "    border: 3px solid gray;\n"
 "    border-radius: 3px;\n"
 "    padding: 1px 18px 1px 3px;\n"
@@ -433,7 +433,7 @@ class Ui_MainWindow(object):
         self.comboBox_1.setSizePolicy(sizePolicy)
         self.comboBox_1.setFont(font3)
         self.comboBox_1.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.comboBox_1.setMouseTracking(False)
+        self.comboBox_1.setMouseTracking(True)
         self.comboBox_1.setAutoFillBackground(False)
         self.comboBox_1.setStyleSheet(u"QComboBox {\n"
 "    border: 3px solid gray;\n"
@@ -443,8 +443,10 @@ class Ui_MainWindow(object):
 "    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */\n"
 "}\n"
 "\n"
-"QComboBox:editable {\n"
-"    background: white;\n"
+"QComboBox:hover, QPushButton:hover\n"
+"{\n"
+"    border: 1px solid rgb(202, 203, 194);\n"
+"    color: white;\n"
 "}\n"
 "\n"
 "QComboBox:!editable, QComboBox::drop-down:editable {\n"
@@ -459,9 +461,9 @@ class Ui_MainWindow(object):
 "    background-color:	qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
 "                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
 "                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3); ; /* Colore di sfondo della tendina */\n"
-"    selection-background-color: #3399FF; /* Colore di sfondo dell'elemento selezionato */\n"
-"    selection-color:rgb(106, 112, 113)"
-                        "; /* Colore del testo dell'elemento selezionato */\n"
+"    selection-background-color: #3399FF; /* Colore di sfondo dell'eleme"
+                        "nto selezionato */\n"
+"    selection-color:rgb(106, 112, 113); /* Colore del testo dell'elemento selezionato */\n"
 "    border: 3px solid gray;\n"
 "    border-radius: 3px;\n"
 "    padding: 1px 18px 1px 3px;\n"
@@ -541,7 +543,7 @@ class Ui_MainWindow(object):
         self.comboBox_2.setSizePolicy(sizePolicy)
         self.comboBox_2.setFont(font3)
         self.comboBox_2.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.comboBox_2.setMouseTracking(False)
+        self.comboBox_2.setMouseTracking(True)
         self.comboBox_2.setAutoFillBackground(False)
         self.comboBox_2.setStyleSheet(u"QComboBox {\n"
 "    border: 3px solid gray;\n"
@@ -551,8 +553,10 @@ class Ui_MainWindow(object):
 "    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */\n"
 "}\n"
 "\n"
-"QComboBox:editable {\n"
-"    background: white;\n"
+"QComboBox:hover, QPushButton:hover\n"
+"{\n"
+"    border: 1px solid rgb(202, 203, 194);\n"
+"    color: white;\n"
 "}\n"
 "\n"
 "QComboBox:!editable, QComboBox::drop-down:editable {\n"
@@ -567,9 +571,9 @@ class Ui_MainWindow(object):
 "    background-color:	qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
 "                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
 "                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3); ; /* Colore di sfondo della tendina */\n"
-"    selection-background-color: #3399FF; /* Colore di sfondo dell'elemento selezionato */\n"
-"    selection-color:rgb(106, 112, 113)"
-                        "; /* Colore del testo dell'elemento selezionato */\n"
+"    selection-background-color: #3399FF; /* Colore di sfondo dell'eleme"
+                        "nto selezionato */\n"
+"    selection-color:rgb(106, 112, 113); /* Colore del testo dell'elemento selezionato */\n"
 "    border: 3px solid gray;\n"
 "    border-radius: 3px;\n"
 "    padding: 1px 18px 1px 3px;\n"
@@ -642,7 +646,7 @@ class Ui_MainWindow(object):
         self.comboBox_3.setSizePolicy(sizePolicy)
         self.comboBox_3.setFont(font3)
         self.comboBox_3.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.comboBox_3.setMouseTracking(False)
+        self.comboBox_3.setMouseTracking(True)
         self.comboBox_3.setAutoFillBackground(False)
         self.comboBox_3.setStyleSheet(u"QComboBox {\n"
 "    border: 3px solid gray;\n"
@@ -652,8 +656,10 @@ class Ui_MainWindow(object):
 "    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */\n"
 "}\n"
 "\n"
-"QComboBox:editable {\n"
-"    background: white;\n"
+"QComboBox:hover, QPushButton:hover\n"
+"{\n"
+"    border: 1px solid rgb(202, 203, 194);\n"
+"    color: white;\n"
 "}\n"
 "\n"
 "QComboBox:!editable, QComboBox::drop-down:editable {\n"
@@ -668,9 +674,9 @@ class Ui_MainWindow(object):
 "    background-color:	qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
 "                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
 "                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3); ; /* Colore di sfondo della tendina */\n"
-"    selection-background-color: #3399FF; /* Colore di sfondo dell'elemento selezionato */\n"
-"    selection-color:rgb(106, 112, 113)"
-                        "; /* Colore del testo dell'elemento selezionato */\n"
+"    selection-background-color: #3399FF; /* Colore di sfondo dell'eleme"
+                        "nto selezionato */\n"
+"    selection-color:rgb(106, 112, 113); /* Colore del testo dell'elemento selezionato */\n"
 "    border: 3px solid gray;\n"
 "    border-radius: 3px;\n"
 "    padding: 1px 18px 1px 3px;\n"
@@ -762,7 +768,7 @@ class Ui_MainWindow(object):
         self.comboBox_4.setSizePolicy(sizePolicy)
         self.comboBox_4.setFont(font3)
         self.comboBox_4.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.comboBox_4.setMouseTracking(False)
+        self.comboBox_4.setMouseTracking(True)
         self.comboBox_4.setAutoFillBackground(False)
         self.comboBox_4.setStyleSheet(u"QComboBox {\n"
 "    border: 3px solid gray;\n"
@@ -772,8 +778,10 @@ class Ui_MainWindow(object):
 "    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */\n"
 "}\n"
 "\n"
-"QComboBox:editable {\n"
-"    background: white;\n"
+"QComboBox:hover, QPushButton:hover\n"
+"{\n"
+"    border: 1px solid rgb(202, 203, 194);\n"
+"    color: white;\n"
 "}\n"
 "\n"
 "QComboBox:!editable, QComboBox::drop-down:editable {\n"
@@ -788,9 +796,9 @@ class Ui_MainWindow(object):
 "    background-color:	qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
 "                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
 "                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3); ; /* Colore di sfondo della tendina */\n"
-"    selection-background-color: #3399FF; /* Colore di sfondo dell'elemento selezionato */\n"
-"    selection-color:rgb(106, 112, 113)"
-                        "; /* Colore del testo dell'elemento selezionato */\n"
+"    selection-background-color: #3399FF; /* Colore di sfondo dell'eleme"
+                        "nto selezionato */\n"
+"    selection-color:rgb(106, 112, 113); /* Colore del testo dell'elemento selezionato */\n"
 "    border: 3px solid gray;\n"
 "    border-radius: 3px;\n"
 "    padding: 1px 18px 1px 3px;\n"
@@ -878,8 +886,6 @@ class Ui_MainWindow(object):
 "	border-width: 1px;\n"
 "	background-color:rgb(56, 56, 56);\n"
 "	color: rgb(0, 0, 0);\n"
-"\n"
-"\n"
 "}")
 
         self.horizontalLayout_2.addWidget(self.pushButton_setup_page)

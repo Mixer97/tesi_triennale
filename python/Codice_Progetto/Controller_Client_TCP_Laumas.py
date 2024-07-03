@@ -57,7 +57,7 @@ class Controller_TCP:
             self.LIST_N_VALUE = [0,0,0,0]
             self.LIST_SENSIBILITY = [1,2.0302,0,1] # settato dalle varie setup pages
             self.LIST_FULLSCALE = [10,50,10,10] # settato dalle varie setup pages
-            self.LIST_mV_ZERO = [1,-0.1,1,-0.21] # settato dalle varie setup pages
+            self.LIST_mV_ZERO = [0,0,0,0] # settato dalle varie setup pages
             self.LEVER_LENGTH = 1 # meters
             self.STATUS_CHANNELS = [0,0,0,0] # settato da setupPage
         
@@ -474,7 +474,7 @@ class Controller_TCP:
             i = 0
             for i in range(0, len(self.DATA.LIST_mV_VALUE)):
                 if self.DATA.LIST_SENSIBILITY[i]!=0:
-                    self.DATA.LIST_Kg_VALUE[i] = abs((self.DATA.LIST_FULLSCALE[i]/(self.SLAVE.CHN_VOLTAGE*self.DATA.LIST_SENSIBILITY[i]))*(self.DATA.LIST_mV_ZERO[i] - self.DATA.LIST_mV_VALUE[i]))
+                    self.DATA.LIST_Kg_VALUE[i] = abs((self.DATA.LIST_FULLSCALE[i]/(self.SLAVE.CHN_VOLTAGE*self.DATA.LIST_SENSIBILITY[i]))*(self.DATA.LIST_mV_VALUE[i] - self.DATA.LIST_mV_ZERO[i]))
                 else:
                     self.DATA.LIST_Kg_VALUE[i] = 0
             return self.DATA.LIST_Kg_VALUE
@@ -483,7 +483,7 @@ class Controller_TCP:
             i = 0
             for i in range(0, len(self.DATA.LIST_mV_VALUE)):
                 if self.DATA.LIST_SENSIBILITY[i]!=0:
-                    self.DATA.LIST_Nm_VALUE[i] = self.DATA.LEVER_LENGTH*9.81*(self.DATA.LIST_FULLSCALE[i]/(self.SLAVE.CHN_VOLTAGE*self.DATA.LIST_SENSIBILITY[i]))*(self.DATA.LIST_mV_ZERO[i] - self.DATA.LIST_mV_VALUE[i])
+                    self.DATA.LIST_Nm_VALUE[i] = self.DATA.LEVER_LENGTH*9.81*(self.DATA.LIST_FULLSCALE[i]/(self.SLAVE.CHN_VOLTAGE*self.DATA.LIST_SENSIBILITY[i]))*(self.DATA.LIST_mV_VALUE[i] - self.DATA.LIST_mV_ZERO[i])
                 else:
                     self.DATA.LIST_Nm_VALUE[i] = 0
             return self.DATA.LIST_Nm_VALUE
@@ -492,7 +492,7 @@ class Controller_TCP:
             i = 0
             for i in range(0, len(self.DATA.LIST_mV_VALUE)):
                 if self.DATA.LIST_SENSIBILITY[i]!=0:
-                    self.DATA.LIST_N_VALUE[i] = 9.81*(self.DATA.LIST_FULLSCALE[i]/(self.SLAVE.CHN_VOLTAGE*self.DATA.LIST_SENSIBILITY[i]))*(self.DATA.LIST_mV_ZERO[i] - self.DATA.LIST_mV_VALUE[i])
+                    self.DATA.LIST_N_VALUE[i] = 9.81*(self.DATA.LIST_FULLSCALE[i]/(self.SLAVE.CHN_VOLTAGE*self.DATA.LIST_SENSIBILITY[i]))*(self.DATA.LIST_mV_VALUE[i] - self.DATA.LIST_mV_ZERO[i])
                 else:
                     self.DATA.LIST_N_VALUE[i] = 0
             return self.DATA.LIST_N_VALUE

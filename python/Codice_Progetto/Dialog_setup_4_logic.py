@@ -32,6 +32,11 @@ class Canale_Setup_4(QDialog):
         self.ui.lineEdit_fondoscala
         self.ui.lineEdit_fondoscala.textChanged.connect(self.update_fondoscala)
         self.ui.lineEdit_sensibilita.textChanged.connect(self.update_sensibilità)
+        self.ui.pushButton_azzeramento_tara.clicked.connect(self.update_zero)
+
+
+    def update_zero(self):
+        self.banco_di_taratura.controller_tcp.DATA.LIST_mV_ZERO[3] = self.banco_di_taratura.controller_tcp.DATA.LIST_mV_VALUE[3]
 
         
     def update_fondoscala(self):

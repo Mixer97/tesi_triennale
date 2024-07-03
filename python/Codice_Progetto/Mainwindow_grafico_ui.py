@@ -161,6 +161,23 @@ class Ui_GraphWindow(object):
 
         self.verticalLayout_4.addWidget(self.pushButton_autorange_solo_main)
 
+        self.pushButton_reset_solo_main = QPushButton(self.frame_14)
+        self.pushButton_reset_solo_main.setObjectName(u"pushButton_reset_solo_main")
+        self.pushButton_reset_solo_main.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.pushButton_reset_solo_main.setStyleSheet(u"QPushButton{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(93, 117, 255);\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"\n"
+"QPushButton::pressed{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(23, 23, 161);\n"
+"	color: rgb(0, 0, 0);\n"
+"}")
+
+        self.verticalLayout_4.addWidget(self.pushButton_reset_solo_main)
+
 
         self.gridLayout_5.addWidget(self.frame_14, 0, 1, 3, 1)
 
@@ -211,6 +228,23 @@ class Ui_GraphWindow(object):
 
         self.verticalLayout_3.addWidget(self.pushButton_autorange_solo_temp)
 
+        self.pushButton_reset_solo_temp = QPushButton(self.frame_17)
+        self.pushButton_reset_solo_temp.setObjectName(u"pushButton_reset_solo_temp")
+        self.pushButton_reset_solo_temp.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.pushButton_reset_solo_temp.setStyleSheet(u"QPushButton{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(93, 117, 255);\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"\n"
+"QPushButton::pressed{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(23, 23, 161);\n"
+"	color: rgb(0, 0, 0);\n"
+"}")
+
+        self.verticalLayout_3.addWidget(self.pushButton_reset_solo_temp)
+
 
         self.gridLayout_7.addWidget(self.frame_17, 0, 1, 3, 1)
 
@@ -258,6 +292,23 @@ class Ui_GraphWindow(object):
 
         self.verticalLayout_2.addWidget(self.pushButton_autorange_main)
 
+        self.pushButton_reset_temp = QPushButton(self.frame_11)
+        self.pushButton_reset_temp.setObjectName(u"pushButton_reset_temp")
+        self.pushButton_reset_temp.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.pushButton_reset_temp.setStyleSheet(u"QPushButton{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(93, 117, 255);\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"\n"
+"QPushButton::pressed{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(23, 23, 161);\n"
+"	color: rgb(0, 0, 0);\n"
+"}")
+
+        self.verticalLayout_2.addWidget(self.pushButton_reset_temp)
+
         self.pushButton_autorange_temp = QPushButton(self.frame_11)
         self.pushButton_autorange_temp.setObjectName(u"pushButton_autorange_temp")
         sizePolicy5.setHeightForWidth(self.pushButton_autorange_temp.sizePolicy().hasHeightForWidth())
@@ -280,6 +331,23 @@ class Ui_GraphWindow(object):
         self.pushButton_autorange_temp.setCheckable(True)
 
         self.verticalLayout_2.addWidget(self.pushButton_autorange_temp)
+
+        self.pushButton_reset_main = QPushButton(self.frame_11)
+        self.pushButton_reset_main.setObjectName(u"pushButton_reset_main")
+        self.pushButton_reset_main.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.pushButton_reset_main.setStyleSheet(u"QPushButton{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(93, 117, 255);\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"\n"
+"QPushButton::pressed{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(23, 23, 161);\n"
+"	color: rgb(0, 0, 0);\n"
+"}")
+
+        self.verticalLayout_2.addWidget(self.pushButton_reset_main)
 
 
         self.gridLayout_4.addWidget(self.frame_11, 0, 1, 4, 1)
@@ -324,16 +392,17 @@ class Ui_GraphWindow(object):
         self.graphWidget_solo_channel_1.setSizePolicy(sizePolicy4)
         self.graphWidget_solo_channel_1.setStyleSheet(u"background-color: rgb(26, 49, 255);")
 
-        self.gridLayout_9.addWidget(self.graphWidget_solo_channel_1, 0, 0, 1, 1)
+        self.gridLayout_9.addWidget(self.graphWidget_solo_channel_1, 0, 0, 2, 1)
 
         self.frame_16 = QFrame(self.page_CH1)
         self.frame_16.setObjectName(u"frame_16")
         self.frame_16.setMaximumSize(QSize(50, 16777215))
         self.frame_16.setFrameShape(QFrame.StyledPanel)
         self.frame_16.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_5 = QHBoxLayout(self.frame_16)
-        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
-        self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_6 = QVBoxLayout(self.frame_16)
+        self.verticalLayout_6.setSpacing(0)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
         self.pushButton_autorange_ch1 = QPushButton(self.frame_16)
         self.pushButton_autorange_ch1.setObjectName(u"pushButton_autorange_ch1")
         sizePolicy4.setHeightForWidth(self.pushButton_autorange_ch1.sizePolicy().hasHeightForWidth())
@@ -355,7 +424,24 @@ class Ui_GraphWindow(object):
 "")
         self.pushButton_autorange_ch1.setCheckable(True)
 
-        self.horizontalLayout_5.addWidget(self.pushButton_autorange_ch1)
+        self.verticalLayout_6.addWidget(self.pushButton_autorange_ch1)
+
+        self.pushButton_reset_ch1 = QPushButton(self.frame_16)
+        self.pushButton_reset_ch1.setObjectName(u"pushButton_reset_ch1")
+        self.pushButton_reset_ch1.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.pushButton_reset_ch1.setStyleSheet(u"QPushButton{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(93, 117, 255);\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"\n"
+"QPushButton::pressed{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(23, 23, 161);\n"
+"	color: rgb(0, 0, 0);\n"
+"}")
+
+        self.verticalLayout_6.addWidget(self.pushButton_reset_ch1)
 
 
         self.gridLayout_9.addWidget(self.frame_16, 0, 1, 1, 1)
@@ -380,9 +466,10 @@ class Ui_GraphWindow(object):
         self.frame_15.setMaximumSize(QSize(50, 16777215))
         self.frame_15.setFrameShape(QFrame.StyledPanel)
         self.frame_15.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_4 = QHBoxLayout(self.frame_15)
-        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_9 = QVBoxLayout(self.frame_15)
+        self.verticalLayout_9.setSpacing(0)
+        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
+        self.verticalLayout_9.setContentsMargins(0, 0, 0, 0)
         self.pushButton_autorange_ch2 = QPushButton(self.frame_15)
         self.pushButton_autorange_ch2.setObjectName(u"pushButton_autorange_ch2")
         sizePolicy4.setHeightForWidth(self.pushButton_autorange_ch2.sizePolicy().hasHeightForWidth())
@@ -404,7 +491,24 @@ class Ui_GraphWindow(object):
 "")
         self.pushButton_autorange_ch2.setCheckable(True)
 
-        self.horizontalLayout_4.addWidget(self.pushButton_autorange_ch2)
+        self.verticalLayout_9.addWidget(self.pushButton_autorange_ch2)
+
+        self.pushButton_reset_ch2 = QPushButton(self.frame_15)
+        self.pushButton_reset_ch2.setObjectName(u"pushButton_reset_ch2")
+        self.pushButton_reset_ch2.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.pushButton_reset_ch2.setStyleSheet(u"QPushButton{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(93, 117, 255);\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"\n"
+"QPushButton::pressed{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(23, 23, 161);\n"
+"	color: rgb(0, 0, 0);\n"
+"}")
+
+        self.verticalLayout_9.addWidget(self.pushButton_reset_ch2)
 
 
         self.gridLayout_8.addWidget(self.frame_15, 0, 1, 1, 1)
@@ -423,9 +527,10 @@ class Ui_GraphWindow(object):
         self.frame_12.setMaximumSize(QSize(50, 16777215))
         self.frame_12.setFrameShape(QFrame.StyledPanel)
         self.frame_12.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_2 = QHBoxLayout(self.frame_12)
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_8 = QVBoxLayout(self.frame_12)
+        self.verticalLayout_8.setSpacing(0)
+        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+        self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
         self.pushButton_autorange_ch3 = QPushButton(self.frame_12)
         self.pushButton_autorange_ch3.setObjectName(u"pushButton_autorange_ch3")
         sizePolicy4.setHeightForWidth(self.pushButton_autorange_ch3.sizePolicy().hasHeightForWidth())
@@ -447,7 +552,24 @@ class Ui_GraphWindow(object):
 "")
         self.pushButton_autorange_ch3.setCheckable(True)
 
-        self.horizontalLayout_2.addWidget(self.pushButton_autorange_ch3)
+        self.verticalLayout_8.addWidget(self.pushButton_autorange_ch3)
+
+        self.pushButton_reset_ch3 = QPushButton(self.frame_12)
+        self.pushButton_reset_ch3.setObjectName(u"pushButton_reset_ch3")
+        self.pushButton_reset_ch3.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.pushButton_reset_ch3.setStyleSheet(u"QPushButton{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(93, 117, 255);\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"\n"
+"QPushButton::pressed{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(23, 23, 161);\n"
+"	color: rgb(0, 0, 0);\n"
+"}")
+
+        self.verticalLayout_8.addWidget(self.pushButton_reset_ch3)
 
 
         self.gridLayout_3.addWidget(self.frame_12, 0, 1, 5, 1)
@@ -480,9 +602,10 @@ class Ui_GraphWindow(object):
         self.frame_13.setMaximumSize(QSize(50, 16777215))
         self.frame_13.setFrameShape(QFrame.StyledPanel)
         self.frame_13.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_3 = QHBoxLayout(self.frame_13)
-        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_7 = QVBoxLayout(self.frame_13)
+        self.verticalLayout_7.setSpacing(0)
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
         self.pushButton_autorange_ch4 = QPushButton(self.frame_13)
         self.pushButton_autorange_ch4.setObjectName(u"pushButton_autorange_ch4")
         sizePolicy4.setHeightForWidth(self.pushButton_autorange_ch4.sizePolicy().hasHeightForWidth())
@@ -504,7 +627,24 @@ class Ui_GraphWindow(object):
 "")
         self.pushButton_autorange_ch4.setCheckable(True)
 
-        self.horizontalLayout_3.addWidget(self.pushButton_autorange_ch4)
+        self.verticalLayout_7.addWidget(self.pushButton_autorange_ch4)
+
+        self.pushButton_reset_ch4 = QPushButton(self.frame_13)
+        self.pushButton_reset_ch4.setObjectName(u"pushButton_reset_ch4")
+        self.pushButton_reset_ch4.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.pushButton_reset_ch4.setStyleSheet(u"QPushButton{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(93, 117, 255);\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"\n"
+"QPushButton::pressed{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(23, 23, 161);\n"
+"	color: rgb(0, 0, 0);\n"
+"}")
+
+        self.verticalLayout_7.addWidget(self.pushButton_reset_ch4)
 
 
         self.gridLayout_6.addWidget(self.frame_13, 0, 1, 1, 1)
@@ -687,16 +827,24 @@ class Ui_GraphWindow(object):
     def retranslateUi(self, GraphWindow):
         GraphWindow.setWindowTitle(QCoreApplication.translate("GraphWindow", u"MainWindow", None))
         self.pushButton_autorange_solo_main.setText("")
+        self.pushButton_reset_solo_main.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
         self.pushButton_autorange_solo_temp.setText("")
+        self.pushButton_reset_solo_temp.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
         self.pushButton_autorange_main.setText("")
+        self.pushButton_reset_temp.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
         self.pushButton_autorange_temp.setText("")
+        self.pushButton_reset_main.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
         self.pushButton_autorange_ch1.setText("")
+        self.pushButton_reset_ch1.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
         self.pushButton_autorange_ch2.setText("")
+        self.pushButton_reset_ch2.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
         self.pushButton_autorange_ch3.setText("")
+        self.pushButton_reset_ch3.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
         self.pushButton_autorange_ch4.setText("")
-        self.comboBox_Main_Temp.setItemText(0, QCoreApplication.translate("GraphWindow", u"Main Channel", None))
-        self.comboBox_Main_Temp.setItemText(1, QCoreApplication.translate("GraphWindow", u"Temperature Channel", None))
-        self.comboBox_Main_Temp.setItemText(2, QCoreApplication.translate("GraphWindow", u"Main + Temperature Channel", None))
+        self.pushButton_reset_ch4.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
+        self.comboBox_Main_Temp.setItemText(0, QCoreApplication.translate("GraphWindow", u"Main", None))
+        self.comboBox_Main_Temp.setItemText(1, QCoreApplication.translate("GraphWindow", u"Temp", None))
+        self.comboBox_Main_Temp.setItemText(2, QCoreApplication.translate("GraphWindow", u"Main + Temp", None))
 
         self.comboBox_Ch_1234.setItemText(0, QCoreApplication.translate("GraphWindow", u"Channel 1", None))
         self.comboBox_Ch_1234.setItemText(1, QCoreApplication.translate("GraphWindow", u"Channel 2", None))

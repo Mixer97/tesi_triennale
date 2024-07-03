@@ -106,37 +106,6 @@
           <property name="spacing">
            <number>0</number>
           </property>
-          <item row="1" column="0">
-           <widget class="QFrame" name="frame_4">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">    border-width: 1px;</string>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-           </widget>
-          </item>
           <item row="0" column="0">
            <widget class="QFrame" name="frame_5">
             <property name="sizePolicy">
@@ -285,6 +254,29 @@ QPushButton::checked {
                       </property>
                      </widget>
                     </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButton_reset_solo_main">
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton{
+	border-width: 1px;
+	background-color:rgb(93, 117, 255);
+	color: rgb(0, 0, 0);
+}
+
+QPushButton::pressed{
+	border-width: 1px;
+	background-color:rgb(23, 23, 161);
+	color: rgb(0, 0, 0);
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>PushButton</string>
+                      </property>
+                     </widget>
+                    </item>
                    </layout>
                   </widget>
                  </item>
@@ -385,6 +377,29 @@ QPushButton::checked {
                       </property>
                      </widget>
                     </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButton_reset_solo_temp">
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton{
+	border-width: 1px;
+	background-color:rgb(93, 117, 255);
+	color: rgb(0, 0, 0);
+}
+
+QPushButton::pressed{
+	border-width: 1px;
+	background-color:rgb(23, 23, 161);
+	color: rgb(0, 0, 0);
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>PushButton</string>
+                      </property>
+                     </widget>
+                    </item>
                    </layout>
                   </widget>
                  </item>
@@ -479,6 +494,29 @@ QPushButton::checked {
                      </widget>
                     </item>
                     <item>
+                     <widget class="QPushButton" name="pushButton_reset_temp">
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton{
+	border-width: 1px;
+	background-color:rgb(93, 117, 255);
+	color: rgb(0, 0, 0);
+}
+
+QPushButton::pressed{
+	border-width: 1px;
+	background-color:rgb(23, 23, 161);
+	color: rgb(0, 0, 0);
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>PushButton</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
                      <widget class="QPushButton" name="pushButton_autorange_temp">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
@@ -510,6 +548,29 @@ QPushButton::checked {
                       </property>
                       <property name="checkable">
                        <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButton_reset_main">
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton{
+	border-width: 1px;
+	background-color:rgb(93, 117, 255);
+	color: rgb(0, 0, 0);
+}
+
+QPushButton::pressed{
+	border-width: 1px;
+	background-color:rgb(23, 23, 161);
+	color: rgb(0, 0, 0);
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>PushButton</string>
                       </property>
                      </widget>
                     </item>
@@ -577,7 +638,7 @@ QPushButton::checked {
                  <property name="spacing">
                   <number>0</number>
                  </property>
-                 <item row="0" column="0">
+                 <item row="0" column="0" rowspan="2">
                   <widget class="PlotWidget" name="graphWidget_solo_channel_1" native="true">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -604,7 +665,10 @@ QPushButton::checked {
                    <property name="frameShadow">
                     <enum>QFrame::Raised</enum>
                    </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_5">
+                   <layout class="QVBoxLayout" name="verticalLayout_6">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
                     <property name="leftMargin">
                      <number>0</number>
                     </property>
@@ -649,6 +713,29 @@ QPushButton::checked {
                       </property>
                       <property name="checkable">
                        <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButton_reset_ch1">
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton{
+	border-width: 1px;
+	background-color:rgb(93, 117, 255);
+	color: rgb(0, 0, 0);
+}
+
+QPushButton::pressed{
+	border-width: 1px;
+	background-color:rgb(23, 23, 161);
+	color: rgb(0, 0, 0);
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>PushButton</string>
                       </property>
                      </widget>
                     </item>
@@ -701,7 +788,10 @@ QPushButton::checked {
                    <property name="frameShadow">
                     <enum>QFrame::Raised</enum>
                    </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_4">
+                   <layout class="QVBoxLayout" name="verticalLayout_9">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
                     <property name="leftMargin">
                      <number>0</number>
                     </property>
@@ -749,6 +839,29 @@ QPushButton::checked {
                       </property>
                      </widget>
                     </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButton_reset_ch2">
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton{
+	border-width: 1px;
+	background-color:rgb(93, 117, 255);
+	color: rgb(0, 0, 0);
+}
+
+QPushButton::pressed{
+	border-width: 1px;
+	background-color:rgb(23, 23, 161);
+	color: rgb(0, 0, 0);
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>PushButton</string>
+                      </property>
+                     </widget>
+                    </item>
                    </layout>
                   </widget>
                  </item>
@@ -791,7 +904,10 @@ QPushButton::checked {
                    <property name="frameShadow">
                     <enum>QFrame::Raised</enum>
                    </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_2">
+                   <layout class="QVBoxLayout" name="verticalLayout_8">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
                     <property name="leftMargin">
                      <number>0</number>
                     </property>
@@ -836,6 +952,29 @@ QPushButton::checked {
                       </property>
                       <property name="checkable">
                        <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButton_reset_ch3">
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton{
+	border-width: 1px;
+	background-color:rgb(93, 117, 255);
+	color: rgb(0, 0, 0);
+}
+
+QPushButton::pressed{
+	border-width: 1px;
+	background-color:rgb(23, 23, 161);
+	color: rgb(0, 0, 0);
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>PushButton</string>
                       </property>
                      </widget>
                     </item>
@@ -901,7 +1040,10 @@ QPushButton::checked {
                    <property name="frameShadow">
                     <enum>QFrame::Raised</enum>
                    </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_3">
+                   <layout class="QVBoxLayout" name="verticalLayout_7">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
                     <property name="leftMargin">
                      <number>0</number>
                     </property>
@@ -949,6 +1091,29 @@ QPushButton::checked {
                       </property>
                      </widget>
                     </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButton_reset_ch4">
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton{
+	border-width: 1px;
+	background-color:rgb(93, 117, 255);
+	color: rgb(0, 0, 0);
+}
+
+QPushButton::pressed{
+	border-width: 1px;
+	background-color:rgb(23, 23, 161);
+	color: rgb(0, 0, 0);
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>PushButton</string>
+                      </property>
+                     </widget>
+                    </item>
                    </layout>
                   </widget>
                  </item>
@@ -985,17 +1150,33 @@ QPushButton::checked {
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QComboBox" name="comboBox_Main_Temp">
+         <widget class="QFrame" name="frame_6">
           <property name="geometry">
            <rect>
-            <x>10</x>
-            <y>20</y>
-            <width>181</width>
-            <height>41</height>
+            <x>9</x>
+            <y>10</y>
+            <width>179</width>
+            <height>153</height>
            </rect>
           </property>
-          <property name="styleSheet">
-           <string notr="true">QComboBox {
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_10">
+           <item>
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700; color:#0b0b0b;&quot;&gt;Impostazioni&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBox_Main_Temp">
+             <property name="styleSheet">
+              <string notr="true">QComboBox {
     border: 3px solid gray;
     border-radius: 3px;
     padding: 1px 1px 1px 10px;
@@ -1027,34 +1208,28 @@ QComboBox QAbstractItemView {
     min-width: 6em;
     color: rgb(0, 0, 0); /* Colore del testo del QComboBox */
 }</string>
-          </property>
-          <item>
-           <property name="text">
-            <string>Main Channel</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Temperature Channel</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Main + Temperature Channel</string>
-           </property>
-          </item>
-         </widget>
-         <widget class="QComboBox" name="comboBox_Ch_1234">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>70</y>
-            <width>181</width>
-            <height>41</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QComboBox {
+             </property>
+             <item>
+              <property name="text">
+               <string>Main</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Temp</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Main + Temp</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBox_Ch_1234">
+             <property name="styleSheet">
+              <string notr="true">QComboBox {
     border: 3px solid gray;
     border-radius: 3px;
     padding: 1px 1px 1px 10px;
@@ -1086,39 +1261,33 @@ QComboBox QAbstractItemView {
     min-width: 6em;
     color: rgb(0, 0, 0); /* Colore del testo del QComboBox */
 }</string>
-          </property>
-          <item>
-           <property name="text">
-            <string>Channel 1</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Channel 2</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Channel 3</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Channel 4</string>
-           </property>
-          </item>
-         </widget>
-         <widget class="QLineEdit" name="lineEdit_time_window">
-          <property name="geometry">
-           <rect>
-            <x>20</x>
-            <y>130</y>
-            <width>151</width>
-            <height>28</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QWidget{
+             </property>
+             <item>
+              <property name="text">
+               <string>Channel 1</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Channel 2</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Channel 3</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Channel 4</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEdit_time_window">
+             <property name="styleSheet">
+              <string notr="true">QWidget{
 	background-color:rgb(255, 255, 255); 
 	border-style: outset;
     border-width: 2px;
@@ -1126,19 +1295,22 @@ QComboBox QAbstractItemView {
 	border-radius: 20;
 	color: rgb(0,0,0);
 }</string>
-          </property>
-          <property name="text">
-           <string>time-window</string>
-          </property>
-          <property name="maxLength">
-           <number>20</number>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-          <property name="clearButtonEnabled">
-           <bool>true</bool>
-          </property>
+             </property>
+             <property name="text">
+              <string>time-window</string>
+             </property>
+             <property name="maxLength">
+              <number>20</number>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="clearButtonEnabled">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </widget>
        </item>
