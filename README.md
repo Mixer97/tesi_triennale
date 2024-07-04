@@ -99,3 +99,6 @@
     Scrivere un riassunto di ciò che ho fatto fino ad ora per poi scrivere la tesi
     reset grafico con bottone
     esempio di scrittura e lettura json con python
+
+04/07
+    Continua lavoro con JSON

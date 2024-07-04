@@ -18,7 +18,7 @@ COSE DA FARE:
     - fare test con misura seria per le due celle di carico (specialmente la 2)
     - finire la media mobile e farla funzionare
     - implementare inserimento di note
-    - per il grafico, fare un grafico alla fine con la possibilita di scegliere quali celle fanno plotting
+    - per il grafico, fare un grafico che permetta di plottare sg600 conevrtito in Nm con una delle celle di carico
     - aggiungere colori ai bottoni per dare feedback quando vengono premuti (concludere e modificare i menu a tendina)
     - aggiungere menù registrazione per settare nome, fare partire e tenere un timer
 

@@ -244,8 +244,6 @@ class Ui_MainWindow(object):
         self.comboBox_5 = QComboBox(self.widget_7)
         self.comboBox_5.addItem("")
         self.comboBox_5.addItem("")
-        self.comboBox_5.addItem("")
-        self.comboBox_5.addItem("")
         self.comboBox_5.setObjectName(u"comboBox_5")
         self.comboBox_5.setEnabled(False)
         sizePolicy.setHeightForWidth(self.comboBox_5.sizePolicy().hasHeightForWidth())
@@ -886,8 +884,6 @@ class Ui_MainWindow(object):
 "	border-width: 1px;\n"
 "	background-color:rgb(56, 56, 56);\n"
 "	color: rgb(0, 0, 0);\n"
-"\n"
-"\n"
 "}")
 
         self.horizontalLayout_2.addWidget(self.pushButton_setup_page)
@@ -945,8 +941,6 @@ class Ui_MainWindow(object):
         self.label_SG600.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">SG-600</p></body></html>", None))
         self.comboBox_5.setItemText(0, QCoreApplication.translate("MainWindow", u"mV", None))
         self.comboBox_5.setItemText(1, QCoreApplication.translate("MainWindow", u"Nm", None))
-        self.comboBox_5.setItemText(2, QCoreApplication.translate("MainWindow", u"Kg", None))
-        self.comboBox_5.setItemText(3, QCoreApplication.translate("MainWindow", u"N", None))
 
         self.comboBox_5.setCurrentText(QCoreApplication.translate("MainWindow", u"mV", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Main Channel</p></body></html>", None))

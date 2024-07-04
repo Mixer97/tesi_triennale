@@ -405,16 +405,6 @@ QComboBox QAbstractItemView {
                      <string>Nm</string>
                     </property>
                    </item>
-                   <item>
-                    <property name="text">
-                     <string>Kg</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>N</string>
-                    </property>
-                   </item>
                   </widget>
                  </item>
                 </layout>
