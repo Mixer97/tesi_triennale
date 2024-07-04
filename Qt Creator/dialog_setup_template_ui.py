@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'dialog_setup_template.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.0
+## Created by: Qt User Interface Compiler version 6.7.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -164,7 +164,7 @@ class Ui_Canale_Setup(object):
         font1 = QFont()
         font1.setPointSize(15)
         self.pushButton_azzeramento_tara.setFont(font1)
-        self.pushButton_azzeramento_tara.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_azzeramento_tara.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_azzeramento_tara.setStyleSheet(u"QWidget{\n"
 "	background-color:qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0.965909, stop:0 rgba(255, 220, 129, 236), stop:1 rgba(255, 110, 110, 242)); \n"
 "	border-style: outset;\n"

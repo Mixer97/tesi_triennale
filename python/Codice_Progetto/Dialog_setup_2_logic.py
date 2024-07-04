@@ -20,6 +20,7 @@ class Canale_Setup_2(QDialog):
         self.controller_TCP = banco_di_taratura.controller_tcp
         self.controller_MODBUS = banco_di_taratura.controller_modbus
         self.logger = banco_di_taratura.logger
+        self.setModal(True)
         
  # Setup dei valori iniziali delle lineEdit
         i=self.controller_TCP.DATA.LIST_FULLSCALE[1]

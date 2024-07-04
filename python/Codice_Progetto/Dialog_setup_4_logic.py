@@ -16,6 +16,7 @@ class Canale_Setup_4(QDialog):
         self.ui = Ui_Canale_Setup_4()
         # Setup the user interface
         self.ui.setupUi(self)
+        self.setModal(True)
                         
         self.controller_TCP = banco_di_taratura.controller_tcp
         self.controller_MODBUS = banco_di_taratura.controller_modbus

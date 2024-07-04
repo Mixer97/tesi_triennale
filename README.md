@@ -101,4 +101,4 @@
     esempio di scrittura e lettura json con python
 
 04/07
-    Continua lavoro con JSON
+    Continua lavoro con JSON, creazione finestra per salvataggio Json.

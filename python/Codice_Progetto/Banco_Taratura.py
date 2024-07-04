@@ -32,6 +32,12 @@ class BANCO_DI_TARATURA:
         self.update_status = False
         self.list_status_checkbox = [0,0,0,0]   #[CH4, CH3, CH2, CH1]     
         self.status_timer = False  
+        
+        # variabili per salvataggio setup file
+        self.file_setup_name = None
+        
+        # variabili per salvataggio registrazione
+        self.registrazione_name = None
 
         
     # metodi comuni a tutte le istanze da metter qui
