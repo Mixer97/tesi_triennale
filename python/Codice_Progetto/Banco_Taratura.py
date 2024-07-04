@@ -10,6 +10,7 @@ from pymodbus import pymodbus_apply_logging_config
 from time import sleep
 import sys
 from View_QT_HomePage_logic import MainWindow
+import View_QT_HomePage_logic
 
 
 
@@ -20,7 +21,7 @@ class BANCO_DI_TARATURA:
     def __init__(self):
         self.controller_tcp=C_Laumas.Controller_TCP()
         self.controller_modbus=C_Seneca.Controller_MODBUS()
-        self.logger=Logger.LOGGER(nome_CSV="Test")
+        self.logger=Logger.LOGGER(nome_CSV="Default", banco_di_taratura=self)
         
         # variabili per home page
         self.startStop = False
@@ -38,6 +39,7 @@ class BANCO_DI_TARATURA:
         
         # variabili per salvataggio registrazione
         self.registrazione_name = None
+        self.counter_registrazione = 0
 
         
     # metodi comuni a tutte le istanze da metter qui

@@ -4,6 +4,7 @@ from PySide6.QtWidgets import QMainWindow
 from View_QT_HomePage_ui import Ui_MainWindow
 from View_QT_SetupPage_logic import SetupWindow
 from Mainwindow_grafico_logic import GraphWindow
+from Dialog_salavataggio_registrazione_logic import Salvataggio_registrazione
 from PySide6.QtCore import QSize
 from typing import TYPE_CHECKING
 
@@ -32,6 +33,7 @@ class MainWindow(QMainWindow):
         
         self.setup_window = SetupWindow(self.banco_di_taratura, self)
         self.setup_graph = GraphWindow(self.banco_di_taratura, self)
+        self.finestra_salvataggio_registrazione = Salvataggio_registrazione(self.banco_di_taratura, self)
     
     # setup segnali
         self.ui.pushButton_Interfaccia.clicked.connect(self.pulsante_interfaccia_click)  # pulsanti interfaccia e registrazione
@@ -47,21 +49,29 @@ class MainWindow(QMainWindow):
         self.timer1.timeout.connect(self.update_SG600_temp)              
         self.timer2.timeout.connect(self.setter_lcdDisplay_text_logger)                             
         self.ui.pushButton_setup_page.clicked.connect(self.show_setup_window) 
-        self.pulsante_interfaccia_click()       # click iniziale per avviare l'interfaccia             
-        self.timer1.timeout.connect(self.check)     # Check per chiusura dei timer alla chiusura dell'ultima finestra
-        self.show_graph_window()         # Mostra il la finestra con il grafico all' apertura
+        self.pulsante_interfaccia_click()               # click iniziale per avviare l'interfaccia             
+        self.timer1.timeout.connect(self.check)         # Check per chiusura dei timer alla chiusura dell'ultima finestra
+        self.show_graph_window()                        # Mostra la finestra con il grafico all' apertura
         self.ui.pushButton_grafico.clicked.connect(self.show_graph_window)
+        self.ui.pushButton_setup_registrazione.clicked.connect(self.show_finestra_salvataggio_registrazione)
+        self.timer2.timeout.connect(self.change_reg_lable)
+
+    def change_reg_lable(self):
+        self.ui.label_nome_reg_display.setText(self.banco_di_taratura.logger.nome_CSV)
 
     def show_setup_window(self):
         self.setup_window.show()
         
     def show_graph_window(self):
         self.setup_graph.show()
+        
+    def show_finestra_salvataggio_registrazione(self):
+        self.finestra_salvataggio_registrazione.show()
     
     def check(self):
         if self.timerStop == True:
             self.timer1.stop()
-        #     self.timer2.stop()
+            self.timer2.stop()
         
     def setter_lcdDisplay_text_logger(self):
         self.logger.DATA.text_lcd[0]=self.ui.comboBox_1.currentText()

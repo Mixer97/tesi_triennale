@@ -176,6 +176,94 @@ QPushButton{
                 </layout>
                </widget>
               </item>
+              <item row="2" column="0">
+               <widget class="QFrame" name="frame_3">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border-width: 0px</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_nome_reg">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QWidget {
+	background-color:rgb(255, 207, 84); 
+	border-style: outset;
+    border-width: 2px;
+    border-color: rgb(255, 106, 0);
+	border-radius: 20px;
+}
+QLabel{
+	color: rgb(0,0,0);
+}
+</string>
+                   </property>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#060606;&quot;&gt;Nome registrazione&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_nome_reg_display">
+                   <property name="styleSheet">
+                    <string notr="true">QWidget{
+	background-color:rgb(255, 255, 255); 
+	border-style: outset;
+    border-width: 2px;
+    border-color: rgb(255, 106, 0);
+	border-radius: 20;
+	color: rgb(0,0,0);
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>-</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
               <item row="0" column="0">
                <widget class="QWidget" name="widget_sfond_interfaccia" native="true">
                 <property name="sizePolicy">
@@ -1289,6 +1377,49 @@ QPushButton::pressed{
             </property>
             <property name="text">
              <string>SETUP</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_setup_registrazione">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <italic>false</italic>
+              <bold>false</bold>
+              <strikeout>false</strikeout>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	border-width: 1px;
+	background-color:rgb(107, 107, 107);
+	color: rgb(0, 0, 0);
+}
+
+QPushButton::pressed{
+	border-width: 1px;
+	background-color:rgb(56, 56, 56);
+	color: rgb(0, 0, 0);
+}</string>
+            </property>
+            <property name="text">
+             <string>REGISTRAZIONE</string>
             </property>
            </widget>
           </item>

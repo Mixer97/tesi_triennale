@@ -5,7 +5,11 @@ import Controller_Client_MODBUS_Seneca
 import time
 from time import sleep
 import csv
+import os
+from typing import TYPE_CHECKING
 
+if TYPE_CHECKING:
+    from Banco_Taratura import BANCO_DI_TARATURA
         
 class LOGGER:
     
@@ -18,11 +22,15 @@ class LOGGER:
             self.text_lcd_SG600_main_temp=["mV","mV"]  # Viene aggiornato dalla Main View in automatico [[DA IMPLEMENTARE]] 
             self.loop_status=True
             self.periodo_logger=0.005
+            self.counter_registrazione = 0
     
-    def __init__(self, nome_CSV, starting_status=False):
+    def __init__(self, banco_di_taratura, nome_CSV, starting_status=False):
         self.DATA=LOGGER.DATA()
-        self.path_CSV = 'C:\\Code_GIT\\tesi_triennale_Git\\python\\Codice_Progetto\\CSV\\' + str(nome_CSV) + ".csv"
+        self.banco_di_taratura = banco_di_taratura
+        self.nome_CSV = nome_CSV
+        self.path_CSV = 'python\\Codice_Progetto\\CSV\\' + str(self.nome_CSV) + ".csv"
         self.DATA.startStop_logger = starting_status
+        self.tmp = None
         
         # Creazione liste per dataframe
         self.list_time = []
@@ -60,12 +68,28 @@ class LOGGER:
         
         self.df = pd.DataFrame(self.my_df) 
         
-        # saving the DataFrame as a CSV file 
-        self.df.to_csv(self.path_CSV, index=False)  
-                
+        self.check_path()
+      
             # timer start
         self.timer = 0
         self.start_timer = time.time()  
+        
+        # Controllare se il file esiste
+    def check_path(self):
+        if os.path.exists(self.path_CSV):
+            print(f"Il file '{self.path_CSV}' esiste già. Non è stato sovrascritto.")
+            self.tmp = f"{self.nome_CSV}_{self.DATA.counter_registrazione}"
+            self.path_CSV = 'python\\Codice_Progetto\\CSV\\' + str(self.tmp) + ".csv"
+            self.DATA.counter_registrazione = self.DATA.counter_registrazione + 1
+            self.check_path()
+            # pop up con messaggio: inserire un nuovo nome al file di registrazione
+        else:
+            # Salvare il DataFrame come CSV
+            self.df.to_csv(self.path_CSV, index=False)  
+            print(f"Il file '{self.path_CSV}' è stato salvato con successo.")
+            if self.tmp != None:
+                self.nome_CSV = self.tmp
+        
           
     def log_data(self, controller_TCP, controller_MODBUS):  
         self.controller_TCP = controller_TCP

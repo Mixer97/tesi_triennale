@@ -20,7 +20,7 @@ COSE DA FARE:
     - implementare inserimento di note
     - per il grafico, fare un grafico che permetta di plottare sg600 conevrtito in Nm con una delle celle di carico
     - aggiungere colori ai bottoni per dare feedback quando vengono premuti (concludere e modificare i menu a tendina)
-    - aggiungere menù registrazione per settare nome, fare partire e tenere un timer
+    - aggiungere menù registrazione per settare nome, fare partire e tenere un timer.
 
 BUG SCOPERTI:
 

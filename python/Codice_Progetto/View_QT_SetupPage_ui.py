@@ -1058,17 +1058,17 @@ class Ui_SetupWindow(object):
 
         self.gridLayout_27.addWidget(self.widget, 0, 0, 1, 1)
 
-        self.pushButton = QPushButton(self.widget_2)
-        self.pushButton.setObjectName(u"pushButton")
-        sizePolicy.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
-        self.pushButton.setSizePolicy(sizePolicy)
-        self.pushButton.setMinimumSize(QSize(0, 70))
+        self.pushButton_salvataggio_setup = QPushButton(self.widget_2)
+        self.pushButton_salvataggio_setup.setObjectName(u"pushButton_salvataggio_setup")
+        sizePolicy.setHeightForWidth(self.pushButton_salvataggio_setup.sizePolicy().hasHeightForWidth())
+        self.pushButton_salvataggio_setup.setSizePolicy(sizePolicy)
+        self.pushButton_salvataggio_setup.setMinimumSize(QSize(0, 70))
         font2 = QFont()
         font2.setPointSize(25)
-        self.pushButton.setFont(font2)
-        self.pushButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.pushButton.setMouseTracking(False)
-        self.pushButton.setStyleSheet(u"QWidget {\n"
+        self.pushButton_salvataggio_setup.setFont(font2)
+        self.pushButton_salvataggio_setup.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.pushButton_salvataggio_setup.setMouseTracking(False)
+        self.pushButton_salvataggio_setup.setStyleSheet(u"QWidget {\n"
 "	background-color: rgb(136, 125, 255);\n"
 "	border-style: outset;\n"
 "    border-width: 6px;\n"
@@ -1081,7 +1081,7 @@ class Ui_SetupWindow(object):
 "}\n"
 "")
 
-        self.gridLayout_27.addWidget(self.pushButton, 2, 0, 1, 1)
+        self.gridLayout_27.addWidget(self.pushButton_salvataggio_setup, 2, 0, 1, 1)
 
         self.pushButton_concludi_setup = QPushButton(self.widget_2)
         self.pushButton_concludi_setup.setObjectName(u"pushButton_concludi_setup")
@@ -1184,7 +1184,7 @@ class Ui_SetupWindow(object):
         self.label_Principale_SG600.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700;\">Principale</span></p></body></html>", None))
         self.label_sensCHSG600.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">SENS. [mV/V]</span></p></body></html>", None))
         self.label_CHSG600.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">FONDOSCALA [?]</span></p></body></html>", None))
-        self.pushButton.setText(QCoreApplication.translate("SetupWindow", u"SALVATAGGIO SETUP", None))
+        self.pushButton_salvataggio_setup.setText(QCoreApplication.translate("SetupWindow", u"SALVATAGGIO SETUP", None))
         self.pushButton_concludi_setup.setText(QCoreApplication.translate("SetupWindow", u"CONCLUSIONE SETUP", None))
         self.pushButton_setup_CHSG600.setText(QCoreApplication.translate("SetupWindow", u"SETUP SG600", None))
     # retranslateUi

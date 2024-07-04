@@ -1366,7 +1366,7 @@ QLCDNumber{
             </widget>
            </item>
            <item row="2" column="0">
-            <widget class="QPushButton" name="pushButton">
+            <widget class="QPushButton" name="pushButton_salvataggio_setup">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
                <horstretch>0</horstretch>

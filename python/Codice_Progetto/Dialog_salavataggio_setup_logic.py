@@ -6,10 +6,10 @@ import Handler_JSON
 
 if TYPE_CHECKING:
     from Banco_Taratura import BANCO_DI_TARATURA
-
+    from View_QT_HomePage_logic import MainWindow
 
 class Salvataggio_setup(QDialog):
-    def __init__(self, banco_di_taratura:BANCO_DI_TARATURA):
+    def __init__(self, banco_di_taratura:BANCO_DI_TARATURA, homepage:MainWindow):
         super().__init__()
         self.banco_di_taratura=banco_di_taratura
         # Create an instance of the generated UI class
@@ -20,7 +20,7 @@ class Salvataggio_setup(QDialog):
         
         # segnali
         self.ui.lineEdit_nome_file.editingFinished.connect(self.update_filename)
-        self.ui.pushButton_salvataggio.clicked.connect(Handler_JSON.handle)
+        # self.ui.pushButton_salvataggio.clicked.connect(Handler_JSON.handle)
         
     # metodi
     def update_filename(self):

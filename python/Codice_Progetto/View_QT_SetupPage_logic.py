@@ -7,6 +7,7 @@ from Dialog_setup_2_logic import Canale_Setup_2
 from Dialog_setup_3_logic import Canale_Setup_3
 from Dialog_setup_4_logic import Canale_Setup_4
 from Dialog_setup_SG600_logic import Canale_Setup_SG600
+from Dialog_salavataggio_setup_logic import Salvataggio_setup
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -32,6 +33,8 @@ class SetupWindow(QMainWindow):
         self.update_status = banco_di_taratura.update_status # bool [FALSE]
         self.list_status_checkbox = banco_di_taratura.list_status_checkbox  # list status ordine:  [ch4, ch3, ch2, ch1]
         self.status_timer = banco_di_taratura.status_timer  # bool [FALSE]
+        
+        self.finestra_salvataggio_setup = Salvataggio_setup(self.banco_di_taratura, self)
         
         while self.list_status_checkbox == [0,0,0,0]:     
             self.list_status_checkbox=self.controller_TCP.read_channels_active() 
@@ -93,6 +96,7 @@ class SetupWindow(QMainWindow):
         self.ui.pushButton_setup_CH3.clicked.connect(self.open_setup_CH3_window)
         self.ui.pushButton_setup_CH4.clicked.connect(self.open_setup_CH4_window)
         self.ui.pushButton_setup_CHSG600.clicked.connect(self.open_setup_SG600_window)
+        self.ui.pushButton_salvataggio_setup.clicked.connect(self.show_finestra_salvataggio_setup)
         
         # segnale per ritorno alla homapage
         self.ui.pushButton_home.clicked.connect(self.show_home_window)
@@ -101,6 +105,8 @@ class SetupWindow(QMainWindow):
         self.homepage.show()
         self.close()
         
+    def show_finestra_salvataggio_setup(self):
+        self.finestra_salvataggio_setup.show()
         
     def open_setup_CH1_window(self):
         self.setup_window = Canale_Setup_1(banco_di_taratura=self.banco_di_taratura)

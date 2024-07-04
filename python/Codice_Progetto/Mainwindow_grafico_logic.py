@@ -33,7 +33,7 @@ class Graph:
         self.GraphWindow = GraphWindow
         self.time_window = 5  # In secondi (tempo sull asse delle y)
         self.media_window = 0.5 # In secondi (tempo sul quale fa la media mobile)
-        self.alpha = 0.1 # coefficiente per media esponenziale
+        self.alpha = 0.005 # coefficiente per media esponenziale
         self.autorange_status = False  # status del grafico riguardante autorange
         self.buffer = [0]
         
@@ -254,7 +254,7 @@ class Graph:
         
         # Append new random value to data list
         # self.dataY.append(self.media_esponenziale())
-        self.dataY.append(self.media_mobile())
+        self.dataY.append(self.media_esponenziale())
         actual_time = time.time()
         difference = actual_time - self.start_time
         self.dataX.append(difference)

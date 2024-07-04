@@ -141,6 +141,55 @@ class Ui_MainWindow(object):
 
         self.gridLayout_2.addWidget(self.widget_sfondo_registrazione, 1, 0, 1, 1)
 
+        self.frame_3 = QFrame(self.widget_12)
+        self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setMinimumSize(QSize(0, 30))
+        self.frame_3.setMaximumSize(QSize(16777215, 30))
+        self.frame_3.setStyleSheet(u"border-width: 0px")
+        self.frame_3.setFrameShape(QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout = QHBoxLayout(self.frame_3)
+        self.horizontalLayout.setSpacing(0)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.label_nome_reg = QLabel(self.frame_3)
+        self.label_nome_reg.setObjectName(u"label_nome_reg")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Preferred)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.label_nome_reg.sizePolicy().hasHeightForWidth())
+        self.label_nome_reg.setSizePolicy(sizePolicy2)
+        self.label_nome_reg.setStyleSheet(u"QWidget {\n"
+"	background-color:rgb(255, 207, 84); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 20px;\n"
+"}\n"
+"QLabel{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+
+        self.horizontalLayout.addWidget(self.label_nome_reg)
+
+        self.label_nome_reg_display = QLabel(self.frame_3)
+        self.label_nome_reg_display.setObjectName(u"label_nome_reg_display")
+        self.label_nome_reg_display.setStyleSheet(u"QWidget{\n"
+"	background-color:rgb(255, 255, 255); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 20;\n"
+"	color: rgb(0,0,0);\n"
+"}")
+        self.label_nome_reg_display.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout.addWidget(self.label_nome_reg_display)
+
+
+        self.gridLayout_2.addWidget(self.frame_3, 2, 0, 1, 1)
+
         self.widget_sfond_interfaccia = QWidget(self.widget_12)
         self.widget_sfond_interfaccia.setObjectName(u"widget_sfond_interfaccia")
         sizePolicy.setHeightForWidth(self.widget_sfond_interfaccia.sizePolicy().hasHeightForWidth())
@@ -202,11 +251,11 @@ class Ui_MainWindow(object):
 
         self.widget_6 = QWidget(self.widget_2)
         self.widget_6.setObjectName(u"widget_6")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.widget_6.sizePolicy().hasHeightForWidth())
-        self.widget_6.setSizePolicy(sizePolicy2)
+        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.widget_6.sizePolicy().hasHeightForWidth())
+        self.widget_6.setSizePolicy(sizePolicy3)
         self.widget_6.setStyleSheet(u"QWidget {\n"
 "	background-color:orange; \n"
 "	border-style: outset;\n"
@@ -300,11 +349,11 @@ class Ui_MainWindow(object):
         self.gridLayout_8.setObjectName(u"gridLayout_8")
         self.lcdNumber_temperature_SG600 = QLCDNumber(self.widget_7)
         self.lcdNumber_temperature_SG600.setObjectName(u"lcdNumber_temperature_SG600")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Preferred)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.lcdNumber_temperature_SG600.sizePolicy().hasHeightForWidth())
-        self.lcdNumber_temperature_SG600.setSizePolicy(sizePolicy3)
+        sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Preferred)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.lcdNumber_temperature_SG600.sizePolicy().hasHeightForWidth())
+        self.lcdNumber_temperature_SG600.setSizePolicy(sizePolicy4)
         font4 = QFont()
         font4.setPointSize(9)
         font4.setBold(False)
@@ -328,8 +377,8 @@ class Ui_MainWindow(object):
 
         self.lcdNumber_main_SG600 = QLCDNumber(self.widget_7)
         self.lcdNumber_main_SG600.setObjectName(u"lcdNumber_main_SG600")
-        sizePolicy3.setHeightForWidth(self.lcdNumber_main_SG600.sizePolicy().hasHeightForWidth())
-        self.lcdNumber_main_SG600.setSizePolicy(sizePolicy3)
+        sizePolicy4.setHeightForWidth(self.lcdNumber_main_SG600.sizePolicy().hasHeightForWidth())
+        self.lcdNumber_main_SG600.setSizePolicy(sizePolicy4)
         self.lcdNumber_main_SG600.setStyleSheet(u"QWidget {\n"
 "	background-color:white; \n"
 "	border-style: outset;\n"
@@ -864,8 +913,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.pushButton_setup_page = QPushButton(self.frame)
         self.pushButton_setup_page.setObjectName(u"pushButton_setup_page")
-        sizePolicy3.setHeightForWidth(self.pushButton_setup_page.sizePolicy().hasHeightForWidth())
-        self.pushButton_setup_page.setSizePolicy(sizePolicy3)
+        sizePolicy4.setHeightForWidth(self.pushButton_setup_page.sizePolicy().hasHeightForWidth())
+        self.pushButton_setup_page.setSizePolicy(sizePolicy4)
         self.pushButton_setup_page.setMaximumSize(QSize(200, 16777215))
         font6 = QFont()
         font6.setPointSize(14)
@@ -888,6 +937,27 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_2.addWidget(self.pushButton_setup_page)
 
+        self.pushButton_setup_registrazione = QPushButton(self.frame)
+        self.pushButton_setup_registrazione.setObjectName(u"pushButton_setup_registrazione")
+        sizePolicy4.setHeightForWidth(self.pushButton_setup_registrazione.sizePolicy().hasHeightForWidth())
+        self.pushButton_setup_registrazione.setSizePolicy(sizePolicy4)
+        self.pushButton_setup_registrazione.setMaximumSize(QSize(200, 16777215))
+        self.pushButton_setup_registrazione.setFont(font6)
+        self.pushButton_setup_registrazione.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.pushButton_setup_registrazione.setStyleSheet(u"QPushButton{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(107, 107, 107);\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"\n"
+"QPushButton::pressed{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(56, 56, 56);\n"
+"	color: rgb(0, 0, 0);\n"
+"}")
+
+        self.horizontalLayout_2.addWidget(self.pushButton_setup_registrazione)
+
         self.frame_2 = QFrame(self.frame)
         self.frame_2.setObjectName(u"frame_2")
         self.frame_2.setStyleSheet(u"    border-width: 0px;")
@@ -898,8 +968,8 @@ class Ui_MainWindow(object):
 
         self.pushButton_grafico = QPushButton(self.frame)
         self.pushButton_grafico.setObjectName(u"pushButton_grafico")
-        sizePolicy3.setHeightForWidth(self.pushButton_grafico.sizePolicy().hasHeightForWidth())
-        self.pushButton_grafico.setSizePolicy(sizePolicy3)
+        sizePolicy4.setHeightForWidth(self.pushButton_grafico.sizePolicy().hasHeightForWidth())
+        self.pushButton_grafico.setSizePolicy(sizePolicy4)
         self.pushButton_grafico.setMaximumSize(QSize(200, 16777215))
         self.pushButton_grafico.setFont(font6)
         self.pushButton_grafico.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
@@ -936,6 +1006,8 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">REGISTRAZIONE</p></body></html>", None))
         self.pushButton_Registrazione.setText(QCoreApplication.translate("MainWindow", u"START", None))
+        self.label_nome_reg.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" color:#060606;\">Nome registrazione</span></p></body></html>", None))
+        self.label_nome_reg_display.setText(QCoreApplication.translate("MainWindow", u"-", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">INTERFACCIA</p></body></html>", None))
         self.pushButton_Interfaccia.setText(QCoreApplication.translate("MainWindow", u"START", None))
         self.label_SG600.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">SG-600</p></body></html>", None))
@@ -974,6 +1046,7 @@ class Ui_MainWindow(object):
 
         self.comboBox_4.setCurrentText(QCoreApplication.translate("MainWindow", u"mV", None))
         self.pushButton_setup_page.setText(QCoreApplication.translate("MainWindow", u"SETUP", None))
+        self.pushButton_setup_registrazione.setText(QCoreApplication.translate("MainWindow", u"REGISTRAZIONE", None))
         self.pushButton_grafico.setText(QCoreApplication.translate("MainWindow", u"GRAFICO", None))
     # retranslateUi
 
