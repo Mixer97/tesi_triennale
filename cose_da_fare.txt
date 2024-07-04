@@ -10,17 +10,18 @@ COSE DA FARE:
     [[- schermi lcd per SG600 displayano solamente le caratteristiche del canale main e non quelle del canale temperatura]]
     [[- implementazione parte di visualizzazione grafica della applicazione]]
         [[- Problemi: update di valori legato alla scelta dell'unità di misura nel menu a tendina (richiamare lupdate dei valori anche per il grafico)]]
-    - Implementazione scrittura e visualizzazione con lo zero dei millivolt (capire la logica che ci sta dietro)
+    [[- Implementazione scrittura e visualizzazione con lo zero dei millivolt (capire la logica che ci sta dietro)]]
     - impostare salvataggio selle impostazioni su JSON (IMPORTANTE)
     - implementazione parte di gestione della misura e calcolo della stabilità
     - sistemare il menù a tendina per l'SG600
         - implementare misura tramite retta approssimante lineare con coefficiente dato dall app dell SG600
     - fare test con misura seria per le due celle di carico (specialmente la 2)
-    - finire la media mobile e farla funzionare
+    [[- finire la media mobile e farla funzionare]]
     - implementare inserimento di note
     - per il grafico, fare un grafico che permetta di plottare sg600 conevrtito in Nm con una delle celle di carico
     - aggiungere colori ai bottoni per dare feedback quando vengono premuti (concludere e modificare i menu a tendina)
-    - aggiungere menù registrazione per settare nome, fare partire e tenere un timer.
+    - aggiungere menù registrazione per settare nome, fare partire e tenere un timer. (concludere)
+    - raffinare il salvataggio della registrazione su logger
 
 BUG SCOPERTI:
 
