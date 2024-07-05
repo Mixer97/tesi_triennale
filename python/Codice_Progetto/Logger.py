@@ -76,19 +76,22 @@ class LOGGER:
         
         # Controllare se il file esiste
     def check_path(self):
-        if os.path.exists(self.path_CSV):
-            print(f"Il file '{self.path_CSV}' esiste già. Non è stato sovrascritto.")
-            self.tmp = f"{self.nome_CSV}_{self.DATA.counter_registrazione}"
-            self.path_CSV = 'python\\Codice_Progetto\\CSV\\' + str(self.tmp) + ".csv"
-            self.DATA.counter_registrazione = self.DATA.counter_registrazione + 1
-            self.check_path()
-            # pop up con messaggio: inserire un nuovo nome al file di registrazione
-        else:
-            # Salvare il DataFrame come CSV
-            self.df.to_csv(self.path_CSV, index=False)  
-            print(f"Il file '{self.path_CSV}' è stato salvato con successo.")
-            if self.tmp != None:
-                self.nome_CSV = self.tmp
+            if os.path.exists(self.path_CSV) and self.nome_CSV != "Default":
+                    print(f"Il file '{self.path_CSV}' esiste già. Non è stato sovrascritto.")
+                    self.tmp = f"{self.nome_CSV}_{self.DATA.counter_registrazione}"
+                    self.path_CSV = 'python\\Codice_Progetto\\CSV\\' + str(self.tmp) + ".csv"
+                    self.DATA.counter_registrazione = self.DATA.counter_registrazione + 1
+                    self.check_path()
+                    # pop up con messaggio: inserire un nuovo nome al file di registrazione
+            else:
+                # Salvare il DataFrame come CSV
+                self.df.to_csv(self.path_CSV, index=False) 
+                if self.nome_CSV == "Default": 
+                    print(f"Il file '{self.path_CSV}' è stato sovrascritto siccome era il file di default.")
+                else:
+                    print(f"Il file '{self.path_CSV}' è stato salvato con successo.")
+                if self.tmp != None:
+                    self.nome_CSV = self.tmp
         
           
     def log_data(self, controller_TCP, controller_MODBUS):  

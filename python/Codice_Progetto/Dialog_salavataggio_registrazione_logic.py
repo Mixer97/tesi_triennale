@@ -26,7 +26,6 @@ class Salvataggio_registrazione(QDialog):
         
         # Cambiamenti
         self.ui.label_salvataggio_title.setText("""<html><head/><body><p align="center"><span style=" font-size:16pt; color:#292fa3;">SALVATAGGIO FILE REGISTRAZIONE</span></p></body></html>""")
-        self.ui.pushButton_salvataggio.setText("CAMBIA NOME")
 
     # metodi
     def update_filename(self):

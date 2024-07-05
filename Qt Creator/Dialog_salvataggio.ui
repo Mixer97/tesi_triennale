@@ -138,7 +138,7 @@ QPushButton::pressed{
 }</string>
              </property>
              <property name="text">
-              <string>SALVA</string>
+              <string>CONCLUDI</string>
              </property>
             </widget>
            </item>
@@ -146,7 +146,7 @@ QPushButton::pressed{
          </item>
          <item row="0" column="0" colspan="2">
           <layout class="QGridLayout" name="gridLayout_5">
-           <item row="0" column="0">
+           <item row="0" column="1">
             <widget class="QLineEdit" name="lineEdit_nome_file">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -166,12 +166,12 @@ QPushButton::pressed{
 	border-style: outset;
     border-width: 2px;
     border-color: rgb(255, 106, 0);
-	border-radius: 20;
+	border-radius: 0px;
 	color: rgb(0,0,0);
 }</string>
              </property>
              <property name="text">
-              <string>DEFAULT</string>
+              <string>Default</string>
              </property>
              <property name="maxLength">
               <number>100</number>
@@ -187,6 +187,26 @@ QPushButton::pressed{
              </property>
              <property name="clearButtonEnabled">
               <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_nome_file">
+             <property name="styleSheet">
+              <string notr="true">QWidget {
+	background-color:rgb(255, 207, 84); 
+	border-style: outset;
+    border-width: 2px;
+    border-color: rgb(255, 106, 0);
+	border-radius: 0px;
+}
+QLabel{
+	color: rgb(0,0,0);
+}
+</string>
+             </property>
+             <property name="text">
+              <string>NOME FILE</string>
              </property>
             </widget>
            </item>

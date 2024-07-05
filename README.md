@@ -106,3 +106,4 @@
 05/07
     inserimento chiusura dopo premuta pulsante delle finestre di salvataggio csv e json 
     implementata la conversione in Nm e C dei due canali dell'SG600
+    inizio a lavorare sul grafico per plottare SG600 main convertito e una cella di carico

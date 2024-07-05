@@ -513,13 +513,17 @@ QPushButton::checked {
                       </property>
                       <property name="styleSheet">
                        <string notr="true">QPushButton{
-	border-width: 1px;
+	border-style: outset;
+    border-width: 1px;
+    border-color:rgb(98, 93, 255);
 	background-color:rgb(93, 117, 255);
 	color: rgb(0, 0, 0);
 }
 
 QPushButton::pressed{
-	border-width: 1px;
+	border-style: outset;
+    border-width: 1px;
+	border-color:rgb(70, 70, 255);
 	background-color:rgb(23, 23, 161);
 	color: rgb(0, 0, 0);
 }</string>

@@ -133,7 +133,7 @@ class Ui_Dialog(object):
 "	border-style: outset;\n"
 "    border-width: 2px;\n"
 "    border-color: rgb(255, 106, 0);\n"
-"	border-radius: 20;\n"
+"	border-radius: 0px;\n"
 "	color: rgb(0,0,0);\n"
 "}")
         self.lineEdit_nome_file.setMaxLength(100)
@@ -141,7 +141,23 @@ class Ui_Dialog(object):
         self.lineEdit_nome_file.setAlignment(Qt.AlignCenter)
         self.lineEdit_nome_file.setClearButtonEnabled(True)
 
-        self.gridLayout_5.addWidget(self.lineEdit_nome_file, 0, 0, 1, 1)
+        self.gridLayout_5.addWidget(self.lineEdit_nome_file, 0, 1, 1, 1)
+
+        self.label_nome_file = QLabel(self.gridWidget_3)
+        self.label_nome_file.setObjectName(u"label_nome_file")
+        self.label_nome_file.setStyleSheet(u"QWidget {\n"
+"	background-color:rgb(255, 207, 84); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 0px;\n"
+"}\n"
+"QLabel{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+
+        self.gridLayout_5.addWidget(self.label_nome_file, 0, 0, 1, 1)
 
 
         self.gridLayout_2.addLayout(self.gridLayout_5, 0, 0, 1, 2)
@@ -161,8 +177,9 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
         self.label_salvataggio_title.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; color:#292fa3;\">SALVATAGGIO FILE SETUP</span></p></body></html>", None))
-        self.pushButton_salvataggio.setText(QCoreApplication.translate("Dialog", u"SALVA", None))
-        self.lineEdit_nome_file.setText(QCoreApplication.translate("Dialog", u"DEFAULT", None))
+        self.pushButton_salvataggio.setText(QCoreApplication.translate("Dialog", u"CONCLUDI", None))
+        self.lineEdit_nome_file.setText(QCoreApplication.translate("Dialog", u"Default", None))
         self.lineEdit_nome_file.setPlaceholderText("")
+        self.label_nome_file.setText(QCoreApplication.translate("Dialog", u"NOME FILE", None))
     # retranslateUi
 

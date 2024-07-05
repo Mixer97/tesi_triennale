@@ -290,13 +290,17 @@ class Ui_GraphWindow(object):
         self.pushButton_reset_main_and_channel.setObjectName(u"pushButton_reset_main_and_channel")
         self.pushButton_reset_main_and_channel.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_reset_main_and_channel.setStyleSheet(u"QPushButton{\n"
-"	border-width: 1px;\n"
+"	border-style: outset;\n"
+"    border-width: 1px;\n"
+"    border-color:rgb(98, 93, 255);\n"
 "	background-color:rgb(93, 117, 255);\n"
 "	color: rgb(0, 0, 0);\n"
 "}\n"
 "\n"
 "QPushButton::pressed{\n"
-"	border-width: 1px;\n"
+"	border-style: outset;\n"
+"    border-width: 1px;\n"
+"	border-color:rgb(70, 70, 255);\n"
 "	background-color:rgb(23, 23, 161);\n"
 "	color: rgb(0, 0, 0);\n"
 "}")
