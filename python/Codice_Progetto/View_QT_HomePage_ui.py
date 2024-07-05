@@ -294,7 +294,7 @@ class Ui_MainWindow(object):
         self.comboBox_5.addItem("")
         self.comboBox_5.addItem("")
         self.comboBox_5.setObjectName(u"comboBox_5")
-        self.comboBox_5.setEnabled(False)
+        self.comboBox_5.setEnabled(True)
         sizePolicy.setHeightForWidth(self.comboBox_5.sizePolicy().hasHeightForWidth())
         self.comboBox_5.setSizePolicy(sizePolicy)
         font3 = QFont()

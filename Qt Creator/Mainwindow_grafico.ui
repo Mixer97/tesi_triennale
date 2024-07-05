@@ -422,7 +422,20 @@ QPushButton::pressed{
                  <property name="spacing">
                   <number>0</number>
                  </property>
-                 <item row="0" column="1" rowspan="4">
+                 <item row="1" column="0">
+                  <widget class="PlotWidget" name="graphWidget_SG600_main_and_channel" native="true">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(26, 49, 255);</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1" rowspan="3">
                   <widget class="QFrame" name="frame_11">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -459,7 +472,7 @@ QPushButton::pressed{
                      <number>0</number>
                     </property>
                     <item>
-                     <widget class="QPushButton" name="pushButton_autorange_main">
+                     <widget class="QPushButton" name="pushButton_autorange_main_and_channel">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
                         <horstretch>0</horstretch>
@@ -494,65 +507,7 @@ QPushButton::checked {
                      </widget>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="pushButton_reset_temp">
-                      <property name="cursor">
-                       <cursorShape>PointingHandCursor</cursorShape>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">QPushButton{
-	border-width: 1px;
-	background-color:rgb(93, 117, 255);
-	color: rgb(0, 0, 0);
-}
-
-QPushButton::pressed{
-	border-width: 1px;
-	background-color:rgb(23, 23, 161);
-	color: rgb(0, 0, 0);
-}</string>
-                      </property>
-                      <property name="text">
-                       <string>PushButton</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="pushButton_autorange_temp">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="cursor">
-                       <cursorShape>PointingHandCursor</cursorShape>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">QWidget {
-	background-color:rgb(255, 106, 106); 
-	border-style: outset;
-    border-width: 1px;
-    border-color:rgb(255, 137, 137);
-	color: rgb(0,0,0);
-}
-
-QPushButton::checked {
-	background-color:rgb(152, 29, 24);
-    border-color:rgb(77, 33, 33);
-}
-
-</string>
-                      </property>
-                      <property name="text">
-                       <string/>
-                      </property>
-                      <property name="checkable">
-                       <bool>true</bool>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="pushButton_reset_main">
+                     <widget class="QPushButton" name="pushButton_reset_main_and_channel">
                       <property name="cursor">
                        <cursorShape>PointingHandCursor</cursorShape>
                       </property>
@@ -575,32 +530,6 @@ QPushButton::pressed{
                      </widget>
                     </item>
                    </layout>
-                  </widget>
-                 </item>
-                 <item row="1" column="0">
-                  <widget class="PlotWidget" name="graphWidget_SG600_main" native="true">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(26, 49, 255);</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="2" column="0">
-                  <widget class="PlotWidget" name="graphWidget_SG600_temp" native="true">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(26, 49, 255);</string>
-                   </property>
                   </widget>
                  </item>
                 </layout>
@@ -1221,7 +1150,7 @@ QComboBox QAbstractItemView {
              </item>
              <item>
               <property name="text">
-               <string>Main + Temp</string>
+               <string>Main + Channel</string>
               </property>
              </item>
             </widget>

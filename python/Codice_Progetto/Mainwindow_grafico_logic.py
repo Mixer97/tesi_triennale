@@ -223,10 +223,6 @@ class Graph:
     def elaborate_data_main(self):
         if self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd_SG600_main_temp[0] == 'mV':
             data = self.GraphWindow.banco_di_taratura.controller_modbus.DATA.canale_principale_mV
-        elif self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd_SG600_main_temp[0] == 'Kg':
-            data = self.GraphWindow.banco_di_taratura.controller_modbus.DATA.canale_principale_Kg
-        elif self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd_SG600_main_temp[0] == 'N':
-            data = self.GraphWindow.banco_di_taratura.controller_modbus.DATA.canale_principale_N
         elif self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd_SG600_main_temp[0] == 'Nm':
             data = self.GraphWindow.banco_di_taratura.controller_modbus.DATA.canale_principale_Nm
         else:
@@ -283,8 +279,7 @@ class GraphWindow(QMainWindow):
         self.homepage = homepage
         
         # grafici disponibili
-        graph_main = self.ui.graphWidget_SG600_main
-        graph_temp = self.ui.graphWidget_SG600_temp
+        graph_main_and_channel = self.ui.graphWidget_SG600_main_and_channel
         graph_soloTemp = self.ui.graphWidget_SG600_solo_temp
         graph_soloMain = self.ui.graphWidget_SG600_solo_main
         graph_ch1 = self.ui.graphWidget_solo_channel_1
@@ -304,9 +299,8 @@ class GraphWindow(QMainWindow):
         self.controller_TCP = banco_di_taratura.controller_tcp
         self.controller_MODBUS = banco_di_taratura.controller_modbus
         
-        self.graph_main = Graph(self, graph=graph_main, channel=channel_main_ch, title='Main', start_time=self.start_time)
+        self.graph_main_and_channel = Graph(self, graph=graph_main_and_channel, channel=channel_main_ch, title='Main + channel', start_time=self.start_time)
         self.graph_soloMain = Graph(self, graph=graph_soloMain, channel=channel_main_ch, title='Main', start_time=self.start_time)
-        self.graph_temp = Graph(self, graph=graph_temp, channel=channel_temp_ch, title='Temp', start_time=self.start_time)
         self.graph_soloTemp = Graph(self, graph=graph_soloTemp, channel=channel_temp_ch, title='Temp', start_time=self.start_time)
         
         self.graph_ch1 = Graph(self, graph=graph_ch1, channel=channel_ch1, title='CH1', start_time=self.start_time)
@@ -314,10 +308,9 @@ class GraphWindow(QMainWindow):
         self.graph_ch3 = Graph(self, graph=graph_ch3, channel=channel_ch3, title='CH3', start_time=self.start_time)
         self.graph_ch4 = Graph(self, graph=graph_ch4, channel=channel_ch4, title='CH4', start_time=self.start_time)
         
-        self.graph_vector = [self.graph_main,
+        self.graph_vector = [self.graph_main_and_channel,
                              self.graph_soloMain,
                              self.graph_soloTemp, 
-                             self.graph_temp, 
                              self.graph_ch1,
                              self.graph_ch2,
                              self.graph_ch3,
@@ -331,18 +324,16 @@ class GraphWindow(QMainWindow):
         self.ui.pushButton_autorange_ch2.clicked.connect(self.graph_ch2.change_status_autorange)
         self.ui.pushButton_autorange_ch3.clicked.connect(self.graph_ch3.change_status_autorange)
         self.ui.pushButton_autorange_ch4.clicked.connect(self.graph_ch4.change_status_autorange)
-        self.ui.pushButton_autorange_temp.clicked.connect(self.graph_temp.change_status_autorange)
         self.ui.pushButton_autorange_solo_temp.clicked.connect(self.graph_soloTemp.change_status_autorange)
-        self.ui.pushButton_autorange_main.clicked.connect(self.graph_main.change_status_autorange)
+        self.ui.pushButton_autorange_main_and_channel.clicked.connect(self.graph_main_and_channel.change_status_autorange)
         self.ui.pushButton_autorange_solo_main.clicked.connect(self.graph_soloMain.change_status_autorange)
         
         self.ui.pushButton_reset_ch1.clicked.connect(self,self.graph_ch1.reset_grafico)
         self.ui.pushButton_reset_ch2.clicked.connect(self.graph_ch2.reset_grafico)
         self.ui.pushButton_reset_ch3.clicked.connect(self.graph_ch3.reset_grafico)
         self.ui.pushButton_reset_ch4.clicked.connect(self.graph_ch4.reset_grafico)
-        self.ui.pushButton_reset_temp.clicked.connect(self.graph_temp.reset_grafico)
         self.ui.pushButton_reset_solo_temp.clicked.connect(self.graph_soloTemp.reset_grafico)
-        self.ui.pushButton_reset_main.clicked.connect(self.graph_main.reset_grafico)
+        self.ui.pushButton_reset_main_and_channel.clicked.connect(self.graph_main_and_channel.reset_grafico)
         self.ui.pushButton_reset_solo_main.clicked.connect(self.graph_soloMain.reset_grafico)
         
         # Segnale per torare a home page

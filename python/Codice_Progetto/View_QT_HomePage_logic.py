@@ -200,12 +200,15 @@ class MainWindow(QMainWindow):
         if self.ui.comboBox_5.currentText() == "mV":
                 main_mV = self.controller_MODBUS.get_mV_main()
                 self.ui.lcdNumber_main_SG600.display(main_mV)
+        elif self.ui.comboBox_5.currentText() == "Nm":
+                main_Nm = self.controller_MODBUS.get_Nm_main()
+                self.ui.lcdNumber_main_SG600.display(main_Nm)
         else:
             print("Error: something went wrong in the selection of the measuring unit in SG600_main!")       
             exit(1)
                 
                 
     def update_SG600_temp(self):
-        temp_mV = self.controller_MODBUS.get_mV_temp()
-        self.ui.lcdNumber_temperature_SG600.display(temp_mV)
+        temp_C = self.controller_MODBUS.get_C_temp()
+        self.ui.lcdNumber_temperature_SG600.display(temp_C)
         

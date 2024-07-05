@@ -203,9 +203,9 @@ class LOGGER:
         if self.DATA.text_lcd_SG600_main_temp[0] == "mV":
                 main_mV = Controller_Client_MODBUS_Seneca.Controller_MODBUS.get_mV_main(controller_MODBUS)
                 self.DATA.result_list_SG600_main_temp[0]=main_mV
-    #   elif self.DATA.text_lcd_SG600_main_temp[0] == "Nm":
-    #           main_Nm = controller_MODBUS.get_Nm()
-    #           self.DATA.result_list_SG600_main_temp[0]=main_Nm
+        elif self.DATA.text_lcd_SG600_main_temp[0] == "Nm":
+                main_Nm = Controller_Client_MODBUS_Seneca.Controller_MODBUS.get_Nm_main(controller_MODBUS)
+                self.DATA.result_list_SG600_main_temp[0]=main_Nm
         else:
                 print("Error: something went wrong in the selection of the measuring unit in SG600 main!")       
                 exit(1)
@@ -214,9 +214,9 @@ class LOGGER:
         if self.DATA.text_lcd_SG600_main_temp[1] == "mV":
                 temp_mV = Controller_Client_MODBUS_Seneca.Controller_MODBUS.get_mV_temp(controller_MODBUS)
                 self.DATA.result_list_SG600_main_temp[1]=temp_mV
-    #   elif self.DATA.text_lcd_SG600_main_temp[1] == "C":
-    #           temp_C = controller_MODBUS.get_Nm()
-    #           self.DATA.result_list_SG600_main_temp[1]=temp_C
+        elif self.DATA.text_lcd_SG600_main_temp[1] == "C":
+                temp_C = Controller_Client_MODBUS_Seneca.Controller_MODBUS.get_C_temp(controller_MODBUS)
+                self.DATA.result_list_SG600_main_temp[1]=temp_C
         else:
                 print("Error: something went wrong in the selection of the measuring unit in SG600 temp!")       
                 exit(1)

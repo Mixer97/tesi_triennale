@@ -51,10 +51,8 @@ class SetupWindow(QMainWindow):
         self.ui.lcdNumber_CH2.setDigitCount(7)
         self.ui.lcdNumber_CH3.setDigitCount(7)
         self.ui.lcdNumber_CH4.setDigitCount(7)
-        self.ui.lcdNumber_fondoscala_CHSG600.setDigitCount(7)
-        self.ui.lcdNumber_sens_CHSG600.setDigitCount(7)
-        self.ui.lcdNumber_fondoscala_CHSG600_temp.setDigitCount(7)
-        self.ui.lcdNumber_sens_CHSG600_temp.setDigitCount(7)
+        self.ui.lcdNumber_coefficiente_CHSG600.setDigitCount(7)
+        self.ui.lcdNumber_coefficiente_CHSG600_temp.setDigitCount(7)
         
         self.ui.lcdNumber_CH1_2.display(self.controller_TCP.DATA.LIST_FULLSCALE[0])
         self.ui.lcdNumber_CH2_2.display(self.controller_TCP.DATA.LIST_FULLSCALE[1])
@@ -64,10 +62,8 @@ class SetupWindow(QMainWindow):
         self.ui.lcdNumber_CH2.display(self.controller_TCP.DATA.LIST_SENSIBILITY[1])
         self.ui.lcdNumber_CH3.display(self.controller_TCP.DATA.LIST_SENSIBILITY[2])
         self.ui.lcdNumber_CH4.display(self.controller_TCP.DATA.LIST_SENSIBILITY[3])
-        self.ui.lcdNumber_fondoscala_CHSG600.display(self.controller_MODBUS.DATA.fondo_scala_principale)
-        self.ui.lcdNumber_sens_CHSG600.display(self.controller_MODBUS.DATA.sensibilità_principale)
-        self.ui.lcdNumber_fondoscala_CHSG600_temp.display(self.controller_MODBUS.DATA.fondo_scala_temperatura)
-        self.ui.lcdNumber_sens_CHSG600_temp.display(self.controller_MODBUS.DATA.sensibilità_temperatura)
+        self.ui.lcdNumber_coefficiente_CHSG600.display(self.controller_MODBUS.DATA.coefficiente_main)
+        self.ui.lcdNumber_coefficiente_CHSG600_temp.display(self.controller_MODBUS.DATA.coefficiente_temp)
         
         # controllo i canali attivi nella scheda e faccio corrispodere la grafica
         if self.list_status_checkbox[3] == 1:
@@ -150,10 +146,8 @@ class SetupWindow(QMainWindow):
         self.ui.lcdNumber_CH2.display(self.controller_TCP.DATA.LIST_SENSIBILITY[1])
         self.ui.lcdNumber_CH3.display(self.controller_TCP.DATA.LIST_SENSIBILITY[2])
         self.ui.lcdNumber_CH4.display(self.controller_TCP.DATA.LIST_SENSIBILITY[3])
-        self.ui.lcdNumber_fondoscala_CHSG600.display(self.controller_MODBUS.DATA.fondo_scala_principale)
-        self.ui.lcdNumber_sens_CHSG600.display(self.controller_MODBUS.DATA.sensibilità_principale)
-        self.ui.lcdNumber_fondoscala_CHSG600_temp.display(self.controller_MODBUS.DATA.fondo_scala_temperatura)
-        self.ui.lcdNumber_sens_CHSG600_temp.display(self.controller_MODBUS.DATA.sensibilità_temperatura)
+        self.ui.lcdNumber_coefficiente_CHSG600.display(self.controller_MODBUS.DATA.coefficiente_main)
+        self.ui.lcdNumber_coefficiente_CHSG600_temp.display(self.controller_MODBUS.DATA.coefficiente_temp)
         
         # Updtate dei testi dei checkbox
         if self.list_status_checkbox[3]==0:

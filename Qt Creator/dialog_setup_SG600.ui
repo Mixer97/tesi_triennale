@@ -99,80 +99,10 @@
 </string>
           </property>
           <layout class="QGridLayout" name="gridLayout_2">
-           <item row="0" column="0">
-            <layout class="QGridLayout" name="gridLayout">
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_sensib_setup_main">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QLabel{
-	background-color: rgb(178, 193, 255);
-	border-style: outset;
-    border-width: 2px;
-	border-color: rgb(128, 112, 211);
-	border-radius: 20px;
-	color: rgb(0,0,0);
-}
-</string>
-               </property>
-               <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;SENSIBILITA'&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item row="0" column="1" colspan="2">
-            <layout class="QGridLayout" name="gridLayout_5">
-             <item row="0" column="0">
-              <widget class="QLineEdit" name="lineEdit_sensibilita_main">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="font">
-                <font>
-                 <pointsize>16</pointsize>
-                 <italic>true</italic>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QWidget{
-	background-color:rgb(255, 255, 255); 
-	border-style: outset;
-    border-width: 2px;
-	border-color: rgb(128, 112, 211);
-	border-radius: 20;
-	color: rgb(0,0,0);
-}</string>
-               </property>
-               <property name="text">
-                <string>-</string>
-               </property>
-               <property name="cursorPosition">
-                <number>1</number>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-               <property name="clearButtonEnabled">
-                <bool>false</bool>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item row="2" column="1" colspan="2">
+           <item row="1" column="1" colspan="2">
             <layout class="QGridLayout" name="gridLayout_6">
              <item row="0" column="1">
-              <widget class="QLineEdit" name="lineEdit_fondoscala_main">
+              <widget class="QLineEdit" name="lineEdit_coefficiente_main">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -205,10 +135,10 @@
              </item>
             </layout>
            </item>
-           <item row="2" column="0">
+           <item row="1" column="0">
             <layout class="QGridLayout" name="gridLayout_3">
              <item row="0" column="0">
-              <widget class="QLabel" name="label_fondoscala_setup_main">
+              <widget class="QLabel" name="label_coefficiente_setup_main">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -227,13 +157,13 @@
 </string>
                </property>
                <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;FONDOSCALA&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;COEFFICIENTE&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
               </widget>
              </item>
             </layout>
            </item>
-           <item row="3" column="0" colspan="3">
+           <item row="2" column="0" colspan="3">
             <layout class="QGridLayout" name="gridLayout_9">
              <item row="0" column="0">
               <widget class="QPushButton" name="pushButton_azzeramento_main">
@@ -307,10 +237,10 @@ QPushButton::pressed{
 </string>
           </property>
           <layout class="QGridLayout" name="gridLayout_7">
-           <item row="0" column="1" colspan="2">
-            <layout class="QGridLayout" name="gridLayout_10">
-             <item row="0" column="0">
-              <widget class="QLineEdit" name="lineEdit_sensibilita_temp">
+           <item row="1" column="1" colspan="2">
+            <layout class="QGridLayout" name="gridLayout_13">
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="lineEdit_coefficiente_temp">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -336,23 +266,17 @@ QPushButton::pressed{
                <property name="text">
                 <string>-</string>
                </property>
-               <property name="cursorPosition">
-                <number>1</number>
-               </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
-               </property>
-               <property name="clearButtonEnabled">
-                <bool>false</bool>
                </property>
               </widget>
              </item>
             </layout>
            </item>
-           <item row="0" column="0">
-            <layout class="QGridLayout" name="gridLayout_11">
+           <item row="1" column="0">
+            <layout class="QGridLayout" name="gridLayout_14">
              <item row="0" column="0">
-              <widget class="QLabel" name="label_sensib_setup_temp">
+              <widget class="QLabel" name="label_coefficiente_setup_temp">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -371,13 +295,13 @@ QPushButton::pressed{
 </string>
                </property>
                <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;SENSIBILITA'&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;COEFFICIENTE&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
               </widget>
              </item>
             </layout>
            </item>
-           <item row="3" column="0" colspan="3">
+           <item row="2" column="0" colspan="3">
             <layout class="QGridLayout" name="gridLayout_12">
              <item row="0" column="0">
               <widget class="QPushButton" name="pushButton_azzeramento_main_2">
@@ -419,70 +343,6 @@ QPushButton::pressed{
                </property>
                <property name="text">
                 <string>ZERO CANALE TEMPERATURA</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item row="2" column="1" colspan="2">
-            <layout class="QGridLayout" name="gridLayout_13">
-             <item row="0" column="1">
-              <widget class="QLineEdit" name="lineEdit_fondoscala_temp">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="font">
-                <font>
-                 <pointsize>16</pointsize>
-                 <italic>true</italic>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QWidget{
-	background-color:rgb(255, 255, 255); 
-	border-style: outset;
-    border-width: 2px;
-	border-color: rgb(128, 112, 211);
-	border-radius: 20;
-	color: rgb(0,0,0);
-}</string>
-               </property>
-               <property name="text">
-                <string>-</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item row="2" column="0">
-            <layout class="QGridLayout" name="gridLayout_14">
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_fondoscala_setup_temp">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QLabel{
-	background-color: rgb(178, 193, 255);
-	border-style: outset;
-    border-width: 2px;
-	border-color: rgb(128, 112, 211);
-	border-radius: 20px;
-	color: rgb(0,0,0);
-}
-</string>
-               </property>
-               <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;FONDOSCALA&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
               </widget>
              </item>

@@ -848,69 +848,6 @@ class Ui_SetupWindow(object):
 "}")
         self.gridLayout_12 = QGridLayout(self.widget)
         self.gridLayout_12.setObjectName(u"gridLayout_12")
-        self.gridLayout_3 = QGridLayout()
-        self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.label_Temperatura_SG600_temp = QLabel(self.widget)
-        self.label_Temperatura_SG600_temp.setObjectName(u"label_Temperatura_SG600_temp")
-        self.label_Temperatura_SG600_temp.setStyleSheet(u"QLabel {\n"
-"    border: 2px solid black;\n"
-"    border-radius: 20px;\n"
-"	background-color: rgb(198, 213, 255);\n"
-"	border-style: outset;\n"
-"    border-width: 2px;\n"
-"	border-color: rgb(95, 140, 212);\n"
-"}\n"
-"QLabel{\n"
-"	color: rgb(0,0,0);\n"
-"}\n"
-"")
-
-        self.gridLayout_3.addWidget(self.label_Temperatura_SG600_temp, 0, 0, 1, 1)
-
-
-        self.gridLayout_12.addLayout(self.gridLayout_3, 0, 1, 1, 1)
-
-        self.gridLayout_5 = QGridLayout()
-        self.gridLayout_5.setObjectName(u"gridLayout_5")
-        self.gridLayout_5.setVerticalSpacing(0)
-        self.lcdNumber_sens_CHSG600_temp = QLCDNumber(self.widget)
-        self.lcdNumber_sens_CHSG600_temp.setObjectName(u"lcdNumber_sens_CHSG600_temp")
-        self.lcdNumber_sens_CHSG600_temp.setMinimumSize(QSize(0, 0))
-        self.lcdNumber_sens_CHSG600_temp.setStyleSheet(u"QWidget {\n"
-"	background-color:white; \n"
-"	border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-color: black;\n"
-"	border-radius: 0px;\n"
-"}\n"
-"QLCDNumber{\n"
-"	color: rgb(0,0,0);\n"
-"}\n"
-"")
-
-        self.gridLayout_5.addWidget(self.lcdNumber_sens_CHSG600_temp, 2, 0, 1, 1)
-
-        self.label_sensCHSG600_temp = QLabel(self.widget)
-        self.label_sensCHSG600_temp.setObjectName(u"label_sensCHSG600_temp")
-        self.label_sensCHSG600_temp.setStyleSheet(u"QLabel {\n"
-"    border: 2px solid black;\n"
-"    border-radius: 0px;\n"
-"	background-color: rgb(198, 213, 255);\n"
-"	border-style: outset;\n"
-"    border-width: 2px;\n"
-"	border-color: rgb(95, 140, 212);\n"
-"}\n"
-"QLabel{\n"
-"	color: rgb(0,0,0);\n"
-"}\n"
-"")
-        self.label_sensCHSG600_temp.setTextFormat(Qt.RichText)
-
-        self.gridLayout_5.addWidget(self.label_sensCHSG600_temp, 1, 0, 1, 1)
-
-
-        self.gridLayout_12.addLayout(self.gridLayout_5, 1, 1, 1, 1)
-
         self.gridLayout_11 = QGridLayout()
         self.gridLayout_11.setObjectName(u"gridLayout_11")
         self.gridLayout_11.setVerticalSpacing(0)
@@ -932,9 +869,9 @@ class Ui_SetupWindow(object):
 
         self.gridLayout_11.addWidget(self.label_CHSG600_temp, 0, 0, 1, 1)
 
-        self.lcdNumber_fondoscala_CHSG600_temp = QLCDNumber(self.widget)
-        self.lcdNumber_fondoscala_CHSG600_temp.setObjectName(u"lcdNumber_fondoscala_CHSG600_temp")
-        self.lcdNumber_fondoscala_CHSG600_temp.setStyleSheet(u"QWidget {\n"
+        self.lcdNumber_coefficiente_CHSG600_temp = QLCDNumber(self.widget)
+        self.lcdNumber_coefficiente_CHSG600_temp.setObjectName(u"lcdNumber_coefficiente_CHSG600_temp")
+        self.lcdNumber_coefficiente_CHSG600_temp.setStyleSheet(u"QWidget {\n"
 "	background-color:white; \n"
 "	border-style: outset;\n"
 "    border-width: 2px;\n"
@@ -946,16 +883,16 @@ class Ui_SetupWindow(object):
 "}\n"
 "")
 
-        self.gridLayout_11.addWidget(self.lcdNumber_fondoscala_CHSG600_temp, 1, 0, 1, 1)
+        self.gridLayout_11.addWidget(self.lcdNumber_coefficiente_CHSG600_temp, 1, 0, 1, 1)
 
 
-        self.gridLayout_12.addLayout(self.gridLayout_11, 2, 1, 1, 1)
+        self.gridLayout_12.addLayout(self.gridLayout_11, 1, 1, 1, 1)
 
-        self.gridLayout_4 = QGridLayout()
-        self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.label_Principale_SG600 = QLabel(self.widget)
-        self.label_Principale_SG600.setObjectName(u"label_Principale_SG600")
-        self.label_Principale_SG600.setStyleSheet(u"QLabel {\n"
+        self.gridLayout_3 = QGridLayout()
+        self.gridLayout_3.setObjectName(u"gridLayout_3")
+        self.label_Temperatura_SG600_temp = QLabel(self.widget)
+        self.label_Temperatura_SG600_temp.setObjectName(u"label_Temperatura_SG600_temp")
+        self.label_Temperatura_SG600_temp.setStyleSheet(u"QLabel {\n"
 "    border: 2px solid black;\n"
 "    border-radius: 20px;\n"
 "	background-color: rgb(198, 213, 255);\n"
@@ -968,51 +905,10 @@ class Ui_SetupWindow(object):
 "}\n"
 "")
 
-        self.gridLayout_4.addWidget(self.label_Principale_SG600, 0, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.label_Temperatura_SG600_temp, 0, 0, 1, 1)
 
 
-        self.gridLayout_12.addLayout(self.gridLayout_4, 0, 0, 1, 1)
-
-        self.gridLayout_10 = QGridLayout()
-        self.gridLayout_10.setObjectName(u"gridLayout_10")
-        self.gridLayout_10.setVerticalSpacing(0)
-        self.lcdNumber_sens_CHSG600 = QLCDNumber(self.widget)
-        self.lcdNumber_sens_CHSG600.setObjectName(u"lcdNumber_sens_CHSG600")
-        self.lcdNumber_sens_CHSG600.setMinimumSize(QSize(0, 0))
-        self.lcdNumber_sens_CHSG600.setStyleSheet(u"QWidget {\n"
-"	background-color:white; \n"
-"	border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-color: black;\n"
-"	border-radius: 0px;\n"
-"}\n"
-"QLCDNumber{\n"
-"	color: rgb(0,0,0);\n"
-"}\n"
-"")
-
-        self.gridLayout_10.addWidget(self.lcdNumber_sens_CHSG600, 2, 0, 1, 1)
-
-        self.label_sensCHSG600 = QLabel(self.widget)
-        self.label_sensCHSG600.setObjectName(u"label_sensCHSG600")
-        self.label_sensCHSG600.setStyleSheet(u"QLabel {\n"
-"    border: 2px solid black;\n"
-"    border-radius: 0px;\n"
-"	background-color: rgb(198, 213, 255);\n"
-"	border-style: outset;\n"
-"    border-width: 2px;\n"
-"	border-color: rgb(95, 140, 212);\n"
-"}\n"
-"QLabel{\n"
-"	color: rgb(0,0,0);\n"
-"}\n"
-"")
-        self.label_sensCHSG600.setTextFormat(Qt.RichText)
-
-        self.gridLayout_10.addWidget(self.label_sensCHSG600, 1, 0, 1, 1)
-
-
-        self.gridLayout_12.addLayout(self.gridLayout_10, 1, 0, 1, 1)
+        self.gridLayout_12.addLayout(self.gridLayout_3, 0, 1, 1, 1)
 
         self.gridLayout_2 = QGridLayout()
         self.gridLayout_2.setObjectName(u"gridLayout_2")
@@ -1036,9 +932,9 @@ class Ui_SetupWindow(object):
 
         self.gridLayout_2.addWidget(self.label_CHSG600, 0, 0, 1, 1)
 
-        self.lcdNumber_fondoscala_CHSG600 = QLCDNumber(self.widget)
-        self.lcdNumber_fondoscala_CHSG600.setObjectName(u"lcdNumber_fondoscala_CHSG600")
-        self.lcdNumber_fondoscala_CHSG600.setStyleSheet(u"QWidget {\n"
+        self.lcdNumber_coefficiente_CHSG600 = QLCDNumber(self.widget)
+        self.lcdNumber_coefficiente_CHSG600.setObjectName(u"lcdNumber_coefficiente_CHSG600")
+        self.lcdNumber_coefficiente_CHSG600.setStyleSheet(u"QWidget {\n"
 "	background-color:white; \n"
 "	border-style: outset;\n"
 "    border-width: 2px;\n"
@@ -1050,10 +946,32 @@ class Ui_SetupWindow(object):
 "}\n"
 "")
 
-        self.gridLayout_2.addWidget(self.lcdNumber_fondoscala_CHSG600, 1, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.lcdNumber_coefficiente_CHSG600, 1, 0, 1, 1)
 
 
-        self.gridLayout_12.addLayout(self.gridLayout_2, 2, 0, 1, 1)
+        self.gridLayout_12.addLayout(self.gridLayout_2, 1, 0, 1, 1)
+
+        self.gridLayout_4 = QGridLayout()
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.label_Principale_SG600 = QLabel(self.widget)
+        self.label_Principale_SG600.setObjectName(u"label_Principale_SG600")
+        self.label_Principale_SG600.setStyleSheet(u"QLabel {\n"
+"    border: 2px solid black;\n"
+"    border-radius: 20px;\n"
+"	background-color: rgb(198, 213, 255);\n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"	border-color: rgb(95, 140, 212);\n"
+"}\n"
+"QLabel{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+
+        self.gridLayout_4.addWidget(self.label_Principale_SG600, 0, 0, 1, 1)
+
+
+        self.gridLayout_12.addLayout(self.gridLayout_4, 0, 0, 1, 1)
 
 
         self.gridLayout_27.addWidget(self.widget, 0, 0, 1, 1)
@@ -1194,12 +1112,10 @@ class Ui_SetupWindow(object):
         self.label_CH4_2.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">SENS. [mV/V]</span></p></body></html>", None))
         self.checkBox_CH4.setText(QCoreApplication.translate("SetupWindow", u"OFF", None))
         self.label_CH4.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">FONDOSCALA [?]</span></p></body></html>", None))
+        self.label_CHSG600_temp.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">COEFF [C/mV]</span></p></body></html>", None))
         self.label_Temperatura_SG600_temp.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700;\">Temperatura</span></p></body></html>", None))
-        self.label_sensCHSG600_temp.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">SENS. [mV/V]</span></p></body></html>", None))
-        self.label_CHSG600_temp.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">FONDOSCALA [?]</span></p></body></html>", None))
+        self.label_CHSG600.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">COEFF [Nm/mV]</span></p></body></html>", None))
         self.label_Principale_SG600.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700;\">Principale</span></p></body></html>", None))
-        self.label_sensCHSG600.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">SENS. [mV/V]</span></p></body></html>", None))
-        self.label_CHSG600.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">FONDOSCALA [?]</span></p></body></html>", None))
         self.pushButton_salvataggio_setup.setText(QCoreApplication.translate("SetupWindow", u"SALVATAGGIO SETUP", None))
         self.pushButton_concludi_setup.setText(QCoreApplication.translate("SetupWindow", u"CONCLUSIONE SETUP", None))
         self.pushButton_setup_CHSG600.setText(QCoreApplication.translate("SetupWindow", u"SETUP SG600", None))

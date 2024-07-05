@@ -26,19 +26,21 @@ class Controller_MODBUS:
             # main
             self.canale_principale_mV=0
             self.canale_principale_Nm=0
-            self.canale_principale_Kg=0
-            self.canale_principale_N=0
-            self.sensibilità_principale=2.0000
-            self.fondo_scala_principale=10000
-            self.lever_length=1
+            # self.canale_principale_Kg=0
+            # self.canale_principale_N=0
+            # self.sensibilità_principale=2.0000
+            # self.fondo_scala_principale=10000
+            # self.lever_length=1
             self.zero_main=0
+            self.coefficiente_main = 1  # Nm/mV
             
             # temp
             self.canale_temperatura_mV=0
             self.canale_temperatura_C=0
-            self.sensibilità_temperatura=1
-            self.fondo_scala_temperatura=1
+            # self.sensibilità_temperatura=1
+            # self.fondo_scala_temperatura=1
             self.zero_temp=0
+            self.coefficiente_temp = 1  # C/mV
             
     def __init__(self, port="COM8", baudrate=2400, bytesize=8, parity="N", stopbits=1, ID=1):
         self.SLAVE = self.SLAVE(port, baudrate, bytesize, parity, stopbits, ID)
@@ -106,18 +108,16 @@ class Controller_MODBUS:
     def get_mV_main(self):
         return self.DATA.canale_principale_mV
     
-    # def get_Nm_main(self):
-    #     if self.DATA.sensibilità_principale!=0:
-    #         self.DATA.canale_principale_Nm = self.DATA.lever_length*9.81*(self.DATA.fondo_scala_principale/(self.SLAVE.CHN_VOLTAGE*self.DATA.LIST_SENSIBILITY[i]))*(self.DATA.LIST_mV_ZERO[i] - self.DATA.LIST_mV_VALUE[i])
-    #     else:
-    #         self.DATA.LIST_Nm_VALUE[i] = 0
-    #     return self.DATA.LIST_Nm_VALUE
+    def get_Nm_main(self):
+        self.DATA.canale_principale_Nm = (self.DATA.canale_principale_mV - self.DATA.zero_main) * self.DATA.coefficiente_main
+        return self.DATA.canale_principale_Nm
     
     def get_mV_temp(self):
         return self.DATA.canale_temperatura_mV
     
-    # def get_C_temp():
-    #     return DATA.canale_temperatura_C
+    def get_C_temp(self):
+        self.DATA.canale_temperatura_C = (self.DATA.canale_temperatura_mV - self.DATA.zero_temp) * self.DATA.coefficiente_temp
+        return self.DATA.canale_temperatura_C
             
 if __name__ == "__main__":
     controller=Controller_MODBUS()

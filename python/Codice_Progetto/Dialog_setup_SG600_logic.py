@@ -23,23 +23,15 @@ class Canale_Setup_SG600(QDialog):
         self.logger = banco_di_taratura.logger
 
 
-        
         # Setup dei valori iniziali delle lineEdit
-        sens_main=self.controller_MODBUS.DATA.sensibilità_principale
-        sens_temp=self.controller_MODBUS.DATA.sensibilità_temperatura
-        full_main=self.controller_MODBUS.DATA.fondo_scala_principale
-        full_temp=self.controller_MODBUS.DATA.fondo_scala_temperatura
-        
-        self.ui.lineEdit_fondoscala_main.setText(str(full_main))
-        self.ui.lineEdit_sensibilita_main.setText(str(sens_main))
-        self.ui.lineEdit_fondoscala_temp.setText(str(full_temp))
-        self.ui.lineEdit_sensibilita_temp.setText(str(sens_temp))
+        coefficiente_main=self.controller_MODBUS.DATA.coefficiente_main
+        coefficiente_temp=self.controller_MODBUS.DATA.coefficiente_temp
+        self.ui.lineEdit_coefficiente_main.setText(str(coefficiente_main))
+        self.ui.lineEdit_coefficiente_temp.setText(str(coefficiente_temp))
         
         # Setup dei segnali
-        self.ui.lineEdit_fondoscala_main.textChanged.connect(self.update_fondoscala_main)
-        self.ui.lineEdit_sensibilita_main.textChanged.connect(self.update_sensibilità_main)
-        self.ui.lineEdit_fondoscala_temp.textChanged.connect(self.update_fondoscala_temp)
-        self.ui.lineEdit_sensibilita_temp.textChanged.connect(self.update_sensibilità_temp)
+        self.ui.lineEdit_coefficiente_main.editingFinished.connect(self.update_coefficiente_main)
+        self.ui.lineEdit_coefficiente_temp.editingFinished.connect(self.update_coefficiente_temp)
         self.ui.pushButton_azzeramento_main.clicked.connect(self.update_zero_main)
         self.ui.pushButton_azzeramento_main_2.clicked.connect(self.update_zero_temp)
 
@@ -47,38 +39,22 @@ class Canale_Setup_SG600(QDialog):
     def update_zero_main(self):
         self.banco_di_taratura.controller_modbus.DATA.zero_main = self.banco_di_taratura.controller_modbus.DATA.canale_principale_mV
 
-
     def update_zero_temp(self):
         self.banco_di_taratura.controller_modbus.DATA.zero_temp = self.banco_di_taratura.controller_modbus.DATA.canale_temperatura_mV
 
-        
-    def update_fondoscala_main(self):
-        new_value = self.ui.lineEdit_fondoscala_main.text() 
+    def update_coefficiente_main(self):
+        new_value = self.ui.lineEdit_coefficiente_main.text() 
         if is_number_tryexcept(new_value):
-            self.controller_MODBUS.DATA.fondo_scala_principale = float(new_value)
+            self.controller_MODBUS.DATA.coefficiente_main = float(new_value)
         else:
             print("Valore inserito non rappresenta un numero")       
-            
-    def update_sensibilità_main(self):
-        new_value = self.ui.lineEdit_sensibilita_main.text() 
+
+    def update_coefficiente_temp(self):
+        new_value = self.ui.lineEdit_coefficiente_temp.text() 
         if is_number_tryexcept(new_value):
-            self.controller_MODBUS.DATA.sensibilità_principale = float(new_value)
-        else:
-            print("Valore inserito non rappresenta un numero")
-            
-    def update_fondoscala_temp(self):
-        new_value = self.ui.lineEdit_fondoscala_temp.text() 
-        if is_number_tryexcept(new_value):
-            self.controller_MODBUS.DATA.fondo_scala_temperatura = float(new_value)
+            self.controller_MODBUS.DATA.coefficiente_temp = float(new_value)
         else:
             print("Valore inserito non rappresenta un numero")       
-            
-    def update_sensibilità_temp(self):
-        new_value = self.ui.lineEdit_sensibilita_temp.text() 
-        if is_number_tryexcept(new_value):
-            self.controller_MODBUS.DATA.sensibilità_temperatura = float(new_value)
-        else:
-            print("Valore inserito non rappresenta un numero")
 
 
 def is_number_tryexcept(s):

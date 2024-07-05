@@ -1105,6 +1105,54 @@ QLCDNumber{
 }</string>
              </property>
              <layout class="QGridLayout" name="gridLayout_12">
+              <item row="1" column="1">
+               <layout class="QGridLayout" name="gridLayout_11">
+                <property name="verticalSpacing">
+                 <number>0</number>
+                </property>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_CHSG600_temp">
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+    border: 2px solid black;
+    border-radius: 0px;
+	background-color: rgb(198, 213, 255);
+	border-style: outset;
+    border-width: 2px;
+	border-color: rgb(95, 140, 212);
+}
+QLabel{
+	color: rgb(0,0,0);
+}
+</string>
+                  </property>
+                  <property name="text">
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;COEFF [C/mV]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                  </property>
+                  <property name="textFormat">
+                   <enum>Qt::RichText</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLCDNumber" name="lcdNumber_coefficiente_CHSG600_temp">
+                  <property name="styleSheet">
+                   <string notr="true">QWidget {
+	background-color:white; 
+	border-style: outset;
+    border-width: 2px;
+    border-color: black;
+	border-radius: 0px;
+}
+QLCDNumber{
+	color: rgb(0,0,0);
+}
+</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
               <item row="0" column="1">
                <layout class="QGridLayout" name="gridLayout_3">
                 <item row="0" column="0">
@@ -1130,67 +1178,16 @@ QLabel{
                 </item>
                </layout>
               </item>
-              <item row="1" column="1">
-               <layout class="QGridLayout" name="gridLayout_5">
-                <property name="verticalSpacing">
-                 <number>0</number>
+              <item row="1" column="0">
+               <layout class="QGridLayout" name="gridLayout_2">
+                <property name="horizontalSpacing">
+                 <number>7</number>
                 </property>
-                <item row="2" column="0">
-                 <widget class="QLCDNumber" name="lcdNumber_sens_CHSG600_temp">
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QWidget {
-	background-color:white; 
-	border-style: outset;
-    border-width: 2px;
-    border-color: black;
-	border-radius: 0px;
-}
-QLCDNumber{
-	color: rgb(0,0,0);
-}
-</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QLabel" name="label_sensCHSG600_temp">
-                  <property name="styleSheet">
-                   <string notr="true">QLabel {
-    border: 2px solid black;
-    border-radius: 0px;
-	background-color: rgb(198, 213, 255);
-	border-style: outset;
-    border-width: 2px;
-	border-color: rgb(95, 140, 212);
-}
-QLabel{
-	color: rgb(0,0,0);
-}
-</string>
-                  </property>
-                  <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;SENS. [mV/V]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                  </property>
-                  <property name="textFormat">
-                   <enum>Qt::RichText</enum>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item row="2" column="1">
-               <layout class="QGridLayout" name="gridLayout_11">
                 <property name="verticalSpacing">
                  <number>0</number>
                 </property>
                 <item row="0" column="0">
-                 <widget class="QLabel" name="label_CHSG600_temp">
+                 <widget class="QLabel" name="label_CHSG600">
                   <property name="styleSheet">
                    <string notr="true">QLabel {
     border: 2px solid black;
@@ -1206,7 +1203,7 @@ QLabel{
 </string>
                   </property>
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;FONDOSCALA [?]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;COEFF [Nm/mV]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                   <property name="textFormat">
                    <enum>Qt::RichText</enum>
@@ -1214,7 +1211,7 @@ QLabel{
                  </widget>
                 </item>
                 <item row="1" column="0">
-                 <widget class="QLCDNumber" name="lcdNumber_fondoscala_CHSG600_temp">
+                 <widget class="QLCDNumber" name="lcdNumber_coefficiente_CHSG600">
                   <property name="styleSheet">
                    <string notr="true">QWidget {
 	background-color:white; 
@@ -1252,111 +1249,6 @@ QLabel{
                   </property>
                   <property name="text">
                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:700;&quot;&gt;Principale&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item row="1" column="0">
-               <layout class="QGridLayout" name="gridLayout_10">
-                <property name="verticalSpacing">
-                 <number>0</number>
-                </property>
-                <item row="2" column="0">
-                 <widget class="QLCDNumber" name="lcdNumber_sens_CHSG600">
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QWidget {
-	background-color:white; 
-	border-style: outset;
-    border-width: 2px;
-    border-color: black;
-	border-radius: 0px;
-}
-QLCDNumber{
-	color: rgb(0,0,0);
-}
-</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QLabel" name="label_sensCHSG600">
-                  <property name="styleSheet">
-                   <string notr="true">QLabel {
-    border: 2px solid black;
-    border-radius: 0px;
-	background-color: rgb(198, 213, 255);
-	border-style: outset;
-    border-width: 2px;
-	border-color: rgb(95, 140, 212);
-}
-QLabel{
-	color: rgb(0,0,0);
-}
-</string>
-                  </property>
-                  <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;SENS. [mV/V]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                  </property>
-                  <property name="textFormat">
-                   <enum>Qt::RichText</enum>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item row="2" column="0">
-               <layout class="QGridLayout" name="gridLayout_2">
-                <property name="horizontalSpacing">
-                 <number>7</number>
-                </property>
-                <property name="verticalSpacing">
-                 <number>0</number>
-                </property>
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label_CHSG600">
-                  <property name="styleSheet">
-                   <string notr="true">QLabel {
-    border: 2px solid black;
-    border-radius: 0px;
-	background-color: rgb(198, 213, 255);
-	border-style: outset;
-    border-width: 2px;
-	border-color: rgb(95, 140, 212);
-}
-QLabel{
-	color: rgb(0,0,0);
-}
-</string>
-                  </property>
-                  <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;FONDOSCALA [?]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                  </property>
-                  <property name="textFormat">
-                   <enum>Qt::RichText</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QLCDNumber" name="lcdNumber_fondoscala_CHSG600">
-                  <property name="styleSheet">
-                   <string notr="true">QWidget {
-	background-color:white; 
-	border-style: outset;
-    border-width: 2px;
-    border-color: black;
-	border-radius: 0px;
-}
-QLCDNumber{
-	color: rgb(0,0,0);
-}
-</string>
                   </property>
                  </widget>
                 </item>
