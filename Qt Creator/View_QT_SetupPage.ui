@@ -1402,6 +1402,14 @@ QLCDNumber{
 QPushButton{
 	color: rgb(0,0,0);
 }
+QPushButton::pressed{
+	background-color: rgb(100, 100, 255);
+	border-style: outset;
+    border-width: 6px;
+	border-color: rgb(100, 80, 255);
+	border-style: outset;
+	border-radius: 0px;
+}
 </string>
              </property>
              <property name="text">
@@ -1442,6 +1450,14 @@ QPushButton{
 }
 QPushButton{
 	color: rgb(0,0,0);
+}
+QPushButton::pressed{
+	background-color: rgb(255, 200, 60);
+	border-style: outset;
+    border-width: 6px;
+	border-color: rgb(190, 160, 13);
+	border-style: outset;
+	border-radius: 0px;
 }
 </string>
              </property>

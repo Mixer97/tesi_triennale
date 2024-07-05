@@ -102,3 +102,6 @@
 
 04/07
     Continua lavoro con JSON, creazione finestra per salvataggio Json.
+
+05/07
+    inserimento chiusura dopo premuta pulsante delle finestre di salvataggio csv e json 

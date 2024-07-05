@@ -25,6 +25,7 @@ class Ui_Dialog(object):
         Dialog.resize(679, 268)
         Dialog.setBaseSize(QSize(600, 300))
         Dialog.setStyleSheet(u"background-color: rgb(0, 0, 0);")
+        Dialog.setModal(False)
         self.gridLayout = QGridLayout(Dialog)
         self.gridLayout.setObjectName(u"gridLayout")
         self.widget = QWidget(Dialog)
@@ -103,7 +104,11 @@ class Ui_Dialog(object):
 "	border-radius: 20px;\n"
 "	color: rgb(0,0,0);\n"
 "}\n"
-"")
+"QPushButton::pressed{\n"
+"	border-width: 2px;\n"
+"	background-color:qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0.965909, stop:0 rgba(255, 110, 110, 242), stop:1 rgba(255, 220, 129, 236)); \n"
+"	color: rgb(0, 0, 0);\n"
+"}")
 
         self.gridLayout_9.addWidget(self.pushButton_salvataggio, 0, 0, 1, 1)
 
@@ -132,9 +137,9 @@ class Ui_Dialog(object):
 "	color: rgb(0,0,0);\n"
 "}")
         self.lineEdit_nome_file.setMaxLength(100)
-        self.lineEdit_nome_file.setCursorPosition(30)
+        self.lineEdit_nome_file.setCursorPosition(7)
         self.lineEdit_nome_file.setAlignment(Qt.AlignCenter)
-        self.lineEdit_nome_file.setClearButtonEnabled(False)
+        self.lineEdit_nome_file.setClearButtonEnabled(True)
 
         self.gridLayout_5.addWidget(self.lineEdit_nome_file, 0, 0, 1, 1)
 
@@ -157,7 +162,7 @@ class Ui_Dialog(object):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
         self.label_salvataggio_title.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; color:#292fa3;\">SALVATAGGIO FILE SETUP</span></p></body></html>", None))
         self.pushButton_salvataggio.setText(QCoreApplication.translate("Dialog", u"SALVA", None))
-        self.lineEdit_nome_file.setText(QCoreApplication.translate("Dialog", u"INSERISCI QUI IL NOME DEL FILE", None))
+        self.lineEdit_nome_file.setText(QCoreApplication.translate("Dialog", u"DEFAULT", None))
         self.lineEdit_nome_file.setPlaceholderText("")
     # retranslateUi
 

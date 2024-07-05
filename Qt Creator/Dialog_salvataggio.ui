@@ -22,6 +22,9 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(0, 0, 0);</string>
   </property>
+  <property name="modal">
+   <bool>false</bool>
+  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <widget class="QWidget" name="widget" native="true">
@@ -128,7 +131,11 @@ QLabel{
 	border-radius: 20px;
 	color: rgb(0,0,0);
 }
-</string>
+QPushButton::pressed{
+	border-width: 2px;
+	background-color:qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0.965909, stop:0 rgba(255, 110, 110, 242), stop:1 rgba(255, 220, 129, 236)); 
+	color: rgb(0, 0, 0);
+}</string>
              </property>
              <property name="text">
               <string>SALVA</string>
@@ -164,13 +171,13 @@ QLabel{
 }</string>
              </property>
              <property name="text">
-              <string>INSERISCI QUI IL NOME DEL FILE</string>
+              <string>DEFAULT</string>
              </property>
              <property name="maxLength">
               <number>100</number>
              </property>
              <property name="cursorPosition">
-              <number>30</number>
+              <number>7</number>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -179,7 +186,7 @@ QLabel{
               <string/>
              </property>
              <property name="clearButtonEnabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
             </widget>
            </item>

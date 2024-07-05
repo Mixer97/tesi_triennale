@@ -17,6 +17,23 @@ class Canale_Setup_4(QDialog):
         # Setup the user interface
         self.ui.setupUi(self)
         self.setModal(True)
+        self.ui.pushButton_azzeramento_tara.setStyleSheet(
+            """
+QWidget{
+    background-color:qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0.965909, stop:0 rgba(255, 220, 129, 236), stop:1 rgba(255, 110, 110, 242)); 
+    border-style: outset;
+    border-width: 2px;
+    border-color: rgb(255, 106, 0);
+    border-radius: 20px;
+    color: rgb(0,0,0);
+}
+QPushButton::pressed{
+    border-width: 2px;
+    background-color:qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0.965909, stop:0 rgba(255, 110, 110, 242), stop:1 rgba(255, 220, 129, 236)); 
+    color: rgb(0, 0, 0);
+}
+"""
+        )
                         
         self.controller_TCP = banco_di_taratura.controller_tcp
         self.controller_MODBUS = banco_di_taratura.controller_modbus

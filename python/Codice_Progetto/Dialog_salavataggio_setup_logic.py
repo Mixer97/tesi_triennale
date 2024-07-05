@@ -25,3 +25,4 @@ class Salvataggio_setup(QDialog):
     # metodi
     def update_filename(self):
         self.banco_di_taratura.file_setup_name = self.ui.lineEdit_nome_file.text()
+        self.close()

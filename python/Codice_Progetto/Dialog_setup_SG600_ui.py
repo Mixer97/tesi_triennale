@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'dialog_setup_SG600.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.0
+## Created by: Qt User Interface Compiler version 6.7.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -19,11 +19,8 @@ from PySide6.QtWidgets import (QApplication, QDialog, QGridLayout, QHBoxLayout,
     QLabel, QLayout, QLineEdit, QPushButton,
     QSizePolicy, QWidget)
 
-
 class Ui_SG600_Setup(object):
     def setupUi(self, SG600_Setup):
-            
-            
         if not SG600_Setup.objectName():
             SG600_Setup.setObjectName(u"SG600_Setup")
         SG600_Setup.setWindowModality(Qt.WindowModal)
@@ -188,7 +185,7 @@ class Ui_SG600_Setup(object):
         font1 = QFont()
         font1.setPointSize(15)
         self.pushButton_azzeramento_main.setFont(font1)
-        self.pushButton_azzeramento_main.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_azzeramento_main.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_azzeramento_main.setStyleSheet(u"QWidget{\n"
 "	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(115, 188, 226, 255), stop:0.948357 rgba(112, 99, 193, 223));\n"
 "	border-style: outset;\n"
@@ -197,7 +194,12 @@ class Ui_SG600_Setup(object):
 "	border-radius: 20px;\n"
 "	color: rgb(0,0,0);\n"
 "}\n"
-"")
+"QPushButton::pressed{\n"
+"	border-width: 2px;\n"
+"	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(112, 99, 193, 223), stop:0.948357 rgba(115, 188, 226, 255) );\n"
+"	color: rgb(0, 0, 0);\n"
+"	border-color: rgb(110, 100, 200)\n"
+"}")
         self.pushButton_azzeramento_main.setFlat(False)
 
         self.gridLayout_9.addWidget(self.pushButton_azzeramento_main, 0, 0, 1, 1)
@@ -277,7 +279,7 @@ class Ui_SG600_Setup(object):
         self.pushButton_azzeramento_main_2.setSizePolicy(sizePolicy4)
         self.pushButton_azzeramento_main_2.setMinimumSize(QSize(0, 70))
         self.pushButton_azzeramento_main_2.setFont(font1)
-        self.pushButton_azzeramento_main_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_azzeramento_main_2.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_azzeramento_main_2.setStyleSheet(u"QWidget{\n"
 "	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(115, 188, 226, 255), stop:0.948357 rgba(112, 99, 193, 223));\n"
 "	border-style: outset;\n"
@@ -285,6 +287,12 @@ class Ui_SG600_Setup(object):
 "	border-color: rgb(128, 112, 211);\n"
 "	border-radius: 20px;\n"
 "	color: rgb(0,0,0);\n"
+"}\n"
+"QPushButton::pressed{\n"
+"	border-width: 2px;\n"
+"	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(112, 99, 193, 223), stop:0.948357 rgba(115, 188, 226, 255) );\n"
+"	color: rgb(0, 0, 0);\n"
+"	border-color: rgb(110, 100, 200)\n"
 "}")
 
         self.gridLayout_12.addWidget(self.pushButton_azzeramento_main_2, 0, 0, 1, 1)
@@ -400,18 +408,17 @@ class Ui_SG600_Setup(object):
         QMetaObject.connectSlotsByName(SG600_Setup)
     # setupUi
 
-
     def retranslateUi(self, SG600_Setup):
-        SG600_Setup.setWindowTitle(QCoreApplication.translate("SG600_Setup", u"Setup SG600", None))
+        SG600_Setup.setWindowTitle(QCoreApplication.translate("SG600_Setup", u"Dialog", None))
         self.label_sensib_setup_main.setText(QCoreApplication.translate("SG600_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">SENSIBILITA'</span></p></body></html>", None))
-        self.lineEdit_sensibilita_main.setText(QCoreApplication.translate("SG600_Setup", u"", None))
-        self.lineEdit_fondoscala_main.setText(QCoreApplication.translate("SG600_Setup", u"", None))
+        self.lineEdit_sensibilita_main.setText(QCoreApplication.translate("SG600_Setup", u"-", None))
+        self.lineEdit_fondoscala_main.setText(QCoreApplication.translate("SG600_Setup", u"-", None))
         self.label_fondoscala_setup_main.setText(QCoreApplication.translate("SG600_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">FONDOSCALA</span></p></body></html>", None))
         self.pushButton_azzeramento_main.setText(QCoreApplication.translate("SG600_Setup", u"ZERO CANALE PRINCIPALE", None))
-        self.lineEdit_sensibilita_temp.setText(QCoreApplication.translate("SG600_Setup", u"", None))
+        self.lineEdit_sensibilita_temp.setText(QCoreApplication.translate("SG600_Setup", u"-", None))
         self.label_sensib_setup_temp.setText(QCoreApplication.translate("SG600_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">SENSIBILITA'</span></p></body></html>", None))
         self.pushButton_azzeramento_main_2.setText(QCoreApplication.translate("SG600_Setup", u"ZERO CANALE TEMPERATURA", None))
-        self.lineEdit_fondoscala_temp.setText(QCoreApplication.translate("SG600_Setup", u"", None))
+        self.lineEdit_fondoscala_temp.setText(QCoreApplication.translate("SG600_Setup", u"-", None))
         self.label_fondoscala_setup_temp.setText(QCoreApplication.translate("SG600_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">FONDOSCALA</span></p></body></html>", None))
         self.label_setup_TITLE.setText(QCoreApplication.translate("SG600_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:20pt; font-weight:700; color:#00aa00;\">CANALE PRINCIPALE</span></p></body></html>", None))
         self.label_setup_CHTEMP.setText(QCoreApplication.translate("SG600_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:20pt; font-weight:700; color:#00aa00;\"> CANALE TEMPERATURA</span></p></body></html>", None))

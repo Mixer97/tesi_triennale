@@ -266,7 +266,12 @@
 	border-radius: 20px;
 	color: rgb(0,0,0);
 }
-</string>
+QPushButton::pressed{
+	border-width: 2px;
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(112, 99, 193, 223), stop:0.948357 rgba(115, 188, 226, 255) );
+	color: rgb(0, 0, 0);
+	border-color: rgb(110, 100, 200)
+}</string>
                </property>
                <property name="text">
                 <string>ZERO CANALE PRINCIPALE</string>
@@ -404,6 +409,12 @@
 	border-color: rgb(128, 112, 211);
 	border-radius: 20px;
 	color: rgb(0,0,0);
+}
+QPushButton::pressed{
+	border-width: 2px;
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(112, 99, 193, 223), stop:0.948357 rgba(115, 188, 226, 255) );
+	color: rgb(0, 0, 0);
+	border-color: rgb(110, 100, 200)
 }</string>
                </property>
                <property name="text">

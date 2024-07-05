@@ -59,7 +59,7 @@ def data_update_mV(controller_tcp:C_Laumas.Controller_TCP, controller_modbus:C_S
         controller_modbus.DATA.canale_principale_mV = result_list_SG600[0]
         controller_modbus.DATA.canale_temperatura_mV = result_list_SG600[1]
         
-def closed_last_window_signal(banco_di_taratura:BANCO_DI_TARATURA, window:QMainWindow):
+def closed_last_window_signal(banco_di_taratura:BANCO_DI_TARATURA, window:MainWindow):
     banco_di_taratura.logger.DATA.loop_status=False
     window.timerStop=True
 

@@ -1079,6 +1079,14 @@ class Ui_SetupWindow(object):
 "QPushButton{\n"
 "	color: rgb(0,0,0);\n"
 "}\n"
+"QPushButton::pressed{\n"
+"	background-color: rgb(100, 100, 255);\n"
+"	border-style: outset;\n"
+"    border-width: 6px;\n"
+"	border-color: rgb(100, 80, 255);\n"
+"	border-style: outset;\n"
+"	border-radius: 0px;\n"
+"}\n"
 "")
 
         self.gridLayout_27.addWidget(self.pushButton_salvataggio_setup, 2, 0, 1, 1)
@@ -1100,6 +1108,14 @@ class Ui_SetupWindow(object):
 "}\n"
 "QPushButton{\n"
 "	color: rgb(0,0,0);\n"
+"}\n"
+"QPushButton::pressed{\n"
+"	background-color: rgb(255, 200, 60);\n"
+"	border-style: outset;\n"
+"    border-width: 6px;\n"
+"	border-color: rgb(190, 160, 13);\n"
+"	border-style: outset;\n"
+"	border-radius: 0px;\n"
 "}\n"
 "")
 
