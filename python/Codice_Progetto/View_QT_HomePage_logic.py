@@ -7,6 +7,7 @@ from Mainwindow_grafico_logic import GraphWindow
 from Dialog_salavataggio_registrazione_logic import Salvataggio_registrazione
 from PySide6.QtCore import QSize
 from typing import TYPE_CHECKING
+import time
 
 if TYPE_CHECKING:
     from Banco_Taratura import BANCO_DI_TARATURA
@@ -109,6 +110,8 @@ class MainWindow(QMainWindow):
         if self.status_pulsante_registrazione % 2 != 0:
                 # self.timer2.start(100)          # In millisecondi       
                 self.logger.DATA.startStop_logger = True
+                if self.logger.start_timer == None:
+                        self.logger.start_timer = time.time()
                 self.ui.pushButton_Registrazione.setText("STOP")
                 self.ui.label_5.setStyleSheet("QWidget { background-color:rgb(255, 69, 72); border-style: outset; border-width: 0px; border-color:rgb(255, 111, 113); border-radius: 20px; } QLabel { color: rgb(0,0,0); }")
                 self.ui.pushButton_Registrazione.setStyleSheet("background-color: red; border-style: outset; border-width: 2px; border-color: black; color: black")

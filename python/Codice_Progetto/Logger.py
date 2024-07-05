@@ -21,7 +21,7 @@ class LOGGER:
             self.result_list_SG600_main_temp=[0,0]
             self.text_lcd_SG600_main_temp=["mV","mV"]  # Viene aggiornato dalla Main View in automatico [[DA IMPLEMENTARE]] 
             self.loop_status=True
-            self.periodo_logger=0.005
+            self.periodo_logger=0.01
             self.counter_registrazione = 0
     
     def __init__(self, banco_di_taratura, nome_CSV, starting_status=False):
@@ -72,7 +72,7 @@ class LOGGER:
       
             # timer start
         self.timer = 0
-        self.start_timer = time.time()  
+        self.start_timer = None 
         
         # Controllare se il file esiste
     def check_path(self):
@@ -115,19 +115,19 @@ class LOGGER:
                 # Scrittura di una riga
                 with open(self.path_CSV, mode="a", newline="") as csv_doc:
                     writer = csv.writer(csv_doc)
-                    list_to_write = [self.timer,
+                    list_to_write = [round(self.timer,5),
                                     "s",
-                                    self.DATA.result_list_1_4[0],
+                                    round(self.DATA.result_list_1_4[0],5),
                                     self.DATA.text_lcd[0],
-                                    self.DATA.result_list_1_4[1],
+                                    round(self.DATA.result_list_1_4[1],5),
                                     self.DATA.text_lcd[1],
-                                    self.DATA.result_list_1_4[2],
+                                    round(self.DATA.result_list_1_4[2],5),
                                     self.DATA.text_lcd[2],
-                                    self.DATA.result_list_1_4[3],
+                                    round(self.DATA.result_list_1_4[3],5),
                                     self.DATA.text_lcd[3],
-                                    self.DATA.result_list_SG600_main_temp[0],
+                                    round(self.DATA.result_list_SG600_main_temp[0],5),
                                     self.DATA.text_lcd_SG600_main_temp[0],
-                                    self.DATA.result_list_SG600_main_temp[1],
+                                    round(self.DATA.result_list_SG600_main_temp[1],5),
                                     self.DATA.text_lcd_SG600_main_temp[1],
                                     ]
                     

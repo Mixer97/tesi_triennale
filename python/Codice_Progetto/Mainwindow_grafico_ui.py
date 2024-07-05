@@ -151,13 +151,17 @@ class Ui_GraphWindow(object):
         self.pushButton_reset_solo_main.setObjectName(u"pushButton_reset_solo_main")
         self.pushButton_reset_solo_main.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_reset_solo_main.setStyleSheet(u"QPushButton{\n"
-"	border-width: 1px;\n"
+"	border-style: outset;\n"
+"    border-width: 1px;\n"
+"    border-color:rgb(98, 93, 255);\n"
 "	background-color:rgb(93, 117, 255);\n"
 "	color: rgb(0, 0, 0);\n"
 "}\n"
 "\n"
 "QPushButton::pressed{\n"
-"	border-width: 1px;\n"
+"	border-style: outset;\n"
+"    border-width: 1px;\n"
+"	border-color:rgb(70, 70, 255);\n"
 "	background-color:rgb(23, 23, 161);\n"
 "	color: rgb(0, 0, 0);\n"
 "}")
@@ -218,13 +222,17 @@ class Ui_GraphWindow(object):
         self.pushButton_reset_solo_temp.setObjectName(u"pushButton_reset_solo_temp")
         self.pushButton_reset_solo_temp.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_reset_solo_temp.setStyleSheet(u"QPushButton{\n"
-"	border-width: 1px;\n"
+"	border-style: outset;\n"
+"    border-width: 1px;\n"
+"    border-color:rgb(98, 93, 255);\n"
 "	background-color:rgb(93, 117, 255);\n"
 "	color: rgb(0, 0, 0);\n"
 "}\n"
 "\n"
 "QPushButton::pressed{\n"
-"	border-width: 1px;\n"
+"	border-style: outset;\n"
+"    border-width: 1px;\n"
+"	border-color:rgb(70, 70, 255);\n"
 "	background-color:rgb(23, 23, 161);\n"
 "	color: rgb(0, 0, 0);\n"
 "}")
@@ -372,13 +380,17 @@ class Ui_GraphWindow(object):
         self.pushButton_reset_ch1.setObjectName(u"pushButton_reset_ch1")
         self.pushButton_reset_ch1.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_reset_ch1.setStyleSheet(u"QPushButton{\n"
-"	border-width: 1px;\n"
+"	border-style: outset;\n"
+"    border-width: 1px;\n"
+"    border-color:rgb(98, 93, 255);\n"
 "	background-color:rgb(93, 117, 255);\n"
 "	color: rgb(0, 0, 0);\n"
 "}\n"
 "\n"
 "QPushButton::pressed{\n"
-"	border-width: 1px;\n"
+"	border-style: outset;\n"
+"    border-width: 1px;\n"
+"	border-color:rgb(70, 70, 255);\n"
 "	background-color:rgb(23, 23, 161);\n"
 "	color: rgb(0, 0, 0);\n"
 "}")
@@ -439,13 +451,17 @@ class Ui_GraphWindow(object):
         self.pushButton_reset_ch2.setObjectName(u"pushButton_reset_ch2")
         self.pushButton_reset_ch2.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_reset_ch2.setStyleSheet(u"QPushButton{\n"
-"	border-width: 1px;\n"
+"	border-style: outset;\n"
+"    border-width: 1px;\n"
+"    border-color:rgb(98, 93, 255);\n"
 "	background-color:rgb(93, 117, 255);\n"
 "	color: rgb(0, 0, 0);\n"
 "}\n"
 "\n"
 "QPushButton::pressed{\n"
-"	border-width: 1px;\n"
+"	border-style: outset;\n"
+"    border-width: 1px;\n"
+"	border-color:rgb(70, 70, 255);\n"
 "	background-color:rgb(23, 23, 161);\n"
 "	color: rgb(0, 0, 0);\n"
 "}")
@@ -500,13 +516,17 @@ class Ui_GraphWindow(object):
         self.pushButton_reset_ch3.setObjectName(u"pushButton_reset_ch3")
         self.pushButton_reset_ch3.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_reset_ch3.setStyleSheet(u"QPushButton{\n"
-"	border-width: 1px;\n"
+"	border-style: outset;\n"
+"    border-width: 1px;\n"
+"    border-color:rgb(98, 93, 255);\n"
 "	background-color:rgb(93, 117, 255);\n"
 "	color: rgb(0, 0, 0);\n"
 "}\n"
 "\n"
 "QPushButton::pressed{\n"
-"	border-width: 1px;\n"
+"	border-style: outset;\n"
+"    border-width: 1px;\n"
+"	border-color:rgb(70, 70, 255);\n"
 "	background-color:rgb(23, 23, 161);\n"
 "	color: rgb(0, 0, 0);\n"
 "}")
@@ -575,13 +595,17 @@ class Ui_GraphWindow(object):
         self.pushButton_reset_ch4.setObjectName(u"pushButton_reset_ch4")
         self.pushButton_reset_ch4.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_reset_ch4.setStyleSheet(u"QPushButton{\n"
-"	border-width: 1px;\n"
+"	border-style: outset;\n"
+"    border-width: 1px;\n"
+"    border-color:rgb(98, 93, 255);\n"
 "	background-color:rgb(93, 117, 255);\n"
 "	color: rgb(0, 0, 0);\n"
 "}\n"
 "\n"
 "QPushButton::pressed{\n"
-"	border-width: 1px;\n"
+"	border-style: outset;\n"
+"    border-width: 1px;\n"
+"	border-color:rgb(70, 70, 255);\n"
 "	background-color:rgb(23, 23, 161);\n"
 "	color: rgb(0, 0, 0);\n"
 "}")
@@ -787,19 +811,19 @@ class Ui_GraphWindow(object):
     def retranslateUi(self, GraphWindow):
         GraphWindow.setWindowTitle(QCoreApplication.translate("GraphWindow", u"MainWindow", None))
         self.pushButton_autorange_solo_main.setText("")
-        self.pushButton_reset_solo_main.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
+        self.pushButton_reset_solo_main.setText(QCoreApplication.translate("GraphWindow", u"RESET", None))
         self.pushButton_autorange_solo_temp.setText("")
-        self.pushButton_reset_solo_temp.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
+        self.pushButton_reset_solo_temp.setText(QCoreApplication.translate("GraphWindow", u"RESET", None))
         self.pushButton_autorange_main_and_channel.setText("")
-        self.pushButton_reset_main_and_channel.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
+        self.pushButton_reset_main_and_channel.setText(QCoreApplication.translate("GraphWindow", u"RESET", None))
         self.pushButton_autorange_ch1.setText("")
-        self.pushButton_reset_ch1.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
+        self.pushButton_reset_ch1.setText(QCoreApplication.translate("GraphWindow", u"RESET", None))
         self.pushButton_autorange_ch2.setText("")
-        self.pushButton_reset_ch2.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
+        self.pushButton_reset_ch2.setText(QCoreApplication.translate("GraphWindow", u"RESET", None))
         self.pushButton_autorange_ch3.setText("")
-        self.pushButton_reset_ch3.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
+        self.pushButton_reset_ch3.setText(QCoreApplication.translate("GraphWindow", u"RESET", None))
         self.pushButton_autorange_ch4.setText("")
-        self.pushButton_reset_ch4.setText(QCoreApplication.translate("GraphWindow", u"PushButton", None))
+        self.pushButton_reset_ch4.setText(QCoreApplication.translate("GraphWindow", u"RESET", None))
         self.label.setText(QCoreApplication.translate("GraphWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:700; color:#0b0b0b;\">Impostazioni</span></p></body></html>", None))
         self.comboBox_Main_Temp.setItemText(0, QCoreApplication.translate("GraphWindow", u"Main", None))
         self.comboBox_Main_Temp.setItemText(1, QCoreApplication.translate("GraphWindow", u"Temp", None))

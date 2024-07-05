@@ -4,6 +4,7 @@ from Dialog_salvataggio_ui import Ui_Dialog
 import Logger
 from typing import TYPE_CHECKING
 import Handler_CSV
+import time
 
 if TYPE_CHECKING:
     from Banco_Taratura import BANCO_DI_TARATURA
@@ -33,6 +34,7 @@ class Salvataggio_registrazione(QDialog):
         logger = Logger.LOGGER(nome_CSV=self.ui.lineEdit_nome_file.text(), banco_di_taratura=self.banco_di_taratura)
         self.banco_di_taratura.logger.path_CSV = logger.path_CSV
         self.banco_di_taratura.logger.nome_CSV = logger.nome_CSV
+        self.banco_di_taratura.logger.start_timer = None
         self.close()
         # self.banco_di_taratura.logger = Logger.LOGGER(nome_CSV=self.ui.lineEdit_nome_file.text(), banco_di_taratura=self.banco_di_taratura)
         # self.banco_di_taratura.logger.check_path()
