@@ -10,7 +10,6 @@ from pymodbus import pymodbus_apply_logging_config
 from time import sleep
 import sys
 from View_QT_HomePage_logic import MainWindow
-import View_QT_HomePage_logic
 
 
 

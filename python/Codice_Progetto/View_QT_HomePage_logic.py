@@ -51,7 +51,7 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_setup_page.clicked.connect(self.show_setup_window) 
         self.pulsante_interfaccia_click()               # click iniziale per avviare l'interfaccia             
         self.timer1.timeout.connect(self.check)         # Check per chiusura dei timer alla chiusura dell'ultima finestra
-        self.show_graph_window()                        # Mostra la finestra con il grafico all' apertura
+        # self.show_graph_window()                        # Mostra la finestra con il grafico all' apertura
         self.ui.pushButton_grafico.clicked.connect(self.show_graph_window)
         self.ui.pushButton_setup_registrazione.clicked.connect(self.show_finestra_salvataggio_registrazione)
         self.timer2.timeout.connect(self.change_reg_lable)

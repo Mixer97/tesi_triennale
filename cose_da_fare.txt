@@ -22,6 +22,7 @@ COSE DA FARE:
     - aggiungere colori ai bottoni per dare feedback quando vengono premuti (concludere e modificare i menu a tendina)
     - aggiungere menù registrazione per settare nome, fare partire e tenere un timer. (concludere)
     - raffinare il salvataggio della registrazione su logger
+    - inserire sistema per attesa riconnessione in modo che non si blocchi e poi riparta senza info
 
 BUG SCOPERTI:
 

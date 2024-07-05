@@ -254,7 +254,7 @@ class Graph:
         
         # Append new random value to data list
         # self.dataY.append(self.media_esponenziale())
-        self.dataY.append(self.media_esponenziale())
+        self.dataY.append(self.media_mobile())
         actual_time = time.time()
         difference = actual_time - self.start_time
         self.dataX.append(difference)
