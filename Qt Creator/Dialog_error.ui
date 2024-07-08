@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>500</width>
+    <width>800</width>
     <height>160</height>
    </rect>
   </property>
@@ -168,7 +168,7 @@ QLabel{
         </property>
         <layout class="QGridLayout" name="gridLayout_2">
          <property name="leftMargin">
-          <number>15</number>
+          <number>200</number>
          </property>
          <property name="topMargin">
           <number>8</number>

@@ -24,7 +24,7 @@ class Ui_Dialog_Error(object):
         if not Dialog_Error.objectName():
             Dialog_Error.setObjectName(u"Dialog_Error")
         Dialog_Error.setWindowModality(Qt.WindowModal)
-        Dialog_Error.resize(500, 160)
+        Dialog_Error.resize(800, 160)
         Dialog_Error.setMinimumSize(QSize(400, 160))
         Dialog_Error.setBaseSize(QSize(0, 0))
         icon = QIcon(QIcon.fromTheme(u"dialog-error"))
@@ -98,7 +98,7 @@ class Ui_Dialog_Error(object):
         self.gridLayout_2 = QGridLayout(self.frame_3)
         self.gridLayout_2.setSpacing(0)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.gridLayout_2.setContentsMargins(15, 8, 15, 8)
+        self.gridLayout_2.setContentsMargins(200, 8, 15, 8)
         self.pushButton_error = QPushButton(self.frame_3)
         self.pushButton_error.setObjectName(u"pushButton_error")
         sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Preferred)

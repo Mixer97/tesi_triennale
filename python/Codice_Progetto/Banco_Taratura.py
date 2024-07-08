@@ -20,7 +20,7 @@ class BANCO_DI_TARATURA:
     def __init__(self):
         self.controller_tcp=C_Laumas.Controller_TCP()
         self.controller_modbus=C_Seneca.Controller_MODBUS()
-        self.logger=Logger.LOGGER(nome_CSV="Default", banco_di_taratura=self)
+        self.logger=Logger.LOGGER(nome_CSV="Default", banco_di_taratura=self, status=0)
         
         # variabili per home page
         self.startStop = False
@@ -35,10 +35,12 @@ class BANCO_DI_TARATURA:
         
         # variabili per salvataggio setup file
         self.file_setup_name = None
+        self.counter_salvataggio = 0
         
         # variabili per salvataggio registrazione
         self.registrazione_name = None
         self.counter_registrazione = 0
+        
 
         
     # metodi comuni a tutte le istanze da metter qui

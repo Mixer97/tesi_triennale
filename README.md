@@ -114,3 +114,4 @@
     ho implementato il metodo pre torvare il file json e ora metto un controllo che sia effettivamente json
     realizzata una error window che si puo implementare con 4 righe di codice
     finito di realizzare un handler di JSON che permette di salvare le impostazioni del banco di taratura
+    realizzo un test per evitare di sovrascrivere i setup del banco

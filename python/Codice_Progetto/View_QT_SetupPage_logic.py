@@ -8,7 +8,7 @@ from Dialog_setup_3_logic import Canale_Setup_3
 from Dialog_setup_4_logic import Canale_Setup_4
 from Dialog_setup_SG600_logic import Canale_Setup_SG600
 from Dialog_salavataggio_setup_logic import Salvataggio_setup
-import Handler_JSON
+from Handler_JSON import handler_json
 from Dialog_error_logic import Error_window
 from typing import TYPE_CHECKING
 
@@ -131,7 +131,8 @@ class SetupWindow(QMainWindow):
         fname = QFileDialog.getOpenFileName() # prendi info del file selezionato
         fname = fname[0]    # dalle info estrae il path assoluto
         if fname.endswith('json'):  # controllo sia un json
-            Handler_JSON.load_setup(fname, banco_di_taratura=self.banco_di_taratura, setup_window=self)
+            tmp=handler_json(nome_file_load=fname)
+            tmp.load_setup(banco_di_taratura=self.banco_di_taratura, setup_window=self)
         else:   # finestra di errore
             error_window = Error_window(banco_di_taratura=self.banco_di_taratura)
             error_window.set_error_message("Errore nella selezione del file (file selezionato non è .json)")

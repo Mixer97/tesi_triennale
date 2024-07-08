@@ -19,6 +19,7 @@ class Salvataggio_registrazione(QDialog):
         self.ui.setupUi(self)
         self.setModal(True)
         self.homepage = homepage
+        self.banco_di_taratura.file_setup_name = "Default"
         
         # segnali
         # self.ui.lineEdit_nome_file.editingFinished.connect(self.update_filename)

@@ -7,6 +7,7 @@ from time import sleep
 import csv
 import os
 from typing import TYPE_CHECKING
+from Dialog_error_logic import Error_window
 
 if TYPE_CHECKING:
     from Banco_Taratura import BANCO_DI_TARATURA
@@ -24,7 +25,7 @@ class LOGGER:
             self.periodo_logger=0.01
             self.counter_registrazione = 0
     
-    def __init__(self, banco_di_taratura, nome_CSV, starting_status=False):
+    def __init__(self, banco_di_taratura, nome_CSV, starting_status=False, status=1):
         self.DATA=LOGGER.DATA()
         self.banco_di_taratura = banco_di_taratura
         self.nome_CSV = nome_CSV
@@ -68,7 +69,8 @@ class LOGGER:
         
         self.df = pd.DataFrame(self.my_df) 
         
-        self.check_path()
+        if status==1: # evito che faccia il test quando inizializza la prima volta
+                self.check_path()
       
             # timer start
         self.timer = 0
@@ -87,9 +89,22 @@ class LOGGER:
                 # Salvare il DataFrame come CSV
                 self.df.to_csv(self.path_CSV, index=False) 
                 if self.nome_CSV == "Default": 
-                    print(f"Il file '{self.path_CSV}' è stato sovrascritto siccome era il file di default.")
+                        # print(f"Il file '{self.path_CSV}' è stato sovrascritto siccome era il file di default.")
+                        error_window = Error_window(banco_di_taratura=self.banco_di_taratura)
+                        error_window.set_error_message(f"Il file '{self.path_CSV}' \nè stato sovrascritto siccome era il file di default.")
+                        error_window.setWindowTitle("Communication Window")
+                        error_window.exec()
+                elif self.DATA.counter_registrazione > 0:
+                    # print(f"Il file '{self.path_CSV}' è stato salvato con successo.")
+                        error_window = Error_window(banco_di_taratura=self.banco_di_taratura)
+                        error_window.set_error_message(f"Il file '{self.path_CSV}' \nè stato salvato. Il nome è cambiato per evitare sovrascritture.")
+                        error_window.setWindowTitle("Communication Window")
+                        error_window.exec()
                 else:
-                    print(f"Il file '{self.path_CSV}' è stato salvato con successo.")
+                        error_window = Error_window(banco_di_taratura=self.banco_di_taratura)
+                        error_window.set_error_message(f"Il file '{self.path_CSV}' \nè stato salvato con successo.")
+                        error_window.setWindowTitle("Communication Window")
+                        error_window.exec()
                 if self.tmp != None:
                     self.nome_CSV = self.tmp
         
