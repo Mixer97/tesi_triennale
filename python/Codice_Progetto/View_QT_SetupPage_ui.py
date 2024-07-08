@@ -74,10 +74,10 @@ class Ui_SetupWindow(object):
         self.frame_3.setStyleSheet(u"    border-width: 0px;")
         self.frame_3.setFrameShape(QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_2 = QVBoxLayout(self.frame_3)
-        self.verticalLayout_2.setSpacing(0)
-        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout = QHBoxLayout(self.frame_3)
+        self.horizontalLayout.setSpacing(0)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.pushButton_home = QPushButton(self.frame_3)
         self.pushButton_home.setObjectName(u"pushButton_home")
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Preferred)
@@ -107,7 +107,60 @@ class Ui_SetupWindow(object):
 "\n"
 "}")
 
-        self.verticalLayout_2.addWidget(self.pushButton_home)
+        self.horizontalLayout.addWidget(self.pushButton_home)
+
+        self.pushButton_carica_setup = QPushButton(self.frame_3)
+        self.pushButton_carica_setup.setObjectName(u"pushButton_carica_setup")
+        sizePolicy.setHeightForWidth(self.pushButton_carica_setup.sizePolicy().hasHeightForWidth())
+        self.pushButton_carica_setup.setSizePolicy(sizePolicy)
+        self.pushButton_carica_setup.setMaximumSize(QSize(200, 16777215))
+        self.pushButton_carica_setup.setFont(font)
+        self.pushButton_carica_setup.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.pushButton_carica_setup.setStyleSheet(u"QPushButton{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(107, 107, 107);\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"\n"
+"QPushButton::pressed{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(56, 56, 56);\n"
+"	color: rgb(0, 0, 0);\n"
+"\n"
+"\n"
+"}")
+
+        self.horizontalLayout.addWidget(self.pushButton_carica_setup)
+
+        self.pushButton_salvataggio_setup = QPushButton(self.frame_3)
+        self.pushButton_salvataggio_setup.setObjectName(u"pushButton_salvataggio_setup")
+        sizePolicy.setHeightForWidth(self.pushButton_salvataggio_setup.sizePolicy().hasHeightForWidth())
+        self.pushButton_salvataggio_setup.setSizePolicy(sizePolicy)
+        self.pushButton_salvataggio_setup.setMaximumSize(QSize(200, 16777215))
+        self.pushButton_salvataggio_setup.setFont(font)
+        self.pushButton_salvataggio_setup.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.pushButton_salvataggio_setup.setStyleSheet(u"QPushButton{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(107, 107, 107);\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"\n"
+"QPushButton::pressed{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(56, 56, 56);\n"
+"	color: rgb(0, 0, 0);\n"
+"\n"
+"\n"
+"}")
+
+        self.horizontalLayout.addWidget(self.pushButton_salvataggio_setup)
+
+        self.frame_2 = QFrame(self.frame_3)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setFrameShape(QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+
+        self.horizontalLayout.addWidget(self.frame_2)
 
 
         self.horizontalLayout_4.addWidget(self.frame_3)
@@ -832,13 +885,86 @@ class Ui_SetupWindow(object):
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout_27 = QGridLayout()
         self.gridLayout_27.setObjectName(u"gridLayout_27")
-        self.widget = QWidget(self.widget_2)
-        self.widget.setObjectName(u"widget")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
+        self.pushButton_concludi_setup = QPushButton(self.widget_2)
+        self.pushButton_concludi_setup.setObjectName(u"pushButton_concludi_setup")
+        sizePolicy.setHeightForWidth(self.pushButton_concludi_setup.sizePolicy().hasHeightForWidth())
+        self.pushButton_concludi_setup.setSizePolicy(sizePolicy)
+        self.pushButton_concludi_setup.setMinimumSize(QSize(0, 130))
+        font2 = QFont()
+        font2.setPointSize(25)
+        self.pushButton_concludi_setup.setFont(font2)
+        self.pushButton_concludi_setup.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.pushButton_concludi_setup.setStyleSheet(u"QWidget {\n"
+"	background-color: rgb(255, 236, 89);\n"
+"	border-style: outset;\n"
+"    border-width: 6px;\n"
+"	border-color: rgb(211, 181, 13);\n"
+"	border-style: outset;\n"
+"	border-radius: 0px;\n"
+"}\n"
+"QPushButton{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"QPushButton::pressed{\n"
+"	background-color: rgb(255, 200, 60);\n"
+"	border-style: outset;\n"
+"    border-width: 6px;\n"
+"	border-color: rgb(190, 160, 13);\n"
+"	border-style: outset;\n"
+"	border-radius: 0px;\n"
+"}\n"
+"")
+
+        self.gridLayout_27.addWidget(self.pushButton_concludi_setup, 2, 0, 1, 1)
+
+        self.frame_4 = QFrame(self.widget_2)
+        self.frame_4.setObjectName(u"frame_4")
+        self.frame_4.setMinimumSize(QSize(0, 40))
+        self.frame_4.setStyleSheet(u"QWidget {\n"
+"	background-color: rgb(215, 230, 255);\n"
+"    border-width: 2px;\n"
+"	border-color: rgb(169, 152, 255);\n"
+"	border-radius: 0px;\n"
+"}")
+        self.frame_4.setFrameShape(QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_2 = QHBoxLayout(self.frame_4)
+        self.horizontalLayout_2.setSpacing(2)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.label_file_banco = QLabel(self.frame_4)
+        self.label_file_banco.setObjectName(u"label_file_banco")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Preferred)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.widget.sizePolicy().hasHeightForWidth())
-        self.widget.setSizePolicy(sizePolicy1)
+        sizePolicy1.setHeightForWidth(self.label_file_banco.sizePolicy().hasHeightForWidth())
+        self.label_file_banco.setSizePolicy(sizePolicy1)
+
+        self.horizontalLayout_2.addWidget(self.label_file_banco)
+
+        self.label_banco_attuale = QLabel(self.frame_4)
+        self.label_banco_attuale.setObjectName(u"label_banco_attuale")
+        self.label_banco_attuale.setStyleSheet(u"QWidget {\n"
+"	background-color:rgb(255, 255, 255);\n"
+"    border-width: 2px;\n"
+"	border-color: rgb(169, 152, 255);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0, 0, 0);\n"
+"}")
+        self.label_banco_attuale.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_2.addWidget(self.label_banco_attuale)
+
+
+        self.gridLayout_27.addWidget(self.frame_4, 1, 0, 1, 1)
+
+        self.widget = QWidget(self.widget_2)
+        self.widget.setObjectName(u"widget")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.widget.sizePolicy().hasHeightForWidth())
+        self.widget.setSizePolicy(sizePolicy2)
         self.widget.setStyleSheet(u"QWidget {\n"
 "	background-color: rgb(215, 230, 255);\n"
 "	border-style: outset;\n"
@@ -976,79 +1102,16 @@ class Ui_SetupWindow(object):
 
         self.gridLayout_27.addWidget(self.widget, 0, 0, 1, 1)
 
-        self.pushButton_salvataggio_setup = QPushButton(self.widget_2)
-        self.pushButton_salvataggio_setup.setObjectName(u"pushButton_salvataggio_setup")
-        sizePolicy.setHeightForWidth(self.pushButton_salvataggio_setup.sizePolicy().hasHeightForWidth())
-        self.pushButton_salvataggio_setup.setSizePolicy(sizePolicy)
-        self.pushButton_salvataggio_setup.setMinimumSize(QSize(0, 70))
-        font2 = QFont()
-        font2.setPointSize(25)
-        self.pushButton_salvataggio_setup.setFont(font2)
-        self.pushButton_salvataggio_setup.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.pushButton_salvataggio_setup.setMouseTracking(False)
-        self.pushButton_salvataggio_setup.setStyleSheet(u"QWidget {\n"
-"	background-color: rgb(136, 125, 255);\n"
-"	border-style: outset;\n"
-"    border-width: 6px;\n"
-"	border-color: rgb(136, 96, 255);\n"
-"	border-style: outset;\n"
-"	border-radius: 0px;\n"
-"}\n"
-"QPushButton{\n"
-"	color: rgb(0,0,0);\n"
-"}\n"
-"QPushButton::pressed{\n"
-"	background-color: rgb(100, 100, 255);\n"
-"	border-style: outset;\n"
-"    border-width: 6px;\n"
-"	border-color: rgb(100, 80, 255);\n"
-"	border-style: outset;\n"
-"	border-radius: 0px;\n"
-"}\n"
-"")
-
-        self.gridLayout_27.addWidget(self.pushButton_salvataggio_setup, 2, 0, 1, 1)
-
-        self.pushButton_concludi_setup = QPushButton(self.widget_2)
-        self.pushButton_concludi_setup.setObjectName(u"pushButton_concludi_setup")
-        sizePolicy.setHeightForWidth(self.pushButton_concludi_setup.sizePolicy().hasHeightForWidth())
-        self.pushButton_concludi_setup.setSizePolicy(sizePolicy)
-        self.pushButton_concludi_setup.setMinimumSize(QSize(0, 70))
-        self.pushButton_concludi_setup.setFont(font2)
-        self.pushButton_concludi_setup.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.pushButton_concludi_setup.setStyleSheet(u"QWidget {\n"
-"	background-color: rgb(255, 236, 89);\n"
-"	border-style: outset;\n"
-"    border-width: 6px;\n"
-"	border-color: rgb(211, 181, 13);\n"
-"	border-style: outset;\n"
-"	border-radius: 0px;\n"
-"}\n"
-"QPushButton{\n"
-"	color: rgb(0,0,0);\n"
-"}\n"
-"QPushButton::pressed{\n"
-"	background-color: rgb(255, 200, 60);\n"
-"	border-style: outset;\n"
-"    border-width: 6px;\n"
-"	border-color: rgb(190, 160, 13);\n"
-"	border-style: outset;\n"
-"	border-radius: 0px;\n"
-"}\n"
-"")
-
-        self.gridLayout_27.addWidget(self.pushButton_concludi_setup, 3, 0, 1, 1)
-
 
         self.gridLayout.addLayout(self.gridLayout_27, 4, 0, 1, 2)
 
         self.pushButton_setup_CHSG600 = QPushButton(self.widget_2)
         self.pushButton_setup_CHSG600.setObjectName(u"pushButton_setup_CHSG600")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.pushButton_setup_CHSG600.sizePolicy().hasHeightForWidth())
-        self.pushButton_setup_CHSG600.setSizePolicy(sizePolicy2)
+        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.pushButton_setup_CHSG600.sizePolicy().hasHeightForWidth())
+        self.pushButton_setup_CHSG600.setSizePolicy(sizePolicy3)
         self.pushButton_setup_CHSG600.setMinimumSize(QSize(0, 0))
         self.pushButton_setup_CHSG600.setMaximumSize(QSize(16777215, 100))
         font3 = QFont()
@@ -1092,6 +1155,8 @@ class Ui_SetupWindow(object):
     def retranslateUi(self, SetupWindow):
         SetupWindow.setWindowTitle(QCoreApplication.translate("SetupWindow", u"MainWindow", None))
         self.pushButton_home.setText(QCoreApplication.translate("SetupWindow", u"HOME", None))
+        self.pushButton_carica_setup.setText(QCoreApplication.translate("SetupWindow", u"CARICA", None))
+        self.pushButton_salvataggio_setup.setText(QCoreApplication.translate("SetupWindow", u"SALVA", None))
         self.label_toggle_CHN_1.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700; color:#00aa00;\">CANALE 1</span></p></body></html>", None))
         self.pushButton_setup_CH1.setText(QCoreApplication.translate("SetupWindow", u"SETUP", None))
         self.label_sensCH1.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">SENS. [mV/V]</span></p></body></html>", None))
@@ -1112,12 +1177,13 @@ class Ui_SetupWindow(object):
         self.label_CH4_2.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">SENS. [mV/V]</span></p></body></html>", None))
         self.checkBox_CH4.setText(QCoreApplication.translate("SetupWindow", u"OFF", None))
         self.label_CH4.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">FONDOSCALA [?]</span></p></body></html>", None))
+        self.pushButton_concludi_setup.setText(QCoreApplication.translate("SetupWindow", u"CONCLUSIONE SETUP", None))
+        self.label_file_banco.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" color:#080808;\">File Banco</span></p></body></html>", None))
+        self.label_banco_attuale.setText(QCoreApplication.translate("SetupWindow", u"-", None))
         self.label_CHSG600_temp.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">COEFF [C/mV]</span></p></body></html>", None))
         self.label_Temperatura_SG600_temp.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700;\">Temperatura</span></p></body></html>", None))
         self.label_CHSG600.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">COEFF [Nm/mV]</span></p></body></html>", None))
         self.label_Principale_SG600.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700;\">Principale</span></p></body></html>", None))
-        self.pushButton_salvataggio_setup.setText(QCoreApplication.translate("SetupWindow", u"SALVATAGGIO SETUP", None))
-        self.pushButton_concludi_setup.setText(QCoreApplication.translate("SetupWindow", u"CONCLUSIONE SETUP", None))
         self.pushButton_setup_CHSG600.setText(QCoreApplication.translate("SetupWindow", u"SETUP SG600", None))
     # retranslateUi
 

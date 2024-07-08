@@ -58,7 +58,7 @@ class MainWindow(QMainWindow):
         self.timer2.timeout.connect(self.change_reg_lable)
 
     def change_reg_lable(self):
-        self.ui.label_nome_reg_display.setText(self.banco_di_taratura.logger.nome_CSV)
+        self.ui.label_nome_reg_display.setText(self.banco_di_taratura.logger.path_CSV)
 
     def show_setup_window(self):
         self.setup_window.show()
@@ -67,7 +67,7 @@ class MainWindow(QMainWindow):
         self.setup_graph.show()
         
     def show_finestra_salvataggio_registrazione(self):
-        self.finestra_salvataggio_registrazione.show()
+        self.finestra_salvataggio_registrazione.exec()
     
     def check(self):
         if self.timerStop == True:

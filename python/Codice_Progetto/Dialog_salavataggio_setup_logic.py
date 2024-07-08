@@ -20,9 +20,12 @@ class Salvataggio_setup(QDialog):
         
         # segnali
         self.ui.lineEdit_nome_file.editingFinished.connect(self.update_filename)
-        # self.ui.pushButton_salvataggio.clicked.connect(Handler_JSON.handle)
+        self.ui.pushButton_salvataggio.clicked.connect(self.save_setup)
         
     # metodi
     def update_filename(self):
         self.banco_di_taratura.file_setup_name = self.ui.lineEdit_nome_file.text()
         self.close()
+        
+    def save_setup(self):
+        Handler_JSON.save_setup(nome_file=self.banco_di_taratura.file_setup_name, banco_di_taratura=self.banco_di_taratura)

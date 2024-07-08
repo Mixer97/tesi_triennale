@@ -19,26 +19,16 @@ class Controller_MODBUS:
         
     class DATA:
         def __init__(self):
-        
-            # status canale
-            self.status_canali_SG600=0
             
             # main
             self.canale_principale_mV=0
             self.canale_principale_Nm=0
-            # self.canale_principale_Kg=0
-            # self.canale_principale_N=0
-            # self.sensibilità_principale=2.0000
-            # self.fondo_scala_principale=10000
-            # self.lever_length=1
             self.zero_main=0
             self.coefficiente_main = 1  # Nm/mV
             
             # temp
             self.canale_temperatura_mV=0
             self.canale_temperatura_C=0
-            # self.sensibilità_temperatura=1
-            # self.fondo_scala_temperatura=1
             self.zero_temp=0
             self.coefficiente_temp = 1  # C/mV
             
@@ -75,7 +65,6 @@ class Controller_MODBUS:
         risultati = self.client.read_holding_registers(address=0, count=1, slave=self.SLAVE.ID)
         while risultati.isError():
             risultati = self.client.read_holding_registers(address=0, count=1, slave=self.SLAVE.ID)
-        # print("high and low: " + str(risultati.registers[0]) + " " + str(risultati.registers[1]))
         risultati_elaborati = risultati
         return risultati_elaborati
     

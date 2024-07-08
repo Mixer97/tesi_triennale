@@ -958,14 +958,6 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_2.addWidget(self.pushButton_setup_registrazione)
 
-        self.frame_2 = QFrame(self.frame)
-        self.frame_2.setObjectName(u"frame_2")
-        self.frame_2.setStyleSheet(u"    border-width: 0px;")
-        self.frame_2.setFrameShape(QFrame.StyledPanel)
-        self.frame_2.setFrameShadow(QFrame.Raised)
-
-        self.horizontalLayout_2.addWidget(self.frame_2)
-
         self.pushButton_grafico = QPushButton(self.frame)
         self.pushButton_grafico.setObjectName(u"pushButton_grafico")
         sizePolicy4.setHeightForWidth(self.pushButton_grafico.sizePolicy().hasHeightForWidth())
@@ -988,6 +980,14 @@ class Ui_MainWindow(object):
 "}")
 
         self.horizontalLayout_2.addWidget(self.pushButton_grafico)
+
+        self.frame_2 = QFrame(self.frame)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setStyleSheet(u"    border-width: 0px;")
+        self.frame_2.setFrameShape(QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+
+        self.horizontalLayout_2.addWidget(self.frame_2)
 
 
         self.horizontalLayout_3.addWidget(self.frame)

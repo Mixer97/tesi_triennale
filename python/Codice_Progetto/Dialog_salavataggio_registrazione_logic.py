@@ -3,7 +3,6 @@ from PySide6.QtWidgets import QDialog
 from Dialog_salvataggio_ui import Ui_Dialog
 import Logger
 from typing import TYPE_CHECKING
-import Handler_CSV
 import time
 
 if TYPE_CHECKING:

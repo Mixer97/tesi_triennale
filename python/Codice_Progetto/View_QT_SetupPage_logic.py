@@ -1,6 +1,6 @@
 from __future__ import annotations
 from PySide6.QtCore import QTimer
-from PySide6.QtWidgets import QMainWindow
+from PySide6.QtWidgets import QMainWindow, QFileDialog
 from View_QT_SetupPage_ui import Ui_SetupWindow
 from Dialog_setup_1_logic import Canale_Setup_1
 from Dialog_setup_2_logic import Canale_Setup_2
@@ -8,6 +8,8 @@ from Dialog_setup_3_logic import Canale_Setup_3
 from Dialog_setup_4_logic import Canale_Setup_4
 from Dialog_setup_SG600_logic import Canale_Setup_SG600
 from Dialog_salavataggio_setup_logic import Salvataggio_setup
+import Handler_JSON
+from Dialog_error_logic import Error_window
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -93,6 +95,7 @@ class SetupWindow(QMainWindow):
         self.ui.pushButton_setup_CH4.clicked.connect(self.open_setup_CH4_window)
         self.ui.pushButton_setup_CHSG600.clicked.connect(self.open_setup_SG600_window)
         self.ui.pushButton_salvataggio_setup.clicked.connect(self.show_finestra_salvataggio_setup)
+        self.ui.pushButton_carica_setup.clicked.connect(self.load_banco_setup)
         
         # segnale per ritorno alla homapage
         self.ui.pushButton_home.clicked.connect(self.show_home_window)
@@ -102,7 +105,7 @@ class SetupWindow(QMainWindow):
         self.close()
         
     def show_finestra_salvataggio_setup(self):
-        self.finestra_salvataggio_setup.show()
+        self.finestra_salvataggio_setup.exec()
         
     def open_setup_CH1_window(self):
         self.setup_window = Canale_Setup_1(banco_di_taratura=self.banco_di_taratura)
@@ -123,7 +126,17 @@ class SetupWindow(QMainWindow):
     def open_setup_SG600_window(self):
         self.setup_window = Canale_Setup_SG600(banco_di_taratura=self.banco_di_taratura)
         self.setup_window.show()
-        
+    
+    def load_banco_setup(self):
+        fname = QFileDialog.getOpenFileName() # prendi info del file selezionato
+        fname = fname[0]    # dalle info estrae il path assoluto
+        if fname.endswith('json'):  # controllo sia un json
+            Handler_JSON.load_setup(fname, banco_di_taratura=self.banco_di_taratura, setup_window=self)
+        else:   # finestra di errore
+            error_window = Error_window(banco_di_taratura=self.banco_di_taratura)
+            error_window.set_error_message("Errore nella selezione del file (file selezionato non è .json)")
+            error_window.setWindowTitle("Error Window")
+            error_window.exec()
     
     # Funzione per gestire i canali attivi/disattivi con un click
     def on_click(self, ID):  

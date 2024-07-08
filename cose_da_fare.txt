@@ -19,7 +19,7 @@ COSE DA FARE:
     [[- raffinare il salvataggio della registrazione su logger]]
         [[- pensare a come ridurre il numero di CSV]]
         
-    - impostare salvataggio selle impostazioni su JSON (IMPORTANTE)
+    [[- impostare salvataggio selle impostazioni su JSON (IMPORTANTE)]]
     - implementazione parte di gestione della misura e calcolo della stabilità
     - fare test con misura seria per le due celle di carico (specialmente la 2)
     - implementare inserimento di note

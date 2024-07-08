@@ -9,6 +9,9 @@ Venvs
 CSV
 Venv
 
+# File scelti da me 
+*.json
+
 # User-specific files
 *.rsuser
 *.suo

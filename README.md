@@ -108,3 +108,9 @@
     implementata la conversione in Nm e C dei due canali dell'SG600
     inizio a lavorare sul grafico per plottare SG600 main convertito e una cella di carico
     concluso lavoro sui salvataggi CSV (anche aggiornato timer per coincidre con inizio registrazione)
+
+08/07
+    lavoro sul creatore di JSON, voglio creare un modo per salvare su json il setup e un modo per leggere i json e usarli per setup.
+    ho implementato il metodo pre torvare il file json e ora metto un controllo che sia effettivamente json
+    realizzata una error window che si puo implementare con 4 righe di codice
+    finito di realizzare un handler di JSON che permette di salvare le impostazioni del banco di taratura
