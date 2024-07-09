@@ -50,7 +50,7 @@ class BANCO_DI_TARATURA:
         self.euramet_Unità_ingegneristica_UUT = None
         '''self.euramet_Scale = self.controller_modbus.DATA.coefficiente_main''' #modifico direttamente il valore sul controller modbus
         self.euramet_Offset = None
-        self.euramet_Coppia_taratura_MAX = None
+        self.euramet_Coppia_taratura_MAX = 0
         self.euramet_Data = None
         self.euramet_Rif_interno_attivita = None
         self.euramet_Cliente = None

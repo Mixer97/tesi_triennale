@@ -17,11 +17,13 @@ class Euramet_window(QDialog):
         self.ui = Ui_Dialog_Euramet_setup()
         # Setup the user interface
         self.ui.setupUi(self)
-        
+        self.csv_setup_window = csv_euramet_window(self.banco_di_taratura, self)
         
         self.list_status_checkbox = self.banco_di_taratura.list_status_checkbox_euramet_page  #[salita_1, discesa_1, salita_2]
         self.current_number_of_steps = self.banco_di_taratura.current_number_of_steps  #[default: 5]
         self.status_inserimento_altezza = self.banco_di_taratura.status_inserimento_altezza  #[defualt: True]
+        self.ui.comboBox_step.setCurrentIndex(4)  # Posiziono con 5 step di default
+        self.ui.stackedWidget_euramet.setCurrentIndex(4)  # Posiziono con 5 step di default
         
         # segnali
         self.ui.comboBox_step.currentIndexChanged.connect(self.update_steps)
@@ -30,13 +32,14 @@ class Euramet_window(QDialog):
         self.ui.checkBox_discesa_1.stateChanged.connect(self.update_status_discesa_1)
         self.ui.checkBox_salita_2.stateChanged.connect(self.update_status_salita_2)
         self.ui.pushButton_impostazion_csv.clicked.connect(self.show_csv_setup_window)
+        self.ui.comboBox_step.currentIndexChanged.connect(self.ui.stackedWidget_euramet.setCurrentIndex)
         
     def show_csv_setup_window(self):
-        csv_setup_window = csv_euramet_window(self.banco_di_taratura, self)
-        csv_setup_window.exec()
+        self.csv_setup_window.exec()
         
     def update_steps(self):
-        self.current_number_of_steps = self.ui.comboBox_step.currentIndex() + 1   # index da 0 a 4 e io voglio da 1 a 5
+        self.banco_di_taratura.current_number_of_steps = self.ui.comboBox_step.currentIndex() + 1   # index da 0 a 4 e io voglio da 1 a 5
+        self.csv_setup_window.update_steps()
         
     def update_altezza_state(self):
         self.status_inserimento_altezza = self.ui.checkBox_altezza.isChecked() 

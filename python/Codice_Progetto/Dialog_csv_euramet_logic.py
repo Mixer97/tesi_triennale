@@ -24,6 +24,7 @@ class csv_euramet_window(QDialog):
         
     def save_and_back(self):
         self.save_process()
+        self.update_steps()
         self.euramet_window.show()
         self.close()
         
@@ -46,3 +47,30 @@ class csv_euramet_window(QDialog):
               self.banco_di_taratura.euramet_Report_di_calibrazione_TX,
               self.banco_di_taratura.controller_modbus.DATA.coefficiente_main)
         
+    def update_steps(self):
+        if self.banco_di_taratura.current_number_of_steps == 5:
+            altezza_step = int(self.banco_di_taratura.euramet_Coppia_taratura_MAX)/5
+            self.euramet_window.ui.label_step_1_5.setText(str(altezza_step*1))
+            self.euramet_window.ui.label_step_2_5.setText(str(altezza_step*2))
+            self.euramet_window.ui.label_step_3_5.setText(str(altezza_step*3))
+            self.euramet_window.ui.label_step_4_5.setText(str(altezza_step*4))
+            self.euramet_window.ui.label_step_5_5.setText(str(altezza_step*5))
+        elif self.banco_di_taratura.current_number_of_steps == 4:
+            altezza_step = int(self.banco_di_taratura.euramet_Coppia_taratura_MAX)/4
+            self.euramet_window.ui.label_step_1_4.setText(str(altezza_step*1))
+            self.euramet_window.ui.label_step_2_4.setText(str(altezza_step*2))
+            self.euramet_window.ui.label_step_3_4.setText(str(altezza_step*3))
+            self.euramet_window.ui.label_step_4_4.setText(str(altezza_step*4))
+        elif self.banco_di_taratura.current_number_of_steps == 3:
+            altezza_step = int(self.banco_di_taratura.euramet_Coppia_taratura_MAX)/3
+            self.euramet_window.ui.label_step_1_3.setText(str(altezza_step*1))
+            self.euramet_window.ui.label_step_2_3.setText(str(altezza_step*2))
+            self.euramet_window.ui.label_step_3_3.setText(str(altezza_step*3))
+        elif self.banco_di_taratura.current_number_of_steps == 2:
+            altezza_step = int(self.banco_di_taratura.euramet_Coppia_taratura_MAX)/2
+            self.euramet_window.ui.label_step_1_2.setText(str(altezza_step*1))
+            self.euramet_window.ui.label_step_2_2.setText(str(altezza_step*2))
+        elif self.banco_di_taratura.current_number_of_steps == 1:
+            altezza_step = int(self.banco_di_taratura.euramet_Coppia_taratura_MAX)
+            self.euramet_window.ui.label_step_1_1.setText(str(altezza_step))
+
