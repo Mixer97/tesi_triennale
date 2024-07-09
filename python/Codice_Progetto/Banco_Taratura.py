@@ -7,7 +7,6 @@ import Controller_Client_MODBUS_Seneca as C_Seneca
 from threading import Thread
 from time import sleep
 from pymodbus import pymodbus_apply_logging_config
-from time import sleep
 import sys
 from View_QT_HomePage_logic import MainWindow
 

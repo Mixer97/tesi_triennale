@@ -111,7 +111,8 @@
 
 08/07
     lavoro sul creatore di JSON, voglio creare un modo per salvare su json il setup e un modo per leggere i json e usarli per setup.
-    ho implementato il metodo pre torvare il file json e ora metto un controllo che sia effettivamente json
+    ho implementato il metodo pre trovare il file json e ora metto un controllo che sia effettivamente json
     realizzata una error window che si puo implementare con 4 righe di codice
     finito di realizzare un handler di JSON che permette di salvare le impostazioni del banco di taratura
     realizzo un test per evitare di sovrascrivere i setup del banco
+    conlcuso la modifica del setup banco e del logger con le finestre di comunicazione
