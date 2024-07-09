@@ -969,7 +969,7 @@
 </string>
          </property>
          <property name="text">
-          <string>Progetto_UUT</string>
+          <string>Progetto UUT</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>

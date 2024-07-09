@@ -655,7 +655,7 @@ class Ui_Dialog_csv_euramet(object):
         self.lineEdit_SN_TX.setText(QCoreApplication.translate("Dialog_csv_euramet", u"-", None))
         self.label_descrizione_UUT.setText(QCoreApplication.translate("Dialog_csv_euramet", u"Descrizione UUT", None))
         self.lineEdit_descrizione_UUT.setText(QCoreApplication.translate("Dialog_csv_euramet", u"-", None))
-        self.label_progetto_UUT.setText(QCoreApplication.translate("Dialog_csv_euramet", u"Progetto_UUT", None))
+        self.label_progetto_UUT.setText(QCoreApplication.translate("Dialog_csv_euramet", u"Progetto UUT", None))
         self.lineEdit_progetto_UUT.setText(QCoreApplication.translate("Dialog_csv_euramet", u"-", None))
         self.label_SN_UUT.setText(QCoreApplication.translate("Dialog_csv_euramet", u"SN UUT", None))
         self.lineEdit_SN_UUT.setText(QCoreApplication.translate("Dialog_csv_euramet", u"-", None))

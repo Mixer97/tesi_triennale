@@ -45,6 +45,22 @@ class BANCO_DI_TARATURA:
         self.current_number_of_steps = 5
         self.status_inserimento_altezza = True
         
+        # variabili csv euramet 
+        self.euramet_unita_ingegneristica_di_misura = None
+        self.euramet_Unità_ingegneristica_UUT = None
+        '''self.euramet_Scale = self.controller_modbus.DATA.coefficiente_main''' #modifico direttamente il valore sul controller modbus
+        self.euramet_Offset = None
+        self.euramet_Coppia_taratura_MAX = None
+        self.euramet_Data = None
+        self.euramet_Rif_interno_attivita = None
+        self.euramet_Cliente = None
+        self.euramet_SN_TX = None
+        self.euramet_Descrizione_UUT = None
+        self.euramet_Progetto_UUT = None
+        self.euramet_SN_UUT = None
+        self.euramet_Report_di_calibrazione_TX = None
+        
+        
 
         
     # metodi comuni a tutte le istanze da metter qui

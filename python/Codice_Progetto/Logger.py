@@ -22,7 +22,7 @@ class LOGGER:
             self.result_list_SG600_main_temp=[0,0]
             self.text_lcd_SG600_main_temp=["mV","mV"]  # Viene aggiornato dalla Main View in automatico [[DA IMPLEMENTARE]] 
             self.loop_status=True
-            self.periodo_logger=0.01
+            self.periodo_logger=0.1
             self.counter_registrazione = 0
     
     def __init__(self, banco_di_taratura, nome_CSV, starting_status=False, status=1):

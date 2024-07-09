@@ -32,7 +32,7 @@ class Euramet_window(QDialog):
         self.ui.pushButton_impostazion_csv.clicked.connect(self.show_csv_setup_window)
         
     def show_csv_setup_window(self):
-        csv_setup_window = csv_euramet_window(self.banco_di_taratura)
+        csv_setup_window = csv_euramet_window(self.banco_di_taratura, self)
         csv_setup_window.exec()
         
     def update_steps(self):
