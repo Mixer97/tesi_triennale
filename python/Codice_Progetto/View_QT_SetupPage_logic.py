@@ -33,7 +33,7 @@ class SetupWindow(QMainWindow):
         self.logger = banco_di_taratura.logger
         
         self.update_status = banco_di_taratura.update_status # bool [FALSE]
-        self.list_status_checkbox = banco_di_taratura.list_status_checkbox  # list status ordine:  [ch4, ch3, ch2, ch1]
+        self.list_status_checkbox = banco_di_taratura.list_status_checkbox_setup_page  # list status ordine:  [ch4, ch3, ch2, ch1]
         self.status_timer = banco_di_taratura.status_timer  # bool [FALSE]
         
         self.finestra_salvataggio_setup = Salvataggio_setup(self.banco_di_taratura, self)
@@ -109,23 +109,23 @@ class SetupWindow(QMainWindow):
         
     def open_setup_CH1_window(self):
         self.setup_window = Canale_Setup_1(banco_di_taratura=self.banco_di_taratura)
-        self.setup_window.show()
+        self.setup_window.exec()
         
     def open_setup_CH2_window(self):
         self.setup_window = Canale_Setup_2(banco_di_taratura=self.banco_di_taratura)
-        self.setup_window.show()
+        self.setup_window.exec()
 
     def open_setup_CH3_window(self):
         self.setup_window = Canale_Setup_3(banco_di_taratura=self.banco_di_taratura)
-        self.setup_window.show()
+        self.setup_window.exec()
 
     def open_setup_CH4_window(self):
         self.setup_window = Canale_Setup_4(banco_di_taratura=self.banco_di_taratura)
-        self.setup_window.show()
+        self.setup_window.exec()
         
     def open_setup_SG600_window(self):
         self.setup_window = Canale_Setup_SG600(banco_di_taratura=self.banco_di_taratura)
-        self.setup_window.show()
+        self.setup_window.exec()
     
     def load_banco_setup(self):
         fname = QFileDialog.getOpenFileName() # prendi info del file selezionato

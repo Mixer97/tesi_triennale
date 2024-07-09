@@ -6,6 +6,7 @@ from PySide6.QtCore import QSize
 from PySide6.QtCore import QTimer
 import  PySide6.QtCore
 from Mainwindow_grafico_ui import Ui_GraphWindow
+from Dialog_setup_euramet_logic import Euramet_window
 import pyqtgraph as pg
 from pyqtgraph import PlotWidget
 import sys
@@ -17,6 +18,7 @@ import sys
 if TYPE_CHECKING:
     from Banco_Taratura import BANCO_DI_TARATURA
     from View_QT_HomePage_logic import MainWindow
+
 
 
 class Graph:
@@ -268,6 +270,7 @@ class Graph:
 
 
 class GraphWindow(QMainWindow):
+    
     def __init__(self, banco_di_taratura:BANCO_DI_TARATURA, homepage:MainWindow):
         super().__init__()
         self.banco_di_taratura = banco_di_taratura
@@ -277,6 +280,7 @@ class GraphWindow(QMainWindow):
         self.ui.setupUi(self)
         self.start_time = time.time()
         self.homepage = homepage
+        self.euramet_window = Euramet_window(self.banco_di_taratura)
         
         # grafici disponibili
         graph_main_and_channel = self.ui.graphWidget_SG600_main_and_channel
@@ -336,12 +340,18 @@ class GraphWindow(QMainWindow):
         self.ui.pushButton_reset_main_and_channel.clicked.connect(self.graph_main_and_channel.reset_grafico)
         self.ui.pushButton_reset_solo_main.clicked.connect(self.graph_soloMain.reset_grafico)
         
+        self.ui.pushButton_Euramet.clicked.connect(self.show_euramet_window)
+        
         # Segnale per torare a home page
         self.ui.pushButton_home.clicked.connect(self.show_home_window)
         
     def show_home_window(self):
         self.homepage.show()
         self.close()
+        
+    def show_euramet_window(self):
+        self.euramet_window.exec()
+        
         
 
         

@@ -1180,9 +1180,9 @@ class Ui_SetupWindow(object):
         self.pushButton_concludi_setup.setText(QCoreApplication.translate("SetupWindow", u"CONCLUSIONE SETUP", None))
         self.label_file_banco.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" color:#080808;\">File Banco</span></p></body></html>", None))
         self.label_banco_attuale.setText(QCoreApplication.translate("SetupWindow", u"-", None))
-        self.label_CHSG600_temp.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">COEFF [C/mV]</span></p></body></html>", None))
+        self.label_CHSG600_temp.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">COEFF [C/V]</span></p></body></html>", None))
         self.label_Temperatura_SG600_temp.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700;\">Temperatura</span></p></body></html>", None))
-        self.label_CHSG600.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">COEFF [Nm/mV]</span></p></body></html>", None))
+        self.label_CHSG600.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">COEFF [Nm/V]</span></p></body></html>", None))
         self.label_Principale_SG600.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700;\">Principale</span></p></body></html>", None))
         self.pushButton_setup_CHSG600.setText(QCoreApplication.translate("SetupWindow", u"SETUP SG600", None))
     # retranslateUi

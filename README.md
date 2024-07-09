@@ -116,3 +116,16 @@
     finito di realizzare un handler di JSON che permette di salvare le impostazioni del banco di taratura
     realizzo un test per evitare di sovrascrivere i setup del banco
     conlcuso la modifica del setup banco e del logger con le finestre di comunicazione
+
+09/07
+    numero step, valore step, checkbox  di salita\discesa\salita, 0 e 90 gradi (Q1, Q3), input csv di euramet (nel csv fatto da emanuele), input temperatura ambiente, prevedere correzione lineare sul seneca --> due coefficienti m e q per calibrazione del seneca impostabili per correzione lineare (y=mx+q)
+    aspettare 30 secondi --> prende il numero, se premi il tasto invece prende il nuemero attuale
+
+    numero attuale, step attuale, immagine euramet che viene colorata mentre si avanza 
+    impostare tabilita alla quale iniziare il conto dei 30 secondi
+
+    misura altezza, con checkbox per abilitare e disabilitare.
+
+    salvare nel file di configurazione json per anche impostazioni euramet ( inserire un salvataggio separato per euramet )
+
+    mail per aggiornare il prof de lorenzo del tirocinio -> come vogliamo procedere

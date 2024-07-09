@@ -25,6 +25,9 @@ COSE DA FARE:
     - implementare inserimento di note
         - per il grafico, fare un grafico che permetta di plottare sg600 convertito in Nm con una delle celle di carico
     - inserire sistema per attesa riconnessione in modo che non si blocchi e poi riparta senza info
+    - inserire un file di default per il setup del banco di misura
+    - inserire try-catch nei controller delle due schede per riuscire a gestire eventuali errori di connessione
+    - lavorare su schermata euramet
 
 BUG SCOPERTI:
 

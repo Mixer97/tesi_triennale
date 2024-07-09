@@ -29,7 +29,7 @@ class BANCO_DI_TARATURA:
         
         # variabili per setup page
         self.update_status = False
-        self.list_status_checkbox = [0,0,0,0]   #[CH4, CH3, CH2, CH1]     
+        self.list_status_checkbox_setup_page = [0,0,0,0]   #[CH4, CH3, CH2, CH1]     
         self.status_timer = False  
         
         # variabili per salvataggio setup file
@@ -39,6 +39,11 @@ class BANCO_DI_TARATURA:
         # variabili per salvataggio registrazione
         self.registrazione_name = None
         self.counter_registrazione = 0
+        
+        # variabili impostazione euramet
+        self.list_status_checkbox_euramet_page = [0,0,0]   #[salita_1, discesa_1, salita_2]
+        self.current_number_of_steps = 5
+        self.status_inserimento_altezza = True
         
 
         
