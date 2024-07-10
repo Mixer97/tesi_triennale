@@ -44,6 +44,7 @@ class BANCO_DI_TARATURA:
         self.list_status_checkbox_euramet_page = [0,0,0]   #[salita_1, discesa_1, salita_2]
         self.current_number_of_steps = 5
         self.status_inserimento_altezza = True
+        self.quadrant = "Q1"
         
         # variabili csv euramet 
         self.euramet_unita_ingegneristica_di_misura = None
@@ -59,9 +60,14 @@ class BANCO_DI_TARATURA:
         self.euramet_Progetto_UUT = None
         self.euramet_SN_UUT = None
         self.euramet_Report_di_calibrazione_TX = None
-        
-        
 
+        
+        # variabili misura euramet
+        self.euramet_cella_inizio_precarichi_Q3 = "D7"
+        self.euramet_cella_inizio_precarichi_Q1 = "D29"
+        self.excel_path_template = "python\\Codice_Progetto\\Template_Euramet_Excel\\04. YYMMDD - Rapporto Taratura UUT v9.xlsx"
+        self.excel_path_certificate ="python\\Codice_Progetto\\Certificati_Euramet_Completi\\Test.xlsx"
+        self.excel_page_name = "Euramet"
         
     # metodi comuni a tutte le istanze da metter qui
 

@@ -16,9 +16,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
-    QHBoxLayout, QLabel, QLineEdit, QMainWindow,
-    QPushButton, QSizePolicy, QStackedWidget, QVBoxLayout,
-    QWidget)
+    QHBoxLayout, QLCDNumber, QLabel, QLineEdit,
+    QMainWindow, QProgressBar, QPushButton, QSizePolicy,
+    QStackedWidget, QVBoxLayout, QWidget)
 
 from pyqtgraph import PlotWidget
 
@@ -64,6 +64,173 @@ class Ui_GraphWindow(object):
         self.frame.setStyleSheet(u"    border-width: 2px;")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
+        self.frame_7 = QFrame(self.frame)
+        self.frame_7.setObjectName(u"frame_7")
+        self.frame_7.setGeometry(QRect(10, 190, 181, 121))
+        self.frame_7.setStyleSheet(u"border-width: 1px")
+        self.frame_7.setFrameShape(QFrame.StyledPanel)
+        self.frame_7.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_5 = QVBoxLayout(self.frame_7)
+        self.verticalLayout_5.setSpacing(0)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.label_4 = QLabel(self.frame_7)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setStyleSheet(u"QLabel{\n"
+"	background-color:rgb(255, 207, 84); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_4.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_5.addWidget(self.label_4)
+
+        self.lcdNumber_ch2 = QLCDNumber(self.frame_7)
+        self.lcdNumber_ch2.setObjectName(u"lcdNumber_ch2")
+        self.lcdNumber_ch2.setStyleSheet(u"QWidget {\n"
+"	background-color:white; \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: black;\n"
+"}\n"
+"QLCDNumber{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+
+        self.verticalLayout_5.addWidget(self.lcdNumber_ch2)
+
+        self.frame_8 = QFrame(self.frame)
+        self.frame_8.setObjectName(u"frame_8")
+        self.frame_8.setGeometry(QRect(10, 320, 181, 121))
+        self.frame_8.setStyleSheet(u"border-width: 1px")
+        self.frame_8.setFrameShape(QFrame.StyledPanel)
+        self.frame_8.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_11 = QVBoxLayout(self.frame_8)
+        self.verticalLayout_11.setSpacing(0)
+        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
+        self.verticalLayout_11.setContentsMargins(0, 0, 0, 0)
+        self.label_3 = QLabel(self.frame_8)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setStyleSheet(u"QLabel{\n"
+"	background-color:rgb(255, 207, 84); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_3.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_11.addWidget(self.label_3)
+
+        self.lcdNumber_ch4 = QLCDNumber(self.frame_8)
+        self.lcdNumber_ch4.setObjectName(u"lcdNumber_ch4")
+        self.lcdNumber_ch4.setStyleSheet(u"QWidget {\n"
+"	background-color:white; \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: black;\n"
+"}\n"
+"QLCDNumber{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+
+        self.verticalLayout_11.addWidget(self.lcdNumber_ch4)
+
+        self.frame_9 = QFrame(self.frame)
+        self.frame_9.setObjectName(u"frame_9")
+        self.frame_9.setGeometry(QRect(10, 60, 181, 119))
+        self.frame_9.setStyleSheet(u"border-width: 1px")
+        self.frame_9.setFrameShape(QFrame.StyledPanel)
+        self.frame_9.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_12 = QVBoxLayout(self.frame_9)
+        self.verticalLayout_12.setSpacing(0)
+        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.verticalLayout_12.setContentsMargins(0, 0, 0, 0)
+        self.label_5 = QLabel(self.frame_9)
+        self.label_5.setObjectName(u"label_5")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.label_5.sizePolicy().hasHeightForWidth())
+        self.label_5.setSizePolicy(sizePolicy1)
+        self.label_5.setStyleSheet(u"QLabel{\n"
+"	background-color:rgb(255, 207, 84); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_5.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_12.addWidget(self.label_5)
+
+        self.lcdNumber_main = QLCDNumber(self.frame_9)
+        self.lcdNumber_main.setObjectName(u"lcdNumber_main")
+        self.lcdNumber_main.setStyleSheet(u"QWidget {\n"
+"	background-color:white; \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: black;\n"
+"}\n"
+"QLCDNumber{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+
+        self.verticalLayout_12.addWidget(self.lcdNumber_main)
+
+        self.frame_20 = QFrame(self.frame)
+        self.frame_20.setObjectName(u"frame_20")
+        self.frame_20.setGeometry(QRect(10, 460, 181, 121))
+        self.frame_20.setStyleSheet(u"border-width: 1px")
+        self.frame_20.setFrameShape(QFrame.StyledPanel)
+        self.frame_20.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_13 = QVBoxLayout(self.frame_20)
+        self.verticalLayout_13.setSpacing(0)
+        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
+        self.verticalLayout_13.setContentsMargins(0, 0, 0, 0)
+        self.label_12 = QLabel(self.frame_20)
+        self.label_12.setObjectName(u"label_12")
+        self.label_12.setStyleSheet(u"QLabel {\n"
+"    border: 2px solid black;\n"
+"    border-radius: 0px;\n"
+"	background-color: rgb(198, 213, 255);\n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"	border-color: rgb(95, 140, 212);\n"
+"}\n"
+"QLabel{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_12.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_13.addWidget(self.label_12)
+
+        self.label_step_attuale_valore = QLabel(self.frame_20)
+        self.label_step_attuale_valore.setObjectName(u"label_step_attuale_valore")
+        self.label_step_attuale_valore.setStyleSheet(u"QWidget{\n"
+"	background-color:rgb(255, 255, 255); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 0;\n"
+"	color: rgb(0,0,0);\n"
+"}")
+        self.label_step_attuale_valore.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_13.addWidget(self.label_step_attuale_valore)
+
 
         self.horizontalLayout.addWidget(self.frame)
 
@@ -77,13 +244,14 @@ class Ui_GraphWindow(object):
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.frame_5 = QFrame(self.frame_3)
         self.frame_5.setObjectName(u"frame_5")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.frame_5.sizePolicy().hasHeightForWidth())
-        self.frame_5.setSizePolicy(sizePolicy1)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.frame_5.sizePolicy().hasHeightForWidth())
+        self.frame_5.setSizePolicy(sizePolicy2)
         self.frame_5.setMinimumSize(QSize(0, 400))
         self.frame_5.setMaximumSize(QSize(16777215, 16777215))
+        self.frame_5.setStyleSheet(u"")
         self.frame_5.setFrameShape(QFrame.StyledPanel)
         self.frame_5.setFrameShadow(QFrame.Raised)
         self.verticalLayout = QVBoxLayout(self.frame_5)
@@ -92,11 +260,11 @@ class Ui_GraphWindow(object):
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.stackedWidget_SG600 = QStackedWidget(self.frame_5)
         self.stackedWidget_SG600.setObjectName(u"stackedWidget_SG600")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.stackedWidget_SG600.sizePolicy().hasHeightForWidth())
-        self.stackedWidget_SG600.setSizePolicy(sizePolicy2)
+        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.stackedWidget_SG600.sizePolicy().hasHeightForWidth())
+        self.stackedWidget_SG600.setSizePolicy(sizePolicy3)
         self.page_main = QWidget()
         self.page_main.setObjectName(u"page_main")
         self.gridLayout_5 = QGridLayout(self.page_main)
@@ -105,8 +273,8 @@ class Ui_GraphWindow(object):
         self.gridLayout_5.setContentsMargins(2, 2, 2, 2)
         self.graphWidget_SG600_solo_main = PlotWidget(self.page_main)
         self.graphWidget_SG600_solo_main.setObjectName(u"graphWidget_SG600_solo_main")
-        sizePolicy2.setHeightForWidth(self.graphWidget_SG600_solo_main.sizePolicy().hasHeightForWidth())
-        self.graphWidget_SG600_solo_main.setSizePolicy(sizePolicy2)
+        sizePolicy3.setHeightForWidth(self.graphWidget_SG600_solo_main.sizePolicy().hasHeightForWidth())
+        self.graphWidget_SG600_solo_main.setSizePolicy(sizePolicy3)
         self.graphWidget_SG600_solo_main.setStyleSheet(u"background-color: rgb(26, 49, 255);")
 
         self.gridLayout_5.addWidget(self.graphWidget_SG600_solo_main, 1, 0, 1, 1)
@@ -122,8 +290,8 @@ class Ui_GraphWindow(object):
         self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.pushButton_autorange_solo_main = QPushButton(self.frame_14)
         self.pushButton_autorange_solo_main.setObjectName(u"pushButton_autorange_solo_main")
-        sizePolicy2.setHeightForWidth(self.pushButton_autorange_solo_main.sizePolicy().hasHeightForWidth())
-        self.pushButton_autorange_solo_main.setSizePolicy(sizePolicy2)
+        sizePolicy3.setHeightForWidth(self.pushButton_autorange_solo_main.sizePolicy().hasHeightForWidth())
+        self.pushButton_autorange_solo_main.setSizePolicy(sizePolicy3)
         self.pushButton_autorange_solo_main.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_autorange_solo_main.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(255, 106, 106); \n"
@@ -177,8 +345,8 @@ class Ui_GraphWindow(object):
         self.gridLayout_7.setContentsMargins(2, 2, 2, 2)
         self.graphWidget_SG600_solo_temp = PlotWidget(self.page_temp)
         self.graphWidget_SG600_solo_temp.setObjectName(u"graphWidget_SG600_solo_temp")
-        sizePolicy2.setHeightForWidth(self.graphWidget_SG600_solo_temp.sizePolicy().hasHeightForWidth())
-        self.graphWidget_SG600_solo_temp.setSizePolicy(sizePolicy2)
+        sizePolicy3.setHeightForWidth(self.graphWidget_SG600_solo_temp.sizePolicy().hasHeightForWidth())
+        self.graphWidget_SG600_solo_temp.setSizePolicy(sizePolicy3)
         self.graphWidget_SG600_solo_temp.setStyleSheet(u"background-color: rgb(26, 49, 255);")
 
         self.gridLayout_7.addWidget(self.graphWidget_SG600_solo_temp, 1, 0, 1, 1)
@@ -194,8 +362,8 @@ class Ui_GraphWindow(object):
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.pushButton_autorange_solo_temp = QPushButton(self.frame_17)
         self.pushButton_autorange_solo_temp.setObjectName(u"pushButton_autorange_solo_temp")
-        sizePolicy2.setHeightForWidth(self.pushButton_autorange_solo_temp.sizePolicy().hasHeightForWidth())
-        self.pushButton_autorange_solo_temp.setSizePolicy(sizePolicy2)
+        sizePolicy3.setHeightForWidth(self.pushButton_autorange_solo_temp.sizePolicy().hasHeightForWidth())
+        self.pushButton_autorange_solo_temp.setSizePolicy(sizePolicy3)
         self.pushButton_autorange_solo_temp.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_autorange_solo_temp.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(255, 106, 106); \n"
@@ -248,16 +416,16 @@ class Ui_GraphWindow(object):
         self.gridLayout_4.setContentsMargins(2, 2, 2, 2)
         self.graphWidget_SG600_main_and_channel = PlotWidget(self.page_temp_main)
         self.graphWidget_SG600_main_and_channel.setObjectName(u"graphWidget_SG600_main_and_channel")
-        sizePolicy2.setHeightForWidth(self.graphWidget_SG600_main_and_channel.sizePolicy().hasHeightForWidth())
-        self.graphWidget_SG600_main_and_channel.setSizePolicy(sizePolicy2)
+        sizePolicy3.setHeightForWidth(self.graphWidget_SG600_main_and_channel.sizePolicy().hasHeightForWidth())
+        self.graphWidget_SG600_main_and_channel.setSizePolicy(sizePolicy3)
         self.graphWidget_SG600_main_and_channel.setStyleSheet(u"background-color: rgb(26, 49, 255);")
 
         self.gridLayout_4.addWidget(self.graphWidget_SG600_main_and_channel, 1, 0, 1, 1)
 
         self.frame_11 = QFrame(self.page_temp_main)
         self.frame_11.setObjectName(u"frame_11")
-        sizePolicy2.setHeightForWidth(self.frame_11.sizePolicy().hasHeightForWidth())
-        self.frame_11.setSizePolicy(sizePolicy2)
+        sizePolicy3.setHeightForWidth(self.frame_11.sizePolicy().hasHeightForWidth())
+        self.frame_11.setSizePolicy(sizePolicy3)
         self.frame_11.setMaximumSize(QSize(50, 16777215))
         self.frame_11.setFrameShape(QFrame.StyledPanel)
         self.frame_11.setFrameShadow(QFrame.Raised)
@@ -267,11 +435,11 @@ class Ui_GraphWindow(object):
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.pushButton_autorange_main_and_channel = QPushButton(self.frame_11)
         self.pushButton_autorange_main_and_channel.setObjectName(u"pushButton_autorange_main_and_channel")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.pushButton_autorange_main_and_channel.sizePolicy().hasHeightForWidth())
-        self.pushButton_autorange_main_and_channel.setSizePolicy(sizePolicy3)
+        sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.pushButton_autorange_main_and_channel.sizePolicy().hasHeightForWidth())
+        self.pushButton_autorange_main_and_channel.setSizePolicy(sizePolicy4)
         self.pushButton_autorange_main_and_channel.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_autorange_main_and_channel.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(255, 106, 106); \n"
@@ -321,29 +489,29 @@ class Ui_GraphWindow(object):
 
         self.stackedWidget_Laumas = QStackedWidget(self.frame_5)
         self.stackedWidget_Laumas.setObjectName(u"stackedWidget_Laumas")
-        sizePolicy1.setHeightForWidth(self.stackedWidget_Laumas.sizePolicy().hasHeightForWidth())
-        self.stackedWidget_Laumas.setSizePolicy(sizePolicy1)
+        sizePolicy2.setHeightForWidth(self.stackedWidget_Laumas.sizePolicy().hasHeightForWidth())
+        self.stackedWidget_Laumas.setSizePolicy(sizePolicy2)
         self.stackedWidget_Laumas.setMaximumSize(QSize(16777215, 300000))
         self.page_CH1 = QWidget()
         self.page_CH1.setObjectName(u"page_CH1")
-        sizePolicy2.setHeightForWidth(self.page_CH1.sizePolicy().hasHeightForWidth())
-        self.page_CH1.setSizePolicy(sizePolicy2)
+        sizePolicy3.setHeightForWidth(self.page_CH1.sizePolicy().hasHeightForWidth())
+        self.page_CH1.setSizePolicy(sizePolicy3)
         self.gridLayout_9 = QGridLayout(self.page_CH1)
         self.gridLayout_9.setSpacing(0)
         self.gridLayout_9.setObjectName(u"gridLayout_9")
         self.gridLayout_9.setContentsMargins(2, 2, 2, 2)
         self.graphWidget_solo_channel_1 = PlotWidget(self.page_CH1)
         self.graphWidget_solo_channel_1.setObjectName(u"graphWidget_solo_channel_1")
-        sizePolicy2.setHeightForWidth(self.graphWidget_solo_channel_1.sizePolicy().hasHeightForWidth())
-        self.graphWidget_solo_channel_1.setSizePolicy(sizePolicy2)
+        sizePolicy3.setHeightForWidth(self.graphWidget_solo_channel_1.sizePolicy().hasHeightForWidth())
+        self.graphWidget_solo_channel_1.setSizePolicy(sizePolicy3)
         self.graphWidget_solo_channel_1.setStyleSheet(u"background-color: rgb(26, 49, 255);")
 
         self.gridLayout_9.addWidget(self.graphWidget_solo_channel_1, 0, 0, 2, 1)
 
         self.frame_16 = QFrame(self.page_CH1)
         self.frame_16.setObjectName(u"frame_16")
-        sizePolicy2.setHeightForWidth(self.frame_16.sizePolicy().hasHeightForWidth())
-        self.frame_16.setSizePolicy(sizePolicy2)
+        sizePolicy3.setHeightForWidth(self.frame_16.sizePolicy().hasHeightForWidth())
+        self.frame_16.setSizePolicy(sizePolicy3)
         self.frame_16.setMaximumSize(QSize(50, 16777215))
         self.frame_16.setFrameShape(QFrame.StyledPanel)
         self.frame_16.setFrameShadow(QFrame.Raised)
@@ -353,8 +521,8 @@ class Ui_GraphWindow(object):
         self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
         self.pushButton_autorange_ch1 = QPushButton(self.frame_16)
         self.pushButton_autorange_ch1.setObjectName(u"pushButton_autorange_ch1")
-        sizePolicy2.setHeightForWidth(self.pushButton_autorange_ch1.sizePolicy().hasHeightForWidth())
-        self.pushButton_autorange_ch1.setSizePolicy(sizePolicy2)
+        sizePolicy3.setHeightForWidth(self.pushButton_autorange_ch1.sizePolicy().hasHeightForWidth())
+        self.pushButton_autorange_ch1.setSizePolicy(sizePolicy3)
         self.pushButton_autorange_ch1.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_autorange_ch1.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(255, 106, 106); \n"
@@ -401,16 +569,16 @@ class Ui_GraphWindow(object):
         self.stackedWidget_Laumas.addWidget(self.page_CH1)
         self.page_CH2 = QWidget()
         self.page_CH2.setObjectName(u"page_CH2")
-        sizePolicy2.setHeightForWidth(self.page_CH2.sizePolicy().hasHeightForWidth())
-        self.page_CH2.setSizePolicy(sizePolicy2)
+        sizePolicy3.setHeightForWidth(self.page_CH2.sizePolicy().hasHeightForWidth())
+        self.page_CH2.setSizePolicy(sizePolicy3)
         self.gridLayout_8 = QGridLayout(self.page_CH2)
         self.gridLayout_8.setSpacing(0)
         self.gridLayout_8.setObjectName(u"gridLayout_8")
         self.gridLayout_8.setContentsMargins(2, 2, 2, 2)
         self.graphWidget_solo_channel_2 = PlotWidget(self.page_CH2)
         self.graphWidget_solo_channel_2.setObjectName(u"graphWidget_solo_channel_2")
-        sizePolicy2.setHeightForWidth(self.graphWidget_solo_channel_2.sizePolicy().hasHeightForWidth())
-        self.graphWidget_solo_channel_2.setSizePolicy(sizePolicy2)
+        sizePolicy3.setHeightForWidth(self.graphWidget_solo_channel_2.sizePolicy().hasHeightForWidth())
+        self.graphWidget_solo_channel_2.setSizePolicy(sizePolicy3)
         self.graphWidget_solo_channel_2.setStyleSheet(u"background-color: rgb(26, 49, 255);")
 
         self.gridLayout_8.addWidget(self.graphWidget_solo_channel_2, 0, 0, 1, 1)
@@ -426,8 +594,8 @@ class Ui_GraphWindow(object):
         self.verticalLayout_9.setContentsMargins(0, 0, 0, 0)
         self.pushButton_autorange_ch2 = QPushButton(self.frame_15)
         self.pushButton_autorange_ch2.setObjectName(u"pushButton_autorange_ch2")
-        sizePolicy2.setHeightForWidth(self.pushButton_autorange_ch2.sizePolicy().hasHeightForWidth())
-        self.pushButton_autorange_ch2.setSizePolicy(sizePolicy2)
+        sizePolicy3.setHeightForWidth(self.pushButton_autorange_ch2.sizePolicy().hasHeightForWidth())
+        self.pushButton_autorange_ch2.setSizePolicy(sizePolicy3)
         self.pushButton_autorange_ch2.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_autorange_ch2.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(255, 106, 106); \n"
@@ -474,8 +642,8 @@ class Ui_GraphWindow(object):
         self.stackedWidget_Laumas.addWidget(self.page_CH2)
         self.page_CH3 = QWidget()
         self.page_CH3.setObjectName(u"page_CH3")
-        sizePolicy2.setHeightForWidth(self.page_CH3.sizePolicy().hasHeightForWidth())
-        self.page_CH3.setSizePolicy(sizePolicy2)
+        sizePolicy3.setHeightForWidth(self.page_CH3.sizePolicy().hasHeightForWidth())
+        self.page_CH3.setSizePolicy(sizePolicy3)
         self.gridLayout_3 = QGridLayout(self.page_CH3)
         self.gridLayout_3.setSpacing(0)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
@@ -491,8 +659,8 @@ class Ui_GraphWindow(object):
         self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
         self.pushButton_autorange_ch3 = QPushButton(self.frame_12)
         self.pushButton_autorange_ch3.setObjectName(u"pushButton_autorange_ch3")
-        sizePolicy2.setHeightForWidth(self.pushButton_autorange_ch3.sizePolicy().hasHeightForWidth())
-        self.pushButton_autorange_ch3.setSizePolicy(sizePolicy2)
+        sizePolicy3.setHeightForWidth(self.pushButton_autorange_ch3.sizePolicy().hasHeightForWidth())
+        self.pushButton_autorange_ch3.setSizePolicy(sizePolicy3)
         self.pushButton_autorange_ch3.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_autorange_ch3.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(255, 106, 106); \n"
@@ -538,8 +706,8 @@ class Ui_GraphWindow(object):
 
         self.graphWidget_solo_channel_3 = PlotWidget(self.page_CH3)
         self.graphWidget_solo_channel_3.setObjectName(u"graphWidget_solo_channel_3")
-        sizePolicy2.setHeightForWidth(self.graphWidget_solo_channel_3.sizePolicy().hasHeightForWidth())
-        self.graphWidget_solo_channel_3.setSizePolicy(sizePolicy2)
+        sizePolicy3.setHeightForWidth(self.graphWidget_solo_channel_3.sizePolicy().hasHeightForWidth())
+        self.graphWidget_solo_channel_3.setSizePolicy(sizePolicy3)
         self.graphWidget_solo_channel_3.setStyleSheet(u"background-color: rgb(26, 49, 255);")
 
         self.gridLayout_3.addWidget(self.graphWidget_solo_channel_3, 3, 0, 1, 1)
@@ -547,16 +715,16 @@ class Ui_GraphWindow(object):
         self.stackedWidget_Laumas.addWidget(self.page_CH3)
         self.page_CH4 = QWidget()
         self.page_CH4.setObjectName(u"page_CH4")
-        sizePolicy2.setHeightForWidth(self.page_CH4.sizePolicy().hasHeightForWidth())
-        self.page_CH4.setSizePolicy(sizePolicy2)
+        sizePolicy3.setHeightForWidth(self.page_CH4.sizePolicy().hasHeightForWidth())
+        self.page_CH4.setSizePolicy(sizePolicy3)
         self.gridLayout_6 = QGridLayout(self.page_CH4)
         self.gridLayout_6.setSpacing(0)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
         self.gridLayout_6.setContentsMargins(2, 2, 2, 2)
         self.graphWidget_solo_channel_4 = PlotWidget(self.page_CH4)
         self.graphWidget_solo_channel_4.setObjectName(u"graphWidget_solo_channel_4")
-        sizePolicy2.setHeightForWidth(self.graphWidget_solo_channel_4.sizePolicy().hasHeightForWidth())
-        self.graphWidget_solo_channel_4.setSizePolicy(sizePolicy2)
+        sizePolicy3.setHeightForWidth(self.graphWidget_solo_channel_4.sizePolicy().hasHeightForWidth())
+        self.graphWidget_solo_channel_4.setSizePolicy(sizePolicy3)
         self.graphWidget_solo_channel_4.setStyleSheet(u"background-color: rgb(26, 49, 255);")
 
         self.gridLayout_6.addWidget(self.graphWidget_solo_channel_4, 0, 0, 1, 1)
@@ -572,8 +740,8 @@ class Ui_GraphWindow(object):
         self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
         self.pushButton_autorange_ch4 = QPushButton(self.frame_13)
         self.pushButton_autorange_ch4.setObjectName(u"pushButton_autorange_ch4")
-        sizePolicy2.setHeightForWidth(self.pushButton_autorange_ch4.sizePolicy().hasHeightForWidth())
-        self.pushButton_autorange_ch4.setSizePolicy(sizePolicy2)
+        sizePolicy3.setHeightForWidth(self.pushButton_autorange_ch4.sizePolicy().hasHeightForWidth())
+        self.pushButton_autorange_ch4.setSizePolicy(sizePolicy3)
         self.pushButton_autorange_ch4.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_autorange_ch4.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(255, 106, 106); \n"
@@ -621,6 +789,67 @@ class Ui_GraphWindow(object):
 
         self.verticalLayout.addWidget(self.stackedWidget_Laumas)
 
+        self.frame_10 = QFrame(self.frame_5)
+        self.frame_10.setObjectName(u"frame_10")
+        self.frame_10.setMinimumSize(QSize(0, 100))
+        self.frame_10.setFrameShape(QFrame.StyledPanel)
+        self.frame_10.setFrameShadow(QFrame.Raised)
+        self.gridLayout_10 = QGridLayout(self.frame_10)
+        self.gridLayout_10.setSpacing(0)
+        self.gridLayout_10.setObjectName(u"gridLayout_10")
+        self.gridLayout_10.setContentsMargins(0, 0, 0, 0)
+        self.label_quadrante = QLabel(self.frame_10)
+        self.label_quadrante.setObjectName(u"label_quadrante")
+        sizePolicy.setHeightForWidth(self.label_quadrante.sizePolicy().hasHeightForWidth())
+        self.label_quadrante.setSizePolicy(sizePolicy)
+        self.label_quadrante.setMinimumSize(QSize(100, 0))
+        self.label_quadrante.setStyleSheet(u"QLabel {\n"
+"    border: 2px solid black;\n"
+"    border-radius: 0px;\n"
+"	background-color: rgb(198, 213, 255);\n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"	border-color: rgb(95, 140, 212);\n"
+"}\n"
+"QLabel{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_quadrante.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_10.addWidget(self.label_quadrante, 1, 0, 1, 1)
+
+        self.label_stato_misura = QLabel(self.frame_10)
+        self.label_stato_misura.setObjectName(u"label_stato_misura")
+        sizePolicy.setHeightForWidth(self.label_stato_misura.sizePolicy().hasHeightForWidth())
+        self.label_stato_misura.setSizePolicy(sizePolicy)
+        self.label_stato_misura.setMinimumSize(QSize(100, 0))
+        self.label_stato_misura.setStyleSheet(u"QLabel {\n"
+"    border: 2px solid black;\n"
+"    border-radius: 0px;\n"
+"	background-color: rgb(198, 213, 255);\n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"	border-color: rgb(95, 140, 212);\n"
+"}\n"
+"QLabel{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_stato_misura.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_10.addWidget(self.label_stato_misura, 2, 0, 1, 1)
+
+        self.label_6 = QLabel(self.frame_10)
+        self.label_6.setObjectName(u"label_6")
+        self.label_6.setStyleSheet(u"background-color: rgb(26, 49, 255);")
+        self.label_6.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_10.addWidget(self.label_6, 1, 1, 2, 1)
+
+
+        self.verticalLayout.addWidget(self.frame_10)
+
 
         self.gridLayout.addWidget(self.frame_5, 0, 0, 1, 1)
 
@@ -644,6 +873,7 @@ class Ui_GraphWindow(object):
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.label = QLabel(self.frame_6)
         self.label.setObjectName(u"label")
+        self.label.setStyleSheet(u"")
 
         self.verticalLayout_10.addWidget(self.label)
 
@@ -746,6 +976,139 @@ class Ui_GraphWindow(object):
 
         self.verticalLayout_10.addWidget(self.lineEdit_time_window)
 
+        self.label_2 = QLabel(self.frame_2)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setGeometry(QRect(10, 170, 181, 71))
+        self.label_2.setStyleSheet(u"QLabel{\n"
+"	background-color:rgb(255, 207, 84); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_2.setAlignment(Qt.AlignCenter)
+        self.pushButton_save_measure = QPushButton(self.frame_2)
+        self.pushButton_save_measure.setObjectName(u"pushButton_save_measure")
+        self.pushButton_save_measure.setGeometry(QRect(10, 480, 181, 111))
+        self.pushButton_save_measure.setStyleSheet(u"QPushButton{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(107, 107, 107);\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"\n"
+"QPushButton::pressed{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(56, 56, 56);\n"
+"	color: rgb(0, 0, 0);\n"
+"\n"
+"\n"
+"}")
+        self.frame_18 = QFrame(self.frame_2)
+        self.frame_18.setObjectName(u"frame_18")
+        self.frame_18.setGeometry(QRect(10, 350, 175, 41))
+        sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.frame_18.sizePolicy().hasHeightForWidth())
+        self.frame_18.setSizePolicy(sizePolicy5)
+        self.frame_18.setStyleSheet(u"QWidget	{\n"
+"border-width: 0px;\n"
+"\n"
+"}")
+        self.frame_18.setFrameShape(QFrame.StyledPanel)
+        self.frame_18.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_3 = QHBoxLayout(self.frame_18)
+        self.horizontalLayout_3.setSpacing(0)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.label_7 = QLabel(self.frame_18)
+        self.label_7.setObjectName(u"label_7")
+        sizePolicy1.setHeightForWidth(self.label_7.sizePolicy().hasHeightForWidth())
+        self.label_7.setSizePolicy(sizePolicy1)
+        self.label_7.setMaximumSize(QSize(100, 16777215))
+        self.label_7.setStyleSheet(u"QLabel{\n"
+"	background-color:rgb(255, 207, 84); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 15px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_7.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_3.addWidget(self.label_7)
+
+        self.label_led_stabilita = QLabel(self.frame_18)
+        self.label_led_stabilita.setObjectName(u"label_led_stabilita")
+        self.label_led_stabilita.setMinimumSize(QSize(30, 30))
+        self.label_led_stabilita.setMaximumSize(QSize(30, 30))
+        self.label_led_stabilita.setStyleSheet(u"QLabel{\n"
+"	background-color: rgb(255, 0, 4);\n"
+"	border-style: outset;\n"
+"    border-width: 3px;\n"
+"	border-color: rgb(143, 33, 33);\n"
+"	border-radius: 15px;\n"
+"	color: rgb(0,0,0);\n"
+"}")
+
+        self.horizontalLayout_3.addWidget(self.label_led_stabilita)
+
+        self.frame_19 = QFrame(self.frame_2)
+        self.frame_19.setObjectName(u"frame_19")
+        self.frame_19.setGeometry(QRect(20, 260, 161, 61))
+        self.frame_19.setFrameShape(QFrame.StyledPanel)
+        self.frame_19.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_14 = QVBoxLayout(self.frame_19)
+        self.verticalLayout_14.setSpacing(0)
+        self.verticalLayout_14.setObjectName(u"verticalLayout_14")
+        self.verticalLayout_14.setContentsMargins(0, 0, 0, 0)
+        self.label_9 = QLabel(self.frame_19)
+        self.label_9.setObjectName(u"label_9")
+        sizePolicy5.setHeightForWidth(self.label_9.sizePolicy().hasHeightForWidth())
+        self.label_9.setSizePolicy(sizePolicy5)
+        self.label_9.setStyleSheet(u"QLabel{\n"
+"	background-color:rgb(255, 207, 84); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_9.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_14.addWidget(self.label_9)
+
+        self.lineEdit_altezza = QLineEdit(self.frame_19)
+        self.lineEdit_altezza.setObjectName(u"lineEdit_altezza")
+        sizePolicy6 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.lineEdit_altezza.sizePolicy().hasHeightForWidth())
+        self.lineEdit_altezza.setSizePolicy(sizePolicy6)
+        self.lineEdit_altezza.setStyleSheet(u"QWidget{\n"
+"	background-color:rgb(255, 255, 255); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 20;\n"
+"	color: rgb(0,0,0);\n"
+"}")
+        self.lineEdit_altezza.setAlignment(Qt.AlignCenter)
+        self.lineEdit_altezza.setClearButtonEnabled(True)
+
+        self.verticalLayout_14.addWidget(self.lineEdit_altezza)
+
+        self.progressBar_misura = QProgressBar(self.frame_2)
+        self.progressBar_misura.setObjectName(u"progressBar_misura")
+        self.progressBar_misura.setGeometry(QRect(10, 453, 181, 20))
+        self.progressBar_misura.setValue(30)
+        self.progressBar_misura.setOrientation(Qt.Horizontal)
+        self.progressBar_misura.setInvertedAppearance(False)
+        self.progressBar_misura.setTextDirection(QProgressBar.TopToBottom)
 
         self.horizontalLayout.addWidget(self.frame_2)
 
@@ -771,11 +1134,11 @@ class Ui_GraphWindow(object):
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.pushButton_home = QPushButton(self.frame_navigation)
         self.pushButton_home.setObjectName(u"pushButton_home")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Preferred)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.pushButton_home.sizePolicy().hasHeightForWidth())
-        self.pushButton_home.setSizePolicy(sizePolicy4)
+        sizePolicy7 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Preferred)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.pushButton_home.sizePolicy().hasHeightForWidth())
+        self.pushButton_home.setSizePolicy(sizePolicy7)
         self.pushButton_home.setMaximumSize(QSize(200, 16777215))
         font = QFont()
         font.setPointSize(14)
@@ -802,8 +1165,8 @@ class Ui_GraphWindow(object):
 
         self.pushButton_Euramet = QPushButton(self.frame_navigation)
         self.pushButton_Euramet.setObjectName(u"pushButton_Euramet")
-        sizePolicy4.setHeightForWidth(self.pushButton_Euramet.sizePolicy().hasHeightForWidth())
-        self.pushButton_Euramet.setSizePolicy(sizePolicy4)
+        sizePolicy7.setHeightForWidth(self.pushButton_Euramet.sizePolicy().hasHeightForWidth())
+        self.pushButton_Euramet.setSizePolicy(sizePolicy7)
         self.pushButton_Euramet.setMaximumSize(QSize(200, 16777215))
         self.pushButton_Euramet.setFont(font)
         self.pushButton_Euramet.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
@@ -842,6 +1205,11 @@ class Ui_GraphWindow(object):
 
     def retranslateUi(self, GraphWindow):
         GraphWindow.setWindowTitle(QCoreApplication.translate("GraphWindow", u"MainWindow", None))
+        self.label_4.setText(QCoreApplication.translate("GraphWindow", u"Channel 2", None))
+        self.label_3.setText(QCoreApplication.translate("GraphWindow", u"Channel 4", None))
+        self.label_5.setText(QCoreApplication.translate("GraphWindow", u"main channel", None))
+        self.label_12.setText(QCoreApplication.translate("GraphWindow", u"STEP ATTUALE", None))
+        self.label_step_attuale_valore.setText(QCoreApplication.translate("GraphWindow", u"valore step attuale", None))
         self.pushButton_autorange_solo_main.setText("")
         self.pushButton_reset_solo_main.setText(QCoreApplication.translate("GraphWindow", u"RESET", None))
         self.pushButton_autorange_solo_temp.setText("")
@@ -856,6 +1224,9 @@ class Ui_GraphWindow(object):
         self.pushButton_reset_ch3.setText(QCoreApplication.translate("GraphWindow", u"RESET", None))
         self.pushButton_autorange_ch4.setText("")
         self.pushButton_reset_ch4.setText(QCoreApplication.translate("GraphWindow", u"RESET", None))
+        self.label_quadrante.setText(QCoreApplication.translate("GraphWindow", u"Quadrante", None))
+        self.label_stato_misura.setText(QCoreApplication.translate("GraphWindow", u" preC/rampa", None))
+        self.label_6.setText(QCoreApplication.translate("GraphWindow", u"SPAZIO PER GRAFICO PROGRESSO", None))
         self.label.setText(QCoreApplication.translate("GraphWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:700; color:#0b0b0b;\">Impostazioni</span></p></body></html>", None))
         self.comboBox_Main_Temp.setItemText(0, QCoreApplication.translate("GraphWindow", u"Main", None))
         self.comboBox_Main_Temp.setItemText(1, QCoreApplication.translate("GraphWindow", u"Temp", None))
@@ -867,6 +1238,12 @@ class Ui_GraphWindow(object):
         self.comboBox_Ch_1234.setItemText(3, QCoreApplication.translate("GraphWindow", u"Channel 4", None))
 
         self.lineEdit_time_window.setText(QCoreApplication.translate("GraphWindow", u"time-window", None))
+        self.label_2.setText(QCoreApplication.translate("GraphWindow", u"EURAMET", None))
+        self.pushButton_save_measure.setText(QCoreApplication.translate("GraphWindow", u"ACQUISISCI MISURA", None))
+        self.label_7.setText(QCoreApplication.translate("GraphWindow", u"stabilit\u00e0", None))
+        self.label_led_stabilita.setText("")
+        self.label_9.setText(QCoreApplication.translate("GraphWindow", u"Altezza [mm]", None))
+        self.lineEdit_altezza.setText(QCoreApplication.translate("GraphWindow", u"0", None))
         self.pushButton_home.setText(QCoreApplication.translate("GraphWindow", u"HOME", None))
         self.pushButton_Euramet.setText(QCoreApplication.translate("GraphWindow", u"EURAMET SETUP", None))
     # retranslateUi

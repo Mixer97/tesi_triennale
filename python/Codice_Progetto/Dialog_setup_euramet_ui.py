@@ -355,7 +355,7 @@ class Ui_Dialog_Euramet_setup(object):
 
         self.pushButton_impostazion_csv = QPushButton(self.frame)
         self.pushButton_impostazion_csv.setObjectName(u"pushButton_impostazion_csv")
-        self.pushButton_impostazion_csv.setGeometry(QRect(810, 280, 141, 121))
+        self.pushButton_impostazion_csv.setGeometry(QRect(810, 280, 141, 81))
         self.pushButton_impostazion_csv.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_impostazion_csv.setStyleSheet(u"QPushButton{\n"
 "	border-width: 1px;\n"
@@ -372,7 +372,7 @@ class Ui_Dialog_Euramet_setup(object):
 "}")
         self.pushButton_concludi_setup = QPushButton(self.frame)
         self.pushButton_concludi_setup.setObjectName(u"pushButton_concludi_setup")
-        self.pushButton_concludi_setup.setGeometry(QRect(810, 420, 141, 131))
+        self.pushButton_concludi_setup.setGeometry(QRect(810, 370, 141, 91))
         self.pushButton_concludi_setup.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_concludi_setup.setStyleSheet(u"QPushButton{\n"
 "	border-width: 1px;\n"
@@ -1068,6 +1068,65 @@ class Ui_Dialog_Euramet_setup(object):
 
         self.gridLayout_3.addWidget(self.stackedWidget_euramet, 0, 0, 1, 1)
 
+        self.frame_27 = QFrame(self.frame)
+        self.frame_27.setObjectName(u"frame_27")
+        self.frame_27.setGeometry(QRect(810, 470, 141, 81))
+        self.frame_27.setFrameShape(QFrame.StyledPanel)
+        self.frame_27.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_7 = QVBoxLayout(self.frame_27)
+        self.verticalLayout_7.setSpacing(0)
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
+        self.label_quadrante_iniziale = QLabel(self.frame_27)
+        self.label_quadrante_iniziale.setObjectName(u"label_quadrante_iniziale")
+        self.label_quadrante_iniziale.setStyleSheet(u"QLabel{\n"
+"	background-color:rgb(255, 207, 84); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+
+        self.verticalLayout_7.addWidget(self.label_quadrante_iniziale)
+
+        self.comboBox_quadrante = QComboBox(self.frame_27)
+        self.comboBox_quadrante.addItem("")
+        self.comboBox_quadrante.addItem("")
+        self.comboBox_quadrante.setObjectName(u"comboBox_quadrante")
+        self.comboBox_quadrante.setStyleSheet(u"QComboBox {\n"
+"    border: 3px solid gray;\n"
+"    border-radius: 3px;\n"
+"    padding: 1px 1px 1px 10px;\n"
+"    min-width: 6em;\n"
+"    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */\n"
+"}\n"
+"\n"
+"QComboBox:!editable, QComboBox::drop-down:editable {\n"
+"    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
+"}\n"
+"\n"
+"\n"
+"/* Stile della tendina del QComboBox */\n"
+"QComboBox QAbstractItemView {\n"
+"    background-color:	qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3); ; /* Colore di sfondo della tendina */\n"
+"    selection-background-color: #3399FF; /* Colore di sfondo dell'elemento selezionato */\n"
+"    selection-color:rgb(106, 112, 113); /* Colore del testo dell'elemento selezionato */\n"
+"    bord"
+                        "er: 3px solid gray;\n"
+"    border-radius: 3px;\n"
+"    padding: 1px 18px 1px 3px;\n"
+"    min-width: 6em;\n"
+"    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */\n"
+"}")
+
+        self.verticalLayout_7.addWidget(self.comboBox_quadrante)
+
 
         self.gridLayout.addWidget(self.frame, 0, 1, 1, 1)
 
@@ -1130,5 +1189,9 @@ class Ui_Dialog_Euramet_setup(object):
         self.label_step_4_5.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"-", None))
         self.label_12.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"STEP 5", None))
         self.label_step_5_5.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"-", None))
+        self.label_quadrante_iniziale.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"Quadrante iniziale", None))
+        self.comboBox_quadrante.setItemText(0, QCoreApplication.translate("Dialog_Euramet_setup", u"Q1", None))
+        self.comboBox_quadrante.setItemText(1, QCoreApplication.translate("Dialog_Euramet_setup", u"Q3", None))
+
     # retranslateUi
 

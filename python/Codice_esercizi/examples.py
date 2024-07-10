@@ -1,16 +1,10 @@
-from PySide6 import QtCore,QtGui
-from PySide6.QtWidgets import QApplication,QFileDialog,QPushButton
+	
+from openpyxl import load_workbook
 
-def do_file():
-    fname = QFileDialog.getOpenFileName()
-    print(fname)
+# Carica il file CSV in un DataFrame
+workbook = load_workbook('python\\Codice_Progetto\\Template_Euramet_Excel\\04. YYMMDD - Rapporto Taratura UUT v9.xlsx')
+sheet_euramet = workbook["Euramet"]
 
-app = QApplication([])
+sheet_euramet["D25"] = 877
 
-button = QPushButton("Test File")
-button.clicked.connect(do_file)
-button.show()
-
-app.exec_()
-
-# con questo metodo posso fare cio che mi serve nella ricerca di un file 
+workbook.save("python\\Codice_Progetto\\Certificati_Euramet_Completi\\Test Rapporto Taratura UUT v9.xlsx")

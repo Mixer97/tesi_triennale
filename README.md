@@ -129,3 +129,6 @@
     salvare nel file di configurazione json per anche impostazioni euramet ( inserire un salvataggio separato per euramet )
 
     mail per aggiornare il prof de lorenzo del tirocinio -> come vogliamo procedere
+
+10/07
+    lavoro sulla schermata di euramet

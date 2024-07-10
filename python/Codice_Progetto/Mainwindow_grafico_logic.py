@@ -280,7 +280,7 @@ class GraphWindow(QMainWindow):
         self.ui.setupUi(self)
         self.start_time = time.time()
         self.homepage = homepage
-        self.euramet_window = Euramet_window(self.banco_di_taratura)
+        self.euramet_window = Euramet_window(self.banco_di_taratura, self)
         
         # grafici disponibili
         graph_main_and_channel = self.ui.graphWidget_SG600_main_and_channel
@@ -351,9 +351,7 @@ class GraphWindow(QMainWindow):
         
     def show_euramet_window(self):
         self.euramet_window.exec()
-        
-        
-
+    
         
         
             

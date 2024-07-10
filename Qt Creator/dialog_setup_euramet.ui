@@ -567,7 +567,7 @@ QCheckBox::indicator:unchecked {
         <x>810</x>
         <y>280</y>
         <width>141</width>
-        <height>121</height>
+        <height>81</height>
        </rect>
       </property>
       <property name="cursor">
@@ -596,9 +596,9 @@ QPushButton::pressed{
       <property name="geometry">
        <rect>
         <x>810</x>
-        <y>420</y>
+        <y>370</y>
         <width>141</width>
-        <height>131</height>
+        <height>91</height>
        </rect>
       </property>
       <property name="cursor">
@@ -1798,6 +1798,101 @@ border-width: 3px;</string>
            </layout>
           </widget>
          </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QFrame" name="frame_27">
+      <property name="geometry">
+       <rect>
+        <x>810</x>
+        <y>470</y>
+        <width>141</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_7">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="label_quadrante_iniziale">
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+	background-color:rgb(255, 207, 84); 
+	border-style: outset;
+    border-width: 2px;
+    border-color: rgb(255, 106, 0);
+	border-radius: 0px;
+	color: rgb(0,0,0);
+}
+</string>
+         </property>
+         <property name="text">
+          <string>Quadrante iniziale</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="comboBox_quadrante">
+         <property name="styleSheet">
+          <string notr="true">QComboBox {
+    border: 3px solid gray;
+    border-radius: 3px;
+    padding: 1px 1px 1px 10px;
+    min-width: 6em;
+    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */
+}
+
+QComboBox:!editable, QComboBox::drop-down:editable {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
+                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
+}
+
+
+/* Stile della tendina del QComboBox */
+QComboBox QAbstractItemView {
+    background-color:	qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
+                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3); ; /* Colore di sfondo della tendina */
+    selection-background-color: #3399FF; /* Colore di sfondo dell'elemento selezionato */
+    selection-color:rgb(106, 112, 113); /* Colore del testo dell'elemento selezionato */
+    border: 3px solid gray;
+    border-radius: 3px;
+    padding: 1px 18px 1px 3px;
+    min-width: 6em;
+    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */
+}</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>Q1</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Q3</string>
+          </property>
+         </item>
         </widget>
        </item>
       </layout>

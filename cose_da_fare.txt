@@ -27,7 +27,7 @@ COSE DA FARE:
     - inserire sistema per attesa riconnessione in modo che non si blocchi e poi riparta senza info
     - inserire un file di default per il setup del banco di misura
     - inserire try-catch nei controller delle due schede per riuscire a gestire eventuali errori di connessione
-    - lavorare su schermata euramet
+    - lavorare su schermata setup euramet (salvataggio su JSON)
 
 BUG SCOPERTI:
 
@@ -37,3 +37,4 @@ BUG SCOPERTI:
     - Problema con l'handling del programma quando le schede non sono collegate
     - Problema handling del CSV quando è aperto
     - Bug che avviene ogni tanto all'inizio dell'esecuzione del programma (forse risolto)
+    - se salva la registrazione su default e poi faccio ripartire il programma e savlo di nuovo allora va sempre su default (senza sovrascrivere)
