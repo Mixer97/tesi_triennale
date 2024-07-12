@@ -130,34 +130,34 @@ class MainWindow(QMainWindow):
            # "QWidget { background-color:rgb(255, 69, 72); border-style: outset; border-width: 2px; border-color:rgb(255, 111, 113); border-radius: 20px; }"
            
     def update_CH1(self):
+        list_mV = self.controller_TCP.get_mv()
+        list_Kg = self.controller_TCP.get_Kg()
+        list_N = self.controller_TCP.get_N()
+        list_Nm = self.controller_TCP.get_Nm()
         if self.ui.comboBox_1.currentText() == "mV":
-                list_mV = self.controller_TCP.get_mv()
                 self.ui.lcdNumber_1.display(list_mV[0])
         elif self.ui.comboBox_1.currentText() == "Kg":
-                list_Kg = self.controller_TCP.get_Kg()
                 self.ui.lcdNumber_1.display(list_Kg[0])
         elif self.ui.comboBox_1.currentText() == "N":
-                list_N = self.controller_TCP.get_N()
                 self.ui.lcdNumber_1.display(list_N[0])
         elif self.ui.comboBox_1.currentText() == "Nm":
-                list_Nm = self.controller_TCP.get_Nm()
                 self.ui.lcdNumber_1.display(list_Nm[0]) 
         else:
                 print("Error: something went wrong in the selection of the measuring unit in CH1!")       
                 exit(1)
 
     def update_CH2(self):
+        list_mV = self.controller_TCP.get_mv()
+        list_Kg = self.controller_TCP.get_Kg()
+        list_N = self.controller_TCP.get_N()
+        list_Nm = self.controller_TCP.get_Nm()
         if self.ui.comboBox_2.currentText() == "mV":
-                list_mV = self.controller_TCP.get_mv()
                 self.ui.lcdNumber_2.display(list_mV[1])
         elif self.ui.comboBox_2.currentText() == "Kg":
-                list_Kg = self.controller_TCP.get_Kg()
                 self.ui.lcdNumber_2.display(list_Kg[1])
         elif self.ui.comboBox_2.currentText() == "N":
-                list_N = self.controller_TCP.get_N()
                 self.ui.lcdNumber_2.display(list_N[1])
         elif self.ui.comboBox_2.currentText() == "Nm":
-                list_Nm = self.controller_TCP.get_Nm()
                 self.ui.lcdNumber_2.display(list_Nm[1]) 
         else:
                 print("Error: something went wrong in the selection of the measuring unit in CH2!")       
@@ -165,34 +165,34 @@ class MainWindow(QMainWindow):
 
 
     def update_CH3(self):
+        list_mV = self.controller_TCP.get_mv()
+        list_Kg = self.controller_TCP.get_Kg()
+        list_N = self.controller_TCP.get_N()
+        list_Nm = self.controller_TCP.get_Nm()
         if self.ui.comboBox_3.currentText() == "mV":
-                list_mV = self.controller_TCP.get_mv()
                 self.ui.lcdNumber_3.display(list_mV[2])
         elif self.ui.comboBox_3.currentText() == "Kg":
-                list_Kg = self.controller_TCP.get_Kg()
                 self.ui.lcdNumber_3.display(list_Kg[2])
         elif self.ui.comboBox_3.currentText() == "N":
-                list_N = self.controller_TCP.get_N()
                 self.ui.lcdNumber_3.display(list_N[2])
         elif self.ui.comboBox_3.currentText() == "Nm":
-                list_Nm = self.controller_TCP.get_Nm()
                 self.ui.lcdNumber_3.display(list_Nm[2]) 
         else:
                 print("Error: something went wrong in the selection of the measuring unit in CH3!")       
                 exit(1)
 
     def update_CH4(self):
+        list_mV = self.controller_TCP.get_mv()
+        list_Kg = self.controller_TCP.get_Kg()
+        list_N = self.controller_TCP.get_N()
+        list_Nm = self.controller_TCP.get_Nm()
         if self.ui.comboBox_4.currentText() == "mV":
-                list_mV = self.controller_TCP.get_mv()
                 self.ui.lcdNumber_4.display(list_mV[3])
         elif self.ui.comboBox_4.currentText() == "Kg":
-                list_Kg = self.controller_TCP.get_Kg()
                 self.ui.lcdNumber_4.display(list_Kg[3])
         elif self.ui.comboBox_4.currentText() == "N":
-                list_N = self.controller_TCP.get_N()
                 self.ui.lcdNumber_4.display(list_N[3])
         elif self.ui.comboBox_4.currentText() == "Nm":
-                list_Nm = self.controller_TCP.get_Nm()
                 self.ui.lcdNumber_4.display(list_Nm[3]) 
         else:
                 print("Error: something went wrong in the selection of the measuring unit in CH4!")       
@@ -200,11 +200,11 @@ class MainWindow(QMainWindow):
     
     
     def update_SG600_main(self):
+        main_mV = self.controller_MODBUS.get_mV_main()
+        main_Nm = self.controller_MODBUS.get_Nm_main()
         if self.ui.comboBox_5.currentText() == "mV":
-                main_mV = self.controller_MODBUS.get_mV_main()
                 self.ui.lcdNumber_main_SG600.display(main_mV)
         elif self.ui.comboBox_5.currentText() == "Nm":
-                main_Nm = self.controller_MODBUS.get_Nm_main()
                 self.ui.lcdNumber_main_SG600.display(main_Nm)
         else:
             print("Error: something went wrong in the selection of the measuring unit in SG600_main!")       
