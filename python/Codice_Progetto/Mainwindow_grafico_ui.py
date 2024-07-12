@@ -66,7 +66,7 @@ class Ui_GraphWindow(object):
         self.frame.setFrameShadow(QFrame.Raised)
         self.frame_7 = QFrame(self.frame)
         self.frame_7.setObjectName(u"frame_7")
-        self.frame_7.setGeometry(QRect(10, 190, 181, 121))
+        self.frame_7.setGeometry(QRect(10, 270, 181, 101))
         self.frame_7.setStyleSheet(u"border-width: 1px")
         self.frame_7.setFrameShape(QFrame.StyledPanel)
         self.frame_7.setFrameShadow(QFrame.Raised)
@@ -106,7 +106,7 @@ class Ui_GraphWindow(object):
 
         self.frame_8 = QFrame(self.frame)
         self.frame_8.setObjectName(u"frame_8")
-        self.frame_8.setGeometry(QRect(10, 320, 181, 121))
+        self.frame_8.setGeometry(QRect(10, 400, 181, 101))
         self.frame_8.setStyleSheet(u"border-width: 1px")
         self.frame_8.setFrameShape(QFrame.StyledPanel)
         self.frame_8.setFrameShadow(QFrame.Raised)
@@ -146,7 +146,7 @@ class Ui_GraphWindow(object):
 
         self.frame_9 = QFrame(self.frame)
         self.frame_9.setObjectName(u"frame_9")
-        self.frame_9.setGeometry(QRect(10, 60, 181, 119))
+        self.frame_9.setGeometry(QRect(10, 138, 181, 101))
         self.frame_9.setStyleSheet(u"border-width: 1px")
         self.frame_9.setFrameShape(QFrame.StyledPanel)
         self.frame_9.setFrameShadow(QFrame.Raised)
@@ -154,14 +154,14 @@ class Ui_GraphWindow(object):
         self.verticalLayout_12.setSpacing(0)
         self.verticalLayout_12.setObjectName(u"verticalLayout_12")
         self.verticalLayout_12.setContentsMargins(0, 0, 0, 0)
-        self.label_5 = QLabel(self.frame_9)
-        self.label_5.setObjectName(u"label_5")
+        self.label_main_Nm = QLabel(self.frame_9)
+        self.label_main_Nm.setObjectName(u"label_main_Nm")
         sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.label_5.sizePolicy().hasHeightForWidth())
-        self.label_5.setSizePolicy(sizePolicy1)
-        self.label_5.setStyleSheet(u"QLabel{\n"
+        sizePolicy1.setHeightForWidth(self.label_main_Nm.sizePolicy().hasHeightForWidth())
+        self.label_main_Nm.setSizePolicy(sizePolicy1)
+        self.label_main_Nm.setStyleSheet(u"QLabel{\n"
 "	background-color:rgb(255, 207, 84); \n"
 "	border-style: outset;\n"
 "    border-width: 2px;\n"
@@ -170,13 +170,13 @@ class Ui_GraphWindow(object):
 "	color: rgb(0,0,0);\n"
 "}\n"
 "")
-        self.label_5.setAlignment(Qt.AlignCenter)
+        self.label_main_Nm.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_12.addWidget(self.label_5)
+        self.verticalLayout_12.addWidget(self.label_main_Nm)
 
-        self.lcdNumber_main = QLCDNumber(self.frame_9)
-        self.lcdNumber_main.setObjectName(u"lcdNumber_main")
-        self.lcdNumber_main.setStyleSheet(u"QWidget {\n"
+        self.lcdNumber_main_Nm = QLCDNumber(self.frame_9)
+        self.lcdNumber_main_Nm.setObjectName(u"lcdNumber_main_Nm")
+        self.lcdNumber_main_Nm.setStyleSheet(u"QWidget {\n"
 "	background-color:white; \n"
 "	border-style: outset;\n"
 "    border-width: 2px;\n"
@@ -187,11 +187,11 @@ class Ui_GraphWindow(object):
 "}\n"
 "")
 
-        self.verticalLayout_12.addWidget(self.lcdNumber_main)
+        self.verticalLayout_12.addWidget(self.lcdNumber_main_Nm)
 
         self.frame_20 = QFrame(self.frame)
         self.frame_20.setObjectName(u"frame_20")
-        self.frame_20.setGeometry(QRect(10, 460, 181, 121))
+        self.frame_20.setGeometry(QRect(10, 510, 181, 91))
         self.frame_20.setStyleSheet(u"border-width: 1px")
         self.frame_20.setFrameShape(QFrame.StyledPanel)
         self.frame_20.setFrameShadow(QFrame.Raised)
@@ -230,6 +230,48 @@ class Ui_GraphWindow(object):
         self.label_step_attuale_valore.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_13.addWidget(self.label_step_attuale_valore)
+
+        self.frame_21 = QFrame(self.frame)
+        self.frame_21.setObjectName(u"frame_21")
+        self.frame_21.setGeometry(QRect(10, 20, 181, 101))
+        self.frame_21.setStyleSheet(u"border-width: 1px")
+        self.frame_21.setFrameShape(QFrame.StyledPanel)
+        self.frame_21.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_15 = QVBoxLayout(self.frame_21)
+        self.verticalLayout_15.setSpacing(0)
+        self.verticalLayout_15.setObjectName(u"verticalLayout_15")
+        self.verticalLayout_15.setContentsMargins(0, 0, 0, 0)
+        self.label_main_mV = QLabel(self.frame_21)
+        self.label_main_mV.setObjectName(u"label_main_mV")
+        sizePolicy1.setHeightForWidth(self.label_main_mV.sizePolicy().hasHeightForWidth())
+        self.label_main_mV.setSizePolicy(sizePolicy1)
+        self.label_main_mV.setStyleSheet(u"QLabel{\n"
+"	background-color:rgb(255, 207, 84); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_main_mV.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_15.addWidget(self.label_main_mV)
+
+        self.lcdNumber_main_mV = QLCDNumber(self.frame_21)
+        self.lcdNumber_main_mV.setObjectName(u"lcdNumber_main_mV")
+        self.lcdNumber_main_mV.setStyleSheet(u"QWidget {\n"
+"	background-color:white; \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: black;\n"
+"}\n"
+"QLCDNumber{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+
+        self.verticalLayout_15.addWidget(self.lcdNumber_main_mV)
 
 
         self.horizontalLayout.addWidget(self.frame)
@@ -882,6 +924,7 @@ class Ui_GraphWindow(object):
         self.comboBox_Main_Temp.addItem("")
         self.comboBox_Main_Temp.addItem("")
         self.comboBox_Main_Temp.setObjectName(u"comboBox_Main_Temp")
+        self.comboBox_Main_Temp.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.comboBox_Main_Temp.setStyleSheet(u"QComboBox {\n"
 "    border: 3px solid gray;\n"
 "    border-radius: 3px;\n"
@@ -924,6 +967,7 @@ class Ui_GraphWindow(object):
         self.comboBox_Ch_1234.addItem("")
         self.comboBox_Ch_1234.addItem("")
         self.comboBox_Ch_1234.setObjectName(u"comboBox_Ch_1234")
+        self.comboBox_Ch_1234.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.comboBox_Ch_1234.setStyleSheet(u"QComboBox {\n"
 "    border: 3px solid gray;\n"
 "    border-radius: 3px;\n"
@@ -991,7 +1035,9 @@ class Ui_GraphWindow(object):
         self.label_2.setAlignment(Qt.AlignCenter)
         self.pushButton_save_measure = QPushButton(self.frame_2)
         self.pushButton_save_measure.setObjectName(u"pushButton_save_measure")
+        self.pushButton_save_measure.setEnabled(False)
         self.pushButton_save_measure.setGeometry(QRect(10, 480, 181, 111))
+        self.pushButton_save_measure.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_save_measure.setStyleSheet(u"QPushButton{\n"
 "	border-width: 1px;\n"
 "	background-color:rgb(107, 107, 107);\n"
@@ -1104,8 +1150,10 @@ class Ui_GraphWindow(object):
 
         self.progressBar_misura = QProgressBar(self.frame_2)
         self.progressBar_misura.setObjectName(u"progressBar_misura")
-        self.progressBar_misura.setGeometry(QRect(10, 453, 181, 20))
+        self.progressBar_misura.setGeometry(QRect(10, 432, 181, 41))
+        self.progressBar_misura.setStyleSheet(u"color: rgb(0, 0, 1);")
         self.progressBar_misura.setValue(30)
+        self.progressBar_misura.setAlignment(Qt.AlignCenter)
         self.progressBar_misura.setOrientation(Qt.Horizontal)
         self.progressBar_misura.setInvertedAppearance(False)
         self.progressBar_misura.setTextDirection(QProgressBar.TopToBottom)
@@ -1205,11 +1253,12 @@ class Ui_GraphWindow(object):
 
     def retranslateUi(self, GraphWindow):
         GraphWindow.setWindowTitle(QCoreApplication.translate("GraphWindow", u"MainWindow", None))
-        self.label_4.setText(QCoreApplication.translate("GraphWindow", u"Channel 2", None))
-        self.label_3.setText(QCoreApplication.translate("GraphWindow", u"Channel 4", None))
-        self.label_5.setText(QCoreApplication.translate("GraphWindow", u"main channel", None))
+        self.label_4.setText(QCoreApplication.translate("GraphWindow", u"Channel 2 [N]", None))
+        self.label_3.setText(QCoreApplication.translate("GraphWindow", u"Channel 4 [Nm]", None))
+        self.label_main_Nm.setText(QCoreApplication.translate("GraphWindow", u"main channel [Nm]", None))
         self.label_12.setText(QCoreApplication.translate("GraphWindow", u"STEP ATTUALE", None))
         self.label_step_attuale_valore.setText(QCoreApplication.translate("GraphWindow", u"valore step attuale", None))
+        self.label_main_mV.setText(QCoreApplication.translate("GraphWindow", u"main channel [mV]", None))
         self.pushButton_autorange_solo_main.setText("")
         self.pushButton_reset_solo_main.setText(QCoreApplication.translate("GraphWindow", u"RESET", None))
         self.pushButton_autorange_solo_temp.setText("")

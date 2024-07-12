@@ -349,6 +349,20 @@ class GraphWindow(QMainWindow):
         # Segnali per euramet
         self.ui.pushButton_save_measure.clicked.connect(self.handle_euramet)
 
+        # Inizializzazione grafica
+        self.ui.label_step_attuale_valore.setText("0 Nm")
+        self.timer_grafico = QTimer()
+        self.timer_grafico.setInterval(100)
+        self.timer_grafico.timeout.connect(self.inizializzazione_display)
+        self.timer_grafico.start()
+        self.ui.label_stato_misura.setText("Precarichi")
+        
+    def inizializzazione_display(self):
+        self.ui.lcdNumber_main_mV.display(self.banco_di_taratura.controller_modbus.DATA.canale_principale_mV)
+        self.ui.lcdNumber_main_Nm.display(self.banco_di_taratura.controller_modbus.DATA.canale_principale_Nm)
+        self.ui.lcdNumber_ch2.display(self.banco_di_taratura.controller_tcp.DATA.LIST_N_VALUE[1])
+        self.ui.lcdNumber_ch4.display(self.banco_di_taratura.controller_tcp.DATA.LIST_Nm_VALUE[3])
+        
         
     def show_home_window(self):
         self.homepage.show()

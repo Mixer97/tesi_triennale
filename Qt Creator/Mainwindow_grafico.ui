@@ -84,9 +84,9 @@
           <property name="geometry">
            <rect>
             <x>10</x>
-            <y>190</y>
+            <y>270</y>
             <width>181</width>
-            <height>121</height>
+            <height>101</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -128,7 +128,7 @@
 </string>
              </property>
              <property name="text">
-              <string>Channel 2</string>
+              <string>Channel 2 [N]</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -157,9 +157,9 @@ QLCDNumber{
           <property name="geometry">
            <rect>
             <x>10</x>
-            <y>320</y>
+            <y>400</y>
             <width>181</width>
-            <height>121</height>
+            <height>101</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -201,7 +201,7 @@ QLCDNumber{
 </string>
              </property>
              <property name="text">
-              <string>Channel 4</string>
+              <string>Channel 4 [Nm]</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -230,9 +230,9 @@ QLCDNumber{
           <property name="geometry">
            <rect>
             <x>10</x>
-            <y>60</y>
+            <y>138</y>
             <width>181</width>
-            <height>119</height>
+            <height>101</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -261,7 +261,7 @@ QLCDNumber{
             <number>0</number>
            </property>
            <item>
-            <widget class="QLabel" name="label_5">
+            <widget class="QLabel" name="label_main_Nm">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                <horstretch>0</horstretch>
@@ -280,7 +280,7 @@ QLCDNumber{
 </string>
              </property>
              <property name="text">
-              <string>main channel</string>
+              <string>main channel [Nm]</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -288,7 +288,7 @@ QLCDNumber{
             </widget>
            </item>
            <item>
-            <widget class="QLCDNumber" name="lcdNumber_main">
+            <widget class="QLCDNumber" name="lcdNumber_main_Nm">
              <property name="styleSheet">
               <string notr="true">QWidget {
 	background-color:white; 
@@ -309,9 +309,9 @@ QLCDNumber{
           <property name="geometry">
            <rect>
             <x>10</x>
-            <y>460</y>
+            <y>510</y>
             <width>181</width>
-            <height>121</height>
+            <height>91</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -380,6 +380,85 @@ QLabel{
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QFrame" name="frame_21">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>181</width>
+            <height>101</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-width: 1px</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_15">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="label_main_mV">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+	background-color:rgb(255, 207, 84); 
+	border-style: outset;
+    border-width: 2px;
+    border-color: rgb(255, 106, 0);
+	border-radius: 0px;
+	color: rgb(0,0,0);
+}
+</string>
+             </property>
+             <property name="text">
+              <string>main channel [mV]</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLCDNumber" name="lcdNumber_main_mV">
+             <property name="styleSheet">
+              <string notr="true">QWidget {
+	background-color:white; 
+	border-style: outset;
+    border-width: 2px;
+    border-color: black;
+}
+QLCDNumber{
+	color: rgb(0,0,0);
+}
+</string>
              </property>
             </widget>
            </item>
@@ -1585,6 +1664,9 @@ QLabel{
            </item>
            <item>
             <widget class="QComboBox" name="comboBox_Main_Temp">
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
              <property name="styleSheet">
               <string notr="true">QComboBox {
     border: 3px solid gray;
@@ -1638,6 +1720,9 @@ QComboBox QAbstractItemView {
            </item>
            <item>
             <widget class="QComboBox" name="comboBox_Ch_1234">
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
              <property name="styleSheet">
               <string notr="true">QComboBox {
     border: 3px solid gray;
@@ -1750,6 +1835,9 @@ QComboBox QAbstractItemView {
           </property>
          </widget>
          <widget class="QPushButton" name="pushButton_save_measure">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="geometry">
            <rect>
             <x>10</x>
@@ -1757,6 +1845,9 @@ QComboBox QAbstractItemView {
             <width>181</width>
             <height>111</height>
            </rect>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
           </property>
           <property name="styleSheet">
            <string notr="true">QPushButton{
@@ -1977,13 +2068,19 @@ border-width: 0px;
           <property name="geometry">
            <rect>
             <x>10</x>
-            <y>453</y>
+            <y>432</y>
             <width>181</width>
-            <height>20</height>
+            <height>41</height>
            </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(0, 0, 1);</string>
           </property>
           <property name="value">
            <number>30</number>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>

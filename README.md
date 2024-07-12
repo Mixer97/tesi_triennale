@@ -136,3 +136,4 @@
 
 12/07
     continuo lavoro su euramet
+    lavoro sul funzionamento dei pulsanti disabilitati o abilitati

@@ -61,7 +61,6 @@ class BANCO_DI_TARATURA:
         self.euramet_SN_UUT = None
         self.euramet_Report_di_calibrazione_TX = None
 
-        
         # variabili misura euramet
         self.axis_h = 837
         self.workbook = None
@@ -71,6 +70,9 @@ class BANCO_DI_TARATURA:
         self.excell_path_certificate ="python\\Codice_Progetto\\Certificati_Euramet_Completi\\Test.xlsx"
         self.excell_page_data = "Euramet"
         self.excell_page_setup = "Istruzioni Uso"
+        
+        # Variabili che gestiscono quanti quadranti ho e in quale mi trovo
+        self.quadrant_counter = 0
         
     # metodi comuni a tutte le istanze da metter qui
 

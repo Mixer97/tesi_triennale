@@ -14,7 +14,7 @@ class Rampa:
     def __init__(self, banco_di_taratura:BANCO_DI_TARATURA, tipo, misura:Misura_euramet, misure_gia_fatte) -> None:
         
         """
-        tipo --> "salita", "discesa", "zero"
+        tipo --> "salita", "discesa", "zero finale"
         quadrante --> "Q1 (positivo)", "Q3 (negativo)"
         """
         
@@ -33,20 +33,9 @@ class Rampa:
         self.max_torque = misura.max_torque
         self.step_increment = int(int(self.max_torque)/int(self.number_of_steps))
         
-        # Azioni
-        if self.tipo == "salita":
-            misura.graphwindow.ui.label_step_attuale_valore.setText("0 Nm")
-        else:
-            misura.graphwindow.ui.label_step_attuale_valore.setText(f"{self.max_torque} Nm") 
-            
-        if self.tipo == "zero":
-            self.number_of_steps = 1
-            self.max_torque = 0
-        
-        
         
     def measure_value(self):
-        # Acquisizione dei 4 valori da mettere in tabella
+        # Acquisizione dei 5 valori da mettere in tabella
         haxis = int(self.banco_di_taratura.axis_h)
         href = int(self.misura_euramet.graphwindow.ui.lineEdit_altezza.text())
         cella_di_carico_N = self.banco_di_taratura.controller_tcp.DATA.LIST_N_VALUE[1]
@@ -101,7 +90,7 @@ class Precarichi:
         """
         quadrante --> "Q1 (positivo)", "Q3 (negativo)"
         """
-    
+
         self.misura_euramet = misura
         self.banco_di_taratura = banco_di_taratura
         self.number_of_steps = 6  #numero step rampa
@@ -114,10 +103,9 @@ class Precarichi:
         self.excel_path_certificate = self.banco_di_taratura.excell_path_certificate
         self.max_torque = misura.max_torque
         self.current_step_value = 0
-
         
     def measure_value(self):
-        # Acquisizione dei 4 valori da mettere in tabella
+        # Acquisizione dei 5 valori da mettere in tabella
         haxis = int(self.banco_di_taratura.axis_h)
         href = int(self.misura_euramet.graphwindow.ui.lineEdit_altezza.text())
         cella_di_carico_N = self.banco_di_taratura.controller_tcp.DATA.LIST_N_VALUE[1]  # cella ch2
@@ -179,8 +167,8 @@ class Misura_euramet:
         
         """
         quadrante --> "Q1 (positivo)", "Q3 (negativo)"
+        canale 4 --> torsiometro, canale 2 --> cella di carico
         """
-        
         self.graphwindow = graphwindow
         self.numero_misure_totali_da_fare = 0
         self.misure_fatte = 0
@@ -193,6 +181,9 @@ class Misura_euramet:
         self.end_check_salita_2 = 0
         self.end_check_zero_finale = 0
         self.starting_column = self.banco_di_taratura.euramet_cella_inizio_precarichi_Q1[0]
+        
+        # dati che controllano il proseguimento di euramet
+        self.quandrant_counter = 0
         
         # Creazione delle entità che compongono Euramet in un certo Quadrante
         self.precarichi = Precarichi(self.banco_di_taratura, self)
@@ -210,7 +201,7 @@ class Misura_euramet:
         if self.banco_di_taratura.list_status_checkbox_euramet_page[2] == 1:
             self.rampa_salita_2 = Rampa(self.banco_di_taratura, misura=self, tipo="salita", misure_gia_fatte=self.numero_misure_totali_da_fare)
             self.numero_misure_totali_da_fare += self.rampa_salita_2.number_of_steps
-            self.zero_finale = Rampa(self.banco_di_taratura, misura=self, tipo ="zero", misure_gia_fatte=self.numero_misure_totali_da_fare)
+            self.zero_finale = Rampa(self.banco_di_taratura, misura=self, tipo ="zero finale", misure_gia_fatte=self.numero_misure_totali_da_fare)
             self.numero_misure_totali_da_fare += 1
         else:
             self.rampa_salita_2 = None
@@ -232,9 +223,22 @@ class Misura_euramet:
             self.end_check_salita_2 = self.rampa_salita_2.measure_value()
         elif self.end_check_zero_finale == 0 and self.zero_finale != None:
             self.end_check_zero_finale = self.zero_finale.measure_value()
+            if self.end_check_zero_finale == 1:
+                self.number_of_steps = 1
+                self.max_torque = 0
+                self.banco_di_taratura.quadrant_counter += 1
+            
             print("Sono nello zero finale")
         else:
             print("qui non ci deve arrivare!")
+
+        
+    def check_quadrant_for_max_torque(self):
+        if self.banco_di_taratura.quadrant == "Q3":
+            torque_max = -(self.banco_di_taratura.euramet_Coppia_taratura_MAX)
+        else:
+            torque_max = self.banco_di_taratura.euramet_Coppia_taratura_MAX
+        return torque_max
 
     def check_excell_cell_by_quadrant(self):
         if self.banco_di_taratura.quadrant == "Q3":
