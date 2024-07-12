@@ -23,10 +23,13 @@ COSE DA FARE:
     - implementazione parte di gestione della misura e calcolo della stabilità
     - fare test con misura seria per le due celle di carico (specialmente la 2)
     - implementare inserimento di note
-        - per il grafico, fare un grafico che permetta di plottare sg600 convertito in Nm con una delle celle di carico
+    - per il grafico, fare un grafico che permetta di plottare sg600 convertito in Nm con una delle celle di carico
     - inserire sistema per attesa riconnessione in modo che non si blocchi e poi riparta senza info
     - inserire un file di default per il setup del banco di misura
     - inserire try-catch nei controller delle due schede per riuscire a gestire eventuali errori di connessione
+
+EURAMET LOGIC:
+    - inserire scrittura su excell delle impostazioni per excell euramet
     - lavorare su schermata setup euramet (salvataggio su JSON)
 
 BUG SCOPERTI:

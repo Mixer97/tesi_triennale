@@ -3,6 +3,8 @@ from PySide6.QtWidgets import QDialog
 from Dialog_setup_euramet_ui import Ui_Dialog_Euramet_setup
 from Dialog_csv_euramet_logic import csv_euramet_window
 from typing import TYPE_CHECKING
+from openpyxl import load_workbook
+from logic_classes.Euramet_logic import Misura_euramet
 
 if TYPE_CHECKING:
     from Banco_Taratura import BANCO_DI_TARATURA
@@ -46,6 +48,8 @@ class Euramet_window(QDialog):
         self.csv_setup_window.exec()
         
     def end_setup(self):
+        self.banco_di_taratura.workbook = load_workbook(self.banco_di_taratura.excell_path_template)
+        self.graph_window.euramet_measure_entity = Misura_euramet(banco_di_taratura=self.banco_di_taratura, graphwindow=self.graph_window)
         self.graph_window.show()
         self.close()
         

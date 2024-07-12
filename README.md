@@ -133,3 +133,6 @@
 10/07
     lavoro sulla schermata di euramet
     decisione: 2 canale = cella di carico, 4 canale = torsiometro
+
+12/07
+    continuo lavoro su euramet

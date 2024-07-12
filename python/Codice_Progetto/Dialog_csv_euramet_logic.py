@@ -31,9 +31,9 @@ class csv_euramet_window(QDialog):
     def save_process(self):
         self.banco_di_taratura.euramet_unita_ingegneristica_di_misura = self.ui.lineEdit_unita_ingegneristica_di_misura.text()
         self.banco_di_taratura.euramet_Unità_ingegneristica_UUT = self.ui.lineEdit_unita_ingegneristica_UUT.text()
-        self.banco_di_taratura.controller_modbus.DATA.coefficiente_main = self.ui.lineEdit_scale.text()
-        self.banco_di_taratura.euramet_Offset = self.ui.lineEdit_offset.text()
-        self.banco_di_taratura.euramet_Coppia_taratura_MAX = self.ui.lineEdit_coppia_taratura_max.text()
+        self.banco_di_taratura.controller_modbus.DATA.coefficiente_main = int(self.ui.lineEdit_scale.text())
+        self.banco_di_taratura.euramet_Offset = float(self.ui.lineEdit_offset.text())
+        self.banco_di_taratura.euramet_Coppia_taratura_MAX = int(self.ui.lineEdit_coppia_taratura_max.text())
         self.banco_di_taratura.euramet_Data = self.ui.lineEdit_data.text()
         self.banco_di_taratura.euramet_Rif_interno_attivita = self.ui.lineEdit_rif_interno_attivita.text()
         self.banco_di_taratura.euramet_Cliente = self.ui.lineEdit_cliente.text()

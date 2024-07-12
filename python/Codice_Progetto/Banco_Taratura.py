@@ -63,11 +63,14 @@ class BANCO_DI_TARATURA:
 
         
         # variabili misura euramet
-        self.euramet_cella_inizio_precarichi_Q3 = ("D",7)  # vorrei usarlo come "D7" ma devo cambiare D e 7 per spostarmi lungo il file excell
-        self.euramet_cella_inizio_precarichi_Q1 = ("D",29)
-        self.excel_path_template = "python\\Codice_Progetto\\Template_Euramet_Excel\\04. YYMMDD - Rapporto Taratura UUT v9.xlsx"
-        self.excel_path_certificate ="python\\Codice_Progetto\\Certificati_Euramet_Completi\\Test.xlsx"
-        self.excel_page_name = "Euramet"
+        self.axis_h = 837
+        self.workbook = None
+        self.euramet_cella_inizio_precarichi_Q3 = ["E",7]  # vorrei usarlo come "D7" ma devo cambiare D e 7 per spostarmi lungo il file excell
+        self.euramet_cella_inizio_precarichi_Q1 = ["E",29]
+        self.excell_path_template = "python\\Codice_Progetto\\Template_Euramet_Excel\\04. YYMMDD - Rapporto Taratura UUT v9.xlsx"
+        self.excell_path_certificate ="python\\Codice_Progetto\\Certificati_Euramet_Completi\\Test.xlsx"
+        self.excell_page_data = "Euramet"
+        self.excell_page_setup = "Istruzioni Uso"
         
     # metodi comuni a tutte le istanze da metter qui
 
