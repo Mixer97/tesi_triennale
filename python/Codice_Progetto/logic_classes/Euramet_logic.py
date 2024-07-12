@@ -22,7 +22,7 @@ class Rampa:
         self.misure_gia_fatte = misure_gia_fatte
         self.misura_euramet = misura
         self.banco_di_taratura = banco_di_taratura
-        self.number_of_steps = self.banco_di_taratura.current_number_of_steps  #numero step rampa
+        self.number_of_steps = self.banco_di_taratura.current_number_of_steps+1  #numero step rampa (considero anche lo 0 quindi 1 step in più)
         self.status_altezza = self.banco_di_taratura.status_inserimento_altezza  #accetta altezza o no
         
         # Parametri
@@ -37,7 +37,7 @@ class Rampa:
         if self.tipo == "salita":
             misura.graphwindow.ui.label_step_attuale_valore.setText("0 Nm")
         else:
-            misura.graphwindow.ui.label_step_attuale_valore.setText(f"{self.max_torque}") 
+            misura.graphwindow.ui.label_step_attuale_valore.setText(f"{self.max_torque} Nm") 
         
         
         
@@ -241,8 +241,7 @@ class Misura_euramet:
         # Carattere corrente
         char = cell[0]
         # Converti il carattere in valore ASCII, incrementa di 1 e poi riconverti in carattere
-        next_char = chr(ord(char) + 1)
-        print(next_char) 
+        next_char = chr(ord(char) + 1) 
         return(next_char)
         
     def pointer_left_a_cell(self, cell):
@@ -250,7 +249,6 @@ class Misura_euramet:
         char = cell[0]
         # Converti il carattere in valore ASCII, incrementa di 1 e poi riconverti in carattere
         next_char = chr(ord(char) - 1)
-        print(next_char)  # Output: E
         return(next_char)
     
     def pointer_down_a_cell(self, cell):
@@ -258,7 +256,6 @@ class Misura_euramet:
         int = cell[1]
         # Cambia il valore della colonna
         int += 1
-        print(int)
         return(int)
     
     def pointer_up_a_cell(self, cell):
