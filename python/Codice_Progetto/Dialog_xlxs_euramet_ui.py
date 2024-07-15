@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'Dialog_csv_euramet.ui'
+## Form generated from reading UI file 'Dialog_xlxs_euramet.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -17,7 +17,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QGridLayout,
     QHBoxLayout, QLabel, QLineEdit, QPushButton,
-    QSizePolicy, QWidget)
+    QSizePolicy, QVBoxLayout, QWidget)
 
 class Ui_Dialog_csv_euramet(object):
     def setupUi(self, Dialog_csv_euramet):
@@ -32,9 +32,31 @@ class Ui_Dialog_csv_euramet(object):
         self.frame.setStyleSheet(u"background-color: rgb(238, 255, 239);")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
-        self.frame_4 = QFrame(self.frame)
+        self.gridLayout_2 = QGridLayout(self.frame)
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.frame_2 = QFrame(self.frame)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setFrameShape(QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+        self.verticalLayout = QVBoxLayout(self.frame_2)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.label = QLabel(self.frame_2)
+        self.label.setObjectName(u"label")
+        self.label.setStyleSheet(u"QLabel{\n"
+"	background-color:rgb(255, 207, 84); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout.addWidget(self.label)
+
+        self.frame_4 = QFrame(self.frame_2)
         self.frame_4.setObjectName(u"frame_4")
-        self.frame_4.setGeometry(QRect(40, 70, 381, 31))
         self.frame_4.setFrameShape(QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_2 = QHBoxLayout(self.frame_4)
@@ -77,9 +99,11 @@ class Ui_Dialog_csv_euramet(object):
 
         self.horizontalLayout_2.addWidget(self.lineEdit_unita_ingegneristica_di_misura)
 
-        self.frame_5 = QFrame(self.frame)
+
+        self.verticalLayout.addWidget(self.frame_4)
+
+        self.frame_5 = QFrame(self.frame_2)
         self.frame_5.setObjectName(u"frame_5")
-        self.frame_5.setGeometry(QRect(40, 110, 381, 31))
         self.frame_5.setFrameShape(QFrame.StyledPanel)
         self.frame_5.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_3 = QHBoxLayout(self.frame_5)
@@ -119,9 +143,11 @@ class Ui_Dialog_csv_euramet(object):
 
         self.horizontalLayout_3.addWidget(self.lineEdit_unita_ingegneristica_UUT)
 
-        self.frame_6 = QFrame(self.frame)
+
+        self.verticalLayout.addWidget(self.frame_5)
+
+        self.frame_6 = QFrame(self.frame_2)
         self.frame_6.setObjectName(u"frame_6")
-        self.frame_6.setGeometry(QRect(40, 150, 381, 31))
         self.frame_6.setFrameShape(QFrame.StyledPanel)
         self.frame_6.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_4 = QHBoxLayout(self.frame_6)
@@ -161,9 +187,11 @@ class Ui_Dialog_csv_euramet(object):
 
         self.horizontalLayout_4.addWidget(self.lineEdit_scale)
 
-        self.frame_7 = QFrame(self.frame)
+
+        self.verticalLayout.addWidget(self.frame_6)
+
+        self.frame_7 = QFrame(self.frame_2)
         self.frame_7.setObjectName(u"frame_7")
-        self.frame_7.setGeometry(QRect(40, 190, 381, 31))
         self.frame_7.setFrameShape(QFrame.StyledPanel)
         self.frame_7.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_5 = QHBoxLayout(self.frame_7)
@@ -203,9 +231,11 @@ class Ui_Dialog_csv_euramet(object):
 
         self.horizontalLayout_5.addWidget(self.lineEdit_offset)
 
-        self.frame_8 = QFrame(self.frame)
+
+        self.verticalLayout.addWidget(self.frame_7)
+
+        self.frame_8 = QFrame(self.frame_2)
         self.frame_8.setObjectName(u"frame_8")
-        self.frame_8.setGeometry(QRect(40, 230, 381, 31))
         self.frame_8.setFrameShape(QFrame.StyledPanel)
         self.frame_8.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_6 = QHBoxLayout(self.frame_8)
@@ -245,9 +275,60 @@ class Ui_Dialog_csv_euramet(object):
 
         self.horizontalLayout_6.addWidget(self.lineEdit_coppia_taratura_max)
 
-        self.frame_9 = QFrame(self.frame)
+
+        self.verticalLayout.addWidget(self.frame_8)
+
+        self.pushButton_save_and_back = QPushButton(self.frame_2)
+        self.pushButton_save_and_back.setObjectName(u"pushButton_save_and_back")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.pushButton_save_and_back.sizePolicy().hasHeightForWidth())
+        self.pushButton_save_and_back.setSizePolicy(sizePolicy1)
+        self.pushButton_save_and_back.setMaximumSize(QSize(16777215, 200))
+        self.pushButton_save_and_back.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.pushButton_save_and_back.setStyleSheet(u"QPushButton{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(107, 107, 107);\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"\n"
+"QPushButton::pressed{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(56, 56, 56);\n"
+"	color: rgb(0, 0, 0);\n"
+"\n"
+"\n"
+"}")
+
+        self.verticalLayout.addWidget(self.pushButton_save_and_back)
+
+
+        self.gridLayout_2.addWidget(self.frame_2, 0, 0, 1, 1)
+
+        self.frame_3 = QFrame(self.frame)
+        self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setFrameShape(QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_2 = QVBoxLayout(self.frame_3)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.label_2 = QLabel(self.frame_3)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setStyleSheet(u"QLabel{\n"
+"	background-color:rgb(255, 207, 84); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_2.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_2.addWidget(self.label_2)
+
+        self.frame_9 = QFrame(self.frame_3)
         self.frame_9.setObjectName(u"frame_9")
-        self.frame_9.setGeometry(QRect(480, 60, 361, 31))
         self.frame_9.setFrameShape(QFrame.StyledPanel)
         self.frame_9.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_7 = QHBoxLayout(self.frame_9)
@@ -287,9 +368,11 @@ class Ui_Dialog_csv_euramet(object):
 
         self.horizontalLayout_7.addWidget(self.lineEdit_data)
 
-        self.frame_10 = QFrame(self.frame)
+
+        self.verticalLayout_2.addWidget(self.frame_9)
+
+        self.frame_10 = QFrame(self.frame_3)
         self.frame_10.setObjectName(u"frame_10")
-        self.frame_10.setGeometry(QRect(480, 110, 361, 31))
         self.frame_10.setFrameShape(QFrame.StyledPanel)
         self.frame_10.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_8 = QHBoxLayout(self.frame_10)
@@ -329,9 +412,11 @@ class Ui_Dialog_csv_euramet(object):
 
         self.horizontalLayout_8.addWidget(self.lineEdit_rif_interno_attivita)
 
-        self.frame_11 = QFrame(self.frame)
+
+        self.verticalLayout_2.addWidget(self.frame_10)
+
+        self.frame_11 = QFrame(self.frame_3)
         self.frame_11.setObjectName(u"frame_11")
-        self.frame_11.setGeometry(QRect(480, 160, 361, 31))
         self.frame_11.setFrameShape(QFrame.StyledPanel)
         self.frame_11.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_9 = QHBoxLayout(self.frame_11)
@@ -371,9 +456,11 @@ class Ui_Dialog_csv_euramet(object):
 
         self.horizontalLayout_9.addWidget(self.lineEdit_cliente)
 
-        self.frame_12 = QFrame(self.frame)
+
+        self.verticalLayout_2.addWidget(self.frame_11)
+
+        self.frame_12 = QFrame(self.frame_3)
         self.frame_12.setObjectName(u"frame_12")
-        self.frame_12.setGeometry(QRect(480, 210, 361, 31))
         self.frame_12.setFrameShape(QFrame.StyledPanel)
         self.frame_12.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_10 = QHBoxLayout(self.frame_12)
@@ -413,9 +500,11 @@ class Ui_Dialog_csv_euramet(object):
 
         self.horizontalLayout_10.addWidget(self.lineEdit_SN_TX)
 
-        self.frame_13 = QFrame(self.frame)
+
+        self.verticalLayout_2.addWidget(self.frame_12)
+
+        self.frame_13 = QFrame(self.frame_3)
         self.frame_13.setObjectName(u"frame_13")
-        self.frame_13.setGeometry(QRect(480, 260, 361, 31))
         self.frame_13.setFrameShape(QFrame.StyledPanel)
         self.frame_13.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_11 = QHBoxLayout(self.frame_13)
@@ -455,9 +544,11 @@ class Ui_Dialog_csv_euramet(object):
 
         self.horizontalLayout_11.addWidget(self.lineEdit_descrizione_UUT)
 
-        self.frame_14 = QFrame(self.frame)
+
+        self.verticalLayout_2.addWidget(self.frame_13)
+
+        self.frame_14 = QFrame(self.frame_3)
         self.frame_14.setObjectName(u"frame_14")
-        self.frame_14.setGeometry(QRect(480, 310, 361, 31))
         self.frame_14.setFrameShape(QFrame.StyledPanel)
         self.frame_14.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_12 = QHBoxLayout(self.frame_14)
@@ -497,9 +588,11 @@ class Ui_Dialog_csv_euramet(object):
 
         self.horizontalLayout_12.addWidget(self.lineEdit_progetto_UUT)
 
-        self.frame_15 = QFrame(self.frame)
+
+        self.verticalLayout_2.addWidget(self.frame_14)
+
+        self.frame_15 = QFrame(self.frame_3)
         self.frame_15.setObjectName(u"frame_15")
-        self.frame_15.setGeometry(QRect(480, 360, 361, 31))
         self.frame_15.setFrameShape(QFrame.StyledPanel)
         self.frame_15.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_13 = QHBoxLayout(self.frame_15)
@@ -539,9 +632,11 @@ class Ui_Dialog_csv_euramet(object):
 
         self.horizontalLayout_13.addWidget(self.lineEdit_SN_UUT)
 
-        self.frame_16 = QFrame(self.frame)
+
+        self.verticalLayout_2.addWidget(self.frame_15)
+
+        self.frame_16 = QFrame(self.frame_3)
         self.frame_16.setObjectName(u"frame_16")
-        self.frame_16.setGeometry(QRect(480, 410, 361, 31))
         self.frame_16.setFrameShape(QFrame.StyledPanel)
         self.frame_16.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_14 = QHBoxLayout(self.frame_16)
@@ -581,49 +676,12 @@ class Ui_Dialog_csv_euramet(object):
 
         self.horizontalLayout_14.addWidget(self.lineEdit_report_calibrazione_TX)
 
-        self.label = QLabel(self.frame)
-        self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(50, 20, 261, 20))
-        self.label.setStyleSheet(u"QLabel{\n"
-"	background-color:rgb(255, 207, 84); \n"
-"	border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-color: rgb(255, 106, 0);\n"
-"	border-radius: 0px;\n"
-"	color: rgb(0,0,0);\n"
-"}\n"
-"")
-        self.label.setAlignment(Qt.AlignCenter)
-        self.label_2 = QLabel(self.frame)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setGeometry(QRect(490, 20, 261, 20))
-        self.label_2.setStyleSheet(u"QLabel{\n"
-"	background-color:rgb(255, 207, 84); \n"
-"	border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-color: rgb(255, 106, 0);\n"
-"	border-radius: 0px;\n"
-"	color: rgb(0,0,0);\n"
-"}\n"
-"")
-        self.label_2.setAlignment(Qt.AlignCenter)
-        self.pushButton_save_and_back = QPushButton(self.frame)
-        self.pushButton_save_and_back.setObjectName(u"pushButton_save_and_back")
-        self.pushButton_save_and_back.setGeometry(QRect(40, 310, 351, 201))
-        self.pushButton_save_and_back.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.pushButton_save_and_back.setStyleSheet(u"QPushButton{\n"
-"	border-width: 1px;\n"
-"	background-color:rgb(107, 107, 107);\n"
-"	color: rgb(0, 0, 0);\n"
-"}\n"
-"\n"
-"QPushButton::pressed{\n"
-"	border-width: 1px;\n"
-"	background-color:rgb(56, 56, 56);\n"
-"	color: rgb(0, 0, 0);\n"
-"\n"
-"\n"
-"}")
+
+        self.verticalLayout_2.addWidget(self.frame_16)
+
+
+        self.gridLayout_2.addWidget(self.frame_3, 0, 1, 1, 1)
+
 
         self.gridLayout.addWidget(self.frame, 0, 1, 1, 1)
 
@@ -635,6 +693,7 @@ class Ui_Dialog_csv_euramet(object):
 
     def retranslateUi(self, Dialog_csv_euramet):
         Dialog_csv_euramet.setWindowTitle(QCoreApplication.translate("Dialog_csv_euramet", u"Dialog", None))
+        self.label.setText(QCoreApplication.translate("Dialog_csv_euramet", u"Parametri di acquisizione", None))
         self.label_unita_ingegneristica_di_misura.setText(QCoreApplication.translate("Dialog_csv_euramet", u"Unit\u00e0 ingegneristica di misura", None))
         self.lineEdit_unita_ingegneristica_di_misura.setText(QCoreApplication.translate("Dialog_csv_euramet", u"Nm", None))
         self.label_unita_ingegneristica_UUT.setText(QCoreApplication.translate("Dialog_csv_euramet", u"Unit\u00e0 ingegneristica UUT", None))
@@ -645,6 +704,8 @@ class Ui_Dialog_csv_euramet(object):
         self.lineEdit_offset.setText(QCoreApplication.translate("Dialog_csv_euramet", u"2.5", None))
         self.label_coppia_taratura_max.setText(QCoreApplication.translate("Dialog_csv_euramet", u"Coppia taratura MAX [Nm]", None))
         self.lineEdit_coppia_taratura_max.setText(QCoreApplication.translate("Dialog_csv_euramet", u"2000", None))
+        self.pushButton_save_and_back.setText(QCoreApplication.translate("Dialog_csv_euramet", u"SALVA E TORNA AL GRAFICO", None))
+        self.label_2.setText(QCoreApplication.translate("Dialog_csv_euramet", u"Variabili report di taratura", None))
         self.label_data.setText(QCoreApplication.translate("Dialog_csv_euramet", u"Data", None))
         self.lineEdit_data.setText(QCoreApplication.translate("Dialog_csv_euramet", u"-", None))
         self.label_rif_interno_attivita.setText(QCoreApplication.translate("Dialog_csv_euramet", u"Rif interno attivita", None))
@@ -661,8 +722,5 @@ class Ui_Dialog_csv_euramet(object):
         self.lineEdit_SN_UUT.setText(QCoreApplication.translate("Dialog_csv_euramet", u"-", None))
         self.label_report_calibrazione_TX.setText(QCoreApplication.translate("Dialog_csv_euramet", u"Report di calibrazione TX", None))
         self.lineEdit_report_calibrazione_TX.setText(QCoreApplication.translate("Dialog_csv_euramet", u"-", None))
-        self.label.setText(QCoreApplication.translate("Dialog_csv_euramet", u"Parametri di acquisizione", None))
-        self.label_2.setText(QCoreApplication.translate("Dialog_csv_euramet", u"Variabili report di taratura", None))
-        self.pushButton_save_and_back.setText(QCoreApplication.translate("Dialog_csv_euramet", u"SALVA E TORNA AL GRAFICO", None))
     # retranslateUi
 

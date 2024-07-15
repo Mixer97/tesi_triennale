@@ -141,3 +141,9 @@
 15/07
     risolvere controllo per reiniziallizzare la misura eurramet per il nuovo quadrante.
     risolto il problema ora il sistema acquisisce valori come dovrebbe e li inserisce dove dovrebbe nel file excell.
+    inserire implementazione status altezza.
+    inserire implementazione grafico di riferimento.
+    per inserire il grafico di riferimento riassuntivo devo:
+        - implementare la stesurra del grafico da scegliere in base alle checkbox messe
+        - implementare il plotting del grafico verde ogni volta che salvo un valore mediante il pulsante
+        - implementare il cambio di quadrante

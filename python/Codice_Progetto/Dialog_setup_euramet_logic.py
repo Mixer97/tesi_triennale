@@ -2,7 +2,7 @@ from __future__ import annotations
 from PySide6.QtWidgets import QDialog
 from PySide6.QtCore import QTimer
 from Dialog_setup_euramet_ui import Ui_Dialog_Euramet_setup
-from Dialog_csv_euramet_logic import csv_euramet_window
+from Dialog_xlxs_euramet_logic import csv_euramet_window
 from typing import TYPE_CHECKING
 from openpyxl import load_workbook
 from logic_classes.Euramet_logic import Misura_euramet
@@ -46,12 +46,7 @@ class Euramet_window(QDialog):
         self.ui.pushButton_concludi_setup.clicked.connect(self.end_setup)
         self.ui.comboBox_quadrante.currentIndexChanged.connect(self.update_quadrant)
 
-        # segnale di refresh che controlla lo stato di euramet    
-        # self.timer = QTimer()
-        # self.timer.setInterval(100)
-        # self.timer.timeout.connect(self.change_quadrant)
-        # self.timer.start()
-        
+    # usato per inizializzare il secondo quadrante e terminare alla fine del 2 quadrante
     def change_quadrant(self):
         if self.banco_di_taratura.quadrant_counter == 1:
             self.invert_quadrant()
@@ -59,6 +54,7 @@ class Euramet_window(QDialog):
         elif self.banco_di_taratura.quadrant_counter == 2:
             print("Euramet_finito!")
             self.graph_window.ui.pushButton_save_measure.setEnabled(False)
+            self.graph_window.ui.label_step_attuale_valore.setText("##############")
         else:
             pass
         
@@ -66,18 +62,21 @@ class Euramet_window(QDialog):
     def invert_quadrant(self):
         if self.banco_di_taratura.quadrant == "Q1":
             self.banco_di_taratura.quadrant = "Q3"
+            self.graph_window.ui.label_quadrante.setText("Q3")
         elif self.banco_di_taratura.quadrant == "Q3":
             self.banco_di_taratura.quadrant = "Q1"
-        
+            self.graph_window.ui.label_quadrante.setText("Q1")
         else:
             print("Error nel valore del quadrante attuale")
+            
     def show_csv_setup_window(self):
         self.csv_setup_window.exec()
         
     def end_setup(self):
-        self.banco_di_taratura.workbook = load_workbook(self.banco_di_taratura.excell_path_template)
+        self.banco_di_taratura.workbook = load_workbook(self.banco_di_taratura.excell_path_certificate)
         self.graph_window.ui.pushButton_save_measure.setEnabled(True)
         self.graph_window.ui.label_quadrante.setText(self.banco_di_taratura.quadrant)
+        self.graph_window.ui.label_step_attuale_valore.setText("0 Nm")
         self.graph_window.euramet_measure_entity = Misura_euramet(banco_di_taratura=self.banco_di_taratura, graphwindow=self.graph_window, euramet_window=self)
         self.graph_window.show()
         self.close()

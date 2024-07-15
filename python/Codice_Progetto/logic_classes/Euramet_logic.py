@@ -32,7 +32,7 @@ class Rampa:
         self.excel_path_template = self.banco_di_taratura.excell_path_template
         self.excel_path_certificate = self.banco_di_taratura.excell_path_certificate
         self.max_torque = misura.max_torque
-        self.step_increment = int(int(self.max_torque)/int(self.number_of_steps))
+        self.step_increment = int(int(self.max_torque)/int(self.number_of_steps-1))
         
         
     def measure_value(self):
@@ -43,15 +43,22 @@ class Rampa:
         torsiometro = self.banco_di_taratura.controller_tcp.DATA.LIST_Nm_VALUE[3]
         sg600 = self.banco_di_taratura.controller_modbus.DATA.canale_principale_Nm
         
+        # Aggiornamento dei valori grafici
+        if self.step_attuale < self.number_of_steps-1:
+            self.misura_euramet.graphwindow.ui.label_step_attuale_valore.setText(f"{(self.step_attuale+1) * self.step_increment} Nm")
+        elif self.step_attuale == self.number_of_steps-1:
+            self.misura_euramet.graphwindow.ui.label_step_attuale_valore.setText("0 Nm")
+        
+        
         # Scrittura su Excell e aumento dello step
         data = (haxis, int(href), cella_di_carico_N, torsiometro, sg600)
         starting_row_cell = self.calculate_row_starting_cell()
         self.write_to_excell(data=data, starting_row_cell=starting_row_cell)
         self.increment_step()
         end_check = self.check_end()  # Se = 1 ha finito la rampa, se = 0 mancano delle misure
-        return end_check
-        
     
+        return end_check
+            
     def write_to_excell(self, data, starting_row_cell):
         tmp_cell = starting_row_cell    # inizia da questa cella e scrive i dati necessari
         for i in range(5):
@@ -112,13 +119,17 @@ class Precarichi:
         cella_di_carico_N = self.banco_di_taratura.controller_tcp.DATA.LIST_N_VALUE[1]  # cella ch2
         torsiometro = self.banco_di_taratura.controller_tcp.DATA.LIST_Nm_VALUE[3]  # cella ch4
         sg600 = self.banco_di_taratura.controller_modbus.DATA.canale_principale_Nm
-        
+                
         # Scrittura su Excell e aumento dello step
         data = (haxis, int(href), cella_di_carico_N, torsiometro, sg600)
         starting_row_cell = self.calculate_row_starting_cell()
         self.write_to_excell(data=data, starting_row_cell=starting_row_cell)
         self.increment_step()
         end_check = self.check_end()  # Se = 1 ha finito la rampa, se = 0 mancano delle misure
+        
+        # Aggiornamento dei valori grafici
+        self.misura_euramet.graphwindow.ui.label_step_attuale_valore.setText(f"{self.current_step_value} Nm")
+        
         return end_check
         
     
@@ -136,7 +147,6 @@ class Precarichi:
         self.step_attuale += 1
         self.prec_steps()
         # inserire cambiamento del valore nella label STEP sul graphwindow
-        
         
     def check_stability(self):
         pass
@@ -186,6 +196,7 @@ class Misura_euramet:
         
         # dati che controllano il proseguimento di euramet
         self.quadrant_counter = 0
+        
         
         # Creazione delle entità che compongono Euramet in un certo Quadrante
         self.precarichi = Precarichi(self.banco_di_taratura, self)
