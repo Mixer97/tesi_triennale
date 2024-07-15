@@ -1,6 +1,6 @@
 from __future__ import annotations
 from PySide6.QtWidgets import QDialog
-from dialog_setup_SG600_ui import Ui_SG600_Setup
+from Dialog_setup_SG600_ui import Ui_SG600_Setup
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
