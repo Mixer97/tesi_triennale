@@ -6,6 +6,7 @@ from openpyxl import load_workbook
 if TYPE_CHECKING:
     from Banco_Taratura import BANCO_DI_TARATURA
     from Mainwindow_grafico_logic import GraphWindow
+    from Dialog_setup_euramet_logic import Euramet_window
 
 
 
@@ -163,12 +164,13 @@ class Precarichi:
         return row_starting_cell
     
 class Misura_euramet:
-    def __init__(self, banco_di_taratura:BANCO_DI_TARATURA, graphwindow:GraphWindow):
+    def __init__(self, banco_di_taratura:BANCO_DI_TARATURA, graphwindow:GraphWindow, euramet_window:Euramet_window):
         
         """
         quadrante --> "Q1 (positivo)", "Q3 (negativo)"
         canale 4 --> torsiometro, canale 2 --> cella di carico
         """
+        self.euramet_window = euramet_window
         self.graphwindow = graphwindow
         self.numero_misure_totali_da_fare = 0
         self.misure_fatte = 0
@@ -183,7 +185,7 @@ class Misura_euramet:
         self.starting_column = self.banco_di_taratura.euramet_cella_inizio_precarichi_Q1[0]
         
         # dati che controllano il proseguimento di euramet
-        self.quandrant_counter = 0
+        self.quadrant_counter = 0
         
         # Creazione delle entità che compongono Euramet in un certo Quadrante
         self.precarichi = Precarichi(self.banco_di_taratura, self)
@@ -222,11 +224,11 @@ class Misura_euramet:
             print("sono nella salita 2")
             self.end_check_salita_2 = self.rampa_salita_2.measure_value()
         elif self.end_check_zero_finale == 0 and self.zero_finale != None:
+            self.zero_finale.number_of_steps = 1
+            self.max_torque = 0
             self.end_check_zero_finale = self.zero_finale.measure_value()
-            if self.end_check_zero_finale == 1:
-                self.number_of_steps = 1
-                self.max_torque = 0
-                self.banco_di_taratura.quadrant_counter += 1
+            self.banco_di_taratura.quadrant_counter += 1
+            self.euramet_window.change_quadrant()
             
             print("Sono nello zero finale")
         else:

@@ -378,7 +378,6 @@ class GraphWindow(QMainWindow):
         else:
             print("errore nell' instanziazione della misura euramet")
         
-            
         
 if __name__ == "__main__":
     app = QApplication(sys.argv)

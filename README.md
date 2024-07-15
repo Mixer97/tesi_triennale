@@ -137,3 +137,7 @@
 12/07
     continuo lavoro su euramet
     lavoro sul funzionamento dei pulsanti disabilitati o abilitati
+
+15/07
+    risolvere controllo per reiniziallizzare la misura eurramet per il nuovo quadrante.
+    risolto il problema ora il sistema acquisisce valori come dovrebbe e li inserisce dove dovrebbe nel file excell.

@@ -47,15 +47,15 @@ class Euramet_window(QDialog):
         self.ui.comboBox_quadrante.currentIndexChanged.connect(self.update_quadrant)
 
         # segnale di refresh che controlla lo stato di euramet    
-        self.timer = QTimer()
-        self.timer.setInterval(100)
-        self.timer.timeout.connect(self.change_quadrant)
-        self.timer.start()
+        # self.timer = QTimer()
+        # self.timer.setInterval(100)
+        # self.timer.timeout.connect(self.change_quadrant)
+        # self.timer.start()
         
     def change_quadrant(self):
         if self.banco_di_taratura.quadrant_counter == 1:
             self.invert_quadrant()
-            self.graph_window.euramet_measure_entity = Misura_euramet(banco_di_taratura=self.banco_di_taratura, graphwindow=self.graph_window)    
+            self.graph_window.euramet_measure_entity = Misura_euramet(banco_di_taratura=self.banco_di_taratura, graphwindow=self.graph_window, euramet_window=self)    
         elif self.banco_di_taratura.quadrant_counter == 2:
             print("Euramet_finito!")
             self.graph_window.ui.pushButton_save_measure.setEnabled(False)
@@ -66,9 +66,11 @@ class Euramet_window(QDialog):
     def invert_quadrant(self):
         if self.banco_di_taratura.quadrant == "Q1":
             self.banco_di_taratura.quadrant = "Q3"
-        if self.banco_di_taratura.quadrant == "Q3":
+        elif self.banco_di_taratura.quadrant == "Q3":
             self.banco_di_taratura.quadrant = "Q1"
         
+        else:
+            print("Error nel valore del quadrante attuale")
     def show_csv_setup_window(self):
         self.csv_setup_window.exec()
         
@@ -76,7 +78,7 @@ class Euramet_window(QDialog):
         self.banco_di_taratura.workbook = load_workbook(self.banco_di_taratura.excell_path_template)
         self.graph_window.ui.pushButton_save_measure.setEnabled(True)
         self.graph_window.ui.label_quadrante.setText(self.banco_di_taratura.quadrant)
-        self.graph_window.euramet_measure_entity = Misura_euramet(banco_di_taratura=self.banco_di_taratura, graphwindow=self.graph_window)
+        self.graph_window.euramet_measure_entity = Misura_euramet(banco_di_taratura=self.banco_di_taratura, graphwindow=self.graph_window, euramet_window=self)
         self.graph_window.show()
         self.close()
         
