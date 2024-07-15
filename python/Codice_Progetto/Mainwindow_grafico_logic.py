@@ -48,81 +48,54 @@ class Graph_static_recap:
         self.pen2 = pg.mkPen(color=('g'), width=4, style=PySide6.QtCore.Qt.SolidLine)
         self.curve_euramet_to_do = self.graph_euramet.plot(pen=self.pen1)
         self.curve_euramet_done = self.graph_euramet.plot(pen=self.pen2)
-        dataY = []
-        dataX = []
-        dataY2 = []
-        dataX2 = []
+        self.dataY = []
+        self.dataX = []
+        self.dataY2 = []
+        self.dataX2 = []
         self.ptr3 = 0
         self.counter = 0
-        self.graph_euramet.setRange(yRange=(0,6), padding=0.2, xRange=(1,50)) # da cambiare con le info del numero di step 
+        self.graph_euramet.setRange(yRange=(0,11), padding=0.2, xRange=(1,50)) # da cambiare con le info del numero di step 
         self.max_h = 10
         
         # I tuoi dati
         
-        # data_set_X = [1, 2, 3, 3, 4, 5, 5, 6, 7, 7, 8, 9, 9, 10, 11, 11, 12, 13, 13, 14, 15,
-        #               15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22, 23, 23, 24, 25, 25, 26, 27, 27, 28, 29,
-        #               29, 30, 31, 31, 32, 33, 33, 34, 35, 35, 36, 37, 37, 38, 39, 39, 40, 41, 41, 42, 43, 43, 44, 45,
-        #               45, 46, 47, 47, 48, 49, 50, 50]
-        
-        # # salita,salita
-        # data_set_Y_salita_salita = [0, 0, 0, 5, 5, 5, 0, 0, 0, 5, 5, 5, 0, 0, 0, 5, 5, 5, 0, 0, 0,
-        #               1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 0, 0, 0, 1, 1, 1,
-        #               2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 0, 0, 0]
-        
-        # data_set_Y_neg_salita_salita = [0, 0, 0, -5, -5, -5, 0, 0, 0, -5, -5, -5, 0, 0, 0, -5, -5, -5, 0, 0, 0,
-        #               -1, -1, -1, -2, -2, -2, -3, -3, -3, -4, -4, -4, -5, -5, -5, 0, 0, 0, -1, -1, -1,
-        #               -2, -2, -2, -3, -3, -3, -4, -4, -4, -5, -5, -5, 0, 0, 0]
-        
-        
-        # # salita,discesa,salita
-        # data_set_Y_salita_salita = [0, 0, 0, 5, 5, 5, 0, 0, 0, 5, 5, 5, 0, 0, 0, 5, 5, 5, 0, 0, 0,
-        #               1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 0, 0, 0, 1, 1, 1,
-        #               2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 0, 0, 0]
-        
-        # data_set_Y_neg_salita_salita = [0, 0, 0, -5, -5, -5, 0, 0, 0, -5, -5, -5, 0, 0, 0, -5, -5, -5, 0, 0, 0,
-        #               -1, -1, -1, -2, -2, -2, -3, -3, -3, -4, -4, -4, -5, -5, -5, 0, 0, 0, -1, -1, -1,
-        #               -2, -2, -2, -3, -3, -3, -4, -4, -4, -5, -5, -5, 0, 0, 0]
-        
-        self.data_set_Y_buff=[0]
-        self.data_set_X_buff=[0]
+        self.data_set_Y_buff=[]
+        self.data_set_X_buff=[]
 
-        self.data_set_Y_full=[0]
-        self.data_set_X_full=[0]
-        
-        s=0
-        for i in self.data_set_Y_full:
-            dataY.append(self.data_set_Y_full[s])
-            dataX.append(self.data_set_X_full[s])
-            s+=1
-        self.curve_euramet_to_do.setData(dataX, dataY)
-        
-        t=0
-        for i in self.data_set_Y_buff:
-            dataY2.append(self.data_set_Y_buff[t])
-            dataX2.append(self.data_set_X_buff[t])
-            t+=1
-        self.curve_euramet_done.setData(dataX2, dataY2)
+        self.data_set_Y_full=[]
+        self.data_set_X_full=[]
         
     def plot_a_point(self, step_totali):
-        self.max_h = 10
+        pass
     
-    def create_rampa_plot(self):
-        steps = self.banco_di_taratura.current_number_of_steps
-        self.max_h = 10
+    def create_salita_plot(self):
+        steps = self.banco_di_taratura.current_number_of_steps+1
         for i in range(steps):
-            value_to_plot = self.max_h
+            value_to_plot = (self.max_h*i)/(steps-1)
             if self.banco_di_taratura.quadrant == "Q3":
                 value_to_plot = -value_to_plot
-            else:
-                value_to_plot = 0
             for j in range(3):
-                tmp = self.data_set_X_full.append(self.banco_di_taratura.x + j)
+                self.data_set_X_full.append(self.banco_di_taratura.x + j)
                 self.data_set_Y_full.append(value_to_plot)
+                tmp = self.banco_di_taratura.x + j
+            self.banco_di_taratura.x = tmp
+        
+    def create_discesa_plot(self):
+        steps = self.banco_di_taratura.current_number_of_steps
+        for i in range(1,steps):
+            value_to_plot = (self.max_h*(5-i))/(steps)
+            if self.banco_di_taratura.quadrant == "Q3":
+                value_to_plot = -value_to_plot
+            for j in range(3):
+                self.data_set_X_full.append(self.banco_di_taratura.x + j)
+                self.data_set_Y_full.append(value_to_plot)
+                tmp = self.banco_di_taratura.x + j
             self.banco_di_taratura.x = tmp
         
     def create_precarichi_plot(self):
         self.banco_di_taratura.x = 0
-        self.max_h = 10
+        self.data_set_X_full = []
+        self.data_set_Y_full = []
         for i in range(6):
             if i%2 != 0:
                 value_to_plot = self.max_h
@@ -131,9 +104,25 @@ class Graph_static_recap:
             else:
                 value_to_plot = 0
             for j in range(3):
-                tmp = self.data_set_X_full.append(self.banco_di_taratura.x + j)
+                self.data_set_X_full.append(self.banco_di_taratura.x + j)
                 self.data_set_Y_full.append(value_to_plot)
+                tmp = self.banco_di_taratura.x + j
             self.banco_di_taratura.x = tmp
+    
+    def plot_final_zero(self):
+        for j in range(3):
+            tmp = self.data_set_X_full.append(self.banco_di_taratura.x + j)
+            self.data_set_Y_full.append(0)
+        self.banco_di_taratura.x = tmp
+            
+    
+    def plot_full_graph(self):
+        s=0
+        for i in self.data_set_Y_full:
+            self.dataY.append(self.data_set_Y_full[s])
+            self.dataX.append(self.data_set_X_full[s])
+            s+=1
+        self.curve_euramet_to_do.setData(self.dataX, self.dataY)
             
             
     
@@ -486,6 +475,8 @@ class GraphWindow(QMainWindow):
         self.close()
         
     def show_euramet_window(self):
+        self.ui.graphWidget_visual_euramet.clear()
+        self.graph_recap = Graph_static_recap(self, self.banco_di_taratura)
         self.euramet_window.exec()
     
     def handle_euramet(self):

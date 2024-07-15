@@ -147,3 +147,6 @@
         - implementare la stesurra del grafico da scegliere in base alle checkbox messe
         - implementare il plotting del grafico verde ogni volta che salvo un valore mediante il pulsante
         - implementare il cambio di quadrante
+
+16/07
+    fare in modo che con il click, per salvare i dati, si vada al prossimo punto del grafico verde

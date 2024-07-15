@@ -73,6 +73,7 @@ class Euramet_window(QDialog):
         self.csv_setup_window.exec()
         
     def end_setup(self):
+        # self.graph_window.ui.graphWidget_visual_euramet.clear()
         self.banco_di_taratura.workbook = load_workbook(self.banco_di_taratura.excell_path_certificate)
         self.graph_window.ui.pushButton_save_measure.setEnabled(True)
         self.graph_window.ui.label_quadrante.setText(self.banco_di_taratura.quadrant)

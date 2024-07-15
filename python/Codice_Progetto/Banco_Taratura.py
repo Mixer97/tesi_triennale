@@ -74,6 +74,9 @@ class BANCO_DI_TARATURA:
         # Variabili che gestiscono quanti quadranti ho e in quale mi trovo
         self.quadrant_counter = 0
         
+        # valori per plotting
+        self.x = 0
+        
     # metodi comuni a tutte le istanze da metter qui
 
 

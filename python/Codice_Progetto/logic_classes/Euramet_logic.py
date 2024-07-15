@@ -201,24 +201,31 @@ class Misura_euramet:
         # Creazione delle entità che compongono Euramet in un certo Quadrante
         self.precarichi = Precarichi(self.banco_di_taratura, self)
         self.numero_misure_totali_da_fare += 6
+        self.graphwindow.graph_recap.create_precarichi_plot()
         if self.banco_di_taratura.list_status_checkbox_euramet_page[0] == 1:
             self.rampa_salita_1 = Rampa(self.banco_di_taratura, misura=self, tipo="salita", misure_gia_fatte=self.numero_misure_totali_da_fare)
             self.numero_misure_totali_da_fare += self.rampa_salita_1.number_of_steps
+            self.graphwindow.graph_recap.create_salita_plot()
         else:
             self.rampa_salita_1 = None
         if self.banco_di_taratura.list_status_checkbox_euramet_page[1] == 1:
             self.rampa_discesa_1 = Rampa(self.banco_di_taratura, misura=self, tipo="discesa", misure_gia_fatte=self.numero_misure_totali_da_fare)
             self.numero_misure_totali_da_fare += self.rampa_discesa_1.number_of_steps
+            self.graphwindow.graph_recap.create_discesa_plot()
         else:
             self.rampa_discesa_1 = None
         if self.banco_di_taratura.list_status_checkbox_euramet_page[2] == 1:
             self.rampa_salita_2 = Rampa(self.banco_di_taratura, misura=self, tipo="salita", misure_gia_fatte=self.numero_misure_totali_da_fare)
             self.numero_misure_totali_da_fare += self.rampa_salita_2.number_of_steps
+            self.graphwindow.graph_recap.create_salita_plot()
             self.zero_finale = Rampa(self.banco_di_taratura, misura=self, tipo ="zero finale", misure_gia_fatte=self.numero_misure_totali_da_fare)
             self.numero_misure_totali_da_fare += 1
+            self.graphwindow.graph_recap.plot_final_zero()
         else:
             self.rampa_salita_2 = None
             self.zero_finale = None
+        self.graphwindow.graph_recap.plot_full_graph()
+        
         # Ora ho il numero totale di misure da fare
 
     def measure_value(self):
