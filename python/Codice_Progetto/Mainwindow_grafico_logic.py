@@ -53,20 +53,58 @@ class Graph_static_recap:
         self.dataY2 = []
         self.dataX2 = []
         self.ptr3 = 0
-        self.counter = 0
-        self.graph_euramet.setRange(yRange=(0,11), padding=0.2, xRange=(1,50)) # da cambiare con le info del numero di step 
+        self.count = 0
+        # if self.banco_di_taratura.quadrant == "Q3":
+        #     self.graph_euramet.setRange(yRange=(0,-10), padding=0.2, xRange=(1,50))
+        # elif self.banco_di_taratura.quadrant == "Q1":
+        #     self.graph_euramet.setRange(yRange=(0,10), padding=0.2, xRange=(1,50)) 
         self.max_h = 10
         
         # I tuoi dati
-        
         self.data_set_Y_buff=[]
         self.data_set_X_buff=[]
 
-        self.data_set_Y_full=[]
-        self.data_set_X_full=[]
+        self.data_set_Y_full=[0,0]
+        self.data_set_X_full=[0,1]
+        
+        # Segnali
+        self.timer_flip = QTimer()
+        self.timer_flip.setInterval(100)
+        self.timer_flip.timeout.connect(self.flip_graph)
+        self.timer_flip.start()
+        
         
     def plot_a_point(self, step_totali):
-        pass
+        s=0
+        pointer=len(self.data_set_X_buff)
+        if self.count == 0:
+            self.data_set_X_buff.append(self.data_set_X_full[pointer])
+            self.data_set_X_buff.append(self.data_set_X_full[pointer+1])
+            self.data_set_Y_buff.append(self.data_set_Y_full[pointer])         
+            self.data_set_Y_buff.append(self.data_set_Y_full[pointer+1])
+            self.curve_euramet_done.setData(self.data_set_X_buff, self.data_set_Y_buff)
+            self.count += 1
+            
+        elif self.count < step_totali:
+            self.data_set_X_buff.append(self.data_set_X_full[pointer])
+            self.data_set_X_buff.append(self.data_set_X_full[pointer+1])
+            self.data_set_X_buff.append(self.data_set_X_full[pointer+2])
+            self.data_set_Y_buff.append(self.data_set_Y_full[pointer])         
+            self.data_set_Y_buff.append(self.data_set_Y_full[pointer+1])
+            self.data_set_Y_buff.append(self.data_set_Y_full[pointer+2])
+            self.curve_euramet_done.setData(self.data_set_X_buff, self.data_set_Y_buff)
+            self.count += 1
+            
+        elif self.count == step_totali:
+            # gestire status quadranti e conclusione 
+            self.graph_window.ui.graphWidget_visual_euramet.clear()
+            self.graph_window.graph_recap = Graph_static_recap(self.graph_window, self.banco_di_taratura)
+    
+    def flip_graph(self):
+        if self.banco_di_taratura.quadrant == "Q3":
+            self.graph_euramet.setRange(yRange=(0,-10), padding=0.2, xRange=(1,50))
+        elif self.banco_di_taratura.quadrant == "Q1":
+            self.graph_euramet.setRange(yRange=(0,10), padding=0.2, xRange=(1,50)) 
     
     def create_salita_plot(self):
         steps = self.banco_di_taratura.current_number_of_steps+1
@@ -481,6 +519,7 @@ class GraphWindow(QMainWindow):
         self.euramet_window.exec()
     
     def handle_euramet(self):
+        self.graph_recap.plot_a_point(self.euramet_measure_entity.numero_misure_totali_da_fare)
         if self.euramet_measure_entity != None:
             self.euramet_measure_entity.measure_value()
             print("qualcosa fa")
