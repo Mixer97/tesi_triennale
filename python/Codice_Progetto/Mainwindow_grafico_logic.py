@@ -22,7 +22,7 @@ if TYPE_CHECKING:
 
 
 class Graph_static_recap:
-    def __init__(self, graph_window:GraphWindow, banco_di_taratura:BANCO_DI_TARATURA):
+    def __init__(self, graph_window:GraphWindow, banco_di_taratura:BANCO_DI_TARATURA, setX=[0,1], setY=[0,0]):
         
         self.banco_di_taratura = banco_di_taratura
         self.graph_window = graph_window
@@ -64,8 +64,8 @@ class Graph_static_recap:
         self.data_set_Y_buff=[]
         self.data_set_X_buff=[]
 
-        self.data_set_Y_full=[0,0]
-        self.data_set_X_full=[0,1]
+        self.data_set_Y_full=setY
+        self.data_set_X_full=setX
         
         # Segnali
         self.timer_flip = QTimer()
@@ -98,7 +98,7 @@ class Graph_static_recap:
         elif self.count == step_totali:
             # gestire status quadranti e conclusione 
             self.graph_window.ui.graphWidget_visual_euramet.clear()
-            self.graph_window.graph_recap = Graph_static_recap(self.graph_window, self.banco_di_taratura)
+            self.graph_window.graph_recap = Graph_static_recap(self.graph_window, self.banco_di_taratura, setX=self.data_set_X_full, setY=self.data_set_Y_full)
     
     def flip_graph(self):
         if self.banco_di_taratura.quadrant == "Q3":
@@ -515,7 +515,7 @@ class GraphWindow(QMainWindow):
         
     def show_euramet_window(self):
         self.ui.graphWidget_visual_euramet.clear()
-        self.graph_recap = Graph_static_recap(self, self.banco_di_taratura)
+        self.graph_recap = Graph_static_recap(self, self.banco_di_taratura, setX=self.graph_recap.data_set_X_full, setY=self.graph_recap.data_set_Y_full)
         self.euramet_window.exec()
     
     def handle_euramet(self):

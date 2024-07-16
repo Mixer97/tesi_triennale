@@ -196,7 +196,7 @@ class Misura_euramet:
         
         # dati che controllano il proseguimento di euramet
         self.quadrant_counter = 0
-        self.graphwindow.graph_recap.plot_a_point(2)
+        self.graphwindow.graph_recap.plot_a_point(1)
         
         
         # Creazione delle entità che compongono Euramet in un certo Quadrante
