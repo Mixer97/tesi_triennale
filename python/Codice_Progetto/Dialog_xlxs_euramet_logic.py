@@ -1,7 +1,8 @@
 from __future__ import annotations
 from PySide6.QtWidgets import QDialog
-from Dialog_csv_euramet_ui import Ui_Dialog_csv_euramet
+from Dialog_xlxs_euramet_ui import Ui_Dialog_csv_euramet
 from typing import TYPE_CHECKING
+from openpyxl import load_workbook
 
 if TYPE_CHECKING:
     from Banco_Taratura import BANCO_DI_TARATURA
@@ -42,10 +43,30 @@ class csv_euramet_window(QDialog):
         self.banco_di_taratura.euramet_Progetto_UUT = self.ui.lineEdit_progetto_UUT.text()
         self.banco_di_taratura.euramet_SN_UUT = self.ui.lineEdit_SN_UUT.text()
         self.banco_di_taratura.euramet_Report_di_calibrazione_TX = self.ui.lineEdit_report_calibrazione_TX.text()
+        
+        workbook = load_workbook(self.banco_di_taratura.excell_path_template)
+        sheet_euramet = workbook["Istruzioni Uso"]
 
-        print(self.banco_di_taratura.euramet_unita_ingegneristica_di_misura,
-              self.banco_di_taratura.euramet_Report_di_calibrazione_TX,
-              self.banco_di_taratura.controller_modbus.DATA.coefficiente_main)
+        sheet_euramet["B11"] = self.banco_di_taratura.euramet_unita_ingegneristica_di_misura
+        sheet_euramet["B12"] = self.banco_di_taratura.euramet_Unità_ingegneristica_UUT
+        sheet_euramet["B13"] = self.banco_di_taratura.controller_modbus.DATA.coefficiente_main
+        sheet_euramet["B14"] = self.banco_di_taratura.euramet_Offset
+        sheet_euramet["B20"] = self.banco_di_taratura.euramet_Coppia_taratura_MAX
+        
+        sheet_euramet["B63"] = self.banco_di_taratura.euramet_Data
+        sheet_euramet["B64"] = self.banco_di_taratura.euramet_Rif_interno_attivita
+        sheet_euramet["B65"] = self.banco_di_taratura.euramet_Cliente
+        sheet_euramet["B66"] = self.banco_di_taratura.euramet_SN_TX
+        sheet_euramet["B67"] = self.banco_di_taratura.euramet_Descrizione_UUT
+        sheet_euramet["B68"] = self.banco_di_taratura.euramet_Progetto_UUT
+        sheet_euramet["B69"] = self.banco_di_taratura.euramet_SN_UUT
+        sheet_euramet["B70"] = self.banco_di_taratura.euramet_Report_di_calibrazione_TX
+        
+        workbook.save(self.banco_di_taratura.excell_path_certificate)
+
+        # print(self.banco_di_taratura.euramet_unita_ingegneristica_di_misura,
+        #       self.banco_di_taratura.euramet_Report_di_calibrazione_TX,
+        #       self.banco_di_taratura.controller_modbus.DATA.coefficiente_main)
         
     def update_steps(self):
         if self.banco_di_taratura.current_number_of_steps == 5:

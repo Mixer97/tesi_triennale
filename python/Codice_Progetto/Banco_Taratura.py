@@ -41,7 +41,7 @@ class BANCO_DI_TARATURA:
         self.counter_registrazione = 0
         
         # variabili impostazione euramet
-        self.list_status_checkbox_euramet_page = [0,0,0]   #[salita_1, discesa_1, salita_2]
+        self.list_status_checkbox_euramet_page = [0,0,1]   #[salita_1, discesa_1, salita_2]
         self.current_number_of_steps = 5
         self.status_inserimento_altezza = True
         self.quadrant = "Q1"
@@ -73,6 +73,9 @@ class BANCO_DI_TARATURA:
         
         # Variabili che gestiscono quanti quadranti ho e in quale mi trovo
         self.quadrant_counter = 0
+        
+        # valori per plotting
+        self.x = 0
         
     # metodi comuni a tutte le istanze da metter qui
 

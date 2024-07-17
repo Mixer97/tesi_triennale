@@ -31,6 +31,8 @@ COSE DA FARE:
 EURAMET LOGIC:
     - inserire scrittura su excell delle impostazioni per excell euramet
     - lavorare su schermata setup euramet (salvataggio su JSON)
+    - implementare il grafico di recap della misura
+    - implementare stabilità per misura automatica
 
 BUG SCOPERTI:
 

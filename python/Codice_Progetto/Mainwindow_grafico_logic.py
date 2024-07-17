@@ -21,8 +21,152 @@ if TYPE_CHECKING:
     from View_QT_HomePage_logic import MainWindow
 
 
-    
+class Graph_static_recap:
+    def __init__(self, graph_window:GraphWindow, banco_di_taratura:BANCO_DI_TARATURA, setX=[0,1], setY=[0,0]):
+        
+        self.banco_di_taratura = banco_di_taratura
+        self.graph_window = graph_window
+        graph_euramet = self.graph_window.ui.graphWidget_visual_euramet
+        
+        # Impostazione del grafico di recap 
+        self.graph_euramet = graph_euramet  # Grafico recap euramet
+        
+        # Disabilita interazioni
+        self.graph_euramet.setMouseEnabled(x=False, y=False)  # Disabilita lo zoom con il mouse
+        self.graph_euramet.hideButtons()  # Nascondi i bottoni di interazione
+        self.graph_euramet.setMenuEnabled(False)  # Disabilita il menu contestuale
+        self.graph_euramet.setMenuEnabled(enableMenu=False)  # Disabilita il menu del plot
+        
+        # Blocca gli assi
+        self.graph_euramet.getViewBox().setMouseEnabled(x=False, y=False)  # Disabilita il pan con il mouse      
+        
+        # Nascondi gli assi
+        self.graph_euramet.getAxis('left').hide()
+        self.graph_euramet.getAxis('bottom').hide()  
 
+        self.pen1 = pg.mkPen(color=('r'), width=1, style=PySide6.QtCore.Qt.SolidLine)
+        self.pen2 = pg.mkPen(color=('g'), width=4, style=PySide6.QtCore.Qt.SolidLine)
+        self.curve_euramet_to_do = self.graph_euramet.plot(pen=self.pen1)
+        self.curve_euramet_done = self.graph_euramet.plot(pen=self.pen2)
+        self.dataY = []
+        self.dataX = []
+        self.dataY2 = []
+        self.dataX2 = []
+        self.ptr3 = 0
+        self.count = 0
+        # if self.banco_di_taratura.quadrant == "Q3":
+        #     self.graph_euramet.setRange(yRange=(0,-10), padding=0.2, xRange=(1,50))
+        # elif self.banco_di_taratura.quadrant == "Q1":
+        #     self.graph_euramet.setRange(yRange=(0,10), padding=0.2, xRange=(1,50)) 
+        self.max_h = 10
+        
+        # I tuoi dati
+        self.data_set_Y_buff=[]
+        self.data_set_X_buff=[]
+
+        self.data_set_Y_full=setY
+        self.data_set_X_full=setX
+        
+        # Segnali
+        self.timer_flip = QTimer()
+        self.timer_flip.setInterval(100)
+        self.timer_flip.timeout.connect(self.flip_graph)
+        self.timer_flip.start()
+        
+        
+    def plot_a_point(self, step_totali):
+        s=0
+        pointer=len(self.data_set_X_buff)
+        if self.count == 0:
+            self.data_set_X_buff.append(self.data_set_X_full[pointer])
+            self.data_set_X_buff.append(self.data_set_X_full[pointer+1])
+            self.data_set_Y_buff.append(self.data_set_Y_full[pointer])         
+            self.data_set_Y_buff.append(self.data_set_Y_full[pointer+1])
+            self.curve_euramet_done.setData(self.data_set_X_buff, self.data_set_Y_buff)
+            self.count += 1
+            
+        elif self.count < step_totali:
+            self.data_set_X_buff.append(self.data_set_X_full[pointer])
+            self.data_set_X_buff.append(self.data_set_X_full[pointer+1])
+            self.data_set_X_buff.append(self.data_set_X_full[pointer+2])
+            self.data_set_Y_buff.append(self.data_set_Y_full[pointer])         
+            self.data_set_Y_buff.append(self.data_set_Y_full[pointer+1])
+            self.data_set_Y_buff.append(self.data_set_Y_full[pointer+2])
+            self.curve_euramet_done.setData(self.data_set_X_buff, self.data_set_Y_buff)
+            self.count += 1
+            
+        elif self.count == step_totali:
+            # gestire status quadranti e conclusione 
+            self.graph_window.ui.graphWidget_visual_euramet.clear()
+            self.graph_window.graph_recap = Graph_static_recap(self.graph_window, self.banco_di_taratura, setX=self.data_set_X_full, setY=self.data_set_Y_full)
+    
+    def flip_graph(self):
+        if self.banco_di_taratura.quadrant == "Q3":
+            self.graph_euramet.setRange(yRange=(0,-10), padding=0.2, xRange=(1,50))
+        elif self.banco_di_taratura.quadrant == "Q1":
+            self.graph_euramet.setRange(yRange=(0,10), padding=0.2, xRange=(1,50)) 
+    
+    def create_salita_plot(self):
+        steps = self.banco_di_taratura.current_number_of_steps+1
+        for i in range(steps):
+            value_to_plot = (self.max_h*i)/(steps-1)
+            if self.banco_di_taratura.quadrant == "Q3":
+                value_to_plot = -value_to_plot
+            for j in range(3):
+                self.data_set_X_full.append(self.banco_di_taratura.x + j)
+                self.data_set_Y_full.append(value_to_plot)
+                tmp = self.banco_di_taratura.x + j
+            self.banco_di_taratura.x = tmp
+        
+    def create_discesa_plot(self):
+        steps = self.banco_di_taratura.current_number_of_steps+1
+        for i in range(steps):
+            value_to_plot = (self.max_h*(5-i))/(steps-1)
+            if self.banco_di_taratura.quadrant == "Q3":
+                value_to_plot = -value_to_plot
+            if i != 0 and i != 5:
+                for j in range(3):
+                    self.data_set_X_full.append(self.banco_di_taratura.x + j)
+                    self.data_set_Y_full.append(value_to_plot)
+                    tmp = self.banco_di_taratura.x + j
+                self.banco_di_taratura.x = tmp
+        
+    def create_precarichi_plot(self):
+        self.banco_di_taratura.x = 0
+        self.data_set_X_full = []
+        self.data_set_Y_full = []
+        for i in range(6):
+            if i%2 != 0:
+                value_to_plot = self.max_h
+                if self.banco_di_taratura.quadrant == "Q3":
+                    value_to_plot = -value_to_plot
+            else:
+                value_to_plot = 0
+            for j in range(3):
+                self.data_set_X_full.append(self.banco_di_taratura.x + j)
+                self.data_set_Y_full.append(value_to_plot)
+                tmp = self.banco_di_taratura.x + j
+            self.banco_di_taratura.x = tmp
+    
+    def plot_final_zero(self):
+        for j in range(3):
+            tmp = self.data_set_X_full.append(self.banco_di_taratura.x + j)
+            self.data_set_Y_full.append(0)
+        self.banco_di_taratura.x = tmp
+            
+    
+    def plot_full_graph(self):
+        s=0
+        for i in self.data_set_Y_full:
+            self.dataY.append(self.data_set_Y_full[s])
+            self.dataX.append(self.data_set_X_full[s])
+            s+=1
+        self.curve_euramet_to_do.setData(self.dataX, self.dataY)
+            
+            
+    
+    
+    
 class Graph:
     def __init__(self, GraphWindow:GraphWindow, graph:PlotWidget, channel, title, start_time):
         
@@ -284,8 +428,10 @@ class GraphWindow(QMainWindow):
         self.homepage = homepage
         self.euramet_window = Euramet_window(self.banco_di_taratura, self)
         self.euramet_measure_entity:Misura_euramet = None  # inizialmente impostata dal setup di euramet
+        self.graph_recap = Graph_static_recap(self, banco_di_taratura)
         
         # grafici disponibili
+        
         graph_main_and_channel = self.ui.graphWidget_SG600_main_and_channel
         graph_soloTemp = self.ui.graphWidget_SG600_solo_temp
         graph_soloMain = self.ui.graphWidget_SG600_solo_main
@@ -323,6 +469,7 @@ class GraphWindow(QMainWindow):
                              self.graph_ch3,
                              self.graph_ch4]
         
+        
         # Setup segnali
         self.ui.comboBox_Main_Temp.activated.connect(self.ui.stackedWidget_SG600.setCurrentIndex)
         self.ui.comboBox_Ch_1234.activated.connect(self.ui.stackedWidget_Laumas.setCurrentIndex)
@@ -355,7 +502,6 @@ class GraphWindow(QMainWindow):
         self.timer_grafico.setInterval(100)
         self.timer_grafico.timeout.connect(self.inizializzazione_display)
         self.timer_grafico.start()
-        self.ui.label_stato_misura.setText("Precarichi")
         
     def inizializzazione_display(self):
         self.ui.lcdNumber_main_mV.display(self.banco_di_taratura.controller_modbus.DATA.canale_principale_mV)
@@ -363,20 +509,24 @@ class GraphWindow(QMainWindow):
         self.ui.lcdNumber_ch2.display(self.banco_di_taratura.controller_tcp.DATA.LIST_N_VALUE[1])
         self.ui.lcdNumber_ch4.display(self.banco_di_taratura.controller_tcp.DATA.LIST_Nm_VALUE[3])
         
-        
     def show_home_window(self):
         self.homepage.show()
         self.close()
         
     def show_euramet_window(self):
+        self.ui.graphWidget_visual_euramet.clear()
+        self.graph_recap = Graph_static_recap(self, self.banco_di_taratura, setX=self.graph_recap.data_set_X_full, setY=self.graph_recap.data_set_Y_full)
         self.euramet_window.exec()
     
     def handle_euramet(self):
+        self.graph_recap.plot_a_point(self.euramet_measure_entity.numero_misure_totali_da_fare)
         if self.euramet_measure_entity != None:
             self.euramet_measure_entity.measure_value()
             print("qualcosa fa")
         else:
             print("errore nell' instanziazione della misura euramet")
+            
+            
         
         
 if __name__ == "__main__":
