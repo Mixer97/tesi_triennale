@@ -6,10 +6,10 @@ from Handler_JSON import handler_json
 
 if TYPE_CHECKING:
     from Banco_Taratura import BANCO_DI_TARATURA
-    from View_QT_HomePage_logic import MainWindow
+    from Dialog_xlxs_euramet_logic import csv_euramet_window
 
-class Salvataggio_setup(QDialog):
-    def __init__(self, banco_di_taratura:BANCO_DI_TARATURA, homepage:MainWindow):
+class Salvataggio_setup_euramet(QDialog):
+    def __init__(self, banco_di_taratura:BANCO_DI_TARATURA, euramet_setup_window:csv_euramet_window):
         super().__init__()
         self.banco_di_taratura=banco_di_taratura
         # Create an instance of the generated UI class
@@ -17,7 +17,7 @@ class Salvataggio_setup(QDialog):
         # Setup the user interface (quindi tutti gli elementi saranno identificati da self.ui)
         self.ui.setupUi(self)
         self.setModal(True)
-        self.banco_di_taratura.file_setup_banco_name = "Default"
+        self.banco_di_taratura.file_setup_euramet_name = "Default"
         
         # segnali
         self.ui.lineEdit_nome_file.editingFinished.connect(self.update_filename)
@@ -25,10 +25,10 @@ class Salvataggio_setup(QDialog):
         
     # metodi
     def update_filename(self):
-        self.banco_di_taratura.file_setup_banco_name = self.ui.lineEdit_nome_file.text()
+        self.banco_di_taratura.file_setup_euramet_name = self.ui.lineEdit_nome_file.text()
 
         
     def save_setup(self):
-        tmp = handler_json(nome_file_save=self.banco_di_taratura.file_setup_banco_name)
-        tmp.save_setup_banco(banco_di_taratura=self.banco_di_taratura, dialog_window=self)
+        tmp = handler_json(nome_file_save=self.banco_di_taratura.file_setup_euramet_name)
+        tmp.save_setup_euramet(banco_di_taratura=self.banco_di_taratura, setup_window_euramet=self)
         self.close()

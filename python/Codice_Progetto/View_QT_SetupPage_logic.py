@@ -132,7 +132,7 @@ class SetupWindow(QMainWindow):
         fname = fname[0]    # dalle info estrae il path assoluto
         if fname.endswith('json'):  # controllo sia un json
             tmp=handler_json(nome_file_load=fname)
-            tmp.load_setup(banco_di_taratura=self.banco_di_taratura, setup_window=self)
+            tmp.load_setup_banco(banco_di_taratura=self.banco_di_taratura, setup_window=self)
         else:   # finestra di errore
             error_window = Error_window(banco_di_taratura=self.banco_di_taratura)
             error_window.set_error_message("Errore nella selezione del file (file selezionato non è .json)")

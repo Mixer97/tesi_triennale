@@ -39,9 +39,9 @@ class Rampa:
         # Acquisizione dei 5 valori da mettere in tabella
         haxis = int(self.banco_di_taratura.axis_h)
         href = int(self.misura_euramet.graphwindow.ui.lineEdit_altezza.text())
-        cella_di_carico_N = self.banco_di_taratura.controller_tcp.DATA.LIST_N_VALUE[1]
-        torsiometro = self.banco_di_taratura.controller_tcp.DATA.LIST_Nm_VALUE[3]
-        sg600 = self.banco_di_taratura.controller_modbus.DATA.canale_principale_Nm
+        cella_di_carico_N = self.banco_di_taratura.controller_tcp.DATA.LIST_N_VALUE[1]  # cella ch2
+        torsiometro = self.banco_di_taratura.controller_tcp.DATA.LIST_Nm_VALUE[3]  # cella ch4
+        sg600 = self.banco_di_taratura.controller_modbus.DATA.canale_principale_mV/1000  # Main in V
         
         # Aggiornamento dei valori grafici
         if self.step_attuale < self.number_of_steps-1:
@@ -118,7 +118,7 @@ class Precarichi:
         href = int(self.misura_euramet.graphwindow.ui.lineEdit_altezza.text())
         cella_di_carico_N = self.banco_di_taratura.controller_tcp.DATA.LIST_N_VALUE[1]  # cella ch2
         torsiometro = self.banco_di_taratura.controller_tcp.DATA.LIST_Nm_VALUE[3]  # cella ch4
-        sg600 = self.banco_di_taratura.controller_modbus.DATA.canale_principale_Nm
+        sg600 = self.banco_di_taratura.controller_modbus.DATA.canale_principale_mV/1000  # Main in V
                 
         # Scrittura su Excell e aumento dello step
         data = (haxis, int(href), cella_di_carico_N, torsiometro, sg600)

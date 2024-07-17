@@ -1,8 +1,12 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
 from time import sleep
 from pymodbus.client import ModbusTcpClient
 from pymodbus.framer import Framer
 import View_QT_HomePage_ui as View_QT_HomePage_ui
 
+if TYPE_CHECKING:
+    from Banco_Taratura import BANCO_DI_TARATURA
 
 class Controller_TCP:
     
@@ -61,11 +65,12 @@ class Controller_TCP:
             self.LEVER_LENGTH = 1 # meters
             self.STATUS_CHANNELS = [0,0,0,0] # settato da setupPage
         
-    def __init__(self, ID=1, IP="10.2.0.170", port=10001, baudrate=9600, timeout=5):
+    def __init__(self, banco_di_taratura:BANCO_DI_TARATURA, ID=1, IP="10.2.0.170", port=10001, baudrate=9600, timeout=5):
         self.SLAVE = self.SLAVE(ID, IP, port, baudrate, timeout)
         self.ADDRESS = self.ADDRESS()
         self.CMDR_COMMANDS = self.CMDR_COMMANDS()
         self.DATA = self.DATA()
+        self.banco_di_taratura = banco_di_taratura
         self.client = ModbusTcpClient(host=self.SLAVE.IP,
                                       port=self.SLAVE.PORT,
                                       baudrate=self.SLAVE.BAUDRATE,

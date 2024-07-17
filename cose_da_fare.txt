@@ -20,20 +20,26 @@ COSE DA FARE:
         [[- pensare a come ridurre il numero di CSV]]
         
     [[- impostare salvataggio selle impostazioni su JSON (IMPORTANTE)]]
-    - implementazione parte di gestione della misura e calcolo della stabilità
-    - fare test con misura seria per le due celle di carico (specialmente la 2)
     - implementare inserimento di note
     - per il grafico, fare un grafico che permetta di plottare sg600 convertito in Nm con una delle celle di carico
     - inserire sistema per attesa riconnessione in modo che non si blocchi e poi riparta senza info
     - inserire un file di default per il setup del banco di misura
     - inserire try-catch nei controller delle due schede per riuscire a gestire eventuali errori di connessione
+    - inserire immissione dei parametri X e Q per correzione lineare lettura mV (main e temp)
+        - i 4 valori vanno inseriti nel JSON di setup banco
+    - inserire label prossimo step per operatore 
 
 EURAMET LOGIC:
-    - inserire scrittura su excell delle impostazioni per excell euramet
+    - inserire scrittura su JSON delle impostazioni per excell euramet
     - lavorare su schermata setup euramet (salvataggio su JSON)
     - implementare il grafico di recap della misura
     - implementare stabilità per misura automatica
+        - idea: uscire dallo step attuale tramite pressione del tasto (pre 30s), uscire con pressione del tasto o discostamento dal range predefinito (10% circa).
+            - l'uscista dal range verra comunque accompaganat dal click sul tanto cosi da far avvanzare la misura solo in quel modo.
+        - la modalità sara da impostare come attiva o disattiva
     - inserire disattivazione pulsante per setup euramet durante un eruamet, e inserire un pulsante che possa riabilitarlo per fare finirre leuramet in anticipo.
+
+    
 
 BUG SCOPERTI:
 

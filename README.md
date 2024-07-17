@@ -156,3 +156,16 @@
     lavoro sul cambiare il punto di partenza della scrittura dati per il file excell di Euramet
     ho implementato le funzionalita per gestire meglio il file excell di euramet.
     ora mi occupo del salvataggio che non vada a fare sovrascritture.
+        - ho scritto sul foglio di carta le cose da salvare, vedere quelle che non sono in banco di tarat. e portarcele.
+
+-------------------------------------------------------------------------------------------
+    calibrazione seneca attraverso mx+q per misure corrette (fatta con multimetro)
+    label prossimo step per operatore
+    abilita automatica abilitata o disabilitata
+
+    main unit per controllare tensione e fare test
+    test per deriva di temperatura del seneca (bassa e alta)
+        - multimetro in parallelo, pt100 per temperatura
+-------------------------------------------------------------------------------------------
+
+    problema da risolvere: mi salva valori None al posto dei valori che mi servono nel setup euramet

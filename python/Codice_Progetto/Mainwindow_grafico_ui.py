@@ -987,12 +987,13 @@ class Ui_GraphWindow(object):
         sizePolicy7.setVerticalStretch(0)
         sizePolicy7.setHeightForWidth(self.lineEdit_altezza.sizePolicy().hasHeightForWidth())
         self.lineEdit_altezza.setSizePolicy(sizePolicy7)
+        self.lineEdit_altezza.setMinimumSize(QSize(0, 40))
         self.lineEdit_altezza.setStyleSheet(u"QWidget{\n"
 "	background-color:rgb(255, 255, 255); \n"
 "	border-style: outset;\n"
 "    border-width: 2px;\n"
 "    border-color: rgb(255, 106, 0);\n"
-"	border-radius: 20;\n"
+"	border-radius: 0;\n"
 "	color: rgb(0,0,0);\n"
 "}")
         self.lineEdit_altezza.setAlignment(Qt.AlignCenter)
@@ -1171,8 +1172,8 @@ class Ui_GraphWindow(object):
 
         self.label_2 = QLabel(self.frame_2)
         self.label_2.setObjectName(u"label_2")
-        self.label_2.setMinimumSize(QSize(0, 100))
-        self.label_2.setMaximumSize(QSize(16777215, 100))
+        self.label_2.setMinimumSize(QSize(0, 70))
+        self.label_2.setMaximumSize(QSize(16777215, 70))
         self.label_2.setStyleSheet(u"QLabel{\n"
 "	background-color:rgb(255, 207, 84); \n"
 "	border-style: outset;\n"

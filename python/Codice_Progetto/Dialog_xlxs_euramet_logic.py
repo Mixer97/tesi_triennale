@@ -1,9 +1,12 @@
 from __future__ import annotations
-from PySide6.QtWidgets import QDialog
+from PySide6.QtWidgets import QDialog, QFileDialog
+from PySide6.QtCore import QTimer
 from Dialog_xlxs_euramet_ui import Ui_Dialog_csv_euramet
 from typing import TYPE_CHECKING
 from openpyxl import load_workbook
 from Dialog_error_logic import Error_window
+from Handler_JSON import handler_json
+from Dialog_salvataggio_euramet_setup import Salvataggio_setup_euramet
 import os
 
 if TYPE_CHECKING:
@@ -23,43 +26,71 @@ class csv_euramet_window(QDialog):
         self.ui.lineEdit_scale.setText(f"{self.banco_di_taratura.controller_modbus.DATA.coefficiente_main}")
         self.counter_registrazione = 0
         self.tmp = None
+        self.finestra_salvataggio_euramet_setup = Salvataggio_setup_euramet(self.banco_di_taratura, self)
         
     # segnali
         self.ui.pushButton_save_and_back.clicked.connect(self.save_and_back)
+        self.ui.pushButton_save_euramet_setup.clicked.connect(self.show_finestra_salvataggio_euramet_setup)
+        self.ui.pushButton_save_euramet_setup.clicked.connect(self.update_values)
+        self.ui.pushButton_load_euramet_setup.clicked.connect(self.load_euramet_setup)
+        
+        
+    def refresh_grafico(self):
+        # Riferimento per inserimento dati
+        self.ui.label_colonna_start_Q1.setText(str(self.banco_di_taratura.euramet_cella_inizio_precarichi_Q1[0]))
+        self.ui.label_colonna_start_Q3.setText(str(self.banco_di_taratura.euramet_cella_inizio_precarichi_Q3[0]))
+        self.ui.label_riga_start_Q1.setText(str(self.banco_di_taratura.euramet_cella_inizio_precarichi_Q1[1]))
+        self.ui.label_riga_start_Q3.setText(str(self.banco_di_taratura.euramet_cella_inizio_precarichi_Q3[1]))
+        self.ui.label_nome_foglio_dati.setText(str(self.banco_di_taratura.excell_page_data))
+        self.ui.label_nome_excell.setText(str(self.banco_di_taratura.excell_name))
+
+        # Variabili report di taratura
+        self.ui.lineEdit_data.setText(str(self.banco_di_taratura.euramet_Data))
+        self.ui.lineEdit_rif_interno_attivita.setText(str(self.banco_di_taratura.euramet_Rif_interno_attivita))
+        self.ui.lineEdit_cliente.setText(str(self.banco_di_taratura.euramet_Cliente))
+        self.ui.lineEdit_SN_TX.setText(str(self.banco_di_taratura.euramet_SN_TX))
+        self.ui.lineEdit_descrizione_UUT.setText(str(self.banco_di_taratura.euramet_Descrizione_UUT))
+        self.ui.lineEdit_progetto_UUT.setText(str(self.banco_di_taratura.euramet_Progetto_UUT))
+        self.ui.lineEdit_SN_UUT.setText(str(self.banco_di_taratura.euramet_SN_UUT))
+        self.ui.lineEdit_report_calibrazione_TX.setText(str(self.banco_di_taratura.euramet_Report_di_calibrazione_TX))
+        
+        # Parametri di acquisizione)
+        self.ui.lineEdit_unita_ingegneristica_di_misura.setText(str(self.banco_di_taratura.euramet_unita_ingegneristica_di_misura))
+        self.ui.lineEdit_unita_ingegneristica_UUT.setText(str(self.banco_di_taratura.euramet_Unità_ingegneristica_UUT))
+        self.ui.lineEdit_scale.setText(str(self.banco_di_taratura.controller_modbus.DATA.coefficiente_main))
+        self.ui.lineEdit_offset.setText(str(self.banco_di_taratura.euramet_Offset))
+        self.ui.lineEdit_coppia_taratura_max.setText(str(self.banco_di_taratura.euramet_Coppia_taratura_MAX))
         
     def save_and_back(self):
         self.save_process()
         self.update_steps()
         self.euramet_window.show()
         self.close()
+
+    def show_finestra_salvataggio_euramet_setup(self):
+        self.finestra_salvataggio_euramet_setup.exec()
+
+    def load_euramet_setup(self):
+        fname = QFileDialog.getOpenFileName() # prendi info del file selezionato
+        fname = fname[0]    # dalle info estrae il path assoluto
+        if fname.endswith('json'):  # controllo sia un json
+            tmp=handler_json(nome_file_load=fname)
+            tmp.load_setup_euramet(banco_di_taratura=self.banco_di_taratura, setup_window_euramet=self)
+            self.refresh_grafico()
+        else:   # finestra di errore
+            error_window = Error_window(banco_di_taratura=self.banco_di_taratura)
+            error_window.set_error_message("Errore nella selezione del file (file selezionato non è .json)")
+            error_window.setWindowTitle("Error Window")
+            error_window.exec()        
         
     def save_process(self):
         
+        # update dei dati
+        self.update_values()
+        
         # due celle di partenza per Q1 e Q3
-        self.colonna_start_Q1 = str(self.ui.label_colonna_start_Q1.text())
-        self.colonna_start_Q3 = str(self.ui.label_colonna_start_Q3.text())
-        self.riga_start_Q1 = int(self.ui.label_riga_start_Q1.text())
-        self.riga_start_Q3 = int(self.ui.label_riga_start_Q3.text())
         self.banco_di_taratura.euramet_cella_inizio_precarichi_Q1 = self.format_to_list(self.colonna_start_Q1, self.riga_start_Q1)
         self.banco_di_taratura.euramet_cella_inizio_precarichi_Q3 = self.format_to_list(self.colonna_start_Q3, self.riga_start_Q3)
-        
-        # dati per il file excell
-        self.banco_di_taratura.euramet_unita_ingegneristica_di_misura = self.ui.lineEdit_unita_ingegneristica_di_misura.text()
-        self.banco_di_taratura.euramet_Unità_ingegneristica_UUT = self.ui.lineEdit_unita_ingegneristica_UUT.text()
-        self.banco_di_taratura.controller_modbus.DATA.coefficiente_main = int(self.ui.lineEdit_scale.text())
-        self.banco_di_taratura.euramet_Offset = float(self.ui.lineEdit_offset.text())
-        self.banco_di_taratura.euramet_Coppia_taratura_MAX = int(self.ui.lineEdit_coppia_taratura_max.text())
-        self.banco_di_taratura.euramet_Data = self.ui.lineEdit_data.text()
-        self.banco_di_taratura.euramet_Rif_interno_attivita = self.ui.lineEdit_rif_interno_attivita.text()
-        self.banco_di_taratura.euramet_Cliente = self.ui.lineEdit_cliente.text()
-        self.banco_di_taratura.euramet_SN_TX = self.ui.lineEdit_SN_TX.text()
-        self.banco_di_taratura.euramet_Descrizione_UUT = self.ui.lineEdit_descrizione_UUT.text()
-        self.banco_di_taratura.euramet_Progetto_UUT = self.ui.lineEdit_progetto_UUT.text()
-        self.banco_di_taratura.euramet_SN_UUT = self.ui.lineEdit_SN_UUT.text()
-        self.banco_di_taratura.euramet_Report_di_calibrazione_TX = self.ui.lineEdit_report_calibrazione_TX.text()
-        
-        self.banco_di_taratura.excell_page_data = str(self.ui.label_nome_foglio_dati.text())
-        self.banco_di_taratura.excell_name = str(self.ui.label_nome_excell.text())
         
         # apro e salvo in un excell copia i dati
         self.workbook = load_workbook(self.banco_di_taratura.excell_path_template)
@@ -82,7 +113,31 @@ class csv_euramet_window(QDialog):
         
         self.banco_di_taratura.excell_path_certificate = f"python\\Codice_Progetto\\Certificati_Euramet_Completi\\{self.banco_di_taratura.excell_name}.xlsx"
         self.check_path()
+    
+    def update_values(self):
+        # dati per il file excell
+        self.colonna_start_Q1 = str(self.ui.label_colonna_start_Q1.text())
+        self.colonna_start_Q3 = str(self.ui.label_colonna_start_Q3.text())
+        self.riga_start_Q1 = int(self.ui.label_riga_start_Q1.text())
+        self.riga_start_Q3 = int(self.ui.label_riga_start_Q3.text())
         
+        self.banco_di_taratura.euramet_unita_ingegneristica_di_misura = self.ui.lineEdit_unita_ingegneristica_di_misura.text()
+        self.banco_di_taratura.euramet_Unità_ingegneristica_UUT = self.ui.lineEdit_unita_ingegneristica_UUT.text()
+        self.banco_di_taratura.controller_modbus.DATA.coefficiente_main = int(self.ui.lineEdit_scale.text())
+        self.banco_di_taratura.euramet_Offset = float(self.ui.lineEdit_offset.text())
+        self.banco_di_taratura.euramet_Coppia_taratura_MAX = int(self.ui.lineEdit_coppia_taratura_max.text())
+        self.banco_di_taratura.euramet_Data = self.ui.lineEdit_data.text()
+        self.banco_di_taratura.euramet_Rif_interno_attivita = self.ui.lineEdit_rif_interno_attivita.text()
+        self.banco_di_taratura.euramet_Cliente = self.ui.lineEdit_cliente.text()
+        self.banco_di_taratura.euramet_SN_TX = self.ui.lineEdit_SN_TX.text()
+        self.banco_di_taratura.euramet_Descrizione_UUT = self.ui.lineEdit_descrizione_UUT.text()
+        self.banco_di_taratura.euramet_Progetto_UUT = self.ui.lineEdit_progetto_UUT.text()
+        self.banco_di_taratura.euramet_SN_UUT = self.ui.lineEdit_SN_UUT.text()
+        self.banco_di_taratura.euramet_Report_di_calibrazione_TX = self.ui.lineEdit_report_calibrazione_TX.text()
+        
+        self.banco_di_taratura.excell_page_data = str(self.ui.label_nome_foglio_dati.text())
+        self.banco_di_taratura.excell_name = str(self.ui.label_nome_excell.text())
+    
     def update_steps(self):
         if self.banco_di_taratura.current_number_of_steps == 5:
             altezza_step = int(self.banco_di_taratura.euramet_Coppia_taratura_MAX)/5

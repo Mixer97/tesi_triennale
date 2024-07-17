@@ -32,6 +32,11 @@ class Euramet_window(QDialog):
         self.banco_di_taratura.status_inserimento_altezza            [defualt: True]
         """
         
+        self.timer_update = QTimer()
+        self.timer_update.setInterval(100)
+        self.timer_update.timeout.connect(self.update_combobox)
+        self.timer_update.start()
+        
         self.ui.comboBox_step.setCurrentIndex(4)  # Posiziono con 5 step di default
         self.ui.stackedWidget_euramet.setCurrentIndex(4)  # Posiziono con 5 step di default
         
@@ -41,7 +46,8 @@ class Euramet_window(QDialog):
         self.ui.checkBox_salita_1.stateChanged.connect(self.update_status_salita_1)
         self.ui.checkBox_discesa_1.stateChanged.connect(self.update_status_discesa_1)
         self.ui.checkBox_salita_2.stateChanged.connect(self.update_status_salita_2)
-        self.ui.pushButton_impostazion_csv.clicked.connect(self.show_csv_setup_window)
+
+        self.ui.pushButton_impostazioni_csv.clicked.connect(self.show_csv_setup_window)
         self.ui.comboBox_step.currentIndexChanged.connect(self.ui.stackedWidget_euramet.setCurrentIndex)
         self.ui.pushButton_concludi_setup.clicked.connect(self.end_setup)
         self.ui.comboBox_quadrante.currentIndexChanged.connect(self.update_quadrant)
@@ -61,7 +67,28 @@ class Euramet_window(QDialog):
             self.graph_window.ui.graphWidget_visual_euramet.clear()
         else:
             pass
+    
+    def update_combobox(self):
         
+        if self.banco_di_taratura.list_status_checkbox_euramet_page[0]==0:
+            self.ui.checkBox_salita_1.setChecked(False)
+        else:
+            self.ui.checkBox_salita_1.setChecked(True)
+            
+        if self.banco_di_taratura.list_status_checkbox_euramet_page[1]==0:
+            self.ui.checkBox_discesa_1.setChecked(False)
+        else:
+            self.ui.checkBox_discesa_1.setChecked(True)
+            
+        if self.banco_di_taratura.list_status_checkbox_euramet_page[2]==0:
+            self.ui.checkBox_salita_2.setChecked(False)
+        else:
+            self.ui.checkBox_salita_2.setChecked(True)
+            
+        if self.banco_di_taratura.status_inserimento_altezza:
+            self.ui.checkBox_altezza.setChecked(True)
+        else:
+            self.ui.checkBox_altezza.setChecked(False)   
         
     def invert_quadrant(self):
         if self.banco_di_taratura.quadrant == "Q1":
@@ -95,7 +122,13 @@ class Euramet_window(QDialog):
         print(self.banco_di_taratura.quadrant)
         
     def update_altezza_state(self):
-        self.status_inserimento_altezza = self.ui.checkBox_altezza.isChecked() 
+        tmp = self.ui.checkBox_altezza.isChecked()
+        if tmp:
+            self.banco_di_taratura.status_inserimento_altezza = True
+        else:
+            self.banco_di_taratura.status_inserimento_altezza = False
+        print(self.banco_di_taratura.list_status_checkbox_euramet_page)
+        
         
     def update_status_salita_1(self):
         tmp = self.ui.checkBox_salita_1.isChecked()

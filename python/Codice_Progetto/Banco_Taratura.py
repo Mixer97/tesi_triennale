@@ -17,8 +17,8 @@ from View_QT_HomePage_logic import MainWindow
 class BANCO_DI_TARATURA:
     
     def __init__(self):
-        self.controller_tcp=C_Laumas.Controller_TCP()
-        self.controller_modbus=C_Seneca.Controller_MODBUS()
+        self.controller_tcp=C_Laumas.Controller_TCP(self)
+        self.controller_modbus=C_Seneca.Controller_MODBUS(self)
         self.logger=Logger.LOGGER(nome_CSV="Default", banco_di_taratura=self, status=0)
         
         # variabili per home page
@@ -31,9 +31,14 @@ class BANCO_DI_TARATURA:
         self.update_status = False
         self.list_status_checkbox_setup_page = [0,0,0,0]   #[CH4, CH3, CH2, CH1]     
         self.status_timer = False  
+        self.m_main = 1
+        self.q_main = 0
+        self.m_temp = 1
+        self.q_temp = 0
         
         # variabili per salvataggio setup file
-        self.file_setup_name = None
+        self.file_setup_banco_name = None
+        self.file_setup_euramet_name = None
         self.counter_salvataggio = 0
         
         # variabili per salvataggio registrazione

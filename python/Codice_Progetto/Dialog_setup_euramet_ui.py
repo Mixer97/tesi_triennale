@@ -17,7 +17,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QDialog,
     QFrame, QGridLayout, QHBoxLayout, QLabel,
-    QLineEdit, QPushButton, QSizePolicy, QStackedWidget,
+    QPushButton, QSizePolicy, QSpacerItem, QStackedWidget,
     QVBoxLayout, QWidget)
 
 class Ui_Dialog_Euramet_setup(object):
@@ -28,6 +28,7 @@ class Ui_Dialog_Euramet_setup(object):
         Dialog_Euramet_setup.setStyleSheet(u"background-color: rgb(48, 199, 40);")
         self.gridLayout = QGridLayout(Dialog_Euramet_setup)
         self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setVerticalSpacing(0)
         self.frame = QFrame(Dialog_Euramet_setup)
         self.frame.setObjectName(u"frame")
         self.frame.setStyleSheet(u"background-color: rgb(238, 255, 239);")
@@ -35,250 +36,13 @@ class Ui_Dialog_Euramet_setup(object):
         self.frame.setFrameShadow(QFrame.Raised)
         self.gridLayout_4 = QGridLayout(self.frame)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.frame_28 = QFrame(self.frame)
-        self.frame_28.setObjectName(u"frame_28")
-        sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.frame_28.sizePolicy().hasHeightForWidth())
-        self.frame_28.setSizePolicy(sizePolicy)
-        self.frame_28.setFrameShape(QFrame.StyledPanel)
-        self.frame_28.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_18 = QHBoxLayout(self.frame_28)
-        self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
-        self.frame_2 = QFrame(self.frame_28)
-        self.frame_2.setObjectName(u"frame_2")
-        self.frame_2.setFrameShape(QFrame.StyledPanel)
-        self.frame_2.setFrameShadow(QFrame.Raised)
-        self.gridLayout_2 = QGridLayout(self.frame_2)
-        self.gridLayout_2.setSpacing(0)
-        self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.label = QLabel(self.frame_2)
-        self.label.setObjectName(u"label")
-        font = QFont()
-        font.setPointSize(15)
-        self.label.setFont(font)
-        self.label.setStyleSheet(u"QLabel{\n"
-"	background-color:rgb(255, 207, 84); \n"
-"	border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-color: rgb(255, 106, 0);\n"
-"	border-radius: 0px;\n"
-"	color: rgb(0,0,0);\n"
-"}\n"
-"")
-        self.label.setAlignment(Qt.AlignCenter)
-
-        self.gridLayout_2.addWidget(self.label, 0, 0, 1, 1)
-
-
-        self.horizontalLayout_18.addWidget(self.frame_2)
-
-        self.checkBox_salita_1 = QCheckBox(self.frame_28)
-        self.checkBox_salita_1.setObjectName(u"checkBox_salita_1")
-        sizePolicy.setHeightForWidth(self.checkBox_salita_1.sizePolicy().hasHeightForWidth())
-        self.checkBox_salita_1.setSizePolicy(sizePolicy)
-        self.checkBox_salita_1.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.checkBox_salita_1.setStyleSheet(u"QCheckBox {\n"
-"    spacing: 10px;\n"
-"	color: rgb(0, 0, 0);\n"
-"	Background-color:orange;\n"
-"	padding: 10px;\n"
-"	font: 700 12pt \"Segoe UI\";\n"
-"}\n"
-"\n"
-"QCheckBox::indicator {\n"
-"    width: 26px;\n"
-"    height: 26px;\n"
-"	Background-color: green;\n"
-"	border-width: 2px;\n"
-"    border-radius: 10px;\n"
-"    border-color: black;\n"
-"    border-style: outset;\n"
-"}\n"
-"\n"
-"QCheckBox::indicator:unchecked {\n"
-"	width: 26px;\n"
-"    height: 26px;\n"
-"	Background-color: red;\n"
-"	border-width: 2px;\n"
-"    border-radius: 10px;\n"
-"    border-color: black;\n"
-"    border-style: outset;\n"
-"}\n"
-"\n"
-"")
-
-        self.horizontalLayout_18.addWidget(self.checkBox_salita_1)
-
-        self.checkBox_discesa_1 = QCheckBox(self.frame_28)
-        self.checkBox_discesa_1.setObjectName(u"checkBox_discesa_1")
-        self.checkBox_discesa_1.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.checkBox_discesa_1.setStyleSheet(u"QCheckBox {\n"
-"    spacing: 10px;\n"
-"	color: rgb(0, 0, 0);\n"
-"	Background-color:orange;\n"
-"	padding: 10px;\n"
-"	font: 700 12pt \"Segoe UI\";\n"
-"}\n"
-"\n"
-"QCheckBox::indicator {\n"
-"    width: 26px;\n"
-"    height: 26px;\n"
-"	Background-color: green;\n"
-"	border-width: 2px;\n"
-"    border-radius: 10px;\n"
-"    border-color: black;\n"
-"    border-style: outset;\n"
-"}\n"
-"\n"
-"QCheckBox::indicator:unchecked {\n"
-"	width: 26px;\n"
-"    height: 26px;\n"
-"	Background-color: red;\n"
-"	border-width: 2px;\n"
-"    border-radius: 10px;\n"
-"    border-color: black;\n"
-"    border-style: outset;\n"
-"}\n"
-"\n"
-"\n"
-"")
-
-        self.horizontalLayout_18.addWidget(self.checkBox_discesa_1)
-
-        self.checkBox_salita_2 = QCheckBox(self.frame_28)
-        self.checkBox_salita_2.setObjectName(u"checkBox_salita_2")
-        self.checkBox_salita_2.setEnabled(False)
-        self.checkBox_salita_2.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.checkBox_salita_2.setStyleSheet(u"QCheckBox {\n"
-"    spacing: 10px;\n"
-"	color: rgb(0, 0, 0);\n"
-"	Background-color:orange;\n"
-"	padding: 10px;\n"
-"	font: 700 12pt \"Segoe UI\";\n"
-"}\n"
-"\n"
-"QCheckBox::indicator {\n"
-"    width: 26px;\n"
-"    height: 26px;\n"
-"	Background-color: green;\n"
-"	border-width: 2px;\n"
-"    border-radius: 10px;\n"
-"    border-color: black;\n"
-"    border-style: outset;\n"
-"}\n"
-"\n"
-"QCheckBox::indicator:unchecked {\n"
-"	width: 26px;\n"
-"    height: 26px;\n"
-"	Background-color: red;\n"
-"	border-width: 2px;\n"
-"    border-radius: 10px;\n"
-"    border-color: black;\n"
-"    border-style: outset;\n"
-"}\n"
-"\n"
-"\n"
-"")
-        self.checkBox_salita_2.setCheckable(True)
-        self.checkBox_salita_2.setChecked(True)
-
-        self.horizontalLayout_18.addWidget(self.checkBox_salita_2)
-
-        self.checkBox_altezza = QCheckBox(self.frame_28)
-        self.checkBox_altezza.setObjectName(u"checkBox_altezza")
-        sizePolicy.setHeightForWidth(self.checkBox_altezza.sizePolicy().hasHeightForWidth())
-        self.checkBox_altezza.setSizePolicy(sizePolicy)
-        self.checkBox_altezza.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.checkBox_altezza.setStyleSheet(u"QCheckBox {\n"
-"    spacing: 10px;\n"
-"	color: rgb(0, 0, 0);\n"
-"	Background-color:orange;\n"
-"	padding: 10px;\n"
-"	font: 700 12pt \"Segoe UI\";\n"
-"}\n"
-"\n"
-"QCheckBox::indicator {\n"
-"    width: 26px;\n"
-"    height: 26px;\n"
-"	Background-color: green;\n"
-"	border-width: 2px;\n"
-"    border-radius: 10px;\n"
-"    border-color: black;\n"
-"    border-style: outset;\n"
-"}\n"
-"\n"
-"QCheckBox::indicator:unchecked {\n"
-"	width: 26px;\n"
-"    height: 26px;\n"
-"	Background-color: red;\n"
-"	border-width: 2px;\n"
-"    border-radius: 10px;\n"
-"    border-color: black;\n"
-"    border-style: outset;\n"
-"}\n"
-"\n"
-"\n"
-"")
-
-        self.horizontalLayout_18.addWidget(self.checkBox_altezza)
-
-        self.comboBox_step = QComboBox(self.frame_28)
-        self.comboBox_step.addItem("")
-        self.comboBox_step.addItem("")
-        self.comboBox_step.addItem("")
-        self.comboBox_step.addItem("")
-        self.comboBox_step.addItem("")
-        self.comboBox_step.setObjectName(u"comboBox_step")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.comboBox_step.sizePolicy().hasHeightForWidth())
-        self.comboBox_step.setSizePolicy(sizePolicy1)
-        self.comboBox_step.setStyleSheet(u"QComboBox {\n"
-"    border: 3px solid gray;\n"
-"    border-radius: 3px;\n"
-"    padding: 1px 1px 1px 10px;\n"
-"    min-width: 6em;\n"
-"    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */\n"
-"}\n"
-"\n"
-"QComboBox:!editable, QComboBox::drop-down:editable {\n"
-"    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
-"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
-"}\n"
-"\n"
-"\n"
-"/* Stile della tendina del QComboBox */\n"
-"QComboBox QAbstractItemView {\n"
-"    background-color:	qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
-"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3); ; /* Colore di sfondo della tendina */\n"
-"    selection-background-color: #3399FF; /* Colore di sfondo dell'elemento selezionato */\n"
-"    selection-color:rgb(106, 112, 113); /* Colore del testo dell'elemento selezionato */\n"
-"    bord"
-                        "er: 3px solid gray;\n"
-"    border-radius: 3px;\n"
-"    padding: 1px 18px 1px 3px;\n"
-"    min-width: 6em;\n"
-"    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */\n"
-"}")
-
-        self.horizontalLayout_18.addWidget(self.comboBox_step)
-
-
-        self.gridLayout_4.addWidget(self.frame_28, 0, 0, 1, 2)
-
         self.frame_8 = QFrame(self.frame)
         self.frame_8.setObjectName(u"frame_8")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.frame_8.sizePolicy().hasHeightForWidth())
-        self.frame_8.setSizePolicy(sizePolicy2)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame_8.sizePolicy().hasHeightForWidth())
+        self.frame_8.setSizePolicy(sizePolicy)
         self.frame_8.setFrameShape(QFrame.StyledPanel)
         self.frame_8.setFrameShadow(QFrame.Raised)
         self.gridLayout_3 = QGridLayout(self.frame_8)
@@ -297,8 +61,11 @@ class Ui_Dialog_Euramet_setup(object):
         self.gridLayout_5.setContentsMargins(5, 5, 5, 5)
         self.frame_25 = QFrame(self.page)
         self.frame_25.setObjectName(u"frame_25")
-        sizePolicy.setHeightForWidth(self.frame_25.sizePolicy().hasHeightForWidth())
-        self.frame_25.setSizePolicy(sizePolicy)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.frame_25.sizePolicy().hasHeightForWidth())
+        self.frame_25.setSizePolicy(sizePolicy1)
         self.frame_25.setMaximumSize(QSize(16777215, 100))
         self.frame_25.setFrameShape(QFrame.StyledPanel)
         self.frame_25.setFrameShadow(QFrame.Raised)
@@ -357,8 +124,8 @@ class Ui_Dialog_Euramet_setup(object):
         self.gridLayout_6.setContentsMargins(5, 5, 5, 5)
         self.frame_22 = QFrame(self.page_2)
         self.frame_22.setObjectName(u"frame_22")
-        sizePolicy.setHeightForWidth(self.frame_22.sizePolicy().hasHeightForWidth())
-        self.frame_22.setSizePolicy(sizePolicy)
+        sizePolicy1.setHeightForWidth(self.frame_22.sizePolicy().hasHeightForWidth())
+        self.frame_22.setSizePolicy(sizePolicy1)
         self.frame_22.setMinimumSize(QSize(0, 200))
         self.frame_22.setFrameShape(QFrame.StyledPanel)
         self.frame_22.setFrameShadow(QFrame.Raised)
@@ -458,8 +225,8 @@ class Ui_Dialog_Euramet_setup(object):
         self.gridLayout_7.setContentsMargins(5, 5, 5, 5)
         self.frame_18 = QFrame(self.page_3)
         self.frame_18.setObjectName(u"frame_18")
-        sizePolicy.setHeightForWidth(self.frame_18.sizePolicy().hasHeightForWidth())
-        self.frame_18.setSizePolicy(sizePolicy)
+        sizePolicy1.setHeightForWidth(self.frame_18.sizePolicy().hasHeightForWidth())
+        self.frame_18.setSizePolicy(sizePolicy1)
         self.frame_18.setMinimumSize(QSize(0, 300))
         self.frame_18.setFrameShape(QFrame.StyledPanel)
         self.frame_18.setFrameShadow(QFrame.Raised)
@@ -600,8 +367,8 @@ class Ui_Dialog_Euramet_setup(object):
         self.gridLayout_8.setContentsMargins(5, 5, 5, 5)
         self.frame_13 = QFrame(self.page_4)
         self.frame_13.setObjectName(u"frame_13")
-        sizePolicy.setHeightForWidth(self.frame_13.sizePolicy().hasHeightForWidth())
-        self.frame_13.setSizePolicy(sizePolicy)
+        sizePolicy1.setHeightForWidth(self.frame_13.sizePolicy().hasHeightForWidth())
+        self.frame_13.setSizePolicy(sizePolicy1)
         self.frame_13.setMaximumSize(QSize(16777215, 400))
         self.frame_13.setFrameShape(QFrame.StyledPanel)
         self.frame_13.setFrameShadow(QFrame.Raised)
@@ -783,8 +550,8 @@ class Ui_Dialog_Euramet_setup(object):
         self.gridLayout_9.setContentsMargins(5, 5, 5, 5)
         self.frame_7 = QFrame(self.page_5)
         self.frame_7.setObjectName(u"frame_7")
-        sizePolicy.setHeightForWidth(self.frame_7.sizePolicy().hasHeightForWidth())
-        self.frame_7.setSizePolicy(sizePolicy)
+        sizePolicy1.setHeightForWidth(self.frame_7.sizePolicy().hasHeightForWidth())
+        self.frame_7.setSizePolicy(sizePolicy1)
         self.frame_7.setMaximumSize(QSize(16777215, 500))
         self.frame_7.setFrameShape(QFrame.StyledPanel)
         self.frame_7.setFrameShadow(QFrame.Raised)
@@ -1007,40 +774,28 @@ class Ui_Dialog_Euramet_setup(object):
 
         self.gridLayout_4.addWidget(self.frame_8, 1, 0, 2, 1)
 
-        self.frame_3 = QFrame(self.frame)
-        self.frame_3.setObjectName(u"frame_3")
-        self.frame_3.setMaximumSize(QSize(200, 16777215))
-        self.frame_3.setFrameShape(QFrame.StyledPanel)
-        self.frame_3.setFrameShadow(QFrame.Raised)
-        self.verticalLayout = QVBoxLayout(self.frame_3)
-        self.verticalLayout.setObjectName(u"verticalLayout")
-        self.label_correzione_lineare = QLabel(self.frame_3)
-        self.label_correzione_lineare.setObjectName(u"label_correzione_lineare")
-        self.label_correzione_lineare.setStyleSheet(u"QLabel{\n"
-"	background-color:rgb(255, 207, 84); \n"
-"	border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-color: rgb(255, 106, 0);\n"
-"	border-radius: 20px;\n"
-"	color: rgb(0,0,0);\n"
-"}\n"
-"")
-        self.label_correzione_lineare.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout.addWidget(self.label_correzione_lineare)
-
-        self.frame_4 = QFrame(self.frame_3)
-        self.frame_4.setObjectName(u"frame_4")
-        self.frame_4.setFrameShape(QFrame.StyledPanel)
-        self.frame_4.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_2 = QHBoxLayout(self.frame_4)
-        self.horizontalLayout_2.setSpacing(0)
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.label_3 = QLabel(self.frame_4)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setMinimumSize(QSize(30, 0))
-        self.label_3.setStyleSheet(u"QLabel{\n"
+        self.frame_28 = QFrame(self.frame)
+        self.frame_28.setObjectName(u"frame_28")
+        sizePolicy1.setHeightForWidth(self.frame_28.sizePolicy().hasHeightForWidth())
+        self.frame_28.setSizePolicy(sizePolicy1)
+        self.frame_28.setFrameShape(QFrame.StyledPanel)
+        self.frame_28.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_18 = QHBoxLayout(self.frame_28)
+        self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
+        self.frame_2 = QFrame(self.frame_28)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setFrameShape(QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+        self.gridLayout_2 = QGridLayout(self.frame_2)
+        self.gridLayout_2.setSpacing(0)
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.label = QLabel(self.frame_2)
+        self.label.setObjectName(u"label")
+        font = QFont()
+        font.setPointSize(15)
+        self.label.setFont(font)
+        self.label.setStyleSheet(u"QLabel{\n"
 "	background-color:rgb(255, 207, 84); \n"
 "	border-style: outset;\n"
 "    border-width: 2px;\n"
@@ -1049,79 +804,209 @@ class Ui_Dialog_Euramet_setup(object):
 "	color: rgb(0,0,0);\n"
 "}\n"
 "")
-        self.label_3.setAlignment(Qt.AlignCenter)
+        self.label.setAlignment(Qt.AlignCenter)
 
-        self.horizontalLayout_2.addWidget(self.label_3)
+        self.gridLayout_2.addWidget(self.label, 0, 0, 1, 1)
 
-        self.lineEdit_m = QLineEdit(self.frame_4)
-        self.lineEdit_m.setObjectName(u"lineEdit_m")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.lineEdit_m.sizePolicy().hasHeightForWidth())
-        self.lineEdit_m.setSizePolicy(sizePolicy3)
-        self.lineEdit_m.setStyleSheet(u"QWidget{\n"
-"	background-color:rgb(255, 255, 255); \n"
-"	border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-color: rgb(255, 106, 0);\n"
-"	border-radius: 0px;\n"
-"	color: rgb(0,0,0);\n"
+
+        self.horizontalLayout_18.addWidget(self.frame_2)
+
+        self.checkBox_salita_1 = QCheckBox(self.frame_28)
+        self.checkBox_salita_1.setObjectName(u"checkBox_salita_1")
+        sizePolicy1.setHeightForWidth(self.checkBox_salita_1.sizePolicy().hasHeightForWidth())
+        self.checkBox_salita_1.setSizePolicy(sizePolicy1)
+        self.checkBox_salita_1.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.checkBox_salita_1.setStyleSheet(u"QCheckBox {\n"
+"    spacing: 10px;\n"
+"	color: rgb(0, 0, 0);\n"
+"	Background-color:orange;\n"
+"	padding: 10px;\n"
+"	font: 700 12pt \"Segoe UI\";\n"
+"}\n"
+"\n"
+"QCheckBox::indicator {\n"
+"    width: 26px;\n"
+"    height: 26px;\n"
+"	Background-color: green;\n"
+"	border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    border-style: outset;\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:unchecked {\n"
+"	width: 26px;\n"
+"    height: 26px;\n"
+"	Background-color: red;\n"
+"	border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    border-style: outset;\n"
+"}\n"
+"\n"
+"")
+
+        self.horizontalLayout_18.addWidget(self.checkBox_salita_1)
+
+        self.checkBox_discesa_1 = QCheckBox(self.frame_28)
+        self.checkBox_discesa_1.setObjectName(u"checkBox_discesa_1")
+        self.checkBox_discesa_1.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.checkBox_discesa_1.setStyleSheet(u"QCheckBox {\n"
+"    spacing: 10px;\n"
+"	color: rgb(0, 0, 0);\n"
+"	Background-color:orange;\n"
+"	padding: 10px;\n"
+"	font: 700 12pt \"Segoe UI\";\n"
+"}\n"
+"\n"
+"QCheckBox::indicator {\n"
+"    width: 26px;\n"
+"    height: 26px;\n"
+"	Background-color: green;\n"
+"	border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    border-style: outset;\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:unchecked {\n"
+"	width: 26px;\n"
+"    height: 26px;\n"
+"	Background-color: red;\n"
+"	border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    border-style: outset;\n"
+"}\n"
+"\n"
+"\n"
+"")
+
+        self.horizontalLayout_18.addWidget(self.checkBox_discesa_1)
+
+        self.checkBox_salita_2 = QCheckBox(self.frame_28)
+        self.checkBox_salita_2.setObjectName(u"checkBox_salita_2")
+        self.checkBox_salita_2.setEnabled(False)
+        self.checkBox_salita_2.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.checkBox_salita_2.setStyleSheet(u"QCheckBox {\n"
+"    spacing: 10px;\n"
+"	color: rgb(0, 0, 0);\n"
+"	Background-color:orange;\n"
+"	padding: 10px;\n"
+"	font: 700 12pt \"Segoe UI\";\n"
+"}\n"
+"\n"
+"QCheckBox::indicator {\n"
+"    width: 26px;\n"
+"    height: 26px;\n"
+"	Background-color: green;\n"
+"	border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    border-style: outset;\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:unchecked {\n"
+"	width: 26px;\n"
+"    height: 26px;\n"
+"	Background-color: red;\n"
+"	border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    border-style: outset;\n"
+"}\n"
+"\n"
+"\n"
+"")
+        self.checkBox_salita_2.setCheckable(True)
+        self.checkBox_salita_2.setChecked(True)
+
+        self.horizontalLayout_18.addWidget(self.checkBox_salita_2)
+
+        self.checkBox_altezza = QCheckBox(self.frame_28)
+        self.checkBox_altezza.setObjectName(u"checkBox_altezza")
+        sizePolicy1.setHeightForWidth(self.checkBox_altezza.sizePolicy().hasHeightForWidth())
+        self.checkBox_altezza.setSizePolicy(sizePolicy1)
+        self.checkBox_altezza.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.checkBox_altezza.setStyleSheet(u"QCheckBox {\n"
+"    spacing: 10px;\n"
+"	color: rgb(0, 0, 0);\n"
+"	Background-color:orange;\n"
+"	padding: 10px;\n"
+"	font: 700 12pt \"Segoe UI\";\n"
+"}\n"
+"\n"
+"QCheckBox::indicator {\n"
+"    width: 26px;\n"
+"    height: 26px;\n"
+"	Background-color: green;\n"
+"	border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    border-style: outset;\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:unchecked {\n"
+"	width: 26px;\n"
+"    height: 26px;\n"
+"	Background-color: red;\n"
+"	border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    border-style: outset;\n"
+"}\n"
+"\n"
+"\n"
+"")
+
+        self.horizontalLayout_18.addWidget(self.checkBox_altezza)
+
+        self.comboBox_step = QComboBox(self.frame_28)
+        self.comboBox_step.addItem("")
+        self.comboBox_step.addItem("")
+        self.comboBox_step.addItem("")
+        self.comboBox_step.addItem("")
+        self.comboBox_step.addItem("")
+        self.comboBox_step.setObjectName(u"comboBox_step")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.comboBox_step.sizePolicy().hasHeightForWidth())
+        self.comboBox_step.setSizePolicy(sizePolicy2)
+        self.comboBox_step.setStyleSheet(u"QComboBox {\n"
+"    border: 3px solid gray;\n"
+"    border-radius: 3px;\n"
+"    padding: 1px 1px 1px 10px;\n"
+"    min-width: 6em;\n"
+"    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */\n"
+"}\n"
+"\n"
+"QComboBox:!editable, QComboBox::drop-down:editable {\n"
+"    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
+"}\n"
+"\n"
+"\n"
+"/* Stile della tendina del QComboBox */\n"
+"QComboBox QAbstractItemView {\n"
+"    background-color:	qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3); ; /* Colore di sfondo della tendina */\n"
+"    selection-background-color: #3399FF; /* Colore di sfondo dell'elemento selezionato */\n"
+"    selection-color:rgb(106, 112, 113); /* Colore del testo dell'elemento selezionato */\n"
+"    bord"
+                        "er: 3px solid gray;\n"
+"    border-radius: 3px;\n"
+"    padding: 1px 18px 1px 3px;\n"
+"    min-width: 6em;\n"
+"    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */\n"
 "}")
-        self.lineEdit_m.setAlignment(Qt.AlignCenter)
-        self.lineEdit_m.setClearButtonEnabled(True)
 
-        self.horizontalLayout_2.addWidget(self.lineEdit_m)
+        self.horizontalLayout_18.addWidget(self.comboBox_step)
 
 
-        self.verticalLayout.addWidget(self.frame_4)
-
-        self.frame_5 = QFrame(self.frame_3)
-        self.frame_5.setObjectName(u"frame_5")
-        self.frame_5.setFrameShape(QFrame.StyledPanel)
-        self.frame_5.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout = QHBoxLayout(self.frame_5)
-        self.horizontalLayout.setSpacing(0)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
-        self.label_4 = QLabel(self.frame_5)
-        self.label_4.setObjectName(u"label_4")
-        self.label_4.setMinimumSize(QSize(30, 0))
-        self.label_4.setStyleSheet(u"QLabel{\n"
-"	background-color:rgb(255, 207, 84); \n"
-"	border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-color: rgb(255, 106, 0);\n"
-"	border-radius: 0px;\n"
-"	color: rgb(0,0,0);\n"
-"}\n"
-"")
-        self.label_4.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout.addWidget(self.label_4)
-
-        self.lineEdit_q = QLineEdit(self.frame_5)
-        self.lineEdit_q.setObjectName(u"lineEdit_q")
-        sizePolicy3.setHeightForWidth(self.lineEdit_q.sizePolicy().hasHeightForWidth())
-        self.lineEdit_q.setSizePolicy(sizePolicy3)
-        self.lineEdit_q.setStyleSheet(u"QWidget{\n"
-"	background-color:rgb(255, 255, 255); \n"
-"	border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-color: rgb(255, 106, 0);\n"
-"	border-radius: 0px;\n"
-"	color: rgb(0,0,0);\n"
-"}")
-        self.lineEdit_q.setAlignment(Qt.AlignCenter)
-        self.lineEdit_q.setClearButtonEnabled(True)
-
-        self.horizontalLayout.addWidget(self.lineEdit_q)
-
-
-        self.verticalLayout.addWidget(self.frame_5)
-
-
-        self.gridLayout_4.addWidget(self.frame_3, 1, 1, 1, 1)
+        self.gridLayout_4.addWidget(self.frame_28, 0, 0, 1, 2)
 
         self.frame_29 = QFrame(self.frame)
         self.frame_29.setObjectName(u"frame_29")
@@ -1188,37 +1073,47 @@ class Ui_Dialog_Euramet_setup(object):
 
         self.verticalLayout_7.addWidget(self.comboBox_quadrante)
 
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_7.addItem(self.verticalSpacer)
+
 
         self.verticalLayout_8.addWidget(self.frame_27)
 
-        self.pushButton_impostazion_csv = QPushButton(self.frame_29)
-        self.pushButton_impostazion_csv.setObjectName(u"pushButton_impostazion_csv")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.pushButton_impostazion_csv.sizePolicy().hasHeightForWidth())
-        self.pushButton_impostazion_csv.setSizePolicy(sizePolicy4)
-        self.pushButton_impostazion_csv.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.pushButton_impostazion_csv.setStyleSheet(u"QPushButton{\n"
-"	border-width: 1px;\n"
-"	background-color:rgb(107, 107, 107);\n"
-"	color: rgb(0, 0, 0);\n"
+
+        self.gridLayout_4.addWidget(self.frame_29, 1, 1, 2, 1)
+
+
+        self.gridLayout.addWidget(self.frame, 1, 1, 1, 1)
+
+        self.frame_navigation = QFrame(Dialog_Euramet_setup)
+        self.frame_navigation.setObjectName(u"frame_navigation")
+        self.frame_navigation.setMinimumSize(QSize(0, 40))
+        self.frame_navigation.setMaximumSize(QSize(16777215, 40))
+        self.frame_navigation.setStyleSheet(u"QWidget {\n"
+"	background-color:rgb(138, 137, 135); \n"
+"	border-style: outset;\n"
+"    border-width: 1px;\n"
+"    border-color: rgb(71, 71, 71);\n"
 "}\n"
-"\n"
-"QPushButton::pressed{\n"
-"	border-width: 1px;\n"
-"	background-color:rgb(56, 56, 56);\n"
-"	color: rgb(0, 0, 0);\n"
-"\n"
-"\n"
-"}")
-
-        self.verticalLayout_8.addWidget(self.pushButton_impostazion_csv)
-
-        self.pushButton_concludi_setup = QPushButton(self.frame_29)
+"")
+        self.frame_navigation.setFrameShape(QFrame.StyledPanel)
+        self.frame_navigation.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_19 = QHBoxLayout(self.frame_navigation)
+        self.horizontalLayout_19.setSpacing(0)
+        self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
+        self.horizontalLayout_19.setContentsMargins(0, 0, 0, 0)
+        self.pushButton_concludi_setup = QPushButton(self.frame_navigation)
         self.pushButton_concludi_setup.setObjectName(u"pushButton_concludi_setup")
-        sizePolicy4.setHeightForWidth(self.pushButton_concludi_setup.sizePolicy().hasHeightForWidth())
-        self.pushButton_concludi_setup.setSizePolicy(sizePolicy4)
+        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.pushButton_concludi_setup.sizePolicy().hasHeightForWidth())
+        self.pushButton_concludi_setup.setSizePolicy(sizePolicy3)
+        self.pushButton_concludi_setup.setMaximumSize(QSize(200, 16777215))
+        font1 = QFont()
+        font1.setPointSize(14)
+        self.pushButton_concludi_setup.setFont(font1)
         self.pushButton_concludi_setup.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_concludi_setup.setStyleSheet(u"QPushButton{\n"
 "	border-width: 1px;\n"
@@ -1234,18 +1129,45 @@ class Ui_Dialog_Euramet_setup(object):
 "\n"
 "}")
 
-        self.verticalLayout_8.addWidget(self.pushButton_concludi_setup)
+        self.horizontalLayout_19.addWidget(self.pushButton_concludi_setup)
+
+        self.pushButton_impostazioni_csv = QPushButton(self.frame_navigation)
+        self.pushButton_impostazioni_csv.setObjectName(u"pushButton_impostazioni_csv")
+        sizePolicy3.setHeightForWidth(self.pushButton_impostazioni_csv.sizePolicy().hasHeightForWidth())
+        self.pushButton_impostazioni_csv.setSizePolicy(sizePolicy3)
+        self.pushButton_impostazioni_csv.setMaximumSize(QSize(200, 16777215))
+        self.pushButton_impostazioni_csv.setFont(font1)
+        self.pushButton_impostazioni_csv.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.pushButton_impostazioni_csv.setStyleSheet(u"QPushButton{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(107, 107, 107);\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"\n"
+"QPushButton::pressed{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(56, 56, 56);\n"
+"	color: rgb(0, 0, 0);\n"
+"\n"
+"\n"
+"}")
+
+        self.horizontalLayout_19.addWidget(self.pushButton_impostazioni_csv)
+
+        self.frame_30 = QFrame(self.frame_navigation)
+        self.frame_30.setObjectName(u"frame_30")
+        self.frame_30.setFrameShape(QFrame.StyledPanel)
+        self.frame_30.setFrameShadow(QFrame.Raised)
+
+        self.horizontalLayout_19.addWidget(self.frame_30)
 
 
-        self.gridLayout_4.addWidget(self.frame_29, 2, 1, 1, 1)
-
-
-        self.gridLayout.addWidget(self.frame, 0, 1, 1, 1)
+        self.gridLayout.addWidget(self.frame_navigation, 0, 1, 1, 1)
 
 
         self.retranslateUi(Dialog_Euramet_setup)
 
-        self.stackedWidget_euramet.setCurrentIndex(0)
+        self.stackedWidget_euramet.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(Dialog_Euramet_setup)
@@ -1253,17 +1175,6 @@ class Ui_Dialog_Euramet_setup(object):
 
     def retranslateUi(self, Dialog_Euramet_setup):
         Dialog_Euramet_setup.setWindowTitle(QCoreApplication.translate("Dialog_Euramet_setup", u"Dialog", None))
-        self.label.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"EURAMET", None))
-        self.checkBox_salita_1.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"SALITA 1", None))
-        self.checkBox_discesa_1.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"DISCESA 1", None))
-        self.checkBox_salita_2.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"SALITA 2", None))
-        self.checkBox_altezza.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"ALTEZZA", None))
-        self.comboBox_step.setItemText(0, QCoreApplication.translate("Dialog_Euramet_setup", u"1 Step", None))
-        self.comboBox_step.setItemText(1, QCoreApplication.translate("Dialog_Euramet_setup", u"2 Step", None))
-        self.comboBox_step.setItemText(2, QCoreApplication.translate("Dialog_Euramet_setup", u"3 Step", None))
-        self.comboBox_step.setItemText(3, QCoreApplication.translate("Dialog_Euramet_setup", u"4 Step", None))
-        self.comboBox_step.setItemText(4, QCoreApplication.translate("Dialog_Euramet_setup", u"5 Step", None))
-
         self.label_38.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"STEP 1", None))
         self.label_step_1_1.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"-", None))
         self.label_37.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"STEP 1", None))
@@ -1294,16 +1205,22 @@ class Ui_Dialog_Euramet_setup(object):
         self.label_step_4_5.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"-", None))
         self.label_12.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"STEP 5", None))
         self.label_step_5_5.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"-", None))
-        self.label_correzione_lineare.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"correzione lineare", None))
-        self.label_3.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"m", None))
-        self.lineEdit_m.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"-", None))
-        self.label_4.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"q", None))
-        self.lineEdit_q.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"-", None))
+        self.label.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"EURAMET", None))
+        self.checkBox_salita_1.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"SALITA 1", None))
+        self.checkBox_discesa_1.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"DISCESA 1", None))
+        self.checkBox_salita_2.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"SALITA 2", None))
+        self.checkBox_altezza.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"ALTEZZA", None))
+        self.comboBox_step.setItemText(0, QCoreApplication.translate("Dialog_Euramet_setup", u"1 Step", None))
+        self.comboBox_step.setItemText(1, QCoreApplication.translate("Dialog_Euramet_setup", u"2 Step", None))
+        self.comboBox_step.setItemText(2, QCoreApplication.translate("Dialog_Euramet_setup", u"3 Step", None))
+        self.comboBox_step.setItemText(3, QCoreApplication.translate("Dialog_Euramet_setup", u"4 Step", None))
+        self.comboBox_step.setItemText(4, QCoreApplication.translate("Dialog_Euramet_setup", u"5 Step", None))
+
         self.label_quadrante_iniziale.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"Quadrante iniziale", None))
         self.comboBox_quadrante.setItemText(0, QCoreApplication.translate("Dialog_Euramet_setup", u"Q1", None))
         self.comboBox_quadrante.setItemText(1, QCoreApplication.translate("Dialog_Euramet_setup", u"Q3", None))
 
-        self.pushButton_impostazion_csv.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"impostazione Excell", None))
-        self.pushButton_concludi_setup.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"concludi setup", None))
+        self.pushButton_concludi_setup.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"CONCLUDI SETUP", None))
+        self.pushButton_impostazioni_csv.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"IMPOSTAZIONI", None))
     # retranslateUi
 
