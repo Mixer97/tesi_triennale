@@ -150,3 +150,4 @@
 
 16/07
     fare in modo che con il click, per salvare i dati, si vada al prossimo punto del grafico verde
+    concluso il grafico di aggiornamento durant euramet.
