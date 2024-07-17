@@ -33,6 +33,7 @@ EURAMET LOGIC:
     - lavorare su schermata setup euramet (salvataggio su JSON)
     - implementare il grafico di recap della misura
     - implementare stabilità per misura automatica
+    - inserire disattivazione pulsante per setup euramet durante un eruamet, e inserire un pulsante che possa riabilitarlo per fare finirre leuramet in anticipo.
 
 BUG SCOPERTI:
 

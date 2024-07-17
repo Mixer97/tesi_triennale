@@ -151,3 +151,8 @@
 16/07
     fare in modo che con il click, per salvare i dati, si vada al prossimo punto del grafico verde
     concluso il grafico di aggiornamento durant euramet.
+
+17/07
+    lavoro sul cambiare il punto di partenza della scrittura dati per il file excell di Euramet
+    ho implementato le funzionalita per gestire meglio il file excell di euramet.
+    ora mi occupo del salvataggio che non vada a fare sovrascritture.

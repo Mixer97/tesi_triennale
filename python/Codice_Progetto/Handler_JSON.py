@@ -25,7 +25,7 @@ class handler_json:
             new_json_string = json.load(json_string)
             
             # Banco
-            banco_di_taratura.list_status_checkbox = new_json_string['data_banco']['status checkbox']
+            banco_di_taratura.list_status_checkbox_setup_page = new_json_string['data_banco']['status checkbox']
             banco_di_taratura.file_setup_name = new_json_string['data_banco']['file setup name']
             # C_modbus
             banco_di_taratura.controller_modbus.DATA.zero_main = new_json_string['data_controller_modbus']['zero main']
@@ -71,7 +71,7 @@ class handler_json:
             }
             
             # Banco
-            data_banco["status checkbox"] = banco_di_taratura.list_status_checkbox
+            data_banco["status checkbox"] = banco_di_taratura.list_status_checkbox_setup_page
             data_banco["file setup name"] = banco_di_taratura.file_setup_name
             # C_modbus
             data_controller_modbus["zero main"] = banco_di_taratura.controller_modbus.DATA.zero_main

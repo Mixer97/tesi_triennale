@@ -414,6 +414,12 @@ QLabel{
              </item>
              <item>
               <widget class="QLabel" name="label_step_attuale_valore">
+               <property name="font">
+                <font>
+                 <pointsize>20</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="styleSheet">
                 <string notr="true">QWidget{
 	background-color:rgb(255, 255, 255); 
@@ -425,7 +431,7 @@ QLabel{
 }</string>
                </property>
                <property name="text">
-                <string>valore step attuale</string>
+                <string>-</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -1715,13 +1721,19 @@ QPushButton::disabled{
                  <verstretch>0</verstretch>
                 </sizepolicy>
                </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>40</height>
+                </size>
+               </property>
                <property name="styleSheet">
                 <string notr="true">QWidget{
 	background-color:rgb(255, 255, 255); 
 	border-style: outset;
     border-width: 2px;
     border-color: rgb(255, 106, 0);
-	border-radius: 20;
+	border-radius: 0;
 	color: rgb(0,0,0);
 }</string>
                </property>
@@ -2010,13 +2022,13 @@ QComboBox QAbstractItemView {
             <property name="minimumSize">
              <size>
               <width>0</width>
-              <height>100</height>
+              <height>70</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>16777215</width>
-              <height>100</height>
+              <height>70</height>
              </size>
             </property>
             <property name="styleSheet">

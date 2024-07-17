@@ -23,7 +23,7 @@ class Ui_Dialog_csv_euramet(object):
     def setupUi(self, Dialog_csv_euramet):
         if not Dialog_csv_euramet.objectName():
             Dialog_csv_euramet.setObjectName(u"Dialog_csv_euramet")
-        Dialog_csv_euramet.resize(923, 579)
+        Dialog_csv_euramet.resize(972, 581)
         Dialog_csv_euramet.setStyleSheet(u"background-color: rgb(48, 199, 40);")
         self.gridLayout = QGridLayout(Dialog_csv_euramet)
         self.gridLayout.setObjectName(u"gridLayout")
@@ -679,6 +679,313 @@ class Ui_Dialog_csv_euramet(object):
 
         self.verticalLayout_2.addWidget(self.frame_16)
 
+        self.frame_17 = QFrame(self.frame_3)
+        self.frame_17.setObjectName(u"frame_17")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.frame_17.sizePolicy().hasHeightForWidth())
+        self.frame_17.setSizePolicy(sizePolicy2)
+        self.frame_17.setMinimumSize(QSize(0, 200))
+        self.frame_17.setStyleSheet(u"border-width: 0px;")
+        self.frame_17.setFrameShape(QFrame.StyledPanel)
+        self.frame_17.setFrameShadow(QFrame.Raised)
+        self.gridLayout_3 = QGridLayout(self.frame_17)
+        self.gridLayout_3.setObjectName(u"gridLayout_3")
+        self.frame_20 = QFrame(self.frame_17)
+        self.frame_20.setObjectName(u"frame_20")
+        self.frame_20.setFrameShape(QFrame.StyledPanel)
+        self.frame_20.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_17 = QHBoxLayout(self.frame_20)
+        self.horizontalLayout_17.setSpacing(0)
+        self.horizontalLayout_17.setObjectName(u"horizontalLayout_17")
+        self.horizontalLayout_17.setContentsMargins(0, 0, 0, 0)
+        self.label_title_cella_start_Q3_2 = QLabel(self.frame_20)
+        self.label_title_cella_start_Q3_2.setObjectName(u"label_title_cella_start_Q3_2")
+        self.label_title_cella_start_Q3_2.setMinimumSize(QSize(0, 0))
+        self.label_title_cella_start_Q3_2.setStyleSheet(u"QLabel{\n"
+"	background-color:rgb(255, 207, 84); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_title_cella_start_Q3_2.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_17.addWidget(self.label_title_cella_start_Q3_2)
+
+        self.label_colonna_start_Q3 = QLineEdit(self.frame_20)
+        self.label_colonna_start_Q3.setObjectName(u"label_colonna_start_Q3")
+        sizePolicy2.setHeightForWidth(self.label_colonna_start_Q3.sizePolicy().hasHeightForWidth())
+        self.label_colonna_start_Q3.setSizePolicy(sizePolicy2)
+        self.label_colonna_start_Q3.setMinimumSize(QSize(80, 0))
+        self.label_colonna_start_Q3.setMaximumSize(QSize(80, 16777215))
+        self.label_colonna_start_Q3.setStyleSheet(u"QWidget{\n"
+"	background-color:rgb(255, 255, 255); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}")
+        self.label_colonna_start_Q3.setAlignment(Qt.AlignCenter)
+        self.label_colonna_start_Q3.setClearButtonEnabled(True)
+
+        self.horizontalLayout_17.addWidget(self.label_colonna_start_Q3)
+
+
+        self.gridLayout_3.addWidget(self.frame_20, 1, 0, 1, 1)
+
+        self.frame_18 = QFrame(self.frame_17)
+        self.frame_18.setObjectName(u"frame_18")
+        self.frame_18.setFrameShape(QFrame.StyledPanel)
+        self.frame_18.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_15 = QHBoxLayout(self.frame_18)
+        self.horizontalLayout_15.setSpacing(0)
+        self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
+        self.horizontalLayout_15.setContentsMargins(0, 0, 0, 0)
+        self.label_title_riga_start_Q3 = QLabel(self.frame_18)
+        self.label_title_riga_start_Q3.setObjectName(u"label_title_riga_start_Q3")
+        self.label_title_riga_start_Q3.setMinimumSize(QSize(0, 0))
+        self.label_title_riga_start_Q3.setStyleSheet(u"QLabel{\n"
+"	background-color:rgb(255, 207, 84); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_title_riga_start_Q3.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_15.addWidget(self.label_title_riga_start_Q3)
+
+        self.label_riga_start_Q3 = QLineEdit(self.frame_18)
+        self.label_riga_start_Q3.setObjectName(u"label_riga_start_Q3")
+        sizePolicy.setHeightForWidth(self.label_riga_start_Q3.sizePolicy().hasHeightForWidth())
+        self.label_riga_start_Q3.setSizePolicy(sizePolicy)
+        self.label_riga_start_Q3.setMinimumSize(QSize(80, 0))
+        self.label_riga_start_Q3.setMaximumSize(QSize(80, 16777215))
+        self.label_riga_start_Q3.setStyleSheet(u"QWidget{\n"
+"	background-color:rgb(255, 255, 255); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}")
+        self.label_riga_start_Q3.setAlignment(Qt.AlignCenter)
+        self.label_riga_start_Q3.setClearButtonEnabled(True)
+
+        self.horizontalLayout_15.addWidget(self.label_riga_start_Q3)
+
+
+        self.gridLayout_3.addWidget(self.frame_18, 1, 1, 1, 1)
+
+        self.frame_21 = QFrame(self.frame_17)
+        self.frame_21.setObjectName(u"frame_21")
+        self.frame_21.setFrameShape(QFrame.StyledPanel)
+        self.frame_21.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_18 = QHBoxLayout(self.frame_21)
+        self.horizontalLayout_18.setSpacing(0)
+        self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
+        self.horizontalLayout_18.setContentsMargins(0, 0, 0, 0)
+        self.label_title_cella_start_Q3_3 = QLabel(self.frame_21)
+        self.label_title_cella_start_Q3_3.setObjectName(u"label_title_cella_start_Q3_3")
+        self.label_title_cella_start_Q3_3.setMinimumSize(QSize(0, 0))
+        self.label_title_cella_start_Q3_3.setStyleSheet(u"QLabel{\n"
+"	background-color:rgb(255, 207, 84); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_title_cella_start_Q3_3.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_18.addWidget(self.label_title_cella_start_Q3_3)
+
+        self.label_colonna_start_Q1 = QLineEdit(self.frame_21)
+        self.label_colonna_start_Q1.setObjectName(u"label_colonna_start_Q1")
+        sizePolicy.setHeightForWidth(self.label_colonna_start_Q1.sizePolicy().hasHeightForWidth())
+        self.label_colonna_start_Q1.setSizePolicy(sizePolicy)
+        self.label_colonna_start_Q1.setMinimumSize(QSize(80, 0))
+        self.label_colonna_start_Q1.setMaximumSize(QSize(80, 16777215))
+        self.label_colonna_start_Q1.setStyleSheet(u"QWidget{\n"
+"	background-color:rgb(255, 255, 255); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}")
+        self.label_colonna_start_Q1.setAlignment(Qt.AlignCenter)
+        self.label_colonna_start_Q1.setClearButtonEnabled(True)
+
+        self.horizontalLayout_18.addWidget(self.label_colonna_start_Q1)
+
+
+        self.gridLayout_3.addWidget(self.frame_21, 2, 0, 1, 1)
+
+        self.frame_19 = QFrame(self.frame_17)
+        self.frame_19.setObjectName(u"frame_19")
+        self.frame_19.setFrameShape(QFrame.StyledPanel)
+        self.frame_19.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_16 = QHBoxLayout(self.frame_19)
+        self.horizontalLayout_16.setSpacing(0)
+        self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
+        self.horizontalLayout_16.setContentsMargins(0, 0, 0, 0)
+        self.label_title_cella_start_Q1 = QLabel(self.frame_19)
+        self.label_title_cella_start_Q1.setObjectName(u"label_title_cella_start_Q1")
+        self.label_title_cella_start_Q1.setMinimumSize(QSize(0, 0))
+        self.label_title_cella_start_Q1.setStyleSheet(u"QLabel{\n"
+"	background-color:rgb(255, 207, 84); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_title_cella_start_Q1.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_16.addWidget(self.label_title_cella_start_Q1)
+
+        self.label_riga_start_Q1 = QLineEdit(self.frame_19)
+        self.label_riga_start_Q1.setObjectName(u"label_riga_start_Q1")
+        sizePolicy.setHeightForWidth(self.label_riga_start_Q1.sizePolicy().hasHeightForWidth())
+        self.label_riga_start_Q1.setSizePolicy(sizePolicy)
+        self.label_riga_start_Q1.setMinimumSize(QSize(80, 0))
+        self.label_riga_start_Q1.setMaximumSize(QSize(80, 16777215))
+        self.label_riga_start_Q1.setStyleSheet(u"QWidget{\n"
+"	background-color:rgb(255, 255, 255); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}")
+        self.label_riga_start_Q1.setAlignment(Qt.AlignCenter)
+        self.label_riga_start_Q1.setClearButtonEnabled(True)
+
+        self.horizontalLayout_16.addWidget(self.label_riga_start_Q1)
+
+
+        self.gridLayout_3.addWidget(self.frame_19, 2, 1, 1, 1)
+
+        self.frame_22 = QFrame(self.frame_17)
+        self.frame_22.setObjectName(u"frame_22")
+        self.frame_22.setFrameShape(QFrame.StyledPanel)
+        self.frame_22.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_19 = QHBoxLayout(self.frame_22)
+        self.horizontalLayout_19.setSpacing(0)
+        self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
+        self.horizontalLayout_19.setContentsMargins(0, 0, 0, 0)
+        self.label_title_cella_start_Q1_2 = QLabel(self.frame_22)
+        self.label_title_cella_start_Q1_2.setObjectName(u"label_title_cella_start_Q1_2")
+        self.label_title_cella_start_Q1_2.setMinimumSize(QSize(0, 0))
+        self.label_title_cella_start_Q1_2.setStyleSheet(u"QLabel{\n"
+"	background-color:rgb(255, 207, 84); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_title_cella_start_Q1_2.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_19.addWidget(self.label_title_cella_start_Q1_2)
+
+        self.label_nome_excell = QLineEdit(self.frame_22)
+        self.label_nome_excell.setObjectName(u"label_nome_excell")
+        sizePolicy.setHeightForWidth(self.label_nome_excell.sizePolicy().hasHeightForWidth())
+        self.label_nome_excell.setSizePolicy(sizePolicy)
+        self.label_nome_excell.setMinimumSize(QSize(150, 0))
+        self.label_nome_excell.setMaximumSize(QSize(80, 16777215))
+        self.label_nome_excell.setStyleSheet(u"QWidget{\n"
+"	background-color:rgb(255, 255, 255); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}")
+        self.label_nome_excell.setAlignment(Qt.AlignCenter)
+        self.label_nome_excell.setClearButtonEnabled(True)
+
+        self.horizontalLayout_19.addWidget(self.label_nome_excell)
+
+
+        self.gridLayout_3.addWidget(self.frame_22, 3, 0, 1, 1)
+
+        self.frame_23 = QFrame(self.frame_17)
+        self.frame_23.setObjectName(u"frame_23")
+        self.frame_23.setFrameShape(QFrame.StyledPanel)
+        self.frame_23.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_20 = QHBoxLayout(self.frame_23)
+        self.horizontalLayout_20.setSpacing(0)
+        self.horizontalLayout_20.setObjectName(u"horizontalLayout_20")
+        self.horizontalLayout_20.setContentsMargins(0, 0, 0, 0)
+        self.label_title_cella_start_Q1_3 = QLabel(self.frame_23)
+        self.label_title_cella_start_Q1_3.setObjectName(u"label_title_cella_start_Q1_3")
+        self.label_title_cella_start_Q1_3.setMinimumSize(QSize(0, 0))
+        self.label_title_cella_start_Q1_3.setStyleSheet(u"QLabel{\n"
+"	background-color:rgb(255, 207, 84); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_title_cella_start_Q1_3.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_20.addWidget(self.label_title_cella_start_Q1_3)
+
+        self.label_nome_foglio_dati = QLineEdit(self.frame_23)
+        self.label_nome_foglio_dati.setObjectName(u"label_nome_foglio_dati")
+        sizePolicy.setHeightForWidth(self.label_nome_foglio_dati.sizePolicy().hasHeightForWidth())
+        self.label_nome_foglio_dati.setSizePolicy(sizePolicy)
+        self.label_nome_foglio_dati.setMinimumSize(QSize(150, 0))
+        self.label_nome_foglio_dati.setMaximumSize(QSize(80, 16777215))
+        self.label_nome_foglio_dati.setStyleSheet(u"QWidget{\n"
+"	background-color:rgb(255, 255, 255); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}")
+        self.label_nome_foglio_dati.setAlignment(Qt.AlignCenter)
+        self.label_nome_foglio_dati.setClearButtonEnabled(True)
+
+        self.horizontalLayout_20.addWidget(self.label_nome_foglio_dati)
+
+
+        self.gridLayout_3.addWidget(self.frame_23, 3, 1, 1, 1)
+
+        self.label_3 = QLabel(self.frame_17)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setStyleSheet(u"QLabel{\n"
+"	background-color:rgb(255, 207, 84); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_3.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_3.addWidget(self.label_3, 0, 0, 1, 2)
+
+
+        self.verticalLayout_2.addWidget(self.frame_17)
+
 
         self.gridLayout_2.addWidget(self.frame_3, 0, 1, 1, 1)
 
@@ -722,5 +1029,18 @@ class Ui_Dialog_csv_euramet(object):
         self.lineEdit_SN_UUT.setText(QCoreApplication.translate("Dialog_csv_euramet", u"-", None))
         self.label_report_calibrazione_TX.setText(QCoreApplication.translate("Dialog_csv_euramet", u"Report di calibrazione TX", None))
         self.lineEdit_report_calibrazione_TX.setText(QCoreApplication.translate("Dialog_csv_euramet", u"-", None))
+        self.label_title_cella_start_Q3_2.setText(QCoreApplication.translate("Dialog_csv_euramet", u"colonna primo dato Q3 ", None))
+        self.label_colonna_start_Q3.setText(QCoreApplication.translate("Dialog_csv_euramet", u"D", None))
+        self.label_title_riga_start_Q3.setText(QCoreApplication.translate("Dialog_csv_euramet", u"riga primo dato Q3 ", None))
+        self.label_riga_start_Q3.setText(QCoreApplication.translate("Dialog_csv_euramet", u"7", None))
+        self.label_title_cella_start_Q3_3.setText(QCoreApplication.translate("Dialog_csv_euramet", u"colonna primo dato Q1 ", None))
+        self.label_colonna_start_Q1.setText(QCoreApplication.translate("Dialog_csv_euramet", u"D", None))
+        self.label_title_cella_start_Q1.setText(QCoreApplication.translate("Dialog_csv_euramet", u"riga primo dato Q1", None))
+        self.label_riga_start_Q1.setText(QCoreApplication.translate("Dialog_csv_euramet", u"29", None))
+        self.label_title_cella_start_Q1_2.setText(QCoreApplication.translate("Dialog_csv_euramet", u"nome_excell", None))
+        self.label_nome_excell.setText(QCoreApplication.translate("Dialog_csv_euramet", u"Default", None))
+        self.label_title_cella_start_Q1_3.setText(QCoreApplication.translate("Dialog_csv_euramet", u"foglio_dati", None))
+        self.label_nome_foglio_dati.setText(QCoreApplication.translate("Dialog_csv_euramet", u"Euramet", None))
+        self.label_3.setText(QCoreApplication.translate("Dialog_csv_euramet", u"Riferimento per inserimento dati", None))
     # retranslateUi
 
