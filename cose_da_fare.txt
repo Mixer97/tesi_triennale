@@ -30,23 +30,24 @@ COSE DA FARE:
     - inserire label prossimo step per operatore 
 
 EURAMET LOGIC:
-    - inserire scrittura su JSON delle impostazioni per excell euramet
-    - lavorare su schermata setup euramet (salvataggio su JSON)
-    - implementare il grafico di recap della misura
-    - implementare stabilità per misura automatica
-        - idea: uscire dallo step attuale tramite pressione del tasto (pre 30s), uscire con pressione del tasto o discostamento dal range predefinito (10% circa).
-            - l'uscista dal range verra comunque accompaganat dal click sul tanto cosi da far avvanzare la misura solo in quel modo.
+    [[- inserire scrittura su JSON delle impostazioni per excell euramet]]
+    [[- lavorare su schermata setup euramet (salvataggio su JSON)]]
+    [[- implementare il grafico di recap della misura]]
+    - implementare stabilità per misura automatica (con tanto di timer)
+        - idea: uscire dallo step attuale tramite pressione del tasto (pre 30s), uscire con pressione del tasto o discostamento dal range predefinito (10% circa, after 30s).
+            - l'uscista dal range verra comunque accompaganato dal click sul pulsante cosi da far avvanzare la misura solo in quel modo.
         - la modalità sara da impostare come attiva o disattiva
     - inserire disattivazione pulsante per setup euramet durante un eruamet, e inserire un pulsante che possa riabilitarlo per fare finirre leuramet in anticipo.
-
+    - implementare la logica per l'altezza
     
+    - dopo avere implementato la logica euramet per bene, andare a cambiare la guida Per fabio e aggiornarla in modo che corrisponda a eventuali elementi/logiche aggiunte.
 
 BUG SCOPERTI:
 
     [[- Programma smette di aggiornare la lista delle misure in mV quando si danno troppi comandi per on/off canali]]
-    - Scheda della Seneca ha problemi con l'impostazione della scala normalizzata, riesce a impostarla da app ma nei registri risultano sempre la scala: 0/10000
     [[- Problema con i timer che continuano il loop anche anche con le finestre chiuse]]
     - Problema con l'handling del programma quando le schede non sono collegate
     - Problema handling del CSV quando è aperto
+    - Problema handling del file excell quando è aperto
     - Bug che avviene ogni tanto all'inizio dell'esecuzione del programma (forse risolto)
-    - se salva la registrazione su default e poi faccio ripartire il programma e savlo di nuovo allora va sempre su default (senza sovrascrivere)
+    - se salva la registrazione su default e poi faccio ripartire il programma e salvo di nuovo allora va sempre su default (senza sovrascrivere)

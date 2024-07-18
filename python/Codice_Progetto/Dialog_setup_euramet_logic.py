@@ -60,7 +60,7 @@ class Euramet_window(QDialog):
         elif self.banco_di_taratura.quadrant_counter == 2:
             print("Euramet_finito!")
             self.graph_window.ui.pushButton_save_measure.setEnabled(False)
-            self.graph_window.ui.label_step_attuale_valore.setText("##############")
+            self.graph_window.ui.label_step_attuale_valore.setText("#######")
             self.invert_quadrant()
             self.graph_window.euramet_measure_entity = Misura_euramet(banco_di_taratura=self.banco_di_taratura, graphwindow=self.graph_window, euramet_window=self)
             self.banco_di_taratura.quadrant_counter = 0

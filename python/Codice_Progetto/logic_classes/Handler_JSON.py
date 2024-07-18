@@ -36,6 +36,10 @@ class handler_json:
             # Banco
             banco_di_taratura.list_status_checkbox_setup_page = new_json_string['data_banco']['status checkbox']
             banco_di_taratura.file_setup_banco_name = new_json_string['data_banco']['file setup name']
+            banco_di_taratura.m_main = new_json_string['data_banco']['m_main']
+            banco_di_taratura.q_main = new_json_string['data_banco']['q_main']
+            banco_di_taratura.m_temp = new_json_string['data_banco']['m_temp']
+            banco_di_taratura.q_temp = new_json_string['data_banco']['q_temp']
             # C_modbus
             banco_di_taratura.controller_modbus.DATA.zero_main = new_json_string['data_controller_modbus']['zero main']
             banco_di_taratura.controller_modbus.DATA.coefficiente_main = new_json_string['data_controller_modbus']['coefficiente main']
@@ -82,6 +86,10 @@ class handler_json:
             # Banco
             data_banco["status checkbox"] = banco_di_taratura.list_status_checkbox_setup_page
             data_banco["file setup name"] = banco_di_taratura.file_setup_banco_name
+            data_banco["m_main"] = banco_di_taratura.m_main
+            data_banco["q_main"] = banco_di_taratura.q_main
+            data_banco["m_temp"] = banco_di_taratura.m_temp
+            data_banco["q_temp"] = banco_di_taratura.q_temp
             # C_modbus
             data_controller_modbus["zero main"] = banco_di_taratura.controller_modbus.DATA.zero_main
             data_controller_modbus["coefficiente main"] = banco_di_taratura.controller_modbus.DATA.coefficiente_main

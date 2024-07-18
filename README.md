@@ -168,4 +168,7 @@
         - multimetro in parallelo, pt100 per temperatura
 -------------------------------------------------------------------------------------------
 
-    problema da risolvere: mi salva valori None al posto dei valori che mi servono nel setup euramet
+    [[problema da risolvere: mi salva valori None al posto dei valori che mi servono nel setup euramet]]
+
+18/07
+    Risolto problema del salvataggio impostazioni Euramet 

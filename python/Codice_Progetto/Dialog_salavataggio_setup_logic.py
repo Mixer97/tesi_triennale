@@ -2,7 +2,7 @@ from __future__ import annotations
 from PySide6.QtWidgets import QDialog
 from Dialog_salvataggio_ui import Ui_Dialog
 from typing import TYPE_CHECKING
-from Handler_JSON import handler_json
+from logic_classes.Handler_JSON import handler_json
 
 if TYPE_CHECKING:
     from Banco_Taratura import BANCO_DI_TARATURA

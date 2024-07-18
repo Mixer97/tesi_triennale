@@ -5,7 +5,7 @@ from Dialog_xlxs_euramet_ui import Ui_Dialog_csv_euramet
 from typing import TYPE_CHECKING
 from openpyxl import load_workbook
 from Dialog_error_logic import Error_window
-from Handler_JSON import handler_json
+from logic_classes.Handler_JSON import handler_json
 from Dialog_salvataggio_euramet_setup import Salvataggio_setup_euramet
 import os
 
@@ -31,9 +31,30 @@ class csv_euramet_window(QDialog):
     # segnali
         self.ui.pushButton_save_and_back.clicked.connect(self.save_and_back)
         self.ui.pushButton_save_euramet_setup.clicked.connect(self.show_finestra_salvataggio_euramet_setup)
-        self.ui.pushButton_save_euramet_setup.clicked.connect(self.update_values)
         self.ui.pushButton_load_euramet_setup.clicked.connect(self.load_euramet_setup)
         
+        self.ui.label_colonna_start_Q1.editingFinished.connect(self.update_values)
+        self.ui.label_colonna_start_Q3.editingFinished.connect(self.update_values)
+        self.ui.label_riga_start_Q1.editingFinished.connect(self.update_values)
+        self.ui.label_riga_start_Q3.editingFinished.connect(self.update_values)
+        self.ui.label_nome_foglio_dati.editingFinished.connect(self.update_values)
+        self.ui.label_nome_excell.editingFinished.connect(self.update_values)
+        self.ui.lineEdit_data.editingFinished.connect(self.update_values)
+        
+        self.ui.lineEdit_rif_interno_attivita.editingFinished.connect(self.update_values)
+        self.ui.lineEdit_cliente.editingFinished.connect(self.update_values)
+        self.ui.lineEdit_SN_TX.editingFinished.connect(self.update_values)
+        self.ui.lineEdit_descrizione_UUT.editingFinished.connect(self.update_values)
+        self.ui.lineEdit_progetto_UUT.editingFinished.connect(self.update_values)
+        self.ui.lineEdit_SN_UUT.editingFinished.connect(self.update_values)
+        self.ui.lineEdit_report_calibrazione_TX.editingFinished.connect(self.update_values)
+
+        self.ui.lineEdit_unita_ingegneristica_di_misura.editingFinished.connect(self.update_values)
+        self.ui.lineEdit_unita_ingegneristica_UUT.editingFinished.connect(self.update_values)
+        self.ui.lineEdit_scale.editingFinished.connect(self.update_values)
+        self.ui.lineEdit_offset.editingFinished.connect(self.update_values)
+        self.ui.lineEdit_coppia_taratura_max.editingFinished.connect(self.update_values)
+
         
     def refresh_grafico(self):
         # Riferimento per inserimento dati

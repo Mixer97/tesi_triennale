@@ -1164,10 +1164,10 @@
                  </property>
                  <property name="styleSheet">
                   <string notr="true">QLabel{
-	background-color:rgb(255, 207, 84); 
+	background-color:rgb(255, 153, 119); 
 	border-style: outset;
     border-width: 2px;
-    border-color: rgb(255, 106, 0);
+    border-color:rgb(255, 140, 100);
 	border-radius: 0px;
 	color: rgb(0,0,0);
 }
@@ -1273,6 +1273,9 @@
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
+                 </property>
+                 <property name="margin">
+                  <number>2</number>
                  </property>
                 </widget>
                </item>
@@ -1806,6 +1809,11 @@
              <height>200</height>
             </size>
            </property>
+           <property name="font">
+            <font>
+             <pointsize>14</pointsize>
+            </font>
+           </property>
            <property name="cursor">
             <cursorShape>PointingHandCursor</cursorShape>
            </property>
@@ -1825,7 +1833,7 @@ QPushButton::pressed{
 }</string>
            </property>
            <property name="text">
-            <string>SALVA E TORNA AL GRAFICO</string>
+            <string>SALVA E CREA EXCELL EURAMET</string>
            </property>
           </widget>
          </item>
@@ -2020,7 +2028,7 @@ QPushButton::pressed{
             <set>Qt::AlignCenter</set>
            </property>
            <property name="margin">
-            <number>2</number>
+            <number>5</number>
            </property>
           </widget>
          </item>
@@ -2028,7 +2036,7 @@ QPushButton::pressed{
           <widget class="QLabel" name="label_euramet_attuale">
            <property name="font">
             <font>
-             <pointsize>6</pointsize>
+             <pointsize>8</pointsize>
             </font>
            </property>
            <property name="styleSheet">

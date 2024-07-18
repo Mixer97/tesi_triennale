@@ -620,10 +620,10 @@ class Ui_Dialog_csv_euramet(object):
         self.label_title_cella_start_Q1_2.setObjectName(u"label_title_cella_start_Q1_2")
         self.label_title_cella_start_Q1_2.setMinimumSize(QSize(0, 0))
         self.label_title_cella_start_Q1_2.setStyleSheet(u"QLabel{\n"
-"	background-color:rgb(255, 207, 84); \n"
+"	background-color:rgb(255, 153, 119); \n"
 "	border-style: outset;\n"
 "    border-width: 2px;\n"
-"    border-color: rgb(255, 106, 0);\n"
+"    border-color:rgb(255, 140, 100);\n"
 "	border-radius: 0px;\n"
 "	color: rgb(0,0,0);\n"
 "}\n"
@@ -675,6 +675,7 @@ class Ui_Dialog_csv_euramet(object):
 "}\n"
 "")
         self.label_title_cella_start_Q1_3.setAlignment(Qt.AlignCenter)
+        self.label_title_cella_start_Q1_3.setMargin(2)
 
         self.horizontalLayout_20.addWidget(self.label_title_cella_start_Q1_3)
 
@@ -970,6 +971,9 @@ class Ui_Dialog_csv_euramet(object):
         sizePolicy2.setHeightForWidth(self.pushButton_save_and_back.sizePolicy().hasHeightForWidth())
         self.pushButton_save_and_back.setSizePolicy(sizePolicy2)
         self.pushButton_save_and_back.setMaximumSize(QSize(16777215, 200))
+        font = QFont()
+        font.setPointSize(14)
+        self.pushButton_save_and_back.setFont(font)
         self.pushButton_save_and_back.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_save_and_back.setStyleSheet(u"QPushButton{\n"
 "	border-width: 1px;\n"
@@ -1018,12 +1022,12 @@ class Ui_Dialog_csv_euramet(object):
         sizePolicy3.setHeightForWidth(self.pushButton_save_euramet_setup.sizePolicy().hasHeightForWidth())
         self.pushButton_save_euramet_setup.setSizePolicy(sizePolicy3)
         self.pushButton_save_euramet_setup.setMaximumSize(QSize(200, 16777215))
-        font = QFont()
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setStrikeOut(False)
-        self.pushButton_save_euramet_setup.setFont(font)
+        font1 = QFont()
+        font1.setPointSize(14)
+        font1.setBold(False)
+        font1.setItalic(False)
+        font1.setStrikeOut(False)
+        self.pushButton_save_euramet_setup.setFont(font1)
         self.pushButton_save_euramet_setup.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_save_euramet_setup.setStyleSheet(u"QPushButton{\n"
 "	border-width: 1px;\n"
@@ -1046,7 +1050,7 @@ class Ui_Dialog_csv_euramet(object):
         sizePolicy3.setHeightForWidth(self.pushButton_load_euramet_setup.sizePolicy().hasHeightForWidth())
         self.pushButton_load_euramet_setup.setSizePolicy(sizePolicy3)
         self.pushButton_load_euramet_setup.setMaximumSize(QSize(200, 16777215))
-        self.pushButton_load_euramet_setup.setFont(font)
+        self.pushButton_load_euramet_setup.setFont(font1)
         self.pushButton_load_euramet_setup.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_load_euramet_setup.setStyleSheet(u"QPushButton{\n"
 "	border-width: 1px;\n"
@@ -1090,15 +1094,15 @@ class Ui_Dialog_csv_euramet(object):
 "}\n"
 "")
         self.label_title_cella_start_Q3_4.setAlignment(Qt.AlignCenter)
-        self.label_title_cella_start_Q3_4.setMargin(2)
+        self.label_title_cella_start_Q3_4.setMargin(5)
 
         self.gridLayout_4.addWidget(self.label_title_cella_start_Q3_4, 0, 0, 1, 1)
 
         self.label_euramet_attuale = QLabel(self.frame_24)
         self.label_euramet_attuale.setObjectName(u"label_euramet_attuale")
-        font1 = QFont()
-        font1.setPointSize(6)
-        self.label_euramet_attuale.setFont(font1)
+        font2 = QFont()
+        font2.setPointSize(8)
+        self.label_euramet_attuale.setFont(font2)
         self.label_euramet_attuale.setStyleSheet(u"QWidget{\n"
 "	background-color:rgb(255, 255, 255); \n"
 "	border-style: outset;\n"
@@ -1166,7 +1170,7 @@ class Ui_Dialog_csv_euramet(object):
         self.lineEdit_offset.setText(QCoreApplication.translate("Dialog_csv_euramet", u"2.5", None))
         self.label_coppia_taratura_max.setText(QCoreApplication.translate("Dialog_csv_euramet", u"Coppia taratura MAX [Nm]", None))
         self.lineEdit_coppia_taratura_max.setText(QCoreApplication.translate("Dialog_csv_euramet", u"2000", None))
-        self.pushButton_save_and_back.setText(QCoreApplication.translate("Dialog_csv_euramet", u"SALVA E TORNA AL GRAFICO", None))
+        self.pushButton_save_and_back.setText(QCoreApplication.translate("Dialog_csv_euramet", u"SALVA E CREA EXCELL EURAMET", None))
         self.pushButton_save_euramet_setup.setText(QCoreApplication.translate("Dialog_csv_euramet", u"SALVA SETUP", None))
         self.pushButton_load_euramet_setup.setText(QCoreApplication.translate("Dialog_csv_euramet", u"CARICA SETUP", None))
         self.label_title_cella_start_Q3_4.setText(QCoreApplication.translate("Dialog_csv_euramet", u"setup attuale", None))
