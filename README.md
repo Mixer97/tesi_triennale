@@ -172,3 +172,6 @@
 
 18/07
     Risolto problema del salvataggio impostazioni Euramet 
+    
+19/07
+    
