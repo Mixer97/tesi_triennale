@@ -1,5 +1,5 @@
 from __future__ import annotations
-from PySide6.QtCore import QTimer
+from PySide6.QtCore import QTimer, QCoreApplication
 from PySide6.QtWidgets import QMainWindow, QFileDialog
 from qt_classes.View_QT_SetupPage_ui import Ui_SetupWindow
 from logic_classes.Dialog_setup_1_logic import Canale_Setup_1
@@ -27,6 +27,8 @@ class SetupWindow(QMainWindow):
         # Setup the user interface
         self.ui.setupUi(self)
         self.homepage = homepage
+        self.setWindowTitle(QCoreApplication.translate("SetupWindow", u"Setup Window", None))
+        self.banco_di_taratura.set_window_icon(self)
 
         self.controller_TCP = banco_di_taratura.controller_tcp
         self.controller_MODBUS = banco_di_taratura.controller_modbus
@@ -37,6 +39,8 @@ class SetupWindow(QMainWindow):
         self.status_timer = banco_di_taratura.status_timer  # bool [FALSE]
         
         self.finestra_salvataggio_setup = Salvataggio_setup(self.banco_di_taratura, self)
+        
+        self.setWindowTitle(QCoreApplication.translate("SetupWindow", u"Setup Window", None))
         
         while self.list_status_checkbox == [0,0,0,0]:     
             self.list_status_checkbox=self.controller_TCP.read_channels_active() 
@@ -109,6 +113,7 @@ class SetupWindow(QMainWindow):
         
     def open_setup_CH1_window(self):
         self.setup_window = Canale_Setup_1(banco_di_taratura=self.banco_di_taratura)
+        
         self.setup_window.exec()
         
     def open_setup_CH2_window(self):
@@ -125,6 +130,7 @@ class SetupWindow(QMainWindow):
         
     def open_setup_SG600_window(self):
         self.setup_window = Canale_Setup_SG600(banco_di_taratura=self.banco_di_taratura)
+        self.setup_window.setWindowTitle("SG600 Setup Window")
         self.setup_window.exec()
     
     def load_banco_setup(self):
