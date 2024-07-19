@@ -33,6 +33,7 @@ class Ui_MainWindow(object):
 "    border-color: black;\n"
 "}\n"
 "")
+        MainWindow.setIconSize(QSize(20, 20))
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"QWidget {\n"

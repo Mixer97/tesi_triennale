@@ -2,7 +2,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 from PySide6.QtWidgets import QMainWindow, QGraphicsView, QGraphicsScene, QGraphicsItem, QApplication
-from PySide6.QtCore import QSize
+from PySide6.QtCore import QSize, QCoreApplication
 from PySide6.QtCore import QTimer
 import  PySide6.QtCore
 from qt_classes.Mainwindow_grafico_ui import Ui_GraphWindow
@@ -27,6 +27,7 @@ class Graph_static_recap:
         self.banco_di_taratura = banco_di_taratura
         self.graph_window = graph_window
         graph_euramet = self.graph_window.ui.graphWidget_visual_euramet
+
         
         # Impostazione del grafico di recap 
         self.graph_euramet = graph_euramet  # Grafico recap euramet
@@ -423,10 +424,13 @@ class GraphWindow(QMainWindow):
         # Create an instance of the generated UI class
         self.ui = Ui_GraphWindow()
         # Setup the user interface
+
         self.ui.setupUi(self)
         self.start_time = time.time()
         self.homepage = homepage
         self.euramet_window = Euramet_window(self.banco_di_taratura, self)
+        self.euramet_window.setWindowTitle("Euramet Window")
+        self.banco_di_taratura.set_window_icon(self)
         self.euramet_measure_entity:Misura_euramet = None  # inizialmente impostata dal setup di euramet
         self.graph_recap = Graph_static_recap(self, banco_di_taratura)
         

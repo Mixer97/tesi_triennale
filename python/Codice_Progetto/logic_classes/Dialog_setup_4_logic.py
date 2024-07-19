@@ -1,6 +1,7 @@
 from __future__ import annotations
 from PySide6.QtWidgets import QDialog
 from qt_classes.Dialog_setup_4_ui import Ui_Canale_Setup_4
+from PySide6.QtCore import QCoreApplication
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -15,6 +16,8 @@ class Canale_Setup_4(QDialog):
         # Create an instance of the generated UI class
         self.ui = Ui_Canale_Setup_4()
         # Setup the user interface
+        self.setWindowTitle(QCoreApplication.translate("Canale_Setup_4", u"Channel_4 Setup Window", None))
+        self.banco_di_taratura.set_window_icon(self)
         self.ui.setupUi(self)
         self.setModal(True)
         self.ui.pushButton_azzeramento_tara.setStyleSheet(

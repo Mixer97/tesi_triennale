@@ -1,6 +1,7 @@
 from __future__ import annotations
 from PySide6.QtWidgets import QDialog
 from PySide6.QtCore import QTimer
+from PySide6.QtCore import QCoreApplication
 from qt_classes.Dialog_setup_euramet_ui import Ui_Dialog_Euramet_setup
 from logic_classes.Dialog_xlxs_euramet_logic import csv_euramet_window
 from typing import TYPE_CHECKING
@@ -20,8 +21,11 @@ class Euramet_window(QDialog):
         # Create an instance of the generated UI class
         self.ui = Ui_Dialog_Euramet_setup()
         # Setup the user interface
+        self.setWindowTitle(QCoreApplication.translate("Euramet_window", u"Euramet Window", None))
+        self.banco_di_taratura.set_window_icon(self)
         self.ui.setupUi(self)
         self.csv_setup_window = csv_euramet_window(self.banco_di_taratura, self)
+        self.csv_setup_window.setWindowTitle("Euramet Setup Window")
         self.graph_window = graph_window
         self.first_quadrant_ended = 0
         

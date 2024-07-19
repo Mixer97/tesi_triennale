@@ -174,4 +174,7 @@
     Risolto problema del salvataggio impostazioni Euramet 
     
 19/07
-    Riordino il codice in modo che sia diviso in package
+    Riordino il codice in modo che sia diviso in package.
+    INNO SETUP usare per setup.
+    libreria logging per scrittura su file e a terminale per riuscire a avere un log quando le cose non funzionano
+    cambiata l'icona delle varie finestre in modo che ripiazzi quella di default 

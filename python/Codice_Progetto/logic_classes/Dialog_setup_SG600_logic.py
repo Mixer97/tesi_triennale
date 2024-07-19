@@ -1,6 +1,7 @@
 from __future__ import annotations
 from PySide6.QtWidgets import QDialog
 from qt_classes.dialog_setup_SG600_ui import Ui_SG600_Setup
+from PySide6.QtCore import QCoreApplication
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -15,6 +16,8 @@ class Canale_Setup_SG600(QDialog):
         # Create an instance of the generated UI class
         self.ui = Ui_SG600_Setup()
         # Setup the user interface
+        self.setWindowTitle(QCoreApplication.translate("Canale_Setup_SG600", u"SG600 Setup Window", None))
+        self.banco_di_taratura.set_window_icon(self)
         self.ui.setupUi(self)
         self.setModal(True)
         

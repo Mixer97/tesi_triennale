@@ -18,6 +18,7 @@ class Salvataggio_setup_euramet(QDialog):
         self.ui.setupUi(self)
         self.setModal(True)
         self.banco_di_taratura.file_setup_euramet_name = "Default"
+        self.banco_di_taratura.set_window_icon(self)
         
         # segnali
         self.ui.lineEdit_nome_file.editingFinished.connect(self.update_filename)

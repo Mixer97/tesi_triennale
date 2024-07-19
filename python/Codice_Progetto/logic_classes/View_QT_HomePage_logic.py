@@ -1,5 +1,5 @@
 from __future__ import annotations
-from PySide6.QtCore import QTimer
+from PySide6.QtCore import QTimer, QCoreApplication
 from PySide6.QtWidgets import QMainWindow
 from qt_classes.View_QT_HomePage_ui import Ui_MainWindow
 from logic_classes.View_QT_SetupPage_logic import SetupWindow
@@ -7,6 +7,7 @@ from logic_classes.Mainwindow_grafico_logic import GraphWindow
 from logic_classes.Dialog_salavataggio_registrazione_logic import Salvataggio_registrazione
 from PySide6.QtCore import QSize
 from typing import TYPE_CHECKING
+from PySide6.QtGui import QIcon
 import time
 
 if TYPE_CHECKING:
@@ -21,6 +22,8 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         # Setup the user interface
         self.ui.setupUi(self)
+        self.setWindowTitle(QCoreApplication.translate("MainWindow", u"Main Window", None))
+        self.banco_di_taratura.set_window_icon(self)
         
         
         self.logger = banco_di_taratura.logger
@@ -34,6 +37,7 @@ class MainWindow(QMainWindow):
         
         self.setup_window = SetupWindow(self.banco_di_taratura, self)
         self.setup_graph = GraphWindow(self.banco_di_taratura, self)
+        self.setup_graph.setWindowTitle("Graph Window")
         self.finestra_salvataggio_registrazione = Salvataggio_registrazione(self.banco_di_taratura, self)
     
     # setup segnali

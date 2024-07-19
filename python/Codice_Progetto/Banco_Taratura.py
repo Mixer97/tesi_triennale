@@ -7,6 +7,7 @@ from threading import Thread
 from time import sleep
 from pymodbus import pymodbus_apply_logging_config
 import sys
+from PySide6.QtGui import QIcon
 from logic_classes.View_QT_HomePage_logic import MainWindow
 
 
@@ -19,6 +20,9 @@ class BANCO_DI_TARATURA:
         self.controller_tcp=C_Laumas.Controller_TCP(self)
         self.controller_modbus=C_Seneca.Controller_MODBUS(self)
         self.logger=Logger.LOGGER(nome_CSV="Default", banco_di_taratura=self, status=0)
+        
+        # variabili per grafica
+        self.window_icon_path = "python\\Codice_Progetto\\Assets\\connection.png"
         
         # variabili per home page
         self.startStop = False
@@ -83,7 +87,8 @@ class BANCO_DI_TARATURA:
         self.x = 0
         
     # metodi comuni a tutte le istanze da metter qui
-
+    def set_window_icon(self, window):
+        window.setWindowIcon(QIcon(self.window_icon_path))
 
 
 # FUNZIONI NECESSARIE PER I THREAD

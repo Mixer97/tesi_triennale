@@ -1,6 +1,6 @@
 from __future__ import annotations
 from PySide6.QtWidgets import QDialog, QFileDialog
-from PySide6.QtCore import QTimer
+from PySide6.QtCore import QTimer, QCoreApplication
 from qt_classes.Dialog_xlxs_euramet_ui import Ui_Dialog_csv_euramet
 from typing import TYPE_CHECKING
 from openpyxl import load_workbook
@@ -20,6 +20,8 @@ class csv_euramet_window(QDialog):
         # Create an instance of the generated UI class
         self.ui = Ui_Dialog_csv_euramet()
         # Setup the user interface (quindi tutti gli elementi saranno identificati da self.ui)
+        self.setWindowTitle("Euramet Window Setup")
+        self.banco_di_taratura.set_window_icon(self)
         self.ui.setupUi(self)
         self.setModal(True)
         self.euramet_window = euramet_window
