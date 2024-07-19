@@ -8,6 +8,7 @@ import csv
 import os
 from typing import TYPE_CHECKING
 from logic_classes.Dialog_error_logic import Error_window
+import logging 
 
 if TYPE_CHECKING:
     from Banco_Taratura import BANCO_DI_TARATURA

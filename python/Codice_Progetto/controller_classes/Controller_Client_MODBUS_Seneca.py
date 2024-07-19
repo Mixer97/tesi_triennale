@@ -4,8 +4,8 @@ from pymodbus.client import ModbusSerialClient
 from pymodbus.framer import Framer
 from pymodbus import pymodbus_apply_logging_config
 from time import sleep
-import sys
-import serial
+from logic_classes.Dialog_error_logic import Error_window
+import logging 
 
 if TYPE_CHECKING:
     from Banco_Taratura import BANCO_DI_TARATURA
@@ -52,37 +52,51 @@ class Controller_MODBUS:
 
     """---------------------------CONNECT-----------------------------"""
 
+    # Connessione al dispositivo Seneca
     def connect(self):
-        
-        connection = self.client.connect() 
-        for i in range(1,11):
-            if connection:
-                return True
-            else: 
-                print(f"ERROR! connessione al dispostivo presente sulla COM-port {self.SLAVE.port} fallita.\n tentativo di riconnessione numero: {i}\\10")
-                connection = self.client.connect() 
-                sleep(0.5)
-        print("Connessione fallita dopo 10 tentativi!")
-        return False
+        try:
+            connection = self.client.connect() 
+            for i in range(1,4):
+                if connection:
+                    return True
+                else: 
+                    logging.error(f"ERROR! connessione al dispostivo presente sulla COM-port {self.SLAVE.port} fallita.\n tentativo di riconnessione numero: {i}\\3", exc_info=True)
+                    self.show_error_window(f"connessione al dispostivo presente sulla COM-port {self.SLAVE.port} fallita.\n tentativo di riconnessione numero: {i}\\3", "Error Window")
+                    connection = self.client.connect() 
+                    sleep(2)
+        except Exception as e:
+            logging.error("Connessione fallita dopo 3 tentativi!", exc_info=True)
+            self.show_error_window(f"connessione al dispostivo presente sulla COM-port {self.SLAVE.port} fallita.\n", "Closing Error Window")
+            return False
 
     """---------------------------WORKING-----------------------------"""      
         
     def read_MachineID(self):
-        risultati = self.client.read_holding_registers(address=0, count=1, slave=self.SLAVE.ID)
-        while risultati.isError():
+        try:
             risultati = self.client.read_holding_registers(address=0, count=1, slave=self.SLAVE.ID)
-        risultati_elaborati = risultati
-        return risultati_elaborati
-    
+            while risultati.isError():
+                risultati = self.client.read_holding_registers(address=0, count=1, slave=self.SLAVE.ID)
+            risultati_elaborati = risultati
+            return risultati_elaborati
+        except Exception as e:
+            logging.exception("Exception occurred", exc_info=True)
     
     def read_holding_registers_mV(self):
-        list_results_mV = [0,0]
-        while list_results_mV == [0,0]:
-            list_results_mV = self.read_registers(start_address=16, count=2)
-        return list_results_mV
+        try:
+            list_results_mV = [0,0]
+            while list_results_mV == [0,0]:
+                list_results_mV = self.read_registers(start_address=16, count=2)
+            return list_results_mV
+        except Exception as e:
+            logging.exception("Exception occurred", exc_info=True)
             
     """---------------------------UTILS-----------------------------"""
     
+    def show_error_window(self, messaggio_di_errore, titolo_finestra):
+        error_window = Error_window(banco_di_taratura=self)
+        error_window.set_error_message(message=str(messaggio_di_errore))
+        error_window.setWindowTitle(str(titolo_finestra))
+        error_window.exec()
      
     def read_registers(self, start_address, count):
         if self.connect():
@@ -90,31 +104,43 @@ class Controller_MODBUS:
                 response = self.client.read_holding_registers(address=start_address, count=count, slave=self.SLAVE.ID)
                 if not response.isError():
                     return response.registers
-                else:
-                    print("Errore nella lettura dei registri.")
+                else: 
+                    logging.exception("Errore nella lettura dei registri.", exc_info=True)
             except Exception as e:
-                print(f"Eccezione durante la lettura dei registri: {e}")
+                logging.exception("Exception occurred", exc_info=True)
         else:
-            print("Connessione non riuscita.")
+            logging.exception("Connessione non riuscita.", exc_info=True)
         return None
     
     """---------------------------DATA INTERACTIONS-----------------------------"""
     
     def get_mV_main(self):
-        y = self.DATA.canale_principale_mV*self.banco_di_taratura.m_main + self.banco_di_taratura.q_main
-        return y
+        try:
+            y = self.DATA.canale_principale_mV*self.banco_di_taratura.m_main + self.banco_di_taratura.q_main
+            return y
+        except Exception as e:
+                logging.exception("Exception occurred", exc_info=True)
     
     def get_Nm_main(self):
-        self.DATA.canale_principale_Nm = (self.get_mV_main() - self.DATA.zero_main) * self.DATA.coefficiente_main
-        return self.DATA.canale_principale_Nm
+        try:
+            self.DATA.canale_principale_Nm = (self.get_mV_main() - self.DATA.zero_main) * self.DATA.coefficiente_main
+            return self.DATA.canale_principale_Nm
+        except Exception as e:
+                logging.exception("Exception occurred", exc_info=True)
     
     def get_mV_temp(self):
-        y = self.DATA.canale_temperatura_mV*self.banco_di_taratura.m_temp + self.banco_di_taratura.q_temp
-        return y
+        try:
+            y = self.DATA.canale_temperatura_mV*self.banco_di_taratura.m_temp + self.banco_di_taratura.q_temp
+            return y
+        except Exception as e:
+                logging.exception("Exception occurred", exc_info=True)
     
     def get_C_temp(self):
-        self.DATA.canale_temperatura_C = (self.get_mV_temp() - self.DATA.zero_temp) * self.DATA.coefficiente_temp
-        return self.DATA.canale_temperatura_C
+        try:
+            self.DATA.canale_temperatura_C = (self.get_mV_temp() - self.DATA.zero_temp) * self.DATA.coefficiente_temp
+            return self.DATA.canale_temperatura_C
+        except Exception as e:
+                logging.exception("Exception occurred", exc_info=True)
             
 if __name__ == "__main__":
     controller=Controller_MODBUS()

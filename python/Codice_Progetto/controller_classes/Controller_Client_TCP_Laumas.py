@@ -4,6 +4,8 @@ from time import sleep
 from pymodbus.client import ModbusTcpClient
 from pymodbus.framer import Framer
 import qt_classes.View_QT_HomePage_ui as View_QT_HomePage_ui
+from logic_classes.Dialog_error_logic import Error_window
+import logging 
 
 if TYPE_CHECKING:
     from Banco_Taratura import BANCO_DI_TARATURA
@@ -79,51 +81,50 @@ class Controller_TCP:
     
     """---------------------------CONNECT-----------------------------"""
 
-    # Connessione al dispositivo Modbus
+    # Connessione al dispositivo Laumas
     def connect(self):
-        connection = self.client.connect() 
-        for i in range(1,3):
-            if connection:
-                return True
-            else: 
-                print(f"ERROR! connessione al dispostivo presente all'IP {self.SLAVE.IP} fallita.\n tentativo di riconnessione numero: {i}\\10")
-                connection = self.client.connect() 
-                sleep(0.5)
-        print("Connessione fallita dopo 10 tentativi!")
-        return False
+        try:
+            connection = self.client.connect() 
+            for i in range(1,4):
+                if connection:
+                    return True
+                else: 
+                    print(f"ERROR! connessione al dispostivo presente all'IP {self.SLAVE.IP} fallita.\n tentativo di riconnessione numero: {i}\\3")
+                    # self.show_error_window(f"connessione al dispostivo presente all'IP {self.SLAVE.IP} fallita.\n tentativo di riconnessione numero: {i}\\3", "Error Window")
+                    connection = self.client.connect() 
+                    sleep(2)
+        except Exception as e:
+            logging.error("Connessione fallita dopo 3 tentativi!", exc_info=True)
+            # self.show_error_window(f"connessione al dispostivo presente all'IP {self.SLAVE.IP} fallita.", "Closing Error Window")
+            return False
 
  
-    """---------------------------WORKING-----------------------------"""        
+    """---------------------------WORKING-----------------------------"""   
+    
+    def show_error_window(self, messaggio_di_errore, titolo_finestra):
+        error_window = Error_window(banco_di_taratura=self)
+        error_window.set_error_message(message=str(messaggio_di_errore))
+        error_window.setWindowTitle(str(titolo_finestra))
+        error_window.exec()     
         
     def read_holding_registers_mV(self):
             if self.connect:     
                     
                 # Inviare il comando 6902 a CMDR (abilitare lettura in mV)
                 self.write_CMDR(self.CMDR_COMMANDS.COMMAND_6902)
-
                 
                 # Lettura holding registers (52...55)
                 risultatimV=self.client.read_holding_registers(address=self.ADDRESS.REGISTER_3, count=4, slave=self.SLAVE.ID)
-                
 
                 while risultatimV.registers==[0,0,0,0]:
                     risultatimV=self.client.read_holding_registers(address=self.ADDRESS.REGISTER_3, count=4, slave=self.SLAVE.ID)
                     self.write_CMDR(self.CMDR_COMMANDS.COMMAND_6902)
 
-
                 # Conversione
                 for value in range(4):
                     risultatimV.registers[value] = float((self.convert_to_signed_16_bit(risultatimV.registers[value]))/100)
 
-                # Print
-                # if not risultatimV.isError():
-                #     print("Valore letto:", risultatimV.registers)
-                # else:
-                #         print("Errore nella lettura:", risultatimV)
-
-                # Inviare il comando 6903 a CMDR (disabilitare lettura in mV)
                 self.write_CMDR(self.CMDR_COMMANDS.COMMAND_6903)
-
                 
                 return risultatimV.registers
 
