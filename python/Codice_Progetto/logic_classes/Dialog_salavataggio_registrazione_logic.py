@@ -1,7 +1,7 @@
 from __future__ import annotations
 from PySide6.QtWidgets import QDialog
-from Dialog_salvataggio_ui import Ui_Dialog
-import Logger
+from qt_classes.Dialog_salvataggio_ui import Ui_Dialog
+import controller_classes.Logger as Logger
 from typing import TYPE_CHECKING
 import time
 

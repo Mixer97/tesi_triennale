@@ -12,6 +12,13 @@ Venv
 
 # File scelti da me 
 *.json
+*.toc
+*.pyz
+*.zip
+*.html
+*.pkg 
+*.spec
+*.exe
 
 # User-specific files
 *.rsuser

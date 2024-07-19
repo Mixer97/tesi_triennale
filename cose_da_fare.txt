@@ -41,6 +41,8 @@ EURAMET LOGIC:
     - implementare la logica per l'altezza
     
     - dopo avere implementato la logica euramet per bene, andare a cambiare la guida Per fabio e aggiornarla in modo che corrisponda a eventuali elementi/logiche aggiunte.
+    - inserire nome file attuale salvataggio excell per la schermata euramet
+    - disattivare pulsante per cambiare csv registrazione mentre il pulsante registrazione è rosso (cioè sta registrando)
 
 BUG SCOPERTI:
 

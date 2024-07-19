@@ -1,14 +1,13 @@
 from __future__ import annotations
-import sys
-from PySide6.QtWidgets import QApplication, QMainWindow
-import Logger as Logger
-import Controller_Client_TCP_Laumas as C_Laumas
-import Controller_Client_MODBUS_Seneca as C_Seneca
+from PySide6.QtWidgets import QApplication
+import controller_classes.Logger as Logger
+import controller_classes.Controller_Client_TCP_Laumas as C_Laumas
+import controller_classes.Controller_Client_MODBUS_Seneca as C_Seneca
 from threading import Thread
 from time import sleep
 from pymodbus import pymodbus_apply_logging_config
 import sys
-from View_QT_HomePage_logic import MainWindow
+from logic_classes.View_QT_HomePage_logic import MainWindow
 
 
 

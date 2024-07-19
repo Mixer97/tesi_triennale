@@ -1,15 +1,15 @@
 from __future__ import annotations
 from PySide6.QtCore import QTimer
 from PySide6.QtWidgets import QMainWindow, QFileDialog
-from View_QT_SetupPage_ui import Ui_SetupWindow
-from Dialog_setup_1_logic import Canale_Setup_1
-from Dialog_setup_2_logic import Canale_Setup_2
-from Dialog_setup_3_logic import Canale_Setup_3
-from Dialog_setup_4_logic import Canale_Setup_4
-from Dialog_setup_SG600_logic import Canale_Setup_SG600
-from Dialog_salavataggio_setup_logic import Salvataggio_setup
+from qt_classes.View_QT_SetupPage_ui import Ui_SetupWindow
+from logic_classes.Dialog_setup_1_logic import Canale_Setup_1
+from logic_classes.Dialog_setup_2_logic import Canale_Setup_2
+from logic_classes.Dialog_setup_3_logic import Canale_Setup_3
+from logic_classes.Dialog_setup_4_logic import Canale_Setup_4
+from logic_classes.Dialog_setup_SG600_logic import Canale_Setup_SG600
+from logic_classes.Dialog_salavataggio_setup_logic import Salvataggio_setup
 from logic_classes.Handler_JSON import handler_json
-from Dialog_error_logic import Error_window
+from logic_classes.Dialog_error_logic import Error_window
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:

@@ -1,12 +1,12 @@
 from __future__ import annotations
 from PySide6.QtWidgets import QDialog, QFileDialog
 from PySide6.QtCore import QTimer
-from Dialog_xlxs_euramet_ui import Ui_Dialog_csv_euramet
+from qt_classes.Dialog_xlxs_euramet_ui import Ui_Dialog_csv_euramet
 from typing import TYPE_CHECKING
 from openpyxl import load_workbook
-from Dialog_error_logic import Error_window
+from logic_classes.Dialog_error_logic import Error_window
 from logic_classes.Handler_JSON import handler_json
-from Dialog_salvataggio_euramet_setup import Salvataggio_setup_euramet
+from logic_classes.Dialog_salvataggio_euramet_setup import Salvataggio_setup_euramet
 import os
 
 if TYPE_CHECKING:

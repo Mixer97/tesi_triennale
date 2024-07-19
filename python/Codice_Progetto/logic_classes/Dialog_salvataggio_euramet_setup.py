@@ -1,6 +1,6 @@
 from __future__ import annotations
 from PySide6.QtWidgets import QDialog
-from Dialog_salvataggio_ui import Ui_Dialog
+from qt_classes.Dialog_salvataggio_ui import Ui_Dialog
 from typing import TYPE_CHECKING
 from logic_classes.Handler_JSON import handler_json
 

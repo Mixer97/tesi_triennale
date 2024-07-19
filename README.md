@@ -174,4 +174,4 @@
     Risolto problema del salvataggio impostazioni Euramet 
     
 19/07
-    
+    Riordino il codice in modo che sia diviso in package

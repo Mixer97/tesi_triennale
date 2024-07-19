@@ -5,8 +5,8 @@ from PySide6.QtWidgets import QMainWindow, QGraphicsView, QGraphicsScene, QGraph
 from PySide6.QtCore import QSize
 from PySide6.QtCore import QTimer
 import  PySide6.QtCore
-from Mainwindow_grafico_ui import Ui_GraphWindow
-from Dialog_setup_euramet_logic import Euramet_window
+from qt_classes.Mainwindow_grafico_ui import Ui_GraphWindow
+from logic_classes.Dialog_setup_euramet_logic import Euramet_window
 import pyqtgraph as pg
 from pyqtgraph import PlotWidget
 import sys

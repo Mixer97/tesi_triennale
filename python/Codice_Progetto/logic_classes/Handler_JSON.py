@@ -1,9 +1,9 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 import json
-import Dialog_salavataggio_setup_logic
+import logic_classes.Dialog_salavataggio_setup_logic as Dialog_salavataggio_setup_logic
 import os
-from Dialog_error_logic import Error_window
+from logic_classes.Dialog_error_logic import Error_window
 
 if TYPE_CHECKING:
     from Banco_Taratura import BANCO_DI_TARATURA

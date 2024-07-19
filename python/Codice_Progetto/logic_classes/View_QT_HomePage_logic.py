@@ -1,10 +1,10 @@
 from __future__ import annotations
 from PySide6.QtCore import QTimer
 from PySide6.QtWidgets import QMainWindow
-from View_QT_HomePage_ui import Ui_MainWindow
-from View_QT_SetupPage_logic import SetupWindow
-from Mainwindow_grafico_logic import GraphWindow
-from Dialog_salavataggio_registrazione_logic import Salvataggio_registrazione
+from qt_classes.View_QT_HomePage_ui import Ui_MainWindow
+from logic_classes.View_QT_SetupPage_logic import SetupWindow
+from logic_classes.Mainwindow_grafico_logic import GraphWindow
+from logic_classes.Dialog_salavataggio_registrazione_logic import Salvataggio_registrazione
 from PySide6.QtCore import QSize
 from typing import TYPE_CHECKING
 import time

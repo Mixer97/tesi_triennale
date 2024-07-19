@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING
 from time import sleep
 from pymodbus.client import ModbusTcpClient
 from pymodbus.framer import Framer
-import View_QT_HomePage_ui as View_QT_HomePage_ui
+import qt_classes.View_QT_HomePage_ui as View_QT_HomePage_ui
 
 if TYPE_CHECKING:
     from Banco_Taratura import BANCO_DI_TARATURA

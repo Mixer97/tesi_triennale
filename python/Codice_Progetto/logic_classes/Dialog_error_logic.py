@@ -1,6 +1,6 @@
 from __future__ import annotations
 from PySide6.QtWidgets import QDialog
-from Dialog_error_ui import Ui_Dialog_Error
+from qt_classes.Dialog_error_ui import Ui_Dialog_Error
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:

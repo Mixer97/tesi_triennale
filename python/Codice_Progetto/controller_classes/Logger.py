@@ -1,13 +1,13 @@
 # importing the module 
 import pandas as pd 
-import Controller_Client_TCP_Laumas as Controller_Client_TCP_Laumas
-import Controller_Client_MODBUS_Seneca
+import controller_classes.Controller_Client_TCP_Laumas as Controller_Client_TCP_Laumas
+import controller_classes.Controller_Client_MODBUS_Seneca as Controller_Client_MODBUS_Seneca
 import time
 from time import sleep
 import csv
 import os
 from typing import TYPE_CHECKING
-from Dialog_error_logic import Error_window
+from logic_classes.Dialog_error_logic import Error_window
 
 if TYPE_CHECKING:
     from Banco_Taratura import BANCO_DI_TARATURA
