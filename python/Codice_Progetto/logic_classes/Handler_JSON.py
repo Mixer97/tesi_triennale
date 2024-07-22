@@ -12,25 +12,26 @@ if TYPE_CHECKING:
     
 class handler_json:  
             
-    def __init__(self, nome_file_load="", nome_file_save=""):
+    def __init__(self, path_file_load="", nome_file_save="", path_directory_save=""):
         self.counter_salvataggio = 0
-        self.nome_file_load = nome_file_load
+        self.path_file_load = path_file_load
         self.nome_file_save = nome_file_save
+        self.path_directory_save = path_directory_save
         
         # banco
-        self.path_load_banco=f"python\\Codice_Progetto\\JSON\\Setup_banco\\{os.path.basename(self.nome_file_load)}"
-        self.path_save_banco=f"python\\Codice_Progetto\\JSON\\Setup_banco\\{self.nome_file_save}.json"
+        self.path_load_banco=self.path_file_load
+        self.path_save_banco=f"{self.path_directory_save}/{self.nome_file_save}.json"
         self.tmp_banco = None
         
         # euramet
-        self.path_load_euramet=f"python\\Codice_Progetto\\JSON\\Setup_Euramet\\{os.path.basename(self.nome_file_load)}"
-        self.path_save_euramet=f"python\\Codice_Progetto\\JSON\\Setup_Euramet\\{self.nome_file_save}.json"
+        self.path_load_euramet=self.path_file_load
+        self.path_save_euramet=f"{self.path_directory_save}/{self.nome_file_save}.json"
         self.tmp_euramet = None
         
     
     def load_setup_banco(self, banco_di_taratura:BANCO_DI_TARATURA, setup_window:SetupWindow):
-        setup_window.ui.label_banco_attuale.setText(str(self.nome_file_load))
-        with open(self.nome_file_load, "r", encoding="utf-8") as json_string:
+        setup_window.ui.label_banco_attuale.setText(str(self.path_file_load))
+        with open(self.path_file_load, "r", encoding="utf-8") as json_string:
             new_json_string = json.load(json_string)
             
             # Banco
@@ -65,7 +66,7 @@ class handler_json:
         if os.path.exists(self.path_save_banco) and self.nome_file_save != "Default":   # cicla finche non trova un nome disponibile
             print(f"Il file '{self.path_save_banco}' esiste già. Non è stato sovrascritto.")
             self.tmp_banco = f"{self.nome_file_save}_{self.counter_salvataggio}"
-            self.path_save_banco = 'python\\Codice_Progetto\\JSON\\Setup_banco\\' + str(self.tmp_banco) + ".json"
+            self.path_save_banco = f'{self.path_directory_save}' + str(self.tmp_banco) + ".json"
             self.counter_salvataggio = self.counter_salvataggio + 1
             self.save_setup_banco(banco_di_taratura, dialog_window)
             
@@ -131,8 +132,8 @@ class handler_json:
                 
                 
     def load_setup_euramet(self, banco_di_taratura:BANCO_DI_TARATURA, setup_window_euramet:csv_euramet_window):
-        setup_window_euramet.ui.label_euramet_attuale.setText(str(self.nome_file_load))
-        with open(self.nome_file_load, "r", encoding="utf-8") as json_string:
+        setup_window_euramet.ui.label_euramet_attuale.setText(str(self.path_file_load))
+        with open(self.path_file_load, "r", encoding="utf-8") as json_string:
             new_json_string = json.load(json_string)
             
             banco_di_taratura.euramet_unita_ingegneristica_di_misura = new_json_string['euramet_unita_ingegneristica_di_misura']
@@ -168,7 +169,7 @@ class handler_json:
         if os.path.exists(self.path_save_euramet) and self.nome_file_save != "Default":   # cicla finche non trova un nome disponibile
             print(f"Il file '{self.path_save_euramet}' esiste già. Non è stato sovrascritto.")
             self.tmp_banco = f"{self.nome_file_save}_{self.counter_salvataggio}"
-            self.path_save_euramet = 'python\\Codice_Progetto\\JSON\\Setup_Euramet\\' + str(self.tmp_banco) + ".json"
+            self.path_save_euramet = f'{self.path_directory_save}' + str(self.tmp_banco) + ".json"
             self.counter_salvataggio = self.counter_salvataggio + 1
             self.save_setup_euramet(banco_di_taratura, setup_window_euramet)
             

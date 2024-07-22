@@ -1,6 +1,6 @@
 from __future__ import annotations
 from PySide6.QtCore import QTimer, QCoreApplication
-from PySide6.QtWidgets import QMainWindow
+from PySide6.QtWidgets import QMainWindow, QFileDialog
 from qt_classes.View_QT_HomePage_ui import Ui_MainWindow
 from logic_classes.View_QT_SetupPage_logic import SetupWindow
 from logic_classes.Mainwindow_grafico_logic import GraphWindow
@@ -71,6 +71,8 @@ class MainWindow(QMainWindow):
         self.setup_graph.show()
         
     def show_finestra_salvataggio_registrazione(self):
+        dname = QFileDialog.getExistingDirectory()
+        self.banco_di_taratura.logger.path_directory_CSV = dname
         self.finestra_salvataggio_registrazione.exec()
     
     def check(self):

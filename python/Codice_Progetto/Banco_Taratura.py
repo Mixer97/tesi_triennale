@@ -27,7 +27,7 @@ class BANCO_DI_TARATURA:
         
         self.controller_tcp=C_Laumas.Controller_TCP(self)
         self.controller_modbus=C_Seneca.Controller_MODBUS(self)
-        self.logger=Logger.LOGGER(nome_CSV="Default", banco_di_taratura=self, status=0)
+        self.logger=Logger.LOGGER(nome_CSV=None, banco_di_taratura=self, status=0, path_directory_CSV=None)
         
         # variabili per grafica
         self.window_icon_path = "python\\Codice_Progetto\\Assets\\connection.png"
@@ -48,11 +48,14 @@ class BANCO_DI_TARATURA:
         self.q_temp = 0
         
         # variabili per salvataggio setup file
+        self.file_setup_banco_directory_path = None 
         self.file_setup_banco_name = None
+        self.file_setup_euramet_directory_path = None 
         self.file_setup_euramet_name = None
         self.counter_salvataggio = 0
         
         # variabili per salvataggio registrazione
+        self.registrazione_directory_path = None
         self.registrazione_name = None
         self.counter_registrazione = 0
         

@@ -98,7 +98,7 @@ class SetupWindow(QMainWindow):
         self.ui.pushButton_setup_CH3.clicked.connect(self.open_setup_CH3_window)
         self.ui.pushButton_setup_CH4.clicked.connect(self.open_setup_CH4_window)
         self.ui.pushButton_setup_CHSG600.clicked.connect(self.open_setup_SG600_window)
-        self.ui.pushButton_salvataggio_setup.clicked.connect(self.show_finestra_salvataggio_setup)
+        self.ui.pushButton_salvataggio_setup.clicked.connect(self.save_banco_setup)
         self.ui.pushButton_carica_setup.clicked.connect(self.load_banco_setup)
         
         # segnale per ritorno alla homapage
@@ -108,7 +108,9 @@ class SetupWindow(QMainWindow):
         self.homepage.show()
         self.close()
         
-    def show_finestra_salvataggio_setup(self):
+    def save_banco_setup(self):
+        dname = QFileDialog.getExistingDirectory()
+        self.banco_di_taratura.file_setup_banco_directory_path = dname
         self.finestra_salvataggio_setup.exec()
         
     def open_setup_CH1_window(self):
@@ -137,7 +139,7 @@ class SetupWindow(QMainWindow):
         fname = QFileDialog.getOpenFileName() # prendi info del file selezionato
         fname = fname[0]    # dalle info estrae il path assoluto
         if fname.endswith('json'):  # controllo sia un json
-            tmp=handler_json(nome_file_load=fname)
+            tmp=handler_json(path_file_load=fname)
             tmp.load_setup_banco(banco_di_taratura=self.banco_di_taratura, setup_window=self)
         else:   # finestra di errore
             error_window = Error_window(banco_di_taratura=self.banco_di_taratura)

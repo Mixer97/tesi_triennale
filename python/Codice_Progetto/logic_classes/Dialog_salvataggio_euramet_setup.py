@@ -30,6 +30,6 @@ class Salvataggio_setup_euramet(QDialog):
 
         
     def save_setup(self):
-        tmp = handler_json(nome_file_save=self.banco_di_taratura.file_setup_euramet_name)
+        tmp = handler_json(nome_file_save=self.banco_di_taratura.file_setup_euramet_name, path_directory_save=self.banco_di_taratura.file_setup_euramet_directory_path)
         tmp.save_setup_euramet(banco_di_taratura=self.banco_di_taratura, setup_window_euramet=self)
         self.close()

@@ -91,13 +91,15 @@ class csv_euramet_window(QDialog):
         self.close()
 
     def show_finestra_salvataggio_euramet_setup(self):
+        dname = QFileDialog.getExistingDirectory()
+        self.banco_di_taratura.file_setup_euramet_directory_path = dname
         self.finestra_salvataggio_euramet_setup.exec()
 
     def load_euramet_setup(self):
         fname = QFileDialog.getOpenFileName() # prendi info del file selezionato
         fname = fname[0]    # dalle info estrae il path assoluto
         if fname.endswith('json'):  # controllo sia un json
-            tmp=handler_json(nome_file_load=fname)
+            tmp=handler_json(path_file_load=fname)
             tmp.load_setup_euramet(banco_di_taratura=self.banco_di_taratura, setup_window_euramet=self)
             self.refresh_grafico()
         else:   # finestra di errore

@@ -26,11 +26,12 @@ class LOGGER:
             self.periodo_logger=0.1
             self.counter_registrazione = 0
     
-    def __init__(self, banco_di_taratura, nome_CSV, starting_status=False, status=1):
+    def __init__(self, banco_di_taratura, nome_CSV, path_directory_CSV, starting_status=False, status=1):
         self.DATA=LOGGER.DATA()
         self.banco_di_taratura = banco_di_taratura
         self.nome_CSV = nome_CSV
-        self.path_CSV = 'python\\Codice_Progetto\\CSV\\' + str(self.nome_CSV) + ".csv"
+        self.path_directory_CSV = path_directory_CSV
+        self.path_CSV = f'{self.path_directory_CSV}/{self.nome_CSV}.csv'
         self.DATA.startStop_logger = starting_status
         self.tmp = None
         
@@ -82,7 +83,7 @@ class LOGGER:
             if os.path.exists(self.path_CSV) and self.nome_CSV != "Default":
                     print(f"Il file '{self.path_CSV}' esiste già. Non è stato sovrascritto.")
                     self.tmp = f"{self.nome_CSV}_{self.DATA.counter_registrazione}"
-                    self.path_CSV = 'python\\Codice_Progetto\\CSV\\' + str(self.tmp) + ".csv"
+                    self.path_CSV = f'{self.path_directory_CSV}/{self.tmp}.csv'
                     self.DATA.counter_registrazione = self.DATA.counter_registrazione + 1
                     self.check_path()
                     # pop up con messaggio: inserire un nuovo nome al file di registrazione

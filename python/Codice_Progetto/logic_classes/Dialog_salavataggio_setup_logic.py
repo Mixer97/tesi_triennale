@@ -30,6 +30,6 @@ class Salvataggio_setup(QDialog):
 
         
     def save_setup(self):
-        tmp = handler_json(nome_file_save=self.banco_di_taratura.file_setup_banco_name)
+        tmp = handler_json(nome_file_save=self.banco_di_taratura.file_setup_banco_name, path_directory_save=self.banco_di_taratura.file_setup_banco_directory_path)
         tmp.save_setup_banco(banco_di_taratura=self.banco_di_taratura, dialog_window=self)
         self.close()
