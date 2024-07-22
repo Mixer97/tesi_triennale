@@ -85,12 +85,14 @@ class csv_euramet_window(QDialog):
         self.ui.lineEdit_coppia_taratura_max.setText(str(self.banco_di_taratura.euramet_Coppia_taratura_MAX))
         
     def save_and_back(self):
+        self.close()
+        self.euramet_window.show()
         dname = QFileDialog.getExistingDirectory()
         self.banco_di_taratura.excell_path_dir_certificate = dname
         self.save_process()
         self.update_steps()
-        self.euramet_window.show()
-        self.close()
+
+
 
     def show_finestra_salvataggio_euramet_setup(self):
         dname = QFileDialog.getExistingDirectory()

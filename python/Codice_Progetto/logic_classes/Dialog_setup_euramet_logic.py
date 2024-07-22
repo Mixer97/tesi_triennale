@@ -7,6 +7,7 @@ from logic_classes.Dialog_xlxs_euramet_logic import csv_euramet_window
 from typing import TYPE_CHECKING
 from openpyxl import load_workbook
 from logic_classes.Euramet_logic import Misura_euramet
+from logic_classes.Dialog_error_logic import Error_window
 
 if TYPE_CHECKING:
     from Banco_Taratura import BANCO_DI_TARATURA
@@ -109,13 +110,21 @@ class Euramet_window(QDialog):
         
     def end_setup(self):
         # self.graph_window.ui.graphWidget_visual_euramet.clear()
-        self.banco_di_taratura.workbook = load_workbook(self.banco_di_taratura.excell_full_path)
-        self.graph_window.ui.pushButton_save_measure.setEnabled(True)
-        self.graph_window.ui.label_quadrante.setText(self.banco_di_taratura.quadrant)
-        self.graph_window.ui.label_step_attuale_valore.setText("0 Nm")
-        self.graph_window.euramet_measure_entity = Misura_euramet(banco_di_taratura=self.banco_di_taratura, graphwindow=self.graph_window, euramet_window=self)
-        self.graph_window.show()
-        self.close()
+        if self.banco_di_taratura.excell_full_path == None:
+            error_window = Error_window(banco_di_taratura=self.banco_di_taratura)
+            error_window.set_error_message(f"Il file per Euramet non è stato definito.")
+            error_window.setWindowTitle("Error Window")
+            error_window.exec()
+        else:
+            self.banco_di_taratura.workbook = load_workbook(self.banco_di_taratura.excell_full_path)
+            self.graph_window.ui.pushButton_save_measure.setEnabled(True)
+            self.graph_window.ui.label_quadrante.setText(self.banco_di_taratura.quadrant)
+            self.graph_window.ui.label_step_attuale_valore.setText("0 Nm")
+            self.graph_window.euramet_measure_entity = Misura_euramet(banco_di_taratura=self.banco_di_taratura, graphwindow=self.graph_window, euramet_window=self)
+            if self.banco_di_taratura.status_inserimento_altezza == False:
+                self.graph_window.ui.frame_altezza.setEnabled(False)
+            self.graph_window.show()
+            self.close()
         
     def update_steps(self):
         self.banco_di_taratura.current_number_of_steps = self.ui.comboBox_step.currentIndex() + 1   # index da 0 a 4 e io voglio da 1 a 5

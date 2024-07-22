@@ -15,7 +15,7 @@ class Rampa:
     def __init__(self, banco_di_taratura:BANCO_DI_TARATURA, tipo, misura:Misura_euramet, misure_gia_fatte) -> None:
         
         """
-        tipo --> "salita", "discesa", "zero finale"
+        tipo --> "salita1", "discesa1", "salita2", "zero finale"
         quadrante --> "Q1 (positivo)", "Q3 (negativo)"
         """
         
@@ -33,6 +33,8 @@ class Rampa:
         self.excel_path_certificate = self.banco_di_taratura.excell_full_path
         self.max_torque = misura.max_torque
         self.step_increment = int(int(self.max_torque)/int(self.number_of_steps-1))
+        if self.tipo == "discesa1":
+            self.number_of_steps = self.banco_di_taratura.current_number_of_steps-1
         
         
     def measure_value(self):
@@ -44,11 +46,18 @@ class Rampa:
         sg600 = self.banco_di_taratura.controller_modbus.DATA.canale_principale_mV/1000  # Main in V
         
         # Aggiornamento dei valori grafici
-        if self.step_attuale < self.number_of_steps-1:
-            self.misura_euramet.graphwindow.ui.label_step_attuale_valore.setText(f"{(self.step_attuale+1) * self.step_increment} Nm")
-        elif self.step_attuale == self.number_of_steps-1:
-            self.misura_euramet.graphwindow.ui.label_step_attuale_valore.setText("0 Nm")
-        
+        if self.tipo == "salita1" or self.tipo == "salita2":
+            if self.step_attuale < self.number_of_steps-1:
+                if self.tipo == "salita1" or self.tipo == "salita2":
+                    self.misura_euramet.graphwindow.ui.label_step_attuale_valore.setText(f"{(self.step_attuale+1) * self.step_increment} Nm")
+            elif self.step_attuale == self.number_of_steps-1:
+                if self.tipo == "salita1" and self.banco_di_taratura.list_status_checkbox_euramet_page[1] == 1:
+                    self.misura_euramet.graphwindow.ui.label_step_attuale_valore.setText(f"{self.step_increment * (self.banco_di_taratura.current_number_of_steps-1)} Nm")
+                else:
+                    self.misura_euramet.graphwindow.ui.label_step_attuale_valore.setText(f"0 Nm")
+        elif self.tipo == "discesa1":
+            self.misura_euramet.graphwindow.ui.label_step_attuale_valore.setText(f"{(3-(self.step_attuale)) * self.step_increment} Nm")
+            
         
         # Scrittura su Excell e aumento dello step
         data = (haxis, int(href), cella_di_carico_N, torsiometro, sg600)
@@ -103,6 +112,7 @@ class Precarichi:
         self.banco_di_taratura = banco_di_taratura
         self.number_of_steps = 6  #numero step rampa
         self.status_altezza = self.banco_di_taratura.status_inserimento_altezza  #accetta altezza o no
+        self.number_of_steps_rampe = self.banco_di_taratura.current_number_of_steps # usato solo per calcolare l'ultimo punto in caso di rampa discesa 1 senza rampa salita 1
         
         # Parametri
         self.step_attuale = 0
@@ -128,7 +138,16 @@ class Precarichi:
         end_check = self.check_end()  # Se = 1 ha finito la rampa, se = 0 mancano delle misure
         
         # Aggiornamento dei valori grafici
-        self.misura_euramet.graphwindow.ui.label_step_attuale_valore.setText(f"{self.current_step_value} Nm")
+        if self.step_attuale < 6:
+            self.misura_euramet.graphwindow.ui.label_step_attuale_valore.setText(f"{self.current_step_value} Nm")
+        elif self.step_attuale == 6:
+            if self.banco_di_taratura.list_status_checkbox_euramet_page[0] == 0:
+                if self.banco_di_taratura.list_status_checkbox_euramet_page[1] == 0:
+                    self.misura_euramet.graphwindow.ui.label_step_attuale_valore.setText(f"{self.current_step_value} Nm")
+                else:
+                    self.misura_euramet.graphwindow.ui.label_step_attuale_valore.setText(f"{(self.max_torque / self.number_of_steps_rampe) * (self.number_of_steps_rampe-1)} Nm")
+            else:
+                self.misura_euramet.graphwindow.ui.label_step_attuale_valore.setText(f"{self.current_step_value} Nm")
         
         return end_check
         
@@ -204,19 +223,19 @@ class Misura_euramet:
         self.numero_misure_totali_da_fare += 6
         self.graphwindow.graph_recap.create_precarichi_plot()
         if self.banco_di_taratura.list_status_checkbox_euramet_page[0] == 1:
-            self.rampa_salita_1 = Rampa(self.banco_di_taratura, misura=self, tipo="salita", misure_gia_fatte=self.numero_misure_totali_da_fare)
+            self.rampa_salita_1 = Rampa(self.banco_di_taratura, misura=self, tipo="salita1", misure_gia_fatte=self.numero_misure_totali_da_fare)
             self.numero_misure_totali_da_fare += self.rampa_salita_1.number_of_steps
             self.graphwindow.graph_recap.create_salita_plot()
         else:
             self.rampa_salita_1 = None
         if self.banco_di_taratura.list_status_checkbox_euramet_page[1] == 1:
-            self.rampa_discesa_1 = Rampa(self.banco_di_taratura, misura=self, tipo="discesa", misure_gia_fatte=self.numero_misure_totali_da_fare)
+            self.rampa_discesa_1 = Rampa(self.banco_di_taratura, misura=self, tipo="discesa1", misure_gia_fatte=self.numero_misure_totali_da_fare)
             self.numero_misure_totali_da_fare += self.rampa_discesa_1.number_of_steps
             self.graphwindow.graph_recap.create_discesa_plot()
         else:
             self.rampa_discesa_1 = None
         if self.banco_di_taratura.list_status_checkbox_euramet_page[2] == 1:
-            self.rampa_salita_2 = Rampa(self.banco_di_taratura, misura=self, tipo="salita", misure_gia_fatte=self.numero_misure_totali_da_fare)
+            self.rampa_salita_2 = Rampa(self.banco_di_taratura, misura=self, tipo="salita2", misure_gia_fatte=self.numero_misure_totali_da_fare)
             self.numero_misure_totali_da_fare += self.rampa_salita_2.number_of_steps
             self.graphwindow.graph_recap.create_salita_plot()
             self.zero_finale = Rampa(self.banco_di_taratura, misura=self, tipo ="zero finale", misure_gia_fatte=self.numero_misure_totali_da_fare)

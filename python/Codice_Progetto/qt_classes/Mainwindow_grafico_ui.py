@@ -1190,17 +1190,18 @@ class Ui_GraphWindow(object):
 
         self.gridLayout_11.addWidget(self.frame_22, 8, 0, 1, 1)
 
-        self.frame_19 = QFrame(self.frame_2)
-        self.frame_19.setObjectName(u"frame_19")
-        sizePolicy2.setHeightForWidth(self.frame_19.sizePolicy().hasHeightForWidth())
-        self.frame_19.setSizePolicy(sizePolicy2)
-        self.frame_19.setFrameShape(QFrame.StyledPanel)
-        self.frame_19.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_14 = QVBoxLayout(self.frame_19)
+        self.frame_altezza = QFrame(self.frame_2)
+        self.frame_altezza.setObjectName(u"frame_altezza")
+        self.frame_altezza.setEnabled(True)
+        sizePolicy2.setHeightForWidth(self.frame_altezza.sizePolicy().hasHeightForWidth())
+        self.frame_altezza.setSizePolicy(sizePolicy2)
+        self.frame_altezza.setFrameShape(QFrame.StyledPanel)
+        self.frame_altezza.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_14 = QVBoxLayout(self.frame_altezza)
         self.verticalLayout_14.setSpacing(0)
         self.verticalLayout_14.setObjectName(u"verticalLayout_14")
         self.verticalLayout_14.setContentsMargins(0, 0, 0, 0)
-        self.label_9 = QLabel(self.frame_19)
+        self.label_9 = QLabel(self.frame_altezza)
         self.label_9.setObjectName(u"label_9")
         sizePolicy2.setHeightForWidth(self.label_9.sizePolicy().hasHeightForWidth())
         self.label_9.setSizePolicy(sizePolicy2)
@@ -1217,8 +1218,9 @@ class Ui_GraphWindow(object):
 
         self.verticalLayout_14.addWidget(self.label_9)
 
-        self.lineEdit_altezza = QLineEdit(self.frame_19)
+        self.lineEdit_altezza = QLineEdit(self.frame_altezza)
         self.lineEdit_altezza.setObjectName(u"lineEdit_altezza")
+        self.lineEdit_altezza.setEnabled(True)
         sizePolicy7 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
         sizePolicy7.setHorizontalStretch(0)
         sizePolicy7.setVerticalStretch(0)
@@ -1232,6 +1234,15 @@ class Ui_GraphWindow(object):
 "    border-color: rgb(255, 106, 0);\n"
 "	border-radius: 0;\n"
 "	color: rgb(0,0,0);\n"
+"}\n"
+"\n"
+"QWidget::disabled{\n"
+"	background-color: rgb(255, 207, 84); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 0;\n"
+"	color: rgb(255, 172, 88);\n"
 "}")
         self.lineEdit_altezza.setAlignment(Qt.AlignCenter)
         self.lineEdit_altezza.setClearButtonEnabled(True)
@@ -1239,7 +1250,7 @@ class Ui_GraphWindow(object):
         self.verticalLayout_14.addWidget(self.lineEdit_altezza)
 
 
-        self.gridLayout_11.addWidget(self.frame_19, 4, 0, 1, 1)
+        self.gridLayout_11.addWidget(self.frame_altezza, 4, 0, 1, 1)
 
         self.label_2 = QLabel(self.frame_2)
         self.label_2.setObjectName(u"label_2")

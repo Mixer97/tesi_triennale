@@ -2084,7 +2084,10 @@ QPushButton::disabled{
            </widget>
           </item>
           <item row="4" column="0">
-           <widget class="QFrame" name="frame_19">
+           <widget class="QFrame" name="frame_altezza">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
             <property name="sizePolicy">
              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -2142,6 +2145,9 @@ QPushButton::disabled{
              </item>
              <item>
               <widget class="QLineEdit" name="lineEdit_altezza">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                  <horstretch>0</horstretch>
@@ -2162,6 +2168,15 @@ QPushButton::disabled{
     border-color: rgb(255, 106, 0);
 	border-radius: 0;
 	color: rgb(0,0,0);
+}
+
+QWidget::disabled{
+	background-color: rgb(255, 207, 84); 
+	border-style: outset;
+    border-width: 2px;
+    border-color: rgb(255, 106, 0);
+	border-radius: 0;
+	color: rgb(255, 172, 88);
 }</string>
                </property>
                <property name="text">

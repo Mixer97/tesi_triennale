@@ -155,7 +155,7 @@ class handler_json:
             banco_di_taratura.euramet_cella_inizio_precarichi_Q3 = new_json_string['euramet_cella_inizio_precarichi_Q3']
             banco_di_taratura.euramet_cella_inizio_precarichi_Q1 = new_json_string['euramet_cella_inizio_precarichi_Q1']
             
-            banco_di_taratura.excell_name = new_json_string['excell_name']
+            banco_di_taratura.excell_file_name = new_json_string['excell_name']
             banco_di_taratura.excell_page_data = new_json_string['excell_page_data']
             
             # print(new_json_string)
