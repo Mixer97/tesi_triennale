@@ -5,9 +5,8 @@ from qt_classes.View_QT_HomePage_ui import Ui_MainWindow
 from logic_classes.View_QT_SetupPage_logic import SetupWindow
 from logic_classes.Mainwindow_grafico_logic import GraphWindow
 from logic_classes.Dialog_salavataggio_registrazione_logic import Salvataggio_registrazione
-from PySide6.QtCore import QSize
 from typing import TYPE_CHECKING
-from PySide6.QtGui import QIcon
+from logic_classes.Dialog_error_logic import Error_window
 import time
 
 if TYPE_CHECKING:
@@ -114,15 +113,22 @@ class MainWindow(QMainWindow):
     def pulsante_registrazione_click(self):
         # Check della condizione del pulsante e poi cambio il tipo e gestisco il logger
         if self.status_pulsante_registrazione % 2 != 0:
-                # self.timer2.start(100)          # In millisecondi       
-                self.logger.DATA.startStop_logger = True
-                if self.logger.start_timer == None:
-                        self.logger.start_timer = time.time()
-                self.ui.pushButton_Registrazione.setText("STOP")
-                self.ui.label_5.setStyleSheet("QWidget { background-color:rgb(255, 69, 72); border-style: outset; border-width: 0px; border-color:rgb(255, 111, 113); border-radius: 20px; } QLabel { color: rgb(0,0,0); }")
-                self.ui.pushButton_Registrazione.setStyleSheet("background-color: red; border-style: outset; border-width: 2px; border-color: black; color: black")
-                self.ui.widget_sfondo_registrazione.setStyleSheet("QWidget { background-color:rgb(255, 69, 72); border-style: outset; border-width: 2px; border-color:rgb(255, 111, 113); border-radius: 20px; }")
-                self.status_pulsante_registrazione = self.status_pulsante_registrazione + 1
+                # self.timer2.start(100)          # In millisecondi  
+                
+                if self.banco_di_taratura.registrazione_directory_path == None or self.banco_di_taratura.registrazione_name == None:
+                        error_window = Error_window(banco_di_taratura=self.banco_di_taratura)
+                        error_window.set_error_message(f"Il file per la registrazione non è stato definito.")
+                        error_window.setWindowTitle("Error Window")
+                        error_window.exec()
+                else:
+                        self.logger.DATA.startStop_logger = True
+                        if self.logger.start_timer == None:
+                                self.logger.start_timer = time.time()
+                        self.ui.pushButton_Registrazione.setText("STOP")
+                        self.ui.label_5.setStyleSheet("QWidget { background-color:rgb(255, 69, 72); border-style: outset; border-width: 0px; border-color:rgb(255, 111, 113); border-radius: 20px; } QLabel { color: rgb(0,0,0); }")
+                        self.ui.pushButton_Registrazione.setStyleSheet("background-color: red; border-style: outset; border-width: 2px; border-color: black; color: black")
+                        self.ui.widget_sfondo_registrazione.setStyleSheet("QWidget { background-color:rgb(255, 69, 72); border-style: outset; border-width: 2px; border-color:rgb(255, 111, 113); border-radius: 20px; }")
+                        self.status_pulsante_registrazione = self.status_pulsante_registrazione + 1
         else:
                 # self.timer2.stop()     
                 self.logger.DATA.startStop_logger  = False     
