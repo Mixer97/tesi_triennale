@@ -65,7 +65,7 @@ class BANCO_DI_TARATURA:
         self.status_inserimento_altezza = True
         self.quadrant = "Q1"
         
-        # variabili csv euramet 
+        # variabili excell euramet 
         self.euramet_unita_ingegneristica_di_misura = None
         self.euramet_Unità_ingegneristica_UUT = None
         '''self.euramet_Scale = self.controller_modbus.DATA.coefficiente_main''' #modifico direttamente il valore sul controller modbus
@@ -85,11 +85,12 @@ class BANCO_DI_TARATURA:
         self.workbook = None
         self.euramet_cella_inizio_precarichi_Q3 = ["D",7]  # vorrei usarlo come "D7" ma devo cambiare D e 7 per spostarmi lungo il file excell
         self.euramet_cella_inizio_precarichi_Q1 = ["D",29]
-        self.excell_path_template = "python\\Codice_Progetto\\Template_Euramet_Excel\\04. YYMMDD - Rapporto Taratura UUT v9.xlsx"
-        self.excell_name = "Default"
-        self.excell_path_certificate =f"python\\Codice_Progetto\\Certificati_Euramet_Completi\\{self.excell_name}.xlsx"
-        self.excell_page_data = "Euramet"
-        self.excell_page_setup = "Istruzioni Uso"
+        self.excell_path_template = 'python/Codice_Progetto/Template_Euramet_Excel/04. YYMMDD - Rapporto Taratura UUT v9.xlsx'
+        self.excell_file_name = None
+        self.excell_path_dir_certificate = None
+        self.excell_full_path = None
+        self.excell_page_data = 'Euramet'
+        self.excell_page_setup = 'Istruzioni Uso'
         
         # Variabili che gestiscono quanti quadranti ho passato
         self.quadrant_counter = 0

@@ -30,7 +30,7 @@ class Rampa:
         self.step_attuale = 0
         self.excel_cell_quadrant_start = self.misura_euramet.starting_cell_address
         self.excel_path_template = self.banco_di_taratura.excell_path_template
-        self.excel_path_certificate = self.banco_di_taratura.excell_path_certificate
+        self.excel_path_certificate = self.banco_di_taratura.excell_full_path
         self.max_torque = misura.max_torque
         self.step_increment = int(int(self.max_torque)/int(self.number_of_steps-1))
         
@@ -108,7 +108,7 @@ class Precarichi:
         self.step_attuale = 0
         self.excel_cell_quadrant_start = self.misura_euramet.starting_cell_address
         self.excel_path_template = self.banco_di_taratura.excell_path_template
-        self.excel_path_certificate = self.banco_di_taratura.excell_path_certificate
+        self.excel_path_certificate = self.banco_di_taratura.excell_full_path
         self.max_torque = misura.max_torque
         self.current_step_value = 0
         

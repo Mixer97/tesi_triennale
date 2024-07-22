@@ -66,7 +66,7 @@ class handler_json:
         if os.path.exists(self.path_save_banco) and self.nome_file_save != "Default":   # cicla finche non trova un nome disponibile
             print(f"Il file '{self.path_save_banco}' esiste già. Non è stato sovrascritto.")
             self.tmp_banco = f"{self.nome_file_save}_{self.counter_salvataggio}"
-            self.path_save_banco = f'{self.path_directory_save}' + str(self.tmp_banco) + ".json"
+            self.path_save_banco = f'{self.path_directory_save}/{self.tmp_banco}.json'
             self.counter_salvataggio = self.counter_salvataggio + 1
             self.save_setup_banco(banco_di_taratura, dialog_window)
             
@@ -168,8 +168,8 @@ class handler_json:
         
         if os.path.exists(self.path_save_euramet) and self.nome_file_save != "Default":   # cicla finche non trova un nome disponibile
             print(f"Il file '{self.path_save_euramet}' esiste già. Non è stato sovrascritto.")
-            self.tmp_banco = f"{self.nome_file_save}_{self.counter_salvataggio}"
-            self.path_save_euramet = f'{self.path_directory_save}' + str(self.tmp_banco) + ".json"
+            self.tmp_euramet = f"{self.nome_file_save}_{self.counter_salvataggio}"
+            self.path_save_euramet = f'{self.path_directory_save}' + str(self.tmp_euramet) + ".json"
             self.counter_salvataggio = self.counter_salvataggio + 1
             self.save_setup_euramet(banco_di_taratura, setup_window_euramet)
             
@@ -196,7 +196,7 @@ class handler_json:
             data["euramet_cella_inizio_precarichi_Q3"] = banco_di_taratura.euramet_cella_inizio_precarichi_Q3
             data["euramet_cella_inizio_precarichi_Q1"] = banco_di_taratura.euramet_cella_inizio_precarichi_Q1
             
-            data["excell_name"] = banco_di_taratura.excell_name
+            data["excell_name"] = banco_di_taratura.excell_file_name
             data["excell_page_data"] = banco_di_taratura.excell_page_data
 
             
@@ -222,8 +222,8 @@ class handler_json:
                 error_window.set_error_message(f"Il file '{self.path_save_euramet}' \nè stato salvato con successo.")
                 error_window.setWindowTitle("Communication Window")
                 error_window.exec()
-            if self.tmp_banco != None:
-                self.nome_file_save = self.tmp_banco
+            if self.tmp_euramet != None:
+                self.nome_file_save = self.tmp_euramet
         
 
             

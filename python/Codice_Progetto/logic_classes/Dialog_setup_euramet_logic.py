@@ -109,7 +109,7 @@ class Euramet_window(QDialog):
         
     def end_setup(self):
         # self.graph_window.ui.graphWidget_visual_euramet.clear()
-        self.banco_di_taratura.workbook = load_workbook(self.banco_di_taratura.excell_path_certificate)
+        self.banco_di_taratura.workbook = load_workbook(self.banco_di_taratura.excell_full_path)
         self.graph_window.ui.pushButton_save_measure.setEnabled(True)
         self.graph_window.ui.label_quadrante.setText(self.banco_di_taratura.quadrant)
         self.graph_window.ui.label_step_attuale_valore.setText("0 Nm")
