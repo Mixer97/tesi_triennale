@@ -61,12 +61,12 @@ class Controller_MODBUS:
                     return True
                 else: 
                     logging.error(f"ERROR! connessione al dispostivo presente sulla COM-port {self.SLAVE.port} fallita.\n tentativo di riconnessione numero: {i}\\3", exc_info=True)
-                    self.show_error_window(f"connessione al dispostivo presente sulla COM-port {self.SLAVE.port} fallita.\n tentativo di riconnessione numero: {i}\\3", "Error Window")
+                    # self.show_error_window(f"connessione al dispostivo presente sulla COM-port {self.SLAVE.port} fallita.\n tentativo di riconnessione numero: {i}\\3", "Error Window")
                     connection = self.client.connect() 
                     sleep(2)
         except Exception as e:
             logging.error("Connessione fallita dopo 3 tentativi!", exc_info=True)
-            self.show_error_window(f"connessione al dispostivo presente sulla COM-port {self.SLAVE.port} fallita.\n", "Closing Error Window")
+            # self.show_error_window(f"connessione al dispostivo presente sulla COM-port {self.SLAVE.port} fallita.\n", "Closing Error Window")
             return False
 
     """---------------------------WORKING-----------------------------"""      
