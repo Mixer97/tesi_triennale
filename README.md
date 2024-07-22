@@ -180,4 +180,4 @@
     cambiata l'icona delle varie finestre in modo che ripiazzi quella di default 
     inserite delle finestre di errore per quando ci sono problemi di connessione
     provato a risolvere il porlema delle finestre di errore dei controller ma non sono gestite in modo corretto (thread problem)
-        per la gui serve essere nel thread principale
+        per la gui serve essere nel thread principale.
