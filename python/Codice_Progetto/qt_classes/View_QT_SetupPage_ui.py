@@ -1157,7 +1157,7 @@ class Ui_SetupWindow(object):
         self.pushButton_home.setText(QCoreApplication.translate("SetupWindow", u"HOME", None))
         self.pushButton_carica_setup.setText(QCoreApplication.translate("SetupWindow", u"CARICA", None))
         self.pushButton_salvataggio_setup.setText(QCoreApplication.translate("SetupWindow", u"SALVA", None))
-        self.label_toggle_CHN_1.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700; color:#00aa00;\">C</span></p></body></html>", None))
+        self.label_toggle_CHN_1.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700; color:#00aa00;\">CANALE 1</span></p></body></html>", None))
         self.pushButton_setup_CH1.setText(QCoreApplication.translate("SetupWindow", u"SETUP", None))
         self.label_sensCH1.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">SENS. [mV/V]</span></p></body></html>", None))
         self.checkBox_CH1.setText(QCoreApplication.translate("SetupWindow", u"OFF", None))

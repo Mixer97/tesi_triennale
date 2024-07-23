@@ -526,7 +526,7 @@ class GraphWindow(QMainWindow):
         self.graph_recap.plot_a_point(self.euramet_measure_entity.numero_misure_totali_da_fare)
         if self.euramet_measure_entity != None:
             self.euramet_measure_entity.measure_value()
-            print("qualcosa fa")
+            print(f"Sto misurando nel quadrante: {self.banco_di_taratura.quadrant}")
         else:
             print("errore nell' instanziazione della misura euramet")
             

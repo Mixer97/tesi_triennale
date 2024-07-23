@@ -250,16 +250,16 @@ class Misura_euramet:
 
     def measure_value(self):
         if self.end_check_prec == 0:
-            print("sono nei precarichi")
+            print("Ho appena misurato uno step dei precatichi")
             self.end_check_prec = self.precarichi.measure_value()
         elif self.end_check_salita_1 == 0 and self.rampa_salita_1 != None:
-            print("sono nella salita 1")
+            print("Ho appena misurato uno step nella salita 1")
             self.end_check_salita_1 = self.rampa_salita_1.measure_value()
         elif self.end_check_discesa_1 == 0 and self.rampa_discesa_1 != None:
-            print("sono nella discesa 1")
+            print("Ho appena misurato uno step nella discesa 1")
             self.end_check_discesa_1 = self.rampa_discesa_1.measure_value()
         elif self.end_check_salita_2 == 0 and self.rampa_salita_2 != None:
-            print("sono nella salita 2")
+            print("Ho appena misurato uno step nella salita 2")
             self.end_check_salita_2 = self.rampa_salita_2.measure_value()
         elif self.end_check_zero_finale == 0 and self.zero_finale != None:
             self.zero_finale.number_of_steps = 1
