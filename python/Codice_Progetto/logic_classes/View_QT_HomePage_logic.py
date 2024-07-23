@@ -72,8 +72,11 @@ class MainWindow(QMainWindow):
         
     def show_finestra_salvataggio_registrazione(self):
         dname = QFileDialog.getExistingDirectory()
-        self.banco_di_taratura.logger.path_directory_CSV = dname
-        self.finestra_salvataggio_registrazione.exec()
+        if dname != '':
+                self.banco_di_taratura.logger.path_directory_CSV = dname
+                self.finestra_salvataggio_registrazione.exec()
+        else:
+                self.banco_di_taratura.error_window_logic("Path non selezionato!")
     
     def check(self):
         if self.timerStop == True:

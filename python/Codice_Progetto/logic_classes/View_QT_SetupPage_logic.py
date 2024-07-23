@@ -110,8 +110,11 @@ class SetupWindow(QMainWindow):
         
     def save_banco_setup(self):
         dname = QFileDialog.getExistingDirectory()
-        self.banco_di_taratura.file_setup_banco_directory_path = dname
-        self.finestra_salvataggio_setup.exec()
+        if dname != '':
+            self.banco_di_taratura.file_setup_banco_directory_path = dname
+            self.finestra_salvataggio_setup.exec()
+        else:
+                self.banco_di_taratura.error_window_logic("Path non selezionato!")
         
     def open_setup_CH1_window(self):
         self.setup_window = Canale_Setup_1(banco_di_taratura=self.banco_di_taratura)

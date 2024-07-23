@@ -88,16 +88,23 @@ class csv_euramet_window(QDialog):
         self.close()
         self.euramet_window.show()
         dname = QFileDialog.getExistingDirectory()
-        self.banco_di_taratura.excell_path_dir_certificate = dname
-        self.save_process()
-        self.update_steps()
+        if dname != '':
+            self.banco_di_taratura.file_setup_banco_directory_path = dname
+            self.finestra_salvataggio_euramet_setup.exec()
+            self.save_process()
+            self.update_steps()
+        else:
+                self.banco_di_taratura.error_window_logic("Path non selezionato!")
 
 
 
     def show_finestra_salvataggio_euramet_setup(self):
         dname = QFileDialog.getExistingDirectory()
-        self.banco_di_taratura.file_setup_euramet_directory_path = dname
-        self.finestra_salvataggio_euramet_setup.exec()
+        if dname != '':
+            self.banco_di_taratura.file_setup_banco_directory_path = dname
+            self.finestra_salvataggio_euramet_setup.exec()
+        else:
+                self.banco_di_taratura.error_window_logic("Path non selezionato!")
 
     def load_euramet_setup(self):
         fname = QFileDialog.getOpenFileName() # prendi info del file selezionato

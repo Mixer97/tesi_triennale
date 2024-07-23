@@ -35,6 +35,8 @@ class Salvataggio_registrazione(QDialog):
         logger = Logger.LOGGER(nome_CSV=self.ui.lineEdit_nome_file.text(), banco_di_taratura=self.banco_di_taratura, path_directory_CSV=self.banco_di_taratura.logger.path_directory_CSV)
         self.banco_di_taratura.logger.path_CSV = logger.path_CSV
         self.banco_di_taratura.logger.nome_CSV = logger.nome_CSV
+        self.banco_di_taratura.registrazione_directory_path = logger.path_directory_CSV
+        self.banco_di_taratura.registrazione_name = logger.nome_CSV
         self.banco_di_taratura.logger.start_timer = None
         self.close()
         # self.banco_di_taratura.logger = Logger.LOGGER(nome_CSV=self.ui.lineEdit_nome_file.text(), banco_di_taratura=self.banco_di_taratura)
