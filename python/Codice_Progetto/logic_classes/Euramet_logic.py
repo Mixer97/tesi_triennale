@@ -45,7 +45,7 @@ class Rampa:
         torsiometro = self.banco_di_taratura.controller_tcp.DATA.LIST_Nm_VALUE[3]  # cella ch4
         sg600 = self.banco_di_taratura.controller_modbus.DATA.canale_principale_mV/1000  # Main in V
         
-        # Aggiornamento dei valori grafici
+        # Aggiornamento dei valori grafici step attuale
         if self.tipo == "salita1" or self.tipo == "salita2":
             if self.step_attuale < self.number_of_steps-1:
                 if self.tipo == "salita1" or self.tipo == "salita2":
@@ -56,8 +56,33 @@ class Rampa:
                 else:
                     self.misura_euramet.graphwindow.ui.label_step_attuale_valore.setText(f"0 Nm")
         elif self.tipo == "discesa1":
-            self.misura_euramet.graphwindow.ui.label_step_attuale_valore.setText(f"{(3-(self.step_attuale)) * self.step_increment} Nm")
+            self.misura_euramet.graphwindow.ui.label_step_attuale_valore.setText(f"{(self.number_of_steps -(self.step_attuale+1)) * self.step_increment} Nm")
             
+        
+        # Aggiornamento dei valori grafici label prossimo step
+        if self.tipo == "salita1" or self.tipo == "salita2":
+            if self.step_attuale < self.number_of_steps-2:
+                self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"{(self.step_attuale+2) * self.step_increment} Nm")
+            elif self.step_attuale == self.number_of_steps-2:
+                if self.tipo == "salita1" and self.banco_di_taratura.list_status_checkbox_euramet_page[1] == 1:
+                    self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"{self.step_increment * (self.banco_di_taratura.current_number_of_steps-1)} Nm")
+                else:
+                    self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"0 Nm")
+            elif self.step_attuale == self.number_of_steps -1:
+                if self.tipo == "salita1" and self.banco_di_taratura.list_status_checkbox_euramet_page[1] == 1:
+                    self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"{self.step_increment * (self.banco_di_taratura.current_number_of_steps-2)} Nm")
+                elif self.tipo == "salita2":
+                    self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"0 Nm")
+                else:
+                    self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"{self.step_increment * (self.banco_di_taratura.current_number_of_steps-4)} Nm")
+                
+        elif self.tipo == "discesa1":
+            if self.number_of_steps-self.step_attuale > 1:
+                self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"{(self.number_of_steps-(self.step_attuale+2)) * self.step_increment} Nm")
+            else:
+                self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"{self.step_increment} Nm")
+        
+        
         
         # Scrittura su Excell e aumento dello step
         data = (haxis, int(href), cella_di_carico_N, torsiometro, sg600)
@@ -137,7 +162,7 @@ class Precarichi:
         self.increment_step()
         end_check = self.check_end()  # Se = 1 ha finito la rampa, se = 0 mancano delle misure
         
-        # Aggiornamento dei valori grafici
+        # Aggiornamento dei valori grafici step attuale
         if self.step_attuale < 6:
             self.misura_euramet.graphwindow.ui.label_step_attuale_valore.setText(f"{self.current_step_value} Nm")
         elif self.step_attuale == 6:
@@ -148,6 +173,32 @@ class Precarichi:
                     self.misura_euramet.graphwindow.ui.label_step_attuale_valore.setText(f"{(self.max_torque / self.number_of_steps_rampe) * (self.number_of_steps_rampe-1)} Nm")
             else:
                 self.misura_euramet.graphwindow.ui.label_step_attuale_valore.setText(f"{self.current_step_value} Nm")
+                
+                
+        # Aggiornamento dei valori grafici prossimo step
+        if self.step_attuale < 5:
+            if self.current_step_value == self.max_torque:
+                self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"0 Nm")
+            else:
+                self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"{self.max_torque} Nm")
+            
+        elif self.step_attuale == 5:
+            if self.banco_di_taratura.list_status_checkbox_euramet_page[0] == 0:
+                if self.banco_di_taratura.list_status_checkbox_euramet_page[1] == 0:
+                    self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"0 Nm")
+                else:
+                    self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"{(self.max_torque / self.number_of_steps_rampe) * (self.number_of_steps_rampe-1)} Nm")
+            else:
+                self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"0 Nm")
+                
+        elif self.step_attuale == 6:
+            if self.banco_di_taratura.list_status_checkbox_euramet_page[0] == 0:
+                if self.banco_di_taratura.list_status_checkbox_euramet_page[1] == 0:
+                    self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"{(self.max_torque / self.number_of_steps_rampe)} Nm")
+                else:
+                    self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"{(self.max_torque / self.number_of_steps_rampe) * (self.number_of_steps_rampe-2)} Nm")
+            else:
+                self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"{(self.max_torque / self.number_of_steps_rampe)} Nm")
         
         return end_check
         
@@ -245,8 +296,11 @@ class Misura_euramet:
             self.rampa_salita_2 = None
             self.zero_finale = None
         self.graphwindow.graph_recap.plot_full_graph()
+        self.graphwindow.ui.label_step_prossimo_valore.setText(f"{self.precarichi.max_torque} Nm")
+        
         
         # Ora ho il numero totale di misure da fare
+        
 
     def measure_value(self):
         if self.end_check_prec == 0:

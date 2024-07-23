@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'Dialog_setup_euramet.ui'
+## Form generated from reading UI file 'dialog_setup_euramet.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -53,69 +53,6 @@ class Ui_Dialog_Euramet_setup(object):
         self.stackedWidget_euramet.setObjectName(u"stackedWidget_euramet")
         self.stackedWidget_euramet.setStyleSheet(u"border-color: rgb(0, 85, 0);\n"
 "border-width: 3px;")
-        self.page = QWidget()
-        self.page.setObjectName(u"page")
-        self.gridLayout_5 = QGridLayout(self.page)
-        self.gridLayout_5.setObjectName(u"gridLayout_5")
-        self.gridLayout_5.setHorizontalSpacing(5)
-        self.gridLayout_5.setContentsMargins(5, 5, 5, 5)
-        self.frame_25 = QFrame(self.page)
-        self.frame_25.setObjectName(u"frame_25")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.frame_25.sizePolicy().hasHeightForWidth())
-        self.frame_25.setSizePolicy(sizePolicy1)
-        self.frame_25.setMaximumSize(QSize(16777215, 100))
-        self.frame_25.setFrameShape(QFrame.StyledPanel)
-        self.frame_25.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_6 = QVBoxLayout(self.frame_25)
-        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.frame_26 = QFrame(self.frame_25)
-        self.frame_26.setObjectName(u"frame_26")
-        self.frame_26.setFrameShape(QFrame.StyledPanel)
-        self.frame_26.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_17 = QHBoxLayout(self.frame_26)
-        self.horizontalLayout_17.setSpacing(0)
-        self.horizontalLayout_17.setObjectName(u"horizontalLayout_17")
-        self.horizontalLayout_17.setContentsMargins(0, 0, 0, 0)
-        self.label_38 = QLabel(self.frame_26)
-        self.label_38.setObjectName(u"label_38")
-        self.label_38.setStyleSheet(u"QLabel{\n"
-"	background-color:rgb(255, 207, 84); \n"
-"	border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-color: rgb(255, 106, 0);\n"
-"	border-radius: 0px;\n"
-"	color: rgb(0,0,0);\n"
-"}\n"
-"")
-        self.label_38.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_17.addWidget(self.label_38)
-
-        self.label_step_1_1 = QLabel(self.frame_26)
-        self.label_step_1_1.setObjectName(u"label_step_1_1")
-        self.label_step_1_1.setStyleSheet(u"QLabel{\n"
-"	background-color:rgb(255, 255, 255); \n"
-"	border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-color: rgb(255, 106, 0);\n"
-"	border-radius: 0px;\n"
-"	color: rgb(0,0,0);\n"
-"}\n"
-"")
-        self.label_step_1_1.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_17.addWidget(self.label_step_1_1)
-
-
-        self.verticalLayout_6.addWidget(self.frame_26)
-
-
-        self.gridLayout_5.addWidget(self.frame_25, 0, 0, 1, 1)
-
-        self.stackedWidget_euramet.addWidget(self.page)
         self.page_2 = QWidget()
         self.page_2.setObjectName(u"page_2")
         self.gridLayout_6 = QGridLayout(self.page_2)
@@ -124,6 +61,9 @@ class Ui_Dialog_Euramet_setup(object):
         self.gridLayout_6.setContentsMargins(5, 5, 5, 5)
         self.frame_22 = QFrame(self.page_2)
         self.frame_22.setObjectName(u"frame_22")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.frame_22.sizePolicy().hasHeightForWidth())
         self.frame_22.setSizePolicy(sizePolicy1)
         self.frame_22.setMinimumSize(QSize(0, 200))
@@ -966,7 +906,6 @@ class Ui_Dialog_Euramet_setup(object):
         self.comboBox_step.addItem("")
         self.comboBox_step.addItem("")
         self.comboBox_step.addItem("")
-        self.comboBox_step.addItem("")
         self.comboBox_step.setObjectName(u"comboBox_step")
         sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
         sizePolicy2.setHorizontalStretch(0)
@@ -1167,7 +1106,7 @@ class Ui_Dialog_Euramet_setup(object):
 
         self.retranslateUi(Dialog_Euramet_setup)
 
-        self.stackedWidget_euramet.setCurrentIndex(2)
+        self.stackedWidget_euramet.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(Dialog_Euramet_setup)
@@ -1175,8 +1114,6 @@ class Ui_Dialog_Euramet_setup(object):
 
     def retranslateUi(self, Dialog_Euramet_setup):
         Dialog_Euramet_setup.setWindowTitle(QCoreApplication.translate("Dialog_Euramet_setup", u"Dialog", None))
-        self.label_38.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"STEP 1", None))
-        self.label_step_1_1.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"-", None))
         self.label_37.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"STEP 1", None))
         self.label_step_1_2.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"-", None))
         self.label_15.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"STEP 2", None))
@@ -1210,11 +1147,10 @@ class Ui_Dialog_Euramet_setup(object):
         self.checkBox_discesa_1.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"DISCESA 1", None))
         self.checkBox_salita_2.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"SALITA 2", None))
         self.checkBox_altezza.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"ALTEZZA", None))
-        self.comboBox_step.setItemText(0, QCoreApplication.translate("Dialog_Euramet_setup", u"1 Step", None))
-        self.comboBox_step.setItemText(1, QCoreApplication.translate("Dialog_Euramet_setup", u"2 Step", None))
-        self.comboBox_step.setItemText(2, QCoreApplication.translate("Dialog_Euramet_setup", u"3 Step", None))
-        self.comboBox_step.setItemText(3, QCoreApplication.translate("Dialog_Euramet_setup", u"4 Step", None))
-        self.comboBox_step.setItemText(4, QCoreApplication.translate("Dialog_Euramet_setup", u"5 Step", None))
+        self.comboBox_step.setItemText(0, QCoreApplication.translate("Dialog_Euramet_setup", u"2 Step", None))
+        self.comboBox_step.setItemText(1, QCoreApplication.translate("Dialog_Euramet_setup", u"3 Step", None))
+        self.comboBox_step.setItemText(2, QCoreApplication.translate("Dialog_Euramet_setup", u"4 Step", None))
+        self.comboBox_step.setItemText(3, QCoreApplication.translate("Dialog_Euramet_setup", u"5 Step", None))
 
         self.label_quadrante_iniziale.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"Quadrante iniziale", None))
         self.comboBox_quadrante.setItemText(0, QCoreApplication.translate("Dialog_Euramet_setup", u"Q1", None))

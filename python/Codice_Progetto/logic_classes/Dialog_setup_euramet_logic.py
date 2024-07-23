@@ -2,7 +2,7 @@ from __future__ import annotations
 from PySide6.QtWidgets import QDialog
 from PySide6.QtCore import QTimer
 from PySide6.QtCore import QCoreApplication
-from qt_classes.Dialog_setup_euramet_ui import Ui_Dialog_Euramet_setup
+from qt_classes.dialog_setup_euramet_ui import Ui_Dialog_Euramet_setup
 from logic_classes.Dialog_xlxs_euramet_logic import csv_euramet_window
 from typing import TYPE_CHECKING
 from openpyxl import load_workbook
@@ -42,8 +42,8 @@ class Euramet_window(QDialog):
         self.timer_update.timeout.connect(self.update_combobox)
         self.timer_update.start()
         
-        self.ui.comboBox_step.setCurrentIndex(4)  # Posiziono con 5 step di default
-        self.ui.stackedWidget_euramet.setCurrentIndex(4)  # Posiziono con 5 step di default
+        self.ui.comboBox_step.setCurrentIndex(3)  # Posiziono con 5 step di default
+        self.ui.stackedWidget_euramet.setCurrentIndex(3)  # Posiziono con 5 step di default
         
         # segnali
         self.ui.comboBox_step.currentIndexChanged.connect(self.update_steps)
@@ -70,6 +70,7 @@ class Euramet_window(QDialog):
             self.graph_window.euramet_measure_entity = Misura_euramet(banco_di_taratura=self.banco_di_taratura, graphwindow=self.graph_window, euramet_window=self)
             self.banco_di_taratura.quadrant_counter = 0
             self.graph_window.ui.graphWidget_visual_euramet.clear()
+            self.graph_window.ui.label_step_prossimo_valore.setText("#######")
         else:
             pass
     
@@ -127,7 +128,7 @@ class Euramet_window(QDialog):
             self.close()
         
     def update_steps(self):
-        self.banco_di_taratura.current_number_of_steps = self.ui.comboBox_step.currentIndex() + 1   # index da 0 a 4 e io voglio da 1 a 5
+        self.banco_di_taratura.current_number_of_steps = self.ui.comboBox_step.currentIndex() + 2   # index da 0 a 3 e io voglio da 2 a 5
         self.csv_setup_window.update_steps()
     
     def update_quadrant(self):

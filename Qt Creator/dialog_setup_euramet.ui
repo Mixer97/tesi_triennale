@@ -69,120 +69,8 @@
 border-width: 3px;</string>
            </property>
            <property name="currentIndex">
-            <number>2</number>
+            <number>3</number>
            </property>
-           <widget class="QWidget" name="page">
-            <layout class="QGridLayout" name="gridLayout_5">
-             <property name="leftMargin">
-              <number>5</number>
-             </property>
-             <property name="topMargin">
-              <number>5</number>
-             </property>
-             <property name="rightMargin">
-              <number>5</number>
-             </property>
-             <property name="bottomMargin">
-              <number>5</number>
-             </property>
-             <property name="horizontalSpacing">
-              <number>5</number>
-             </property>
-             <item row="0" column="0">
-              <widget class="QFrame" name="frame_25">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>100</height>
-                </size>
-               </property>
-               <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
-               </property>
-               <property name="frameShadow">
-                <enum>QFrame::Raised</enum>
-               </property>
-               <layout class="QVBoxLayout" name="verticalLayout_6">
-                <item>
-                 <widget class="QFrame" name="frame_26">
-                  <property name="frameShape">
-                   <enum>QFrame::StyledPanel</enum>
-                  </property>
-                  <property name="frameShadow">
-                   <enum>QFrame::Raised</enum>
-                  </property>
-                  <layout class="QHBoxLayout" name="horizontalLayout_17" stretch="0,0">
-                   <property name="spacing">
-                    <number>0</number>
-                   </property>
-                   <property name="leftMargin">
-                    <number>0</number>
-                   </property>
-                   <property name="topMargin">
-                    <number>0</number>
-                   </property>
-                   <property name="rightMargin">
-                    <number>0</number>
-                   </property>
-                   <property name="bottomMargin">
-                    <number>0</number>
-                   </property>
-                   <item>
-                    <widget class="QLabel" name="label_38">
-                     <property name="styleSheet">
-                      <string notr="true">QLabel{
-	background-color:rgb(255, 207, 84); 
-	border-style: outset;
-    border-width: 2px;
-    border-color: rgb(255, 106, 0);
-	border-radius: 0px;
-	color: rgb(0,0,0);
-}
-</string>
-                     </property>
-                     <property name="text">
-                      <string>STEP 1</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLabel" name="label_step_1_1">
-                     <property name="styleSheet">
-                      <string notr="true">QLabel{
-	background-color:rgb(255, 255, 255); 
-	border-style: outset;
-    border-width: 2px;
-    border-color: rgb(255, 106, 0);
-	border-radius: 0px;
-	color: rgb(0,0,0);
-}
-</string>
-                     </property>
-                     <property name="text">
-                      <string>-</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-            </layout>
-           </widget>
            <widget class="QWidget" name="page_2">
             <layout class="QGridLayout" name="gridLayout_6">
              <property name="leftMargin">
@@ -1635,11 +1523,6 @@ QComboBox QAbstractItemView {
     color: rgb(0, 0, 0); /* Colore del testo del QComboBox */
 }</string>
            </property>
-           <item>
-            <property name="text">
-             <string>1 Step</string>
-            </property>
-           </item>
            <item>
             <property name="text">
              <string>2 Step</string>

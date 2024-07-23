@@ -77,7 +77,7 @@ class csv_euramet_window(QDialog):
         self.ui.lineEdit_SN_UUT.setText(str(self.banco_di_taratura.euramet_SN_UUT))
         self.ui.lineEdit_report_calibrazione_TX.setText(str(self.banco_di_taratura.euramet_Report_di_calibrazione_TX))
         
-        # Parametri di acquisizione)
+        # Parametri di acquisizione
         self.ui.lineEdit_unita_ingegneristica_di_misura.setText(str(self.banco_di_taratura.euramet_unita_ingegneristica_di_misura))
         self.ui.lineEdit_unita_ingegneristica_UUT.setText(str(self.banco_di_taratura.euramet_Unità_ingegneristica_UUT))
         self.ui.lineEdit_scale.setText(str(self.banco_di_taratura.controller_modbus.DATA.coefficiente_main))
@@ -89,8 +89,7 @@ class csv_euramet_window(QDialog):
         self.euramet_window.show()
         dname = QFileDialog.getExistingDirectory()
         if dname != '':
-            self.banco_di_taratura.file_setup_banco_directory_path = dname
-            self.finestra_salvataggio_euramet_setup.exec()
+            self.banco_di_taratura.excell_path_dir_certificate = dname
             self.save_process()
             self.update_steps()
         else:
@@ -101,7 +100,7 @@ class csv_euramet_window(QDialog):
     def show_finestra_salvataggio_euramet_setup(self):
         dname = QFileDialog.getExistingDirectory()
         if dname != '':
-            self.banco_di_taratura.file_setup_banco_directory_path = dname
+            self.banco_di_taratura.file_setup_euramet_directory_path = dname
             self.finestra_salvataggio_euramet_setup.exec()
         else:
                 self.banco_di_taratura.error_window_logic("Path non selezionato!")
@@ -197,9 +196,6 @@ class csv_euramet_window(QDialog):
             altezza_step = int(self.banco_di_taratura.euramet_Coppia_taratura_MAX)/2
             self.euramet_window.ui.label_step_1_2.setText(str(int(altezza_step*1)))
             self.euramet_window.ui.label_step_2_2.setText(str(int(altezza_step*2)))
-        elif self.banco_di_taratura.current_number_of_steps == 1:
-            altezza_step = int(self.banco_di_taratura.euramet_Coppia_taratura_MAX)
-            self.euramet_window.ui.label_step_1_1.setText(str(int(altezza_step)))
 
     def format_to_list(self, colonna, riga):
         formatted_list = [colonna, riga]

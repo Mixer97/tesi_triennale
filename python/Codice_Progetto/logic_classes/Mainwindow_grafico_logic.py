@@ -122,10 +122,10 @@ class Graph_static_recap:
     def create_discesa_plot(self):
         steps = self.banco_di_taratura.current_number_of_steps+1
         for i in range(steps):
-            value_to_plot = (self.max_h*(5-i))/(steps-1)
+            value_to_plot = (self.max_h*(steps-i))/(steps-1)
             if self.banco_di_taratura.quadrant == "Q3":
                 value_to_plot = -value_to_plot
-            if i != 0 and i != 5:
+            if i != 0 and i != 1:
                 for j in range(3):
                     self.data_set_X_full.append(self.banco_di_taratura.x + j)
                     self.data_set_Y_full.append(value_to_plot)
