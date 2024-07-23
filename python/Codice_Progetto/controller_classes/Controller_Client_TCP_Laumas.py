@@ -89,23 +89,16 @@ class Controller_TCP:
                 if connection:
                     return True
                 else: 
-                    print(f"ERROR! connessione al dispostivo presente all'IP {self.SLAVE.IP} fallita.\n tentativo di riconnessione numero: {i}\\3")
-                    # self.show_error_window(f"connessione al dispostivo presente all'IP {self.SLAVE.IP} fallita.\n tentativo di riconnessione numero: {i}\\3", "Error Window")
+                    logging.error(f"ERROR! connessione al dispostivo presente all'IP {self.SLAVE.IP} fallita.\n tentativo di riconnessione numero: {i}\\3")
+                    self.banco_di_taratura.error_window_logic(messaggio_di_errore=f"ERROR! connessione fallita con scheda Laumas, tentativo di riconnessione: {i}\\3\nChiudere la finestra per continuare.")
                     connection = self.client.connect() 
-                    sleep(2)
         except Exception as e:
             logging.error("Connessione fallita dopo 3 tentativi!", exc_info=True)
-            # self.show_error_window(f"connessione al dispostivo presente all'IP {self.SLAVE.IP} fallita.", "Closing Error Window")
+            self.banco_di_taratura.error_window_logic(messaggio_di_errore=f"ERROR! connessione fallita con scheda Laumas, chiudere la finestra\ne riavviare l'applicazione.")
             return False
 
  
-    """---------------------------WORKING-----------------------------"""   
-    
-    def show_error_window(self, messaggio_di_errore, titolo_finestra):
-        error_window = Error_window(banco_di_taratura=self)
-        error_window.set_error_message(message=str(messaggio_di_errore))
-        error_window.setWindowTitle(str(titolo_finestra))
-        error_window.exec()     
+    """---------------------------WORKING-----------------------------"""       
         
     def read_holding_registers_mV(self):
             if self.connect:     

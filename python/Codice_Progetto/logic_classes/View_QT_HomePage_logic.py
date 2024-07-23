@@ -7,6 +7,7 @@ from logic_classes.Mainwindow_grafico_logic import GraphWindow
 from logic_classes.Dialog_salavataggio_registrazione_logic import Salvataggio_registrazione
 from typing import TYPE_CHECKING
 from logic_classes.Dialog_error_logic import Error_window
+import logging
 import time
 
 if TYPE_CHECKING:
@@ -116,6 +117,7 @@ class MainWindow(QMainWindow):
                 # self.timer2.start(100)          # In millisecondi  
                 
                 if self.banco_di_taratura.registrazione_directory_path == None or self.banco_di_taratura.registrazione_name == None:
+                        logging.error(f"Directory: {self.banco_di_taratura.registrazione_directory_path}, Name: {self.banco_di_taratura.registrazione_name}")
                         error_window = Error_window(banco_di_taratura=self.banco_di_taratura)
                         error_window.set_error_message(f"Il file per la registrazione non è stato definito.")
                         error_window.setWindowTitle("Error Window")

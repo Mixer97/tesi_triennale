@@ -60,13 +60,13 @@ class Controller_MODBUS:
                 if connection:
                     return True
                 else: 
-                    logging.error(f"ERROR! connessione al dispostivo presente sulla COM-port {self.SLAVE.port} fallita.\n tentativo di riconnessione numero: {i}\\3", exc_info=True)
-                    # self.show_error_window(f"connessione al dispostivo presente sulla COM-port {self.SLAVE.port} fallita.\n tentativo di riconnessione numero: {i}\\3", "Error Window")
-                    connection = self.client.connect() 
                     sleep(2)
+                    logging.error(f"ERROR! connessione al dispostivo presente sulla COM-port {self.SLAVE.port} fallita.\n tentativo di riconnessione numero: {i}\\3", exc_info=True)
+                    self.banco_di_taratura.error_window_logic(messaggio_di_errore=f"ERROR! connessione fallita con scheda Seneca, tentativo di riconnessione: {i}\\3.\nChiudere la finestra per continuare.")
+                    connection = self.client.connect() 
         except Exception as e:
             logging.error("Connessione fallita dopo 3 tentativi!", exc_info=True)
-            # self.show_error_window(f"connessione al dispostivo presente sulla COM-port {self.SLAVE.port} fallita.\n", "Closing Error Window")
+            self.banco_di_taratura.error_window_logic(messaggio_di_errore=f"ERROR! connessione fallita con scheda Seneca, chiudere la finestra\ne riavviare l'applicazione.")
             return False
 
     """---------------------------WORKING-----------------------------"""      
@@ -91,12 +91,6 @@ class Controller_MODBUS:
             logging.exception("Exception occurred", exc_info=True)
             
     """---------------------------UTILS-----------------------------"""
-    
-    def show_error_window(self, messaggio_di_errore, titolo_finestra):
-        error_window = Error_window(banco_di_taratura=self)
-        error_window.set_error_message(message=str(messaggio_di_errore))
-        error_window.setWindowTitle(str(titolo_finestra))
-        error_window.exec()
      
     def read_registers(self, start_address, count):
         if self.connect():

@@ -1,6 +1,6 @@
 from __future__ import annotations
 from PySide6.QtWidgets import QApplication
-from PySide6.QtCore import Qt
+from PySide6.QtCore import QTimer
 from PySide6.QtGui import QCursor
 import controller_classes.Logger as Logger
 import controller_classes.Controller_Client_TCP_Laumas as C_Laumas
@@ -99,8 +99,15 @@ class BANCO_DI_TARATURA:
         self.x = 0
         
     # metodi comuni a tutte le istanze da metter qui
-    def set_window_icon(self, window):
+    def set_window_icon(self, window:MainWindow):
         window.setWindowIcon(QIcon(self.window_icon_path))
+        
+    def error_window_logic(self, messaggio_di_errore="Errore. Qualcosa non funziona!", titolo="Error Window"):
+        error_window = Error_window(banco_di_taratura=self)
+        error_window.set_error_message(messaggio_di_errore)
+        error_window.setWindowTitle(titolo)
+        error_window.exec()
+        
 
 # FUNZIONI NECESSARIE PER I THREAD
 def run_logger(controller_tcp:C_Laumas.Controller_TCP, controller_modbus:C_Seneca.Controller_MODBUS, logger:Logger.LOGGER):
@@ -126,14 +133,20 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     banco=BANCO_DI_TARATURA()
     if banco.controller_tcp.connect():
-        window = MainWindow(banco_di_taratura=banco)
-        window.show()
-        app.lastWindowClosed.connect(lambda: closed_last_window_signal(banco, window))
-        logger_thread = Thread(target=run_logger, args=(banco.controller_tcp, banco.controller_modbus, banco.logger))
-        logger_thread.start()     
-        update_thread = Thread(target=data_update_mV, args=(banco.controller_tcp, banco.controller_modbus, banco.logger))
-        update_thread.start()
-        sys.exit(app.exec())
+        if banco.controller_modbus.connect():
+            window = MainWindow(banco_di_taratura=banco)
+            window.show()
+            app.lastWindowClosed.connect(lambda: closed_last_window_signal(banco, window))
+            logger_thread = Thread(target=run_logger, args=(banco.controller_tcp, banco.controller_modbus, banco.logger))
+            logger_thread.start()     
+            update_thread = Thread(target=data_update_mV, args=(banco.controller_tcp, banco.controller_modbus, banco.logger))
+            update_thread.start()
+            sys.exit(app.exec())
+        else:
+            logging.error("Problema connessione con scheda Seneca", exc_info=True)
+            banco.error_window_logic(messaggio_di_errore=f"ERROR! connessione fallita con scheda Seneca, chiudere la finestra\ne riavviare l'applicazione.")
+            exit()
     else:
-        logging.error("Problema connessione con scheda laumas", exc_info=True)
+        logging.error("Problema connessione con scheda Laumas", exc_info=True)
+        banco.error_window_logic(messaggio_di_errore=f"ERROR! connessione fallita con scheda Laumas, chiudere la finestra\ne riavviare l'applicazione.")
         exit()
