@@ -12,6 +12,9 @@ import sys
 from PySide6.QtGui import QIcon
 from logic_classes.View_QT_HomePage_logic import MainWindow
 from logic_classes.Dialog_error_logic import Error_window
+from Grafana_and_Influx.DB_Writer_Influx import DB_Writer
+from influxdb_client import InfluxDBClient, Point
+from influxdb_client.client.write_api import SYNCHRONOUS
 import logging 
 
 
@@ -28,6 +31,7 @@ class BANCO_DI_TARATURA:
         self.controller_tcp=C_Laumas.Controller_TCP(self)
         self.controller_modbus=C_Seneca.Controller_MODBUS(self)
         self.logger=Logger.LOGGER(nome_CSV=None, banco_di_taratura=self, status=0, path_directory_CSV=None)
+        self.db_writer=DB_Writer(self)
         
         # variabili per grafica
         self.window_icon_path = "python\\Codice_Progetto\\Assets\\connection.png"
@@ -123,6 +127,28 @@ def data_update_mV(controller_tcp:C_Laumas.Controller_TCP, controller_modbus:C_S
             controller_modbus.DATA.canale_temperatura_mV = result_list_SG600[1]
         except Exception as e:
             logging.critical("Problema critico nel dialogo con le schede!", exc_info=True)
+            
+def db_write(controller_tcp:C_Laumas.Controller_TCP, controller_modbus:C_Seneca.Controller_MODBUS, logger:Logger.LOGGER, db_writer:DB_Writer):
+        
+        # Dati registrati di Euramet
+        list_main_temp = banco.logger.DATA.result_list_SG600_main_temp
+        list_units_main_temp = banco.logger.DATA.text_lcd_SG600_main_temp
+        list_units_laumas = banco.logger.DATA.text_lcd
+        list_channels_laumas = banco.logger.DATA.result_list_1_4
+        
+        while banco.logger.DATA.loop_status:
+            sleep(banco.logger.DATA.periodo_logger)
+            if banco.logger.DATA.startStop_logger:
+                p = Point("Euramet test").tag("rampa", "Precarico")
+                p.field("main", float(list_main_temp[0]))
+                p.field("temp", float(list_main_temp[1]))
+                p.field("CH1", float(list_channels_laumas[0]))
+                p.field("CH2", float(list_channels_laumas[1]))
+                p.field("CH3", float(list_channels_laumas[2]))
+                p.field("CH4", float(list_channels_laumas[3]))
+                db_writer.write_api.write(bucket=db_writer.bucket, org=db_writer.org, record=p)
+                sleep(0.1)
+    
         
 def closed_last_window_signal(banco_di_taratura:BANCO_DI_TARATURA, window:MainWindow):
     banco_di_taratura.logger.DATA.loop_status=False
@@ -141,6 +167,8 @@ if __name__ == "__main__":
             logger_thread.start()     
             update_thread = Thread(target=data_update_mV, args=(banco.controller_tcp, banco.controller_modbus, banco.logger))
             update_thread.start()
+            influx_thread = Thread(target=db_write, args=(banco.controller_tcp, banco.controller_modbus, banco.logger, banco.db_writer))
+            influx_thread.start()
             sys.exit(app.exec())
         else:
             logging.error("Problema connessione con scheda Seneca", exc_info=True)

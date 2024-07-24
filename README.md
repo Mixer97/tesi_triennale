@@ -181,3 +181,7 @@
     inserite delle finestre di errore per quando ci sono problemi di connessione
     provato a risolvere il porlema delle finestre di errore dei controller ma non sono gestite in modo corretto (thread problem)
         per la gui serve essere nel thread principale.
+
+
+24/07
+    Inizio a fare esercizi con grafana e influx
