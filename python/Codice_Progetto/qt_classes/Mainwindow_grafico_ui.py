@@ -15,10 +15,11 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
-    QHBoxLayout, QLCDNumber, QLabel, QLineEdit,
-    QMainWindow, QPushButton, QSizePolicy, QSpacerItem,
-    QStackedWidget, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QFormLayout, QFrame,
+    QGridLayout, QHBoxLayout, QLCDNumber, QLabel,
+    QLineEdit, QMainWindow, QProgressBar, QPushButton,
+    QSizePolicy, QSpacerItem, QStackedWidget, QVBoxLayout,
+    QWidget)
 
 from pyqtgraph import PlotWidget
 
@@ -973,6 +974,10 @@ class Ui_GraphWindow(object):
         self.gridLayout_11 = QGridLayout(self.frame_2)
         self.gridLayout_11.setObjectName(u"gridLayout_11")
         self.gridLayout_11.setVerticalSpacing(10)
+        self.verticalSpacer = QSpacerItem(20, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.gridLayout_11.addItem(self.verticalSpacer, 1, 0, 1, 1)
+
         self.frame_6 = QFrame(self.frame_2)
         self.frame_6.setObjectName(u"frame_6")
         self.frame_6.setFrameShape(QFrame.StyledPanel)
@@ -1089,64 +1094,22 @@ class Ui_GraphWindow(object):
 
         self.gridLayout_11.addWidget(self.frame_6, 0, 0, 1, 1)
 
-        self.verticalSpacer = QSpacerItem(20, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
-
-        self.gridLayout_11.addItem(self.verticalSpacer, 1, 0, 1, 1)
-
-        self.verticalSpacer_3 = QSpacerItem(20, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
-
-        self.gridLayout_11.addItem(self.verticalSpacer_3, 5, 0, 1, 1)
-
-        self.frame_18 = QFrame(self.frame_2)
-        self.frame_18.setObjectName(u"frame_18")
-        sizePolicy2.setHeightForWidth(self.frame_18.sizePolicy().hasHeightForWidth())
-        self.frame_18.setSizePolicy(sizePolicy2)
-        self.frame_18.setStyleSheet(u"QWidget	{\n"
-"border-width: 0px;\n"
-"\n"
-"}")
-        self.frame_18.setFrameShape(QFrame.StyledPanel)
-        self.frame_18.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_3 = QHBoxLayout(self.frame_18)
-        self.horizontalLayout_3.setSpacing(0)
-        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.label_7 = QLabel(self.frame_18)
-        self.label_7.setObjectName(u"label_7")
-        sizePolicy1.setHeightForWidth(self.label_7.sizePolicy().hasHeightForWidth())
-        self.label_7.setSizePolicy(sizePolicy1)
-        self.label_7.setMinimumSize(QSize(0, 45))
-        self.label_7.setMaximumSize(QSize(120, 45))
-        self.label_7.setStyleSheet(u"QLabel{\n"
+        self.label_2 = QLabel(self.frame_2)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setMinimumSize(QSize(0, 70))
+        self.label_2.setMaximumSize(QSize(16777215, 70))
+        self.label_2.setStyleSheet(u"QLabel{\n"
 "	background-color:rgb(255, 207, 84); \n"
 "	border-style: outset;\n"
-"    border-width: 2px;\n"
+"    border-width: 4px;\n"
 "    border-color: rgb(255, 106, 0);\n"
-"	border-radius: 15px;\n"
+"	border-radius: 0px;\n"
 "	color: rgb(0,0,0);\n"
 "}\n"
 "")
-        self.label_7.setAlignment(Qt.AlignCenter)
+        self.label_2.setAlignment(Qt.AlignCenter)
 
-        self.horizontalLayout_3.addWidget(self.label_7)
-
-        self.label_led_stabilita = QLabel(self.frame_18)
-        self.label_led_stabilita.setObjectName(u"label_led_stabilita")
-        self.label_led_stabilita.setMinimumSize(QSize(30, 30))
-        self.label_led_stabilita.setMaximumSize(QSize(30, 30))
-        self.label_led_stabilita.setStyleSheet(u"QLabel{\n"
-"	background-color: rgb(255, 0, 4);\n"
-"	border-style: outset;\n"
-"    border-width: 3px;\n"
-"	border-color: rgb(143, 33, 33);\n"
-"	border-radius: 15px;\n"
-"	color: rgb(0,0,0);\n"
-"}")
-
-        self.horizontalLayout_3.addWidget(self.label_led_stabilita)
-
-
-        self.gridLayout_11.addWidget(self.frame_18, 6, 0, 1, 1)
+        self.gridLayout_11.addWidget(self.label_2, 2, 0, 1, 1)
 
         self.frame_22 = QFrame(self.frame_2)
         self.frame_22.setObjectName(u"frame_22")
@@ -1188,7 +1151,105 @@ class Ui_GraphWindow(object):
         self.verticalLayout_16.addWidget(self.pushButton_save_measure)
 
 
-        self.gridLayout_11.addWidget(self.frame_22, 8, 0, 1, 1)
+        self.gridLayout_11.addWidget(self.frame_22, 7, 0, 1, 1)
+
+        self.frame_stabilita = QFrame(self.frame_2)
+        self.frame_stabilita.setObjectName(u"frame_stabilita")
+        sizePolicy2.setHeightForWidth(self.frame_stabilita.sizePolicy().hasHeightForWidth())
+        self.frame_stabilita.setSizePolicy(sizePolicy2)
+        self.frame_stabilita.setStyleSheet(u"QWidget{border-width:0px;}")
+        self.frame_stabilita.setFrameShape(QFrame.StyledPanel)
+        self.frame_stabilita.setFrameShadow(QFrame.Raised)
+        self.formLayout = QFormLayout(self.frame_stabilita)
+        self.formLayout.setObjectName(u"formLayout")
+        self.formLayout.setHorizontalSpacing(0)
+        self.formLayout.setVerticalSpacing(0)
+        self.formLayout.setContentsMargins(0, 0, 0, 0)
+        self.frame_18 = QFrame(self.frame_stabilita)
+        self.frame_18.setObjectName(u"frame_18")
+        self.frame_18.setFrameShape(QFrame.StyledPanel)
+        self.frame_18.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_3 = QHBoxLayout(self.frame_18)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.horizontalLayout_3.setContentsMargins(-1, -1, -1, 5)
+        self.label_7 = QLabel(self.frame_18)
+        self.label_7.setObjectName(u"label_7")
+        sizePolicy1.setHeightForWidth(self.label_7.sizePolicy().hasHeightForWidth())
+        self.label_7.setSizePolicy(sizePolicy1)
+        self.label_7.setMinimumSize(QSize(0, 45))
+        self.label_7.setMaximumSize(QSize(120, 45))
+        self.label_7.setStyleSheet(u"QLabel{\n"
+"	background-color:rgb(255, 207, 84); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(255, 106, 0);\n"
+"	border-radius: 15px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_7.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_3.addWidget(self.label_7)
+
+        self.label_led_stabilita = QLabel(self.frame_18)
+        self.label_led_stabilita.setObjectName(u"label_led_stabilita")
+        self.label_led_stabilita.setEnabled(False)
+        self.label_led_stabilita.setMinimumSize(QSize(30, 30))
+        self.label_led_stabilita.setMaximumSize(QSize(30, 30))
+        self.label_led_stabilita.setStyleSheet(u"QLabel{\n"
+"	background-color: rgb(255, 0, 4);\n"
+"	border-style: outset;\n"
+"    border-width: 3px;\n"
+"	border-color: rgb(143, 33, 33);\n"
+"	border-radius: 15px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"\n"
+"QLabel::disabled{\n"
+"	background-color: rgb(134, 134, 134);\n"
+"	border-style: outset;\n"
+"    border-width: 3px;\n"
+"	border-color: rgb(116, 116, 116);\n"
+"	border-radius: 15px;\n"
+"	color: rgb(0,0,0);\n"
+"}")
+
+        self.horizontalLayout_3.addWidget(self.label_led_stabilita)
+
+
+        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.frame_18)
+
+        self.progressBar = QProgressBar(self.frame_stabilita)
+        self.progressBar.setObjectName(u"progressBar")
+        self.progressBar.setEnabled(False)
+        self.progressBar.setStyleSheet(u"QProgressBar {\n"
+"	border: 2px solid grey;\n"
+"    text-align: center;\n"
+"	color:rgb(0, 0, 0);\n"
+"	border-color: rgb(165, 165, 165);\n"
+"	background-color:rgb(232, 232, 232);\n"
+"}\n"
+"\n"
+"QProgressBar::chunk {\n"
+"    background-color:rgb(103, 200, 73);\n"
+"    margin: 0.5px;\n"
+"}\n"
+"\n"
+"QProgressBar::disabled {\n"
+"    border: 1px;\n"
+"    text-align: center;\n"
+"	color:rgb(0, 0, 0);\n"
+"	border-color: rgb(35, 35, 35);\n"
+"	background-color: rgb(182, 182, 182);\n"
+"}\n"
+"")
+        self.progressBar.setMaximum(30)
+        self.progressBar.setValue(0)
+
+        self.formLayout.setWidget(1, QFormLayout.SpanningRole, self.progressBar)
+
+
+        self.gridLayout_11.addWidget(self.frame_stabilita, 5, 0, 1, 1)
 
         self.frame_altezza = QFrame(self.frame_2)
         self.frame_altezza.setObjectName(u"frame_altezza")
@@ -1251,27 +1312,6 @@ class Ui_GraphWindow(object):
 
 
         self.gridLayout_11.addWidget(self.frame_altezza, 4, 0, 1, 1)
-
-        self.label_2 = QLabel(self.frame_2)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setMinimumSize(QSize(0, 70))
-        self.label_2.setMaximumSize(QSize(16777215, 70))
-        self.label_2.setStyleSheet(u"QLabel{\n"
-"	background-color:rgb(255, 207, 84); \n"
-"	border-style: outset;\n"
-"    border-width: 4px;\n"
-"    border-color: rgb(255, 106, 0);\n"
-"	border-radius: 0px;\n"
-"	color: rgb(0,0,0);\n"
-"}\n"
-"")
-        self.label_2.setAlignment(Qt.AlignCenter)
-
-        self.gridLayout_11.addWidget(self.label_2, 2, 0, 1, 1)
-
-        self.verticalSpacer_4 = QSpacerItem(20, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
-
-        self.gridLayout_11.addItem(self.verticalSpacer_4, 7, 0, 1, 1)
 
 
         self.horizontalLayout.addWidget(self.frame_2)
@@ -1349,6 +1389,7 @@ class Ui_GraphWindow(object):
 
         self.pushButton_Stabilita = QPushButton(self.frame_navigation)
         self.pushButton_Stabilita.setObjectName(u"pushButton_Stabilita")
+        self.pushButton_Stabilita.setEnabled(False)
         sizePolicy6.setHeightForWidth(self.pushButton_Stabilita.sizePolicy().hasHeightForWidth())
         self.pushButton_Stabilita.setSizePolicy(sizePolicy6)
         self.pushButton_Stabilita.setMaximumSize(QSize(200, 16777215))
@@ -1364,8 +1405,12 @@ class Ui_GraphWindow(object):
 "	border-width: 1px;\n"
 "	background-color:rgb(56, 56, 56);\n"
 "	color: rgb(0, 0, 0);\n"
+"}\n"
 "\n"
-"\n"
+"QPushButton::disabled{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(140, 140, 140);\n"
+"	color:rgb(140, 140, 140);\n"
 "}")
 
         self.horizontalLayout_2.addWidget(self.pushButton_Stabilita)
@@ -1423,12 +1468,12 @@ class Ui_GraphWindow(object):
         self.comboBox_Ch_1234.setItemText(3, QCoreApplication.translate("GraphWindow", u"Channel 4", None))
 
         self.lineEdit_time_window.setText(QCoreApplication.translate("GraphWindow", u"time-window", None))
+        self.label_2.setText(QCoreApplication.translate("GraphWindow", u"EURAMET", None))
+        self.pushButton_save_measure.setText(QCoreApplication.translate("GraphWindow", u"ACQUISISCI MISURA", None))
         self.label_7.setText(QCoreApplication.translate("GraphWindow", u"stabilit\u00e0", None))
         self.label_led_stabilita.setText("")
-        self.pushButton_save_measure.setText(QCoreApplication.translate("GraphWindow", u"ACQUISISCI MISURA", None))
         self.label_9.setText(QCoreApplication.translate("GraphWindow", u"Altezza [mm]", None))
         self.lineEdit_altezza.setText(QCoreApplication.translate("GraphWindow", u"0", None))
-        self.label_2.setText(QCoreApplication.translate("GraphWindow", u"EURAMET", None))
         self.pushButton_home.setText(QCoreApplication.translate("GraphWindow", u"HOME", None))
         self.pushButton_Euramet.setText(QCoreApplication.translate("GraphWindow", u"EURAMET SETUP", None))
         self.pushButton_Stabilita.setText(QCoreApplication.translate("GraphWindow", u"STABILITA'", None))

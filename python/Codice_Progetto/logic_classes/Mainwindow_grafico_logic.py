@@ -435,7 +435,6 @@ class GraphWindow(QMainWindow):
         self.graph_recap = Graph_static_recap(self, banco_di_taratura)
         
         # grafici disponibili
-        
         graph_main_and_channel = self.ui.graphWidget_SG600_main_and_channel
         graph_soloTemp = self.ui.graphWidget_SG600_solo_temp
         graph_soloMain = self.ui.graphWidget_SG600_solo_main
@@ -477,9 +476,12 @@ class GraphWindow(QMainWindow):
         self.timer_stability = QTimer()
         self.timer_stability.setInterval(100)
         self.timer_stability.timeout.connect(self.check_stability)
+        self.ui.pushButton_Stabilita.clicked.connect(self.stability_logic)
         self.timer_stability.start()
         self.reached_stability = False
-        
+        self.saved_cella_di_carico = None
+        self.logic_flip_flop = True
+        self.stability_counter_value = 0
         
         # Setup segnali
         self.ui.comboBox_Main_Temp.activated.connect(self.ui.stackedWidget_SG600.setCurrentIndex)
@@ -514,86 +516,100 @@ class GraphWindow(QMainWindow):
         self.timer_grafico.timeout.connect(self.inizializzazione_display)
         self.timer_grafico.start()
         
+        self.led_timer = QTimer()
+        self.led_timer.setInterval(1000)
+        self.led_timer.timeout.connect(self.stability_counter)
+        
     def check_stability(self):
-        
+        # Canale con cui lavoro
         channel = self.graph_ch2
-        
-        if self.euramet_measure_entity!=None and len(channel.buffer)>3:
-            tmp = self.ui.label_step_attuale_valore.text()
-            tmp = tmp.split(' ')
-            mediated_value = channel.media_mobile()
-            buffer = channel.buffer
-            requested_value = int(tmp[0])
-            difference = abs(mediated_value - requested_value)
-            full_scale = abs(self.euramet_measure_entity.max_torque)
-            
-            # calcolo varianza
-            somma_quadrati = sum((x - mediated_value) ** 2 for x in buffer)
-            varianza = round(somma_quadrati / (len(buffer) - 1), 5)
-            
-            yellow_stability = ((15/100)*full_scale)
-            green_stability = ((10/100)*full_scale)
-            
-            # verde
-            if difference < green_stability and varianza < 1:
-                self.ui.label_led_stabilita.setStyleSheet("""
-                    QLabel{
-                        background-color: rgb(79, 255, 76);
-                        border-style: outset;
-                        border-width: 3px;
-                        border-color: rgb(34, 255, 122);
-                        border-radius: 15px;
-                        color: rgb(0, 0, 0);
-                    }
-                    """)
-            
-            # giallo
-            elif difference < yellow_stability and varianza < 3:
-                            self.ui.label_led_stabilita.setStyleSheet("""
-                    QLabel{
-                        background-color: rgb(255, 255, 102);
-                        border-style: outset;
-                        border-width: 3px;
-                        border-color: rgb(248, 255, 119);
-                        border-radius: 15px;
-                        color: rgb(0, 0, 0);
-                    }
-                    """)
+        if self.ui.label_led_stabilita.isEnabled():    
+            if self.euramet_measure_entity!=None and len(channel.buffer)>3:
+                tmp = self.ui.label_step_attuale_valore.text()
+                tmp = tmp.split(' ')
+                self.mediated_value = channel.media_mobile()
+                buffer = channel.buffer
+                requested_value = int(tmp[0])
+                difference = abs(self.mediated_value - requested_value)
+                full_scale = abs(self.euramet_measure_entity.max_torque)
                 
-            # rosso
-            else:
-                if self.reached_stability == False:
+                # calcolo varianza
+                somma_quadrati = sum((x - self.mediated_value) ** 2 for x in buffer)
+                varianza = round(somma_quadrati / (len(buffer) - 1), 5)
+                
+                yellow_stability = ((15/100)*full_scale)
+                green_stability = ((10/100)*full_scale)
+                
+                # verde
+                if difference < green_stability and varianza < 1:
                     self.ui.label_led_stabilita.setStyleSheet("""
                         QLabel{
-                            background-color: rgb(255, 0, 4);
+                            background-color: rgb(79, 255, 76);
                             border-style: outset;
                             border-width: 3px;
-                            border-color: rgb(143, 33, 33);
+                            border-color: rgb(34, 255, 122);
                             border-radius: 15px;
                             color: rgb(0, 0, 0);
                         }
                         """)
-                    self.stability_counter_value = 0
-                    self.led_timer = QTimer()
-                    self.led_timer.setInterval(1000)
-                    self.led_timer.timeout.connect(self.stability_counter)
-                    self.led_timer.stop()
-                    self.led_timer.start()
+                
+                # giallo
+                elif difference < yellow_stability and varianza < 3:
+                                self.ui.label_led_stabilita.setStyleSheet("""
+                        QLabel{
+                            background-color: rgb(255, 255, 102);
+                            border-style: outset;
+                            border-width: 3px;
+                            border-color: rgb(248, 255, 119);
+                            border-radius: 15px;
+                            color: rgb(0, 0, 0);
+                        }
+                        """)
+                    
+                # rosso
                 else:
-                    self.ui.pushButton_save_measure.click()
-                    self.reached_stability = False
-
+                    if self.reached_stability == False:
+                        self.ui.label_led_stabilita.setStyleSheet("""
+                            QLabel{
+                                background-color: rgb(255, 0, 4);
+                                border-style: outset;
+                                border-width: 3px;
+                                border-color: rgb(143, 33, 33);
+                                border-radius: 15px;
+                                color: rgb(0, 0, 0);
+                            }
+                            """)
+                        self.stability_counter_value = 0
+                        self.led_timer.stop()
+                        self.led_timer.start()
+                        self.ui.progressBar.reset()
+                    else:
+                        self.ui.pushButton_save_measure.click()
+                        self.ui.progressBar.reset()
+                        self.reached_stability = False
+        else:
+            self.ui.label_led_stabilita.setStyleSheet("""
+                QLabel{
+                    background-color: rgb(134, 134, 134);
+                    border-style: outset;
+                    border-width: 3px;
+                    border-color: rgb(116, 116, 116);
+                    border-radius: 15px;
+                    color: rgb(0, 0, 0);
+                }
+                """)
+                    
             
     def stability_counter(self):
         if self.stability_counter_value == 30:
             self.reached_stability = True
+            self.saved_cella_di_carico= self.mediated_value
             self.led_timer.stop()
         else:
             self.stability_counter_value += 1
+            self.ui.progressBar.setValue(self.stability_counter_value)
             logging.warn(f"valore del timer: {self.stability_counter_value}")
             print(f"valore del timer: {self.stability_counter_value}")
-
-        
 
         
     def inizializzazione_display(self):
@@ -612,14 +628,35 @@ class GraphWindow(QMainWindow):
         self.euramet_window.exec()
     
     def handle_euramet(self):
+        self.stability_counter_value = 0
+        self.timer_stability.stop()
         self.graph_recap.plot_a_point(self.euramet_measure_entity.numero_misure_totali_da_fare)
         if self.euramet_measure_entity != None:
-            self.euramet_measure_entity.measure_value()
+            self.euramet_measure_entity.measure_value(self.saved_cella_di_carico)
+            self.ui.progressBar.reset()
             print(f"Sto misurando nel quadrante: {self.banco_di_taratura.quadrant}")
+            self.timer_stability.start()
         else:
             print("errore nell' instanziazione della misura euramet")
+            self.timer_stability.start()
             
-            
+    def stability_logic(self):
+        if self.logic_flip_flop:
+            # self.timer_stability.stop()
+            self.stability_counter_value = 0
+            self.led_timer.stop()
+            self.ui.label_led_stabilita.setEnabled(False)
+            self.ui.progressBar.setEnabled(False)
+            self.ui.progressBar.reset()
+            self.logic_flip_flop = False
+
+        else:
+            # self.timer_stability.start()
+            self.stability_counter_value = 0
+            self.led_timer.start()
+            self.ui.label_led_stabilita.setEnabled(True)
+            self.ui.progressBar.setEnabled(True)
+            self.logic_flip_flop = True
         
         
 if __name__ == "__main__":

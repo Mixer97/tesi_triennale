@@ -36,13 +36,13 @@ EURAMET LOGIC:
     - implementare stabilità per misura automatica (con tanto di timer)
         - idea: uscire dallo step attuale tramite pressione del tasto (pre 30s), uscire con pressione del tasto o discostamento dal range predefinito (10% circa, after 30s).
             - l'uscista dal range verra comunque accompaganato dal click sul pulsante cosi da far avvanzare la misura solo in quel modo.
-        - la modalità sara da impostare come attiva o disattiva
+        - la modalità sarà da impostare come attiva o disattiva
     - inserire disattivazione pulsante per setup euramet durante un eruamet, e inserire un pulsante che possa riabilitarlo per fare finire euramet in anticipo.
-    - implementare la logica per l'altezza
+    [[- implementare la logica per l'altezza]]
     
     - dopo avere implementato la logica euramet per bene, andare a cambiare la guida Per fabio e aggiornarla in modo che corrisponda a eventuali elementi/logiche aggiunte.
     [[- inserire nome file attuale salvataggio excell per la schermata euramet]]
-    - disattivare pulsante per cambiare csv registrazione mentre il pulsante registrazione è rosso (cioè sta registrando)
+    [[- disattivare pulsante per cambiare csv registrazione mentre il pulsante registrazione è rosso (cioè sta registrando)]]
     - Gestire path realtivo del template euramet.
 
 BUG SCOPERTI:

@@ -38,12 +38,18 @@ class Rampa:
             self.number_of_steps = self.banco_di_taratura.current_number_of_steps-1
         
         
-    def measure_value(self):
+    def measure_value(self, cella=None, torsiom=None):
+        
         # Acquisizione dei 5 valori da mettere in tabella
         haxis = int(self.banco_di_taratura.axis_h)
         href = int(self.misura_euramet.graphwindow.ui.lineEdit_altezza.text())
-        cella_di_carico_N = self.banco_di_taratura.controller_tcp.DATA.LIST_N_VALUE[1]  # cella ch2
-        torsiometro = self.banco_di_taratura.controller_tcp.DATA.LIST_Nm_VALUE[3]  # cella ch4
+        
+        if cella == None: cella_di_carico_N = self.banco_di_taratura.controller_tcp.DATA.LIST_N_VALUE[1]  # cella ch2
+        else: cella_di_carico_N = cella
+        
+        if torsiom == None: torsiometro = self.banco_di_taratura.controller_tcp.DATA.LIST_Nm_VALUE[3]  # cella ch4
+        else: torsiometro = torsiom
+        
         sg600 = self.banco_di_taratura.controller_modbus.DATA.canale_principale_mV/1000  # Main in V
         
         # Aggiornamento dei valori grafici step attuale
@@ -148,12 +154,17 @@ class Precarichi:
         self.max_torque = misura.max_torque
         self.current_step_value = 0
         
-    def measure_value(self):
+    def measure_value(self, cella=None, torsiom=None):
         # Acquisizione dei 5 valori da mettere in tabella
         haxis = int(self.banco_di_taratura.axis_h)
         href = int(self.misura_euramet.graphwindow.ui.lineEdit_altezza.text())
-        cella_di_carico_N = self.banco_di_taratura.controller_tcp.DATA.LIST_N_VALUE[1]  # cella ch2
-        torsiometro = self.banco_di_taratura.controller_tcp.DATA.LIST_Nm_VALUE[3]  # cella ch4
+        
+        if cella == None: cella_di_carico_N = self.banco_di_taratura.controller_tcp.DATA.LIST_N_VALUE[1]  # cella ch2
+        else: cella_di_carico_N = cella
+        
+        if torsiom == None: torsiometro = self.banco_di_taratura.controller_tcp.DATA.LIST_Nm_VALUE[3]  # cella ch4
+        else: torsiometro = torsiom
+        
         sg600 = self.banco_di_taratura.controller_modbus.DATA.canale_principale_mV/1000  # Main in V
                 
         # Scrittura su Excell e aumento dello step
@@ -261,6 +272,11 @@ class Misura_euramet:
         self.end_check_zero_finale = 0
         self.starting_column = self.banco_di_taratura.euramet_cella_inizio_precarichi_Q1[0]
         
+        # aggiornamento delle componenti grafiche di Graph Window
+        self.graphwindow.ui.pushButton_Stabilita.setEnabled(True)
+        self.graphwindow.ui.label_led_stabilita.setEnabled(True)
+        self.graphwindow.ui.progressBar.setEnabled(True)
+        
         # dati che controllano il proseguimento di euramet
         self.quadrant_counter = 0
         self.graphwindow.graph_recap.plot_a_point(1)
@@ -298,23 +314,23 @@ class Misura_euramet:
         
         
 
-    def measure_value(self):
+    def measure_value(self, cella=None, torsiom=None):
         if self.end_check_prec == 0:
             print("Ho appena misurato uno step dei precatichi")
-            self.end_check_prec = self.precarichi.measure_value()
+            self.end_check_prec = self.precarichi.measure_value(cella=cella, torsiom=torsiom)
         elif self.end_check_salita_1 == 0 and self.rampa_salita_1 != None:
             print("Ho appena misurato uno step nella salita 1")
-            self.end_check_salita_1 = self.rampa_salita_1.measure_value()
+            self.end_check_salita_1 = self.rampa_salita_1.measure_value(cella=cella, torsiom=torsiom)
         elif self.end_check_discesa_1 == 0 and self.rampa_discesa_1 != None:
             print("Ho appena misurato uno step nella discesa 1")
-            self.end_check_discesa_1 = self.rampa_discesa_1.measure_value()
+            self.end_check_discesa_1 = self.rampa_discesa_1.measure_value(cella=cella, torsiom=torsiom)
         elif self.end_check_salita_2 == 0 and self.rampa_salita_2 != None:
             print("Ho appena misurato uno step nella salita 2")
-            self.end_check_salita_2 = self.rampa_salita_2.measure_value()
+            self.end_check_salita_2 = self.rampa_salita_2.measure_value(cella=cella, torsiom=torsiom)
         elif self.end_check_zero_finale == 0 and self.zero_finale != None:
             self.zero_finale.number_of_steps = 1
             self.max_torque = 0
-            self.end_check_zero_finale = self.zero_finale.measure_value()
+            self.end_check_zero_finale = self.zero_finale.measure_value(cella=cella, torsiom=torsiom)
             self.banco_di_taratura.quadrant_counter += 1
             self.euramet_window.change_quadrant()
             

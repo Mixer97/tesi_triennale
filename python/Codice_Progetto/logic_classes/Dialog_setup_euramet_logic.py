@@ -118,6 +118,8 @@ class Euramet_window(QDialog):
             error_window.setWindowTitle("Error Window")
             error_window.exec()
         else:
+            self.graph_window.stability_logic()
+            self.graph_window.logic_flip_flop = True
             self.banco_di_taratura.workbook = load_workbook(self.banco_di_taratura.excell_full_path)
             self.graph_window.ui.pushButton_save_measure.setEnabled(True)
             self.graph_window.ui.label_quadrante.setText(self.banco_di_taratura.quadrant)
