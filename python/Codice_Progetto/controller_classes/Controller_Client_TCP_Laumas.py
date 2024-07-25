@@ -61,8 +61,8 @@ class Controller_TCP:
             self.LIST_Kg_VALUE = [0,0,0,0]
             self.LIST_Nm_VALUE = [0,0,0,0]
             self.LIST_N_VALUE = [0,0,0,0]
-            self.LIST_SENSIBILITY = [1,2.0302,0,1] # settato dalle varie setup pages
-            self.LIST_FULLSCALE = [10,50,10,10] # settato dalle varie setup pages
+            self.LIST_SENSIBILITY = [1,1,1,1] # settato dalle varie setup pages
+            self.LIST_FULLSCALE = [10,10,10,10] # settato dalle varie setup pages
             self.LIST_mV_ZERO = [0,0,0,0] # settato dalle varie setup pages
             self.LEVER_LENGTH = 1 # meters
             self.STATUS_CHANNELS = [0,0,0,0] # settato da setupPage

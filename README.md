@@ -185,3 +185,6 @@
 
 24/07
     Inizio a fare esercizi con grafana e influx
+
+25/07
+    Inizio a lavorare sulla logica per la stabilità

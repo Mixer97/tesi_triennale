@@ -1,7 +1,8 @@
 from __future__ import annotations
-from PySide6.QtWidgets import QDialog
+from PySide6.QtCore import QTimer
 from typing import TYPE_CHECKING
 from openpyxl import load_workbook
+import math
 
 if TYPE_CHECKING:
     from Banco_Taratura import BANCO_DI_TARATURA
@@ -74,7 +75,7 @@ class Rampa:
                 elif self.tipo == "salita2":
                     self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"0 Nm")
                 else:
-                    self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"{self.step_increment * (self.banco_di_taratura.current_number_of_steps-4)} Nm")
+                    self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"{self.step_increment} Nm")
                 
         elif self.tipo == "discesa1":
             if self.number_of_steps-self.step_attuale > 1:
@@ -170,7 +171,7 @@ class Precarichi:
                 if self.banco_di_taratura.list_status_checkbox_euramet_page[1] == 0:
                     self.misura_euramet.graphwindow.ui.label_step_attuale_valore.setText(f"{self.current_step_value} Nm")
                 else:
-                    self.misura_euramet.graphwindow.ui.label_step_attuale_valore.setText(f"{(self.max_torque / self.number_of_steps_rampe) * (self.number_of_steps_rampe-1)} Nm")
+                    self.misura_euramet.graphwindow.ui.label_step_attuale_valore.setText(f"{math.ceil(self.max_torque / self.number_of_steps_rampe) * (self.number_of_steps_rampe-1)} Nm")
             else:
                 self.misura_euramet.graphwindow.ui.label_step_attuale_valore.setText(f"{self.current_step_value} Nm")
                 
@@ -187,18 +188,18 @@ class Precarichi:
                 if self.banco_di_taratura.list_status_checkbox_euramet_page[1] == 0:
                     self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"0 Nm")
                 else:
-                    self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"{(self.max_torque / self.number_of_steps_rampe) * (self.number_of_steps_rampe-1)} Nm")
+                    self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"{math.ceil(self.max_torque / self.number_of_steps_rampe) * (self.number_of_steps_rampe-1)} Nm")
             else:
                 self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"0 Nm")
                 
         elif self.step_attuale == 6:
             if self.banco_di_taratura.list_status_checkbox_euramet_page[0] == 0:
                 if self.banco_di_taratura.list_status_checkbox_euramet_page[1] == 0:
-                    self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"{(self.max_torque / self.number_of_steps_rampe)} Nm")
+                    self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"{math.ceil(self.max_torque / self.number_of_steps_rampe)} Nm")
                 else:
-                    self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"{(self.max_torque / self.number_of_steps_rampe) * (self.number_of_steps_rampe-2)} Nm")
+                    self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"{math.ceil(self.max_torque / self.number_of_steps_rampe) * (self.number_of_steps_rampe-2)} Nm")
             else:
-                self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"{(self.max_torque / self.number_of_steps_rampe)} Nm")
+                self.misura_euramet.graphwindow.ui.label_step_prossimo_valore.setText(f"{math.ceil(self.max_torque / self.number_of_steps_rampe)} Nm")
         
         return end_check
         
@@ -216,10 +217,6 @@ class Precarichi:
     def increment_step(self):
         self.step_attuale += 1
         self.prec_steps()
-        # inserire cambiamento del valore nella label STEP sul graphwindow
-        
-    def check_stability(self):
-        pass
     
     def prec_steps(self):
         if self.current_step_value == 0:
@@ -267,7 +264,7 @@ class Misura_euramet:
         # dati che controllano il proseguimento di euramet
         self.quadrant_counter = 0
         self.graphwindow.graph_recap.plot_a_point(1)
-        
+        self.step_value = 0
         
         # Creazione delle entità che compongono Euramet in un certo Quadrante
         self.precarichi = Precarichi(self.banco_di_taratura, self)
@@ -297,9 +294,8 @@ class Misura_euramet:
             self.zero_finale = None
         self.graphwindow.graph_recap.plot_full_graph()
         self.graphwindow.ui.label_step_prossimo_valore.setText(f"{self.precarichi.max_torque} Nm")
-        
-        
         # Ora ho il numero totale di misure da fare
+        
         
 
     def measure_value(self):

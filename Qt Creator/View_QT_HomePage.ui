@@ -1388,6 +1388,9 @@ QPushButton::pressed{
           </item>
           <item>
            <widget class="QPushButton" name="pushButton_setup_registrazione">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
               <horstretch>0</horstretch>
@@ -1422,6 +1425,12 @@ QPushButton::pressed{
 	border-width: 1px;
 	background-color:rgb(56, 56, 56);
 	color: rgb(0, 0, 0);
+}
+
+QPushButton::disabled{
+	border-width: 1px;
+	background-color:rgb(140, 140, 140);
+	color:rgb(140, 140, 140);
 }</string>
             </property>
             <property name="text">

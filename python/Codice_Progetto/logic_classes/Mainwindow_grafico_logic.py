@@ -13,7 +13,7 @@ import sys
 from time import sleep
 from random import randint, random
 import time
-import os
+import logging 
 from logic_classes.Euramet_logic import Misura_euramet
 
 if TYPE_CHECKING:
@@ -473,6 +473,13 @@ class GraphWindow(QMainWindow):
                              self.graph_ch3,
                              self.graph_ch4]
         
+        # stabilità misura
+        self.timer_stability = QTimer()
+        self.timer_stability.setInterval(100)
+        self.timer_stability.timeout.connect(self.check_stability)
+        self.timer_stability.start()
+        self.reached_stability = False
+        
         
         # Setup segnali
         self.ui.comboBox_Main_Temp.activated.connect(self.ui.stackedWidget_SG600.setCurrentIndex)
@@ -506,6 +513,88 @@ class GraphWindow(QMainWindow):
         self.timer_grafico.setInterval(100)
         self.timer_grafico.timeout.connect(self.inizializzazione_display)
         self.timer_grafico.start()
+        
+    def check_stability(self):
+        
+        channel = self.graph_ch2
+        
+        if self.euramet_measure_entity!=None and len(channel.buffer)>3:
+            tmp = self.ui.label_step_attuale_valore.text()
+            tmp = tmp.split(' ')
+            mediated_value = channel.media_mobile()
+            buffer = channel.buffer
+            requested_value = int(tmp[0])
+            difference = abs(mediated_value - requested_value)
+            full_scale = abs(self.euramet_measure_entity.max_torque)
+            
+            # calcolo varianza
+            somma_quadrati = sum((x - mediated_value) ** 2 for x in buffer)
+            varianza = round(somma_quadrati / (len(buffer) - 1), 5)
+            
+            yellow_stability = ((15/100)*full_scale)
+            green_stability = ((10/100)*full_scale)
+            
+            # verde
+            if difference < green_stability and varianza < 1:
+                self.ui.label_led_stabilita.setStyleSheet("""
+                    QLabel{
+                        background-color: rgb(79, 255, 76);
+                        border-style: outset;
+                        border-width: 3px;
+                        border-color: rgb(34, 255, 122);
+                        border-radius: 15px;
+                        color: rgb(0, 0, 0);
+                    }
+                    """)
+            
+            # giallo
+            elif difference < yellow_stability and varianza < 3:
+                            self.ui.label_led_stabilita.setStyleSheet("""
+                    QLabel{
+                        background-color: rgb(255, 255, 102);
+                        border-style: outset;
+                        border-width: 3px;
+                        border-color: rgb(248, 255, 119);
+                        border-radius: 15px;
+                        color: rgb(0, 0, 0);
+                    }
+                    """)
+                
+            # rosso
+            else:
+                if self.reached_stability == False:
+                    self.ui.label_led_stabilita.setStyleSheet("""
+                        QLabel{
+                            background-color: rgb(255, 0, 4);
+                            border-style: outset;
+                            border-width: 3px;
+                            border-color: rgb(143, 33, 33);
+                            border-radius: 15px;
+                            color: rgb(0, 0, 0);
+                        }
+                        """)
+                    self.stability_counter_value = 0
+                    self.led_timer = QTimer()
+                    self.led_timer.setInterval(1000)
+                    self.led_timer.timeout.connect(self.stability_counter)
+                    self.led_timer.stop()
+                    self.led_timer.start()
+                else:
+                    self.ui.pushButton_save_measure.click()
+                    self.reached_stability = False
+
+            
+    def stability_counter(self):
+        if self.stability_counter_value == 30:
+            self.reached_stability = True
+            self.led_timer.stop()
+        else:
+            self.stability_counter_value += 1
+            logging.warn(f"valore del timer: {self.stability_counter_value}")
+            print(f"valore del timer: {self.stability_counter_value}")
+
+        
+
         
     def inizializzazione_display(self):
         self.ui.lcdNumber_main_mV.display(self.banco_di_taratura.controller_modbus.DATA.canale_principale_mV)

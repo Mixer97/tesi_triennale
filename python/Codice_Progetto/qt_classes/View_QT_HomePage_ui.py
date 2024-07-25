@@ -940,6 +940,7 @@ class Ui_MainWindow(object):
 
         self.pushButton_setup_registrazione = QPushButton(self.frame)
         self.pushButton_setup_registrazione.setObjectName(u"pushButton_setup_registrazione")
+        self.pushButton_setup_registrazione.setEnabled(True)
         sizePolicy4.setHeightForWidth(self.pushButton_setup_registrazione.sizePolicy().hasHeightForWidth())
         self.pushButton_setup_registrazione.setSizePolicy(sizePolicy4)
         self.pushButton_setup_registrazione.setMaximumSize(QSize(200, 16777215))
@@ -955,6 +956,12 @@ class Ui_MainWindow(object):
 "	border-width: 1px;\n"
 "	background-color:rgb(56, 56, 56);\n"
 "	color: rgb(0, 0, 0);\n"
+"}\n"
+"\n"
+"QPushButton::disabled{\n"
+"	border-width: 1px;\n"
+"	background-color:rgb(140, 140, 140);\n"
+"	color:rgb(140, 140, 140);\n"
 "}")
 
         self.horizontalLayout_2.addWidget(self.pushButton_setup_registrazione)

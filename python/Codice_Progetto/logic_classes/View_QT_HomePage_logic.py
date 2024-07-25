@@ -116,9 +116,8 @@ class MainWindow(QMainWindow):
     
     def pulsante_registrazione_click(self):
         # Check della condizione del pulsante e poi cambio il tipo e gestisco il logger
-        if self.status_pulsante_registrazione % 2 != 0:
-                # self.timer2.start(100)          # In millisecondi  
-                
+        if self.status_pulsante_registrazione % 2 != 0: 
+                self.ui.pushButton_setup_registrazione.setEnabled(False)
                 if self.banco_di_taratura.registrazione_directory_path == None or self.banco_di_taratura.registrazione_name == None:
                         logging.error(f"Directory: {self.banco_di_taratura.registrazione_directory_path}, Name: {self.banco_di_taratura.registrazione_name}")
                         error_window = Error_window(banco_di_taratura=self.banco_di_taratura)
@@ -135,7 +134,7 @@ class MainWindow(QMainWindow):
                         self.ui.widget_sfondo_registrazione.setStyleSheet("QWidget { background-color:rgb(255, 69, 72); border-style: outset; border-width: 2px; border-color:rgb(255, 111, 113); border-radius: 20px; }")
                         self.status_pulsante_registrazione = self.status_pulsante_registrazione + 1
         else:
-                # self.timer2.stop()     
+                self.ui.pushButton_setup_registrazione.setEnabled(True)   
                 self.logger.DATA.startStop_logger  = False     
                 self.ui.pushButton_Registrazione.setText("START")     
                 self.ui.label_5.setStyleSheet("QWidget { background-color:rgb(125, 225, 10); border-style: outset; border-width: 0px; border-color:rgb(63, 156, 23); border-radius: 20px; } QLabel { color: rgb(0,0,0); }")
