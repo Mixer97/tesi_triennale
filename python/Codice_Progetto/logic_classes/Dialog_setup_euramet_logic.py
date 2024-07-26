@@ -72,6 +72,7 @@ class Euramet_window(QDialog):
             self.graph_window.ui.graphWidget_visual_euramet.clear()
             self.graph_window.ui.label_step_prossimo_valore.setText("#######")
             self.graph_window.euramet_measure_entity = None
+            self.graph_window.stability_logic()
         else:
             pass
     

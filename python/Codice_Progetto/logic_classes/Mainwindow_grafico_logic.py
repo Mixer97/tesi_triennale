@@ -630,16 +630,22 @@ class GraphWindow(QMainWindow):
     
     def handle_euramet(self):
         self.timer_stability.stop()
+        tmp = self.reached_stability
         self.reached_stability = False # Fondamentale per evitare di fare due volte la misura di seguito
         self.graph_recap.plot_a_point(self.euramet_measure_entity.numero_misure_totali_da_fare)
         if self.euramet_measure_entity != None:
-            self.euramet_measure_entity.measure_value(self.saved_cella_di_carico)
+            if tmp == True:
+                self.euramet_measure_entity.measure_value(self.saved_cella_di_carico)
+            else:
+                self.euramet_measure_entity.measure_value()
             self.ui.progressBar.reset()
             print(f"Sto misurando nel quadrante: {self.banco_di_taratura.quadrant}")
+            logging.debug(f"Dato salvato: {self.banco_di_taratura.quadrant}")
         else:
             print("errore nell' instanziazione della misura euramet")
         self.timer_stability.start()
-        self.led_timer.start()
+        if self.banco_di_taratura.quadrant_counter != 2:  # Quando ho finito euramet non riparte il timer
+            self.led_timer.start()
 
             
     def stability_logic(self):

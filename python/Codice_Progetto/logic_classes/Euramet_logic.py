@@ -333,7 +333,6 @@ class Misura_euramet:
             self.end_check_zero_finale = self.zero_finale.measure_value(cella=cella, torsiom=torsiom)
             self.banco_di_taratura.quadrant_counter += 1
             self.euramet_window.change_quadrant()
-            
             print("Sono nello zero finale")
         else:
             print("qui non ci deve arrivare!")

@@ -118,25 +118,29 @@ class SetupWindow(QMainWindow):
         
     def open_setup_CH1_window(self):
         self.setup_window = Canale_Setup_1(banco_di_taratura=self.banco_di_taratura)
-        
         self.setup_window.exec()
+        self.ui.pushButton_concludi_setup.click()
         
     def open_setup_CH2_window(self):
         self.setup_window = Canale_Setup_2(banco_di_taratura=self.banco_di_taratura)
         self.setup_window.exec()
+        self.ui.pushButton_concludi_setup.click()
 
     def open_setup_CH3_window(self):
         self.setup_window = Canale_Setup_3(banco_di_taratura=self.banco_di_taratura)
         self.setup_window.exec()
+        self.ui.pushButton_concludi_setup.click()
 
     def open_setup_CH4_window(self):
         self.setup_window = Canale_Setup_4(banco_di_taratura=self.banco_di_taratura)
         self.setup_window.exec()
+        self.ui.pushButton_concludi_setup.click()
         
     def open_setup_SG600_window(self):
         self.setup_window = Canale_Setup_SG600(banco_di_taratura=self.banco_di_taratura)
         self.setup_window.setWindowTitle("SG600 Setup Window")
         self.setup_window.exec()
+        self.ui.pushButton_concludi_setup.click()
     
     def load_banco_setup(self):
         fname = QFileDialog.getOpenFileName() # prendi info del file selezionato
@@ -144,6 +148,7 @@ class SetupWindow(QMainWindow):
         if fname.endswith('json'):  # controllo sia un json
             tmp=handler_json(path_file_load=fname)
             tmp.load_setup_banco(banco_di_taratura=self.banco_di_taratura, setup_window=self)
+            self.ui.pushButton_concludi_setup.click()
         else:   # finestra di errore
             error_window = Error_window(banco_di_taratura=self.banco_di_taratura)
             error_window.set_error_message("Errore nella selezione del file (file selezionato non è .json)")
@@ -154,6 +159,7 @@ class SetupWindow(QMainWindow):
     def on_click(self, ID):  
         self.list_status_checkbox[abs(ID-4)] = int(not(self.list_status_checkbox[abs(ID-4)]))
         print("STATUS CHN" + str(ID) + " = " + str(self.list_status_checkbox[abs(ID-4)]) + "; status-checkbox = " + str(self.list_status_checkbox))
+        self.ui.pushButton_concludi_setup.click()
     
     # Impostazioni vengono salvate definitivamente nella scheda a seguito di questa funzione
     def finalizing_setup(self):

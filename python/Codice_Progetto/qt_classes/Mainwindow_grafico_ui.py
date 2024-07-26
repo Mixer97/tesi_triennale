@@ -1099,10 +1099,10 @@ class Ui_GraphWindow(object):
         self.label_2.setMinimumSize(QSize(0, 70))
         self.label_2.setMaximumSize(QSize(16777215, 70))
         self.label_2.setStyleSheet(u"QLabel{\n"
-"	background-color:rgb(255, 207, 84); \n"
+"	background-color: rgb(237, 170, 255); \n"
 "	border-style: outset;\n"
 "    border-width: 4px;\n"
-"    border-color: rgb(255, 106, 0);\n"
+"    border-color: rgb(175, 94, 255);\n"
 "	border-radius: 0px;\n"
 "	color: rgb(0,0,0);\n"
 "}\n"
