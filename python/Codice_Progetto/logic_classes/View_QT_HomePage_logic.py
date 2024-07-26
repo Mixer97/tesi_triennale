@@ -124,6 +124,7 @@ class MainWindow(QMainWindow):
                         error_window.set_error_message(f"Il file per la registrazione non è stato definito.")
                         error_window.setWindowTitle("Error Window")
                         error_window.exec()
+                        self.ui.pushButton_setup_registrazione.setEnabled(True)
                 else:
                         self.logger.DATA.startStop_logger = True
                         if self.logger.start_timer == None:
