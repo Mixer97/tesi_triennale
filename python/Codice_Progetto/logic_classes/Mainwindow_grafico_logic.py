@@ -528,7 +528,12 @@ class GraphWindow(QMainWindow):
                 tmp = self.ui.label_step_attuale_valore.text()
                 tmp = tmp.split(' ')
                 self.mediated_value = channel.media_mobile()
-                buffer = channel.buffer
+                
+                buffer = [None]*30
+                
+                for i in range(0,30):
+                    buffer[i] = channel.buffer[i]
+                
                 requested_value = int(tmp[0])
                 difference = abs(self.mediated_value - requested_value)
                 full_scale = abs(self.euramet_measure_entity.max_torque)
@@ -580,8 +585,8 @@ class GraphWindow(QMainWindow):
                             }
                             """)
                         self.stability_counter_value = 0
-                        self.led_timer.stop()
-                        self.led_timer.start()
+                        # self.led_timer.stop()
+                        # self.led_timer.start()
                         self.ui.progressBar.reset()
                     else:
                         self.ui.pushButton_save_measure.click()
@@ -603,7 +608,10 @@ class GraphWindow(QMainWindow):
     def stability_counter(self):
         if self.stability_counter_value == 30:
             self.reached_stability = True
-            self.saved_cella_di_carico= self.mediated_value
+            tmp = self.banco_di_taratura.controller_tcp.get_N()
+            self.saved_cella_di_carico = tmp[1]
+            tmp = self.banco_di_taratura.controller_tcp.get_Nm()
+            self.saved_torsiometro = tmp[3]
             self.stability_counter_value = 0
             self.led_timer.stop()
         else:
@@ -635,7 +643,7 @@ class GraphWindow(QMainWindow):
         self.graph_recap.plot_a_point(self.euramet_measure_entity.numero_misure_totali_da_fare)
         if self.euramet_measure_entity != None:
             if tmp == True:
-                self.euramet_measure_entity.measure_value(self.saved_cella_di_carico)
+                self.euramet_measure_entity.measure_value(cella=self.saved_cella_di_carico, torsiom=self.saved_torsiometro)
             else:
                 self.euramet_measure_entity.measure_value()
             self.ui.progressBar.reset()
