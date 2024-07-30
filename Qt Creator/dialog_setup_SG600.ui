@@ -130,7 +130,10 @@
 </string>
                   </property>
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;COEFFICIENTE&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;COEFFICIENTE [Nm/V]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                  </property>
+                  <property name="margin">
+                   <number>5</number>
                   </property>
                  </widget>
                 </item>
@@ -286,6 +289,12 @@ QPushButton::pressed{
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
+                </property>
+                <property name="margin">
+                 <number>5</number>
+                </property>
+                <property name="indent">
+                 <number>-1</number>
                 </property>
                </widget>
               </item>
@@ -529,7 +538,10 @@ QPushButton::pressed{
 </string>
                   </property>
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;COEFFICIENTE&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;COEFFICIENTE [°C/V]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                  </property>
+                  <property name="margin">
+                   <number>5</number>
                   </property>
                  </widget>
                 </item>
@@ -682,6 +694,9 @@ QPushButton::pressed{
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
+                </property>
+                <property name="margin">
+                 <number>5</number>
                 </property>
                </widget>
               </item>
