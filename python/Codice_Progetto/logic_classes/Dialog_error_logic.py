@@ -5,6 +5,8 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from Banco_Taratura import BANCO_DI_TARATURA
+    
+""" Codice per gestire la creazione della finestra di errore che viene usata dalle altre parti di codice """
 
 class Error_window(QDialog):
     def __init__(self, banco_di_taratura:BANCO_DI_TARATURA):
@@ -23,8 +25,10 @@ class Error_window(QDialog):
         self.ui.label_Error.setText(message)
         
         """Implementazione della finestra di errore"""
-        # error_window = Error_window(banco_di_taratura=self.banco_di_taratura)
-        # error_window.set_error_message("Errore nella selezione del file (file selezionato non è json)")
-        # error_window.setWindowTitle("Error Window")
-        # error_window.exec()
+        """
+        error_window = Error_window(banco_di_taratura=self.banco_di_taratura)
+        error_window.set_error_message("Errore nella selezione del file (file selezionato non è json)")
+        error_window.setWindowTitle("Error Window")
+        error_window.exec()
+        """
         """--------------------------------------------"""

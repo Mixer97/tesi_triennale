@@ -26,10 +26,16 @@ class Salvataggio_setup_euramet(QDialog):
         
     # metodi
     def update_filename(self):
+        """Prende il file name dalla linea di testo che è stata aggiornata"""
         self.banco_di_taratura.file_setup_euramet_name = self.ui.lineEdit_nome_file.text()
 
         
     def save_setup(self):
+        """
+        Viene chiamata quando viene premuto il tasto per concludere:
+        
+        inizializza handler_json e salva il setup di Euramet in un .json
+        """
         tmp = handler_json(nome_file_save=self.banco_di_taratura.file_setup_euramet_name, path_directory_save=self.banco_di_taratura.file_setup_euramet_directory_path)
         tmp.save_setup_euramet(banco_di_taratura=self.banco_di_taratura, setup_window_euramet=self)
         self.close()

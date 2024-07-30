@@ -17,7 +17,10 @@ class Rampa:
         
         """
         tipo --> "salita1", "discesa1", "salita2", "zero finale"
+        
         quadrante --> "Q1 (positivo)", "Q3 (negativo)"
+        
+        misure già fatte --> Numero di misure già effettuate
         """
         
         self.tipo = tipo
@@ -33,13 +36,17 @@ class Rampa:
         self.excel_path_template = self.banco_di_taratura.excell_path_template
         self.excel_path_certificate = self.banco_di_taratura.excell_full_path
         self.max_torque = misura.max_torque
-        self.step_increment = int(int(self.max_torque)/int(self.number_of_steps-1))
+        self.step_increment = int(int(self.max_torque)/int(self.number_of_steps-1))  # Altezza di uno step
         if self.tipo == "discesa1":
             self.number_of_steps = self.banco_di_taratura.current_number_of_steps-1
         
         
     def measure_value(self, cella=None, torsiom=None):
+        """
+        Measure value della rampa: cella e torsiom sono valori che vengono inseriti nel caso si arrivi ai 30s di stabilità
         
+        Si occupa di eseguire l'aggiornamento grafico, la scrittura su excell e l'aumento dello step
+        """
         # Acquisizione dei 5 valori da mettere in tabella
         haxis = int(self.banco_di_taratura.axis_h)
         href = int(self.misura_euramet.graphwindow.ui.lineEdit_altezza.text())
@@ -101,6 +108,7 @@ class Rampa:
         return end_check
             
     def write_to_excell(self, data, starting_row_cell):
+        """Scrive una riga di 5 elementi nella tabella di excell"""
         tmp_cell = starting_row_cell    # inizia da questa cella e scrive i dati necessari
         for i in range(5):
             sheet_euramet = self.banco_di_taratura.workbook[self.banco_di_taratura.excell_page_data]
@@ -111,10 +119,6 @@ class Rampa:
         
     def increment_step(self):
         self.step_attuale += 1
-        # inserire cambiamento del valore nella label STEP sul graphwindow
-        
-    def check_stability(self):
-        pass
     
     def check_end(self):
         # Torna 1 se la rampa è finita, 0 se ci sono ancora degli step
@@ -124,6 +128,7 @@ class Rampa:
             return 0
     
     def calculate_row_starting_cell(self):
+        """Metodo per calcolare da quale cella scrivere la riga attuale"""
         tmp = self.excel_cell_quadrant_start[1]
         tmp_cell = [self.excel_cell_quadrant_start[0], tmp]
         for i in range(self.step_attuale + self.misure_gia_fatte):
@@ -155,6 +160,11 @@ class Precarichi:
         self.current_step_value = 0
         
     def measure_value(self, cella=None, torsiom=None):
+        """
+        Measure value del precarico: cella e torsiom sono valori che vengono inseriti nel caso si arrivi ai 30s di stabilità
+        
+        Si occupa di eseguire l'aggiornamento grafico, la scrittura su excell e l'aumento dello step
+        """
         # Acquisizione dei 5 valori da mettere in tabella
         haxis = int(self.banco_di_taratura.axis_h)
         href = int(self.misura_euramet.graphwindow.ui.lineEdit_altezza.text())
@@ -216,6 +226,7 @@ class Precarichi:
         
     
     def write_to_excell(self, data, starting_row_cell):
+        """Scrive una riga di 5 elementi nella tabella di excell"""
         tmp_cell = starting_row_cell    # inizia da questa cella e scrive i dati necessari
         tmp = 0
         for i in range(5):
@@ -230,6 +241,7 @@ class Precarichi:
         self.prec_steps()
     
     def prec_steps(self):
+        """Calcolo dello step da raggiungere"""
         if self.current_step_value == 0:
             self.current_step_value = self.max_torque
         elif self.current_step_value == self.max_torque:
@@ -243,6 +255,7 @@ class Precarichi:
             return 0
     
     def calculate_row_starting_cell(self):
+        """Metodo per calcolare da quale cella scrivere la riga attuale"""
         tmp = self.excel_cell_quadrant_start[1]
         tmp_cell = [self.excel_cell_quadrant_start[0], tmp]
         for i in range(self.step_attuale):
@@ -310,11 +323,16 @@ class Misura_euramet:
             self.zero_finale = None
         self.graphwindow.graph_recap.plot_full_graph()
         self.graphwindow.ui.label_step_prossimo_valore.setText(f"{self.precarichi.max_torque} Nm")
-        # Ora ho il numero totale di misure da fare
+        # Ora ho il numero totale di misure da fare nel parametro numero_misure_totali_da_fare
         
         
 
     def measure_value(self, cella=None, torsiom=None):
+        """
+        Measure_value: cella e torsiom sono valori che vengono inseriti nel caso si arrivi ai 30s di stabilità
+        
+        chiama un measure_value diverso in base a dove mi trovo nell'euramet
+        """
         if self.end_check_prec == 0:
             print("Ho appena misurato uno step dei precatichi")
             self.end_check_prec = self.precarichi.measure_value(cella=cella, torsiom=torsiom)

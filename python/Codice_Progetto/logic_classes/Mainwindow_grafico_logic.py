@@ -23,6 +23,12 @@ if TYPE_CHECKING:
 
 class Graph_static_recap:
     def __init__(self, graph_window:GraphWindow, banco_di_taratura:BANCO_DI_TARATURA, setX=[0,1], setY=[0,0]):
+        """
+        inizializzazione del grafico statico di riassunto:
+        
+        - setX ha come default [0,1] e serve per la prima inizializzazione, inserire poi i valori da plottare
+        - setY ha come default [0,0] e serve per la prima inizializzazione, inserire poi i valori da plottare
+        """
         
         self.banco_di_taratura = banco_di_taratura
         self.graph_window = graph_window
@@ -55,10 +61,6 @@ class Graph_static_recap:
         self.dataX2 = []
         self.ptr3 = 0
         self.count = 0
-        # if self.banco_di_taratura.quadrant == "Q3":
-        #     self.graph_euramet.setRange(yRange=(0,-10), padding=0.2, xRange=(1,50))
-        # elif self.banco_di_taratura.quadrant == "Q1":
-        #     self.graph_euramet.setRange(yRange=(0,10), padding=0.2, xRange=(1,50)) 
         self.max_h = 10
         
         # I tuoi dati
@@ -76,7 +78,15 @@ class Graph_static_recap:
         
         
     def plot_a_point(self, step_totali):
-        s=0
+        """
+        In base allo step:
+        
+        n=0 --> plotta i due punti inziali cioè x:[0,1] e y:[0,0]
+        
+        n<step_totali --> plotta 3 punti
+        
+        n=step_totali --> clear e si reinizializza
+        """
         pointer=len(self.data_set_X_buff)
         if self.count == 0:
             self.data_set_X_buff.append(self.data_set_X_full[pointer])
@@ -102,12 +112,14 @@ class Graph_static_recap:
             self.graph_window.graph_recap = Graph_static_recap(self.graph_window, self.banco_di_taratura, setX=self.data_set_X_full, setY=self.data_set_Y_full)
     
     def flip_graph(self):
+        """Ribalta il grafico per permettere la visualizzazione corretta"""
         if self.banco_di_taratura.quadrant == "Q3":
             self.graph_euramet.setRange(yRange=(0,-10), padding=0.2, xRange=(1,50))
         elif self.banco_di_taratura.quadrant == "Q1":
             self.graph_euramet.setRange(yRange=(0,10), padding=0.2, xRange=(1,50)) 
     
     def create_salita_plot(self):
+        """funzione che inserisce tutti i punti di una salita nel dataset"""
         steps = self.banco_di_taratura.current_number_of_steps+1
         for i in range(steps):
             value_to_plot = (self.max_h*i)/(steps-1)
@@ -120,6 +132,7 @@ class Graph_static_recap:
             self.banco_di_taratura.x = tmp
         
     def create_discesa_plot(self):
+        """funzione che inserisce tutti i punti di una discesa nel dataset"""
         steps = self.banco_di_taratura.current_number_of_steps+1
         for i in range(steps):
             value_to_plot = (self.max_h*(steps-i))/(steps-1)
@@ -133,6 +146,7 @@ class Graph_static_recap:
                 self.banco_di_taratura.x = tmp
         
     def create_precarichi_plot(self):
+        """funzione che inserisce tutti i punti dei precarichi nel dataset"""
         self.banco_di_taratura.x = 0
         self.data_set_X_full = []
         self.data_set_Y_full = []
@@ -150,6 +164,7 @@ class Graph_static_recap:
             self.banco_di_taratura.x = tmp
     
     def plot_final_zero(self):
+        """funzione che inserisce tutti i punti dello zero finale nel dataset"""
         for j in range(3):
             tmp = self.data_set_X_full.append(self.banco_di_taratura.x + j)
             self.data_set_Y_full.append(0)
@@ -157,6 +172,7 @@ class Graph_static_recap:
             
     
     def plot_full_graph(self):
+        """funzione che plotta tutti i dati inseriti nel dataset nel dataset X e dataset Y"""
         s=0
         for i in self.data_set_Y_full:
             self.dataY.append(self.data_set_Y_full[s])
@@ -170,7 +186,15 @@ class Graph_static_recap:
     
 class Graph:
     def __init__(self, GraphWindow:GraphWindow, graph:PlotWidget, channel, title, start_time):
+        """
+        Inizializzazione dell grafico per rappresentazione dei valori in tempo reale:
         
+        channel --> Nome del canale formato String
+        
+        title --> Titolo del grafico formato String
+        
+        start_time --> Tempo al quale inzia il grafico [inserito con formato di Time.time()]
+        """
         self.channel = channel
         self.graph = graph
         self.title = title
@@ -178,7 +202,7 @@ class Graph:
         self.recent_values = []  # List to store recent values
         # self.time_window = 1  # seconds for the moving average window
         self.result_media_passato = 1
-        self.update_period = 15    # ogni quanti ms prende un campione per il grafico
+        self.update_period = 10    # ogni quanti ms prende un campione per il grafico
         self.GraphWindow = GraphWindow
         self.time_window = 5  # In secondi (tempo sull asse delle y)
         self.media_window = 0.5 # In secondi (tempo sul quale fa la media mobile)
@@ -220,7 +244,7 @@ class Graph:
                 
         
     def reset_grafico(self): 
-        
+        """reset grafico del grafico"""
         # reset del timer
         self.start_time = time.time()
         
@@ -238,6 +262,7 @@ class Graph:
         self.autorange_status = not(self.autorange_status)
     
     def change_time_window(self):
+        """Cambia la finestra temporale del grafico"""
         time_inserted = int(self.GraphWindow.ui.lineEdit_time_window.text())
         if time_inserted>0 or time_inserted<1000:
             self.time_window = time_inserted
@@ -246,17 +271,18 @@ class Graph:
         self.graph.setRange(xRange=(self.dataX[0], self.dataX[0]+self.time_window))
 
 
-    def media_esponenziale(self):
-        x=self.get_data()
-        true_alpha = self.alpha*self.update_period
-        result_media = true_alpha*x + (1-true_alpha)*self.result_media_passato
-        self.result_media_passato = result_media
-        return result_media 
+    # def media_esponenziale(self):
+    #     x=self.get_data()
+    #     true_alpha = self.alpha*self.update_period
+    #     result_media = true_alpha*x + (1-true_alpha)*self.result_media_passato
+    #     self.result_media_passato = result_media
+    #     return result_media 
     
     def media_mobile(self):
+        """Media mobile che usa un buffer lungo: finestra della media/(update_period/1000) """
         x=self.get_data()
         self.buffer.append(x)
-        update_period_seconds = self.update_period / 1000
+        update_period_seconds = self.update_period / 1000  # Per farlo diventare secondi
         numero_di_campioni_nel_buffer = self.media_window / update_period_seconds
         while len(self.buffer) > numero_di_campioni_nel_buffer:
             self.buffer.pop(0)
@@ -269,6 +295,7 @@ class Graph:
         
     
     def get_data(self):
+        """Usato per ottenere i datti da plottare in base alla scelta della combobox delle unità di misura"""
         if self.channel == 'ch1':
             data = self.elaborate_data_ch1()
         elif self.channel == 'ch2':
@@ -378,27 +405,25 @@ class Graph:
             data = None
         return data
 
-    def update_fullData(self):
+    # def update_fullData(self):
         
-        # Append new random value to data list
-        # self.dataY[self.ptr3] = self.media_temporale(data=self.controller_TCP.DATA.LIST_Nm_VALUE[1], recent_values=self.recent_values)
-        self.dataY[self.ptr3] = self.media_esponenziale()
-        self.dataX[self.ptr3] = time.time() - self.GraphWindow.start_time
-        self.ptr3 += 1
+    #     # Append new random value to data list
+    #     self.dataY[self.ptr3] = self.media_esponenziale()
+    #     self.dataX[self.ptr3] = time.time() - self.GraphWindow.start_time
+    #     self.ptr3 += 1
 
-        # Double the size of data list if ptr3 exceeds current size
-        if self.ptr3 >= len(self.dataY):
-            self.dataY.extend([None] * len(self.dataY))
-            self.dataX.extend([None] * len(self.dataX))
+    #     # Double the size of data list if ptr3 exceeds current size
+    #     if self.ptr3 >= len(self.dataY):
+    #         self.dataY.extend([None] * len(self.dataY))
+    #         self.dataX.extend([None] * len(self.dataX))
         
-        # Update plot data
-        self.curve4.setData(self.dataX[:self.ptr3], self.dataY[:self.ptr3])  
-        print(sys.getsizeof(self.dataY))
+    #     # Update plot data
+    #     self.curve4.setData(self.dataX[:self.ptr3], self.dataY[:self.ptr3])  
+    #     print(sys.getsizeof(self.dataY))
 
     def update_someData(self):
         
         # Append new random value to data list
-        # self.dataY.append(self.media_esponenziale())
         self.dataY.append(self.media_mobile())
         actual_time = time.time()
         difference = actual_time - self.start_time
@@ -419,23 +444,24 @@ class Graph:
 class GraphWindow(QMainWindow):
     
     def __init__(self, banco_di_taratura:BANCO_DI_TARATURA, homepage:MainWindow):
+        """Inizializzazione della finestra graphwindow"""
         super().__init__()
         self.banco_di_taratura = banco_di_taratura
+        self.homepage = homepage
         # Create an instance of the generated UI class
         self.ui = Ui_GraphWindow()
         # Setup the user interface
 
         self.ui.setupUi(self)
         self.start_time = time.time()
-        self.homepage = homepage
         self.euramet_window = Euramet_window(self.banco_di_taratura, self)
         self.euramet_window.setWindowTitle("Euramet Window")
         self.banco_di_taratura.set_window_icon(self)
         self.euramet_measure_entity:Misura_euramet = None  # inizialmente impostata dal setup di euramet
-        self.graph_recap = Graph_static_recap(self, banco_di_taratura)
+        self.graph_recap = Graph_static_recap(self, banco_di_taratura)  # Inizializzo il grafico di recap
         
         # grafici disponibili
-        graph_main_and_channel = self.ui.graphWidget_SG600_main_and_channel
+        graph_main_and_channel = self.ui.graphWidget_SG600_main_and_channel  """GRAFICO DA ELIMINARE"""
         graph_soloTemp = self.ui.graphWidget_SG600_solo_temp
         graph_soloMain = self.ui.graphWidget_SG600_solo_main
         graph_ch1 = self.ui.graphWidget_solo_channel_1
@@ -443,7 +469,7 @@ class GraphWindow(QMainWindow):
         graph_ch3 = self.ui.graphWidget_solo_channel_3
         graph_ch4 = self.ui.graphWidget_solo_channel_4
         
-        # data dispolibili
+        # data channel dispolibili
         channel_ch1 = 'ch1'
         channel_ch2 = 'ch2'
         channel_ch3 = 'ch3'
@@ -455,7 +481,7 @@ class GraphWindow(QMainWindow):
         self.controller_TCP = banco_di_taratura.controller_tcp
         self.controller_MODBUS = banco_di_taratura.controller_modbus
         
-        self.graph_main_and_channel = Graph(self, graph=graph_main_and_channel, channel=channel_main_ch, title='Main + channel', start_time=self.start_time)
+        self.graph_main_and_channel = Graph(self, graph=graph_main_and_channel, channel=channel_main_ch, title='Main + channel', start_time=self.start_time) """GRAFICO DA ELIMINARE"""
         self.graph_soloMain = Graph(self, graph=graph_soloMain, channel=channel_main_ch, title='Main', start_time=self.start_time)
         self.graph_soloTemp = Graph(self, graph=graph_soloTemp, channel=channel_temp_ch, title='Temp', start_time=self.start_time)
         
@@ -478,13 +504,14 @@ class GraphWindow(QMainWindow):
         self.timer_stability.timeout.connect(self.check_stability)
         self.ui.pushButton_Stabilita.clicked.connect(self.stability_logic)
         self.timer_stability.start()
-        self.reached_stability = False
-        self.saved_cella_di_carico = None
-        self.logic_flip_flop = True
+        self.reached_stability = False  # parametro per capire se ho raggiunto la stabilità
+        self.saved_cella_di_carico = None  # valore della cella di carico che salvo per la stabilità
+        self.saved_torsiometro = None  # valore del torsiometro che salvo per la stabilità
+        self.logic_flip_flop = True  # switch per gestire la logica della stabilità (True-->ON, False-->OFF)
         self.stability_counter_value = 0
         
         # Setup segnali
-        self.ui.comboBox_Main_Temp.activated.connect(self.ui.stackedWidget_SG600.setCurrentIndex)
+        self.ui.comboBox_Main_Temp.activated.connect(self.ui.stackedWidget_SG600.setCurrentIndex)  # Segnali per visualizzare i corretti grafici
         self.ui.comboBox_Ch_1234.activated.connect(self.ui.stackedWidget_Laumas.setCurrentIndex)
     
         self.ui.pushButton_autorange_ch1.clicked.connect(self.graph_ch1.change_status_autorange)
@@ -495,7 +522,7 @@ class GraphWindow(QMainWindow):
         self.ui.pushButton_autorange_main_and_channel.clicked.connect(self.graph_main_and_channel.change_status_autorange)
         self.ui.pushButton_autorange_solo_main.clicked.connect(self.graph_soloMain.change_status_autorange)
         
-        self.ui.pushButton_reset_ch1.clicked.connect(self,self.graph_ch1.reset_grafico)
+        self.ui.pushButton_reset_ch1.clicked.connect(self,self.graph_ch1.reset_grafico)  # Segnali di reset grafico del grafico
         self.ui.pushButton_reset_ch2.clicked.connect(self.graph_ch2.reset_grafico)
         self.ui.pushButton_reset_ch3.clicked.connect(self.graph_ch3.reset_grafico)
         self.ui.pushButton_reset_ch4.clicked.connect(self.graph_ch4.reset_grafico)
@@ -510,6 +537,10 @@ class GraphWindow(QMainWindow):
         self.ui.pushButton_save_measure.clicked.connect(self.handle_euramet)
 
         # Inizializzazione grafica
+        """ 
+        timer_grafico --> timer che gestisce le label per mostrare i valori correnti
+        led_timer --> timer che gestisce la stabilità 
+        """
         self.ui.label_step_attuale_valore.setText("0 Nm")
         self.timer_grafico = QTimer()
         self.timer_grafico.setInterval(100)
@@ -521,20 +552,25 @@ class GraphWindow(QMainWindow):
         self.led_timer.timeout.connect(self.stability_counter)
         
     def check_stability(self):
+        """
+        funzione che si occupa della gestione della stabiità:
+        
+        Lavoro con i valori del CANALE 2 della Laumas (cella di carico) e li confronto con il valore dello step attuale
+        """
         # Canale con cui lavoro
         channel = self.graph_ch2
         if self.ui.label_led_stabilita.isEnabled():    
-            if self.euramet_measure_entity!=None and len(channel.buffer)>3:
+            if self.euramet_measure_entity!=None and len(channel.buffer)>3:  # per evitare che il buffer sia di lunghezza 0,1,2
                 tmp = self.ui.label_step_attuale_valore.text()
                 tmp = tmp.split(' ')
                 self.mediated_value = channel.media_mobile()
                 
-                buffer = [None]*30
+                buffer = [None]*30  # Creo un buffer lungo 30 
                 
-                for i in range(0,30):
+                for i in range(0,30):  # Lo popolo con gli elementi che sono stati misurati
                     buffer[i] = channel.buffer[i]
                 
-                requested_value = int(tmp[0])
+                requested_value = int(tmp[0])  # valore dello step attuale
                 difference = abs(self.mediated_value - requested_value)
                 full_scale = abs(self.euramet_measure_entity.max_torque)
                 
@@ -542,11 +578,14 @@ class GraphWindow(QMainWindow):
                 somma_quadrati = sum((x - self.mediated_value) ** 2 for x in buffer)
                 varianza = round(somma_quadrati / (len(buffer) - 1), 5)
                 
+                # Parametri il range di varianza e stabilità delle zone verdi e gialle
                 yellow_stability = ((15/100)*full_scale)
                 green_stability = ((10/100)*full_scale)
+                yellow_varianza = 3
+                green_varianza = 1
                 
                 # verde
-                if difference < green_stability and varianza < 1:
+                if difference < green_stability and varianza < green_varianza:
                     self.ui.label_led_stabilita.setStyleSheet("""
                         QLabel{
                             background-color: rgb(79, 255, 76);
@@ -559,7 +598,7 @@ class GraphWindow(QMainWindow):
                         """)
                 
                 # giallo
-                elif difference < yellow_stability and varianza < 3:
+                elif difference < yellow_stability and varianza < yellow_varianza:
                                 self.ui.label_led_stabilita.setStyleSheet("""
                         QLabel{
                             background-color: rgb(255, 255, 102);
@@ -574,6 +613,7 @@ class GraphWindow(QMainWindow):
                 # rosso
                 else:
                     if self.reached_stability == False:
+                        self.led_timer.stop()
                         self.ui.label_led_stabilita.setStyleSheet("""
                             QLabel{
                                 background-color: rgb(255, 0, 4);
@@ -585,8 +625,7 @@ class GraphWindow(QMainWindow):
                             }
                             """)
                         self.stability_counter_value = 0
-                        # self.led_timer.stop()
-                        # self.led_timer.start()
+                        self.led_timer.start()
                         self.ui.progressBar.reset()
                     else:
                         self.ui.pushButton_save_measure.click()
@@ -606,6 +645,11 @@ class GraphWindow(QMainWindow):
                     
             
     def stability_counter(self):
+        """
+        Questa funzione aspetta 30 secondi mentre il led è verde/giallo (si resetta se il led diventa rosso)
+        
+        Quando arriva a 30s prende il valore necessario e lo conserva
+        """
         if self.stability_counter_value == 30:
             self.reached_stability = True
             tmp = self.banco_di_taratura.controller_tcp.get_N()
@@ -632,13 +676,19 @@ class GraphWindow(QMainWindow):
         self.close()
         
     def show_euramet_window(self):
+        """reistanzia il grafico statico in modo da essere coerente"""
         self.ui.graphWidget_visual_euramet.clear()
         self.graph_recap = Graph_static_recap(self, self.banco_di_taratura, setX=self.graph_recap.data_set_X_full, setY=self.graph_recap.data_set_Y_full)
         self.euramet_window.exec()
     
     def handle_euramet(self):
+        """
+        Raggiungo questa funzione solo dopo avere raggiunto la conclusione di uno step
+        
+        
+        """
         self.timer_stability.stop()
-        tmp = self.reached_stability
+        tmp = self.reached_stability  # Salvo in variabile temporante la condizione della stabilità
         self.reached_stability = False # Fondamentale per evitare di fare due volte la misura di seguito
         self.graph_recap.plot_a_point(self.euramet_measure_entity.numero_misure_totali_da_fare)
         if self.euramet_measure_entity != None:
@@ -657,8 +707,8 @@ class GraphWindow(QMainWindow):
 
             
     def stability_logic(self):
+        """Invertitore logico per la stabilità"""
         if self.logic_flip_flop:
-            # self.timer_stability.stop()
             self.stability_counter_value = 0
             self.led_timer.stop()
             self.ui.label_led_stabilita.setEnabled(False)
@@ -667,7 +717,6 @@ class GraphWindow(QMainWindow):
             self.logic_flip_flop = False
 
         else:
-            # self.timer_stability.start()
             self.stability_counter_value = 0
             self.led_timer.start()
             self.ui.label_led_stabilita.setEnabled(True)

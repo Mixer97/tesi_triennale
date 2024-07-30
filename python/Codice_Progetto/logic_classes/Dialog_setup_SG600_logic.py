@@ -8,11 +8,14 @@ if TYPE_CHECKING:
     from Banco_Taratura import BANCO_DI_TARATURA
 
 
-
 class Canale_Setup_SG600(QDialog):
     def __init__(self, banco_di_taratura:BANCO_DI_TARATURA):
         super().__init__()
         self.banco_di_taratura=banco_di_taratura
+        self.controller_TCP = banco_di_taratura.controller_tcp
+        self.controller_MODBUS = banco_di_taratura.controller_modbus
+        self.logger = banco_di_taratura.logger
+        
         # Create an instance of the generated UI class
         self.ui = Ui_SG600_Setup()
         # Setup the user interface
@@ -20,11 +23,6 @@ class Canale_Setup_SG600(QDialog):
         self.banco_di_taratura.set_window_icon(self)
         self.ui.setupUi(self)
         self.setModal(True)
-        
-        self.controller_TCP = banco_di_taratura.controller_tcp
-        self.controller_MODBUS = banco_di_taratura.controller_modbus
-        self.logger = banco_di_taratura.logger
-
 
         # Setup dei valori iniziali delle lineEdit
         coefficiente_main=self.controller_MODBUS.DATA.coefficiente_main

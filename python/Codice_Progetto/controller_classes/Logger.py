@@ -16,16 +16,18 @@ if TYPE_CHECKING:
 class LOGGER:
     
     class DATA:
+        # oggetti DATA contengono i dati aggiornati dei vari canali #
         def __init__(self):
             self.startStop_logger=False
             self.text_lcd=["mV","mV","mV","mV"]  # Viene aggiornata dalla Main_View in automatico
-            self.result_list_1_4=[0,0,0,0]
+            self.result_list_1_4=[0,0,0,0]  # [CH1, CH2, CH3, CH4]
             self.result_list_SG600_main_temp=[0,0]
             self.text_lcd_SG600_main_temp=["mV","mV"]  # Viene aggiornato dalla Main View in automatico [[DA IMPLEMENTARE]] 
-            self.loop_status=True
+            self.loop_status=True  # Status che governa il loop di esecuzione secondario nel quale sono aggiornati i valori, invitai al DB e scritti sul file .csv
             self.periodo_logger=0.1  # In secondi
             self.counter_registrazione = 0
-    
+            
+    # costruttore della classe #
     def __init__(self, banco_di_taratura, nome_CSV, path_directory_CSV, starting_status=False, status=1):
         self.DATA=LOGGER.DATA()
         self.banco_di_taratura = banco_di_taratura
@@ -80,38 +82,53 @@ class LOGGER:
         
         # Controllare se il file esiste
     def check_path(self):
-            if os.path.exists(self.path_CSV) and self.nome_CSV != "Default":
-                    print(f"Il file '{self.path_CSV}' esiste già. Non è stato sovrascritto.")
-                    self.tmp = f"{self.nome_CSV}_{self.DATA.counter_registrazione}"
-                    self.path_CSV = f'{self.path_directory_CSV}/{self.tmp}.csv'
-                    self.DATA.counter_registrazione = self.DATA.counter_registrazione + 1
-                    self.check_path()
-                    # pop up con messaggio: inserire un nuovo nome al file di registrazione
+        """
+        Funzione che controlla il path e il nome del file .csv:
+        
+                - Se il nome è Default lo sovrascrive o lo crea
+                - Se il nome non è Default lo crea, se esiste gà allora NON lo sovrascrive, bensì creerà un file con il nome dato + un suffisso numerico
+        """    
+        if os.path.exists(self.path_CSV) and self.nome_CSV != "Default":
+                print(f"Il file '{self.path_CSV}' esiste già. Non è stato sovrascritto.")
+                self.tmp = f"{self.nome_CSV}_{self.DATA.counter_registrazione}"
+                self.path_CSV = f'{self.path_directory_CSV}/{self.tmp}.csv'
+                self.DATA.counter_registrazione = self.DATA.counter_registrazione + 1
+                self.check_path()
+                # pop up con messaggio: inserire un nuovo nome al file di registrazione
+        else:
+            # Salvare il DataFrame come CSV
+            self.df.to_csv(self.path_CSV, index=False) 
+            if self.nome_CSV == "Default": 
+                    # print(f"Il file '{self.path_CSV}' è stato sovrascritto siccome era il file di default.")
+                    error_window = Error_window(banco_di_taratura=self.banco_di_taratura)
+                    error_window.set_error_message(f"Il file '{self.path_CSV}' \nè stato sovrascritto siccome era il file di default.")
+                    error_window.setWindowTitle("Communication Window")
+                    error_window.exec()
+            elif self.DATA.counter_registrazione > 0:
+                # print(f"Il file '{self.path_CSV}' è stato salvato con successo.")
+                    error_window = Error_window(banco_di_taratura=self.banco_di_taratura)
+                    error_window.set_error_message(f"Il file '{self.path_CSV}' \nè stato salvato. Il nome è cambiato per evitare sovrascritture.")
+                    error_window.setWindowTitle("Communication Window")
+                    error_window.exec()
             else:
-                # Salvare il DataFrame come CSV
-                self.df.to_csv(self.path_CSV, index=False) 
-                if self.nome_CSV == "Default": 
-                        # print(f"Il file '{self.path_CSV}' è stato sovrascritto siccome era il file di default.")
-                        error_window = Error_window(banco_di_taratura=self.banco_di_taratura)
-                        error_window.set_error_message(f"Il file '{self.path_CSV}' \nè stato sovrascritto siccome era il file di default.")
-                        error_window.setWindowTitle("Communication Window")
-                        error_window.exec()
-                elif self.DATA.counter_registrazione > 0:
-                    # print(f"Il file '{self.path_CSV}' è stato salvato con successo.")
-                        error_window = Error_window(banco_di_taratura=self.banco_di_taratura)
-                        error_window.set_error_message(f"Il file '{self.path_CSV}' \nè stato salvato. Il nome è cambiato per evitare sovrascritture.")
-                        error_window.setWindowTitle("Communication Window")
-                        error_window.exec()
-                else:
-                        error_window = Error_window(banco_di_taratura=self.banco_di_taratura)
-                        error_window.set_error_message(f"Il file '{self.path_CSV}' \nè stato salvato con successo.")
-                        error_window.setWindowTitle("Communication Window")
-                        error_window.exec()
-                if self.tmp != None:
-                    self.nome_CSV = self.tmp
+                    error_window = Error_window(banco_di_taratura=self.banco_di_taratura)
+                    error_window.set_error_message(f"Il file '{self.path_CSV}' \nè stato salvato con successo.")
+                    error_window.setWindowTitle("Communication Window")
+                    error_window.exec()
+            if self.tmp != None:
+                self.nome_CSV = self.tmp
         
           
     def log_data(self, controller_TCP, controller_MODBUS):  
+            
+        """
+        Funzione che ha il compito di scrivere i dati sul foglio Excell specificato:
+        
+        Logica --> Scrive quando loop_status = True e quando startStop_logger = True
+        
+        Frequenza --> Impostata a 10Hz per limitazioni tecniche
+        """    
+            
         self.controller_TCP = controller_TCP
         self.controller_MODBUS = controller_MODBUS
         while self.DATA.loop_status:

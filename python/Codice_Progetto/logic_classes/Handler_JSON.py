@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 class handler_json:  
             
     def __init__(self, path_file_load="", nome_file_save="", path_directory_save=""):
-        self.counter_salvataggio = 0
+        self.counter_salvataggio = 0  # Serve per generare il nome del file .json
         self.path_file_load = path_file_load
         self.nome_file_save = nome_file_save
         self.path_directory_save = path_directory_save

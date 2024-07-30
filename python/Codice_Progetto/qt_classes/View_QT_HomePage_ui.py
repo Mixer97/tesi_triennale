@@ -462,6 +462,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.widget = QWidget(self.Wid_L)
         self.widget.setObjectName(u"widget")
+        self.widget.setEnabled(False)
         self.widget.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(255, 207, 84); \n"
 "	border-style: outset;\n"
@@ -675,6 +676,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.widget_4 = QWidget(self.Wid_L)
         self.widget_4.setObjectName(u"widget_4")
+        self.widget_4.setEnabled(False)
         self.widget_4.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(255, 207, 84); \n"
 "	border-style: outset;\n"
@@ -1038,15 +1040,15 @@ class Ui_MainWindow(object):
         self.comboBox_2.setItemText(3, QCoreApplication.translate("MainWindow", u"N", None))
 
         self.comboBox_2.setCurrentText(QCoreApplication.translate("MainWindow", u"mV", None))
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Channel 2</p></body></html>", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Cella di carico</p></body></html>", None))
         self.comboBox_3.setItemText(0, QCoreApplication.translate("MainWindow", u"mV", None))
         self.comboBox_3.setItemText(1, QCoreApplication.translate("MainWindow", u"Nm", None))
         self.comboBox_3.setItemText(2, QCoreApplication.translate("MainWindow", u"Kg", None))
         self.comboBox_3.setItemText(3, QCoreApplication.translate("MainWindow", u"N", None))
 
         self.comboBox_3.setCurrentText(QCoreApplication.translate("MainWindow", u"mV", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Channel 3</p></body></html>", None))
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Channel 4</p></body></html>", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" color:#99875e;\">Channel 3</span></p></body></html>", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Torsiometro</p></body></html>", None))
         self.comboBox_4.setItemText(0, QCoreApplication.translate("MainWindow", u"mV", None))
         self.comboBox_4.setItemText(1, QCoreApplication.translate("MainWindow", u"Nm", None))
         self.comboBox_4.setItemText(2, QCoreApplication.translate("MainWindow", u"Kg", None))

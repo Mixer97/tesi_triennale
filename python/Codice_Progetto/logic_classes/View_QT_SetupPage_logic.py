@@ -88,7 +88,7 @@ class SetupWindow(QMainWindow):
         self.timer1 = QTimer()
         
         # setup dei segnali
-        self.ui.checkBox_CH1.stateChanged.connect(lambda: self.on_click(1))
+        self.ui.checkBox_CH1.stateChanged.connect(lambda: self.on_click(1))  # labda: va usato se voglio inserire dei parametri
         self.ui.checkBox_CH2.stateChanged.connect(lambda: self.on_click(2))
         self.ui.checkBox_CH3.stateChanged.connect(lambda: self.on_click(3))
         self.ui.checkBox_CH4.stateChanged.connect(lambda: self.on_click(4))

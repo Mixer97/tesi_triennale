@@ -12,6 +12,7 @@ if TYPE_CHECKING:
 
 class Controller_TCP:
     
+    # oggetti slave contengono le informazioni principali per la connessione con il dispositivo #
     class SLAVE:
         def __init__(self, ID, IP, port, baudrate, timeout):
             self.ID=ID
@@ -21,7 +22,7 @@ class Controller_TCP:
             self.TIMEOUT=timeout
             self.CHN_VOLTAGE=5
 
-    #ricordarsi che l'address potrebbe essere (numero-40001)=x
+    # address = (numero-40001) #
     class ADDRESS:
         def __init__(self):
             self.CMDR = 5
@@ -32,7 +33,7 @@ class Controller_TCP:
             self.REGISTER_AEXC = 61
             self.REGISTER_EXC = 63
 
-
+    # Lista comandi per il registro CMDR #
     class CMDR_COMMANDS:
         def __init__(self):
             self.COMMAND_6902 = 6902
@@ -55,6 +56,7 @@ class Controller_TCP:
             self.COMMAND_7 = 7
             self.COMMAND_9 = 9
         
+    # dati attuali misurati # 
     class DATA:
         def __init__(self):
             self.LIST_mV_VALUE = [0,0,0,0]  #[1,2,3,4] # Aggiornato dal main in un thread separato
@@ -67,6 +69,7 @@ class Controller_TCP:
             self.LEVER_LENGTH = 1 # meters
             self.STATUS_CHANNELS = [0,0,0,0] # settato da setupPage
         
+    # costruttore della classe #
     def __init__(self, banco_di_taratura:BANCO_DI_TARATURA, ID=1, IP="10.2.0.170", port=10001, baudrate=9600, timeout=5):
         self.SLAVE = self.SLAVE(ID, IP, port, baudrate, timeout)
         self.ADDRESS = self.ADDRESS()
@@ -82,6 +85,7 @@ class Controller_TCP:
     """---------------------------CONNECT-----------------------------"""
 
     # Connessione al dispositivo Laumas
+    # Metodo usato per connettersi al dispositivo e che riprova fino a 3 volte in caso di perdita di connessione #
     def connect(self):
         try:
             connection = self.client.connect() 
@@ -99,7 +103,8 @@ class Controller_TCP:
 
  
     """---------------------------WORKING-----------------------------"""       
-        
+    
+    # Metodo che legge i registri da 4053 a 4056 della scheda Laumas #
     def read_holding_registers_mV(self):
             if self.connect:     
                     
@@ -109,14 +114,17 @@ class Controller_TCP:
                 # Lettura holding registers (52...55)
                 risultatimV=self.client.read_holding_registers(address=self.ADDRESS.REGISTER_3, count=4, slave=self.SLAVE.ID)
 
+                # Check che tutti i canali NON siano zero (utile all'accensione)
                 while risultatimV.registers==[0,0,0,0]:
                     risultatimV=self.client.read_holding_registers(address=self.ADDRESS.REGISTER_3, count=4, slave=self.SLAVE.ID)
                     self.write_CMDR(self.CMDR_COMMANDS.COMMAND_6902)
+                    sleep(0.5)
 
                 # Conversione
                 for value in range(4):
                     risultatimV.registers[value] = float((self.convert_to_signed_16_bit(risultatimV.registers[value]))/100)
 
+                # Comando di conclusione
                 self.write_CMDR(self.CMDR_COMMANDS.COMMAND_6903)
                 
                 return risultatimV.registers
@@ -218,7 +226,11 @@ class Controller_TCP:
             print("Risultato binario: " + str(tmp))
 
     def read_channels_active(self):
-
+            """
+            Ritorna una lista di 4 elementi nella quale gli 1 rappresentano canali attivi e gli 0 canali disattivi:
+            
+            ESEMPIO: [0, 1, 0, 1] ⁓ [CH4, CH3, CH2, CH1] --> CH3 e CH1 attivi
+            """
             # Invio del comando 6576 a CMDR
             self.write_CMDR(self.CMDR_COMMANDS.COMMAND_6576)
             # Lettura dei canali attivi in R1
@@ -393,9 +405,12 @@ class Controller_TCP:
                 write_result=self.client.write_registers(address=self.ADDRESS.CMDR, values=value, slave=self.SLAVE.ID)
     
     def write_W1(self, value):
-                
+        """
+        Metodo usato per SCRIVERE nei due registri High e Low un certo valore inserito in value = . . .
+        """
         if self.connect:        
             list = self.value_to_HL(value)
+            
             write_result=self.client.write_registers(address=self.ADDRESS.REGISTER_1_WR1_high, values=list[0], slave=self.SLAVE.ID)
             while write_result.isError():
                 write_result=self.client.write_registers(address=self.ADDRESS.REGISTER_1_WR1_high, values=list[0], slave=self.SLAVE.ID)
@@ -410,6 +425,9 @@ class Controller_TCP:
             self.write_W1()
         
     def read_R1(self):
+        """
+        Metodo usato per LEGGERE nei due registri High e Low per poi tornare un valore
+        """
         if self.connect:
             risultati = self.client.read_holding_registers(address=self.ADDRESS.REGISTER_1_WR1_high, count=2, slave=self.SLAVE.ID)
             while risultati.isError():
@@ -467,37 +485,55 @@ class Controller_TCP:
     """---------------------------DATA INTERACTIONS-----------------------------"""
             
     def get_mv(self):
-            return self.DATA.LIST_mV_VALUE
+        """
+        Ritorna una lista espressa in mV di 4 elementi: [CH1, CH2, CH3, CH4]
+        """
+        return self.DATA.LIST_mV_VALUE
     
     def get_Kg(self):
-            i = 0
-            for i in range(0, len(self.DATA.LIST_mV_VALUE)):
-                if self.DATA.LIST_SENSIBILITY[i]!=0:
-                    self.DATA.LIST_Kg_VALUE[i] = abs((self.DATA.LIST_FULLSCALE[i]/(self.SLAVE.CHN_VOLTAGE*self.DATA.LIST_SENSIBILITY[i]))*(self.DATA.LIST_mV_VALUE[i] - self.DATA.LIST_mV_ZERO[i]))
-                else:
-                    self.DATA.LIST_Kg_VALUE[i] = 0
-            return self.DATA.LIST_Kg_VALUE
+        """
+        Ritorna una lista espressa in Kg di 4 elementi: [CH1, CH2, CH3, CH4]
+        """
+        i = 0
+        for i in range(0, len(self.DATA.LIST_mV_VALUE)):
+            if self.DATA.LIST_SENSIBILITY[i]!=0:
+                self.DATA.LIST_Kg_VALUE[i] = abs((self.DATA.LIST_FULLSCALE[i]/(self.SLAVE.CHN_VOLTAGE*self.DATA.LIST_SENSIBILITY[i]))*(self.DATA.LIST_mV_VALUE[i] - self.DATA.LIST_mV_ZERO[i]))
+            else:
+                self.DATA.LIST_Kg_VALUE[i] = 0
+        return self.DATA.LIST_Kg_VALUE
     
-    def get_Nm(self):
-            i = 0
-            for i in range(0, len(self.DATA.LIST_mV_VALUE)):
-                if self.DATA.LIST_SENSIBILITY[i]!=0:
-                    self.DATA.LIST_Nm_VALUE[i] = self.DATA.LEVER_LENGTH*9.81*(self.DATA.LIST_FULLSCALE[i]/(self.SLAVE.CHN_VOLTAGE*self.DATA.LIST_SENSIBILITY[i]))*(self.DATA.LIST_mV_VALUE[i] - self.DATA.LIST_mV_ZERO[i])
-                else:
-                    self.DATA.LIST_Nm_VALUE[i] = 0
-            return self.DATA.LIST_Nm_VALUE
+    def get_Nm(self, lever_length=1, unit_fullscale="Kg"):
+        """
+        Ritorna una lista espressa in Nm di 4 elementi: [CH1, CH2, CH3, CH4]
+        """
+        i = 0
+        for i in range(0, len(self.DATA.LIST_mV_VALUE)):
+            self.DATA.LEVER_LENGTH = lever_length
+            if self.DATA.LIST_SENSIBILITY[i]!=0:
+                self.DATA.LIST_Nm_VALUE[i] = self.DATA.LEVER_LENGTH*9.81*(self.DATA.LIST_FULLSCALE[i]/(self.SLAVE.CHN_VOLTAGE*self.DATA.LIST_SENSIBILITY[i]))*(self.DATA.LIST_mV_VALUE[i] - self.DATA.LIST_mV_ZERO[i])
+            else:
+                self.DATA.LIST_Nm_VALUE[i] = 0
+        return self.DATA.LIST_Nm_VALUE
         
     def get_N(self):
-            i = 0
-            for i in range(0, len(self.DATA.LIST_mV_VALUE)):
-                if self.DATA.LIST_SENSIBILITY[i]!=0:
-                    self.DATA.LIST_N_VALUE[i] = 9.81*(self.DATA.LIST_FULLSCALE[i]/(self.SLAVE.CHN_VOLTAGE*self.DATA.LIST_SENSIBILITY[i]))*(self.DATA.LIST_mV_VALUE[i] - self.DATA.LIST_mV_ZERO[i])
-                else:
-                    self.DATA.LIST_N_VALUE[i] = 0
-            return self.DATA.LIST_N_VALUE
+        """
+        Ritorna una lista espressa in N di 4 elementi: [CH1, CH2, CH3, CH4]
+        """
+        i = 0
+        for i in range(0, len(self.DATA.LIST_mV_VALUE)):
+            if self.DATA.LIST_SENSIBILITY[i]!=0:
+                self.DATA.LIST_N_VALUE[i] = 9.81*(self.DATA.LIST_FULLSCALE[i]/(self.SLAVE.CHN_VOLTAGE*self.DATA.LIST_SENSIBILITY[i]))*(self.DATA.LIST_mV_VALUE[i] - self.DATA.LIST_mV_ZERO[i])
+            else:
+                self.DATA.LIST_N_VALUE[i] = 0
+        return self.DATA.LIST_N_VALUE
     
     def setup_full_update(self, list):
-            print(list)
-            self.set_channel_status(list)
+        """
+        Setta i canali attivi sulla Laumas in accordo con la lista immessa:
+        
+        ESEMPIO: [0, 1, 0, 1] ⁓ [CH4, CH3, CH2, CH1] --> CH3 e CH1 attivi
+        """
+        print(list)
+        self.set_channel_status(list)
         
         

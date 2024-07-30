@@ -638,7 +638,7 @@ class Ui_SG600_Setup(object):
         self.label_coefficiente_setup_temp.setText(QCoreApplication.translate("SG600_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">COEFFICIENTE</span></p></body></html>", None))
         self.lineEdit_coefficiente_temp.setText(QCoreApplication.translate("SG600_Setup", u"-", None))
         self.pushButton_azzeramento_main_2.setText(QCoreApplication.translate("SG600_Setup", u"ZERO CANALE TEMP.", None))
-        self.label_2.setText(QCoreApplication.translate("SG600_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">coefficienti per calcolo C\u00b0</span></p></body></html>", None))
+        self.label_2.setText(QCoreApplication.translate("SG600_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">coefficienti per calcolo \u00b0C</span></p></body></html>", None))
         self.label_correzione_lineare_2.setText(QCoreApplication.translate("SG600_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">correzione lineare</span></p></body></html>", None))
         self.label_5.setText(QCoreApplication.translate("SG600_Setup", u"m", None))
         self.lineEdit_m_temp.setText(QCoreApplication.translate("SG600_Setup", u"-", None))

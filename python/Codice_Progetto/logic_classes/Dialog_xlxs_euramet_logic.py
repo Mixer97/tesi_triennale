@@ -17,6 +17,8 @@ class csv_euramet_window(QDialog):
     def __init__(self, banco_di_taratura:BANCO_DI_TARATURA, euramet_window:Euramet_window):
         super().__init__()
         self.banco_di_taratura=banco_di_taratura
+        self.euramet_window = euramet_window
+        
         # Create an instance of the generated UI class
         self.ui = Ui_Dialog_csv_euramet()
         # Setup the user interface (quindi tutti gli elementi saranno identificati da self.ui)
@@ -24,17 +26,17 @@ class csv_euramet_window(QDialog):
         self.banco_di_taratura.set_window_icon(self)
         self.ui.setupUi(self)
         self.setModal(True)
-        self.euramet_window = euramet_window
         self.ui.lineEdit_scale.setText(f"{self.banco_di_taratura.controller_modbus.DATA.coefficiente_main}")
-        self.counter_registrazione = 0
+        self.counter_registrazione = 0  # Usato per creare un nome di file in grado di evitare sovrascritture
         self.tmp = None
         self.finestra_salvataggio_euramet_setup = Salvataggio_setup_euramet(self.banco_di_taratura, self)
         
     # segnali
-        self.ui.pushButton_save_and_back.clicked.connect(self.save_and_back)
-        self.ui.pushButton_save_euramet_setup.clicked.connect(self.show_finestra_salvataggio_euramet_setup)
-        self.ui.pushButton_load_euramet_setup.clicked.connect(self.load_euramet_setup)
+        self.ui.pushButton_save_and_back.clicked.connect(self.save_and_back)  # torna alla schermata di setup euramet con il file excell creato
+        self.ui.pushButton_save_euramet_setup.clicked.connect(self.show_finestra_salvataggio_euramet_setup)  # porta alla schermata di salvataggio del setup
+        self.ui.pushButton_load_euramet_setup.clicked.connect(self.load_euramet_setup) # Carica il setup di Euramet
         
+        # update_values viene chiamato quando qualcosa viene aggiornato 
         self.ui.label_colonna_start_Q1.editingFinished.connect(self.update_values)
         self.ui.label_colonna_start_Q3.editingFinished.connect(self.update_values)
         self.ui.label_riga_start_Q1.editingFinished.connect(self.update_values)
@@ -59,6 +61,7 @@ class csv_euramet_window(QDialog):
 
         
     def refresh_grafico(self):
+        """Refresh di tutte le informazioni della finestra"""
         # Riferimento per inserimento dati
         self.ui.label_colonna_start_Q1.setText(str(self.banco_di_taratura.euramet_cella_inizio_precarichi_Q1[0]))
         self.ui.label_colonna_start_Q3.setText(str(self.banco_di_taratura.euramet_cella_inizio_precarichi_Q3[0]))
@@ -93,7 +96,7 @@ class csv_euramet_window(QDialog):
             self.save_process()
             self.update_steps()
         else:
-                self.banco_di_taratura.error_window_logic("Path non selezionato!")
+            self.banco_di_taratura.error_window_logic("Path non selezionato!")
 
 
 
@@ -119,7 +122,11 @@ class csv_euramet_window(QDialog):
             error_window.exec()        
         
     def save_process(self):
+        """
+        Salvataggio delle informazioni dalla parte grafica alla perte dati,
         
+        apertura del file excell e scrittura dei parametri
+        """
         # update dei dati
         self.update_values()
         
@@ -174,6 +181,7 @@ class csv_euramet_window(QDialog):
         self.banco_di_taratura.excell_file_name = str(self.ui.label_nome_excell.text())
     
     def update_steps(self):
+        """Aggiornamento grafico del numero e valore degli step"""
         if self.banco_di_taratura.current_number_of_steps == 5:
             altezza_step = int(self.banco_di_taratura.euramet_Coppia_taratura_MAX)/5
             self.euramet_window.ui.label_step_1_5.setText(str(int(altezza_step*1)))
@@ -203,32 +211,33 @@ class csv_euramet_window(QDialog):
         
         # Controllare se il file esiste
     def check_path(self):
-            if os.path.exists(self.banco_di_taratura.excell_full_path) and self.banco_di_taratura.excell_file_name != "Default":
-                    print(f"Il file '{self.banco_di_taratura.excell_full_path}' esiste già. Non è stato sovrascritto.")
-                    self.tmp = f"{self.banco_di_taratura.excell_file_name}_{self.counter_registrazione}"
-                    self.banco_di_taratura.excell_full_path = f'{self.banco_di_taratura.excell_path_dir_certificate}/{self.tmp}.xlsx'
-                    self.counter_registrazione = self.counter_registrazione + 1
-                    self.check_path()
-                    # pop up con messaggio: inserire un nuovo nome al file di registrazione
+        """Controllo del path per evitare sovrascritture e gestire i vari casi"""
+        if os.path.exists(self.banco_di_taratura.excell_full_path) and self.banco_di_taratura.excell_file_name != "Default":
+                print(f"Il file '{self.banco_di_taratura.excell_full_path}' esiste già. Non è stato sovrascritto.")
+                self.tmp = f"{self.banco_di_taratura.excell_file_name}_{self.counter_registrazione}"
+                self.banco_di_taratura.excell_full_path = f'{self.banco_di_taratura.excell_path_dir_certificate}/{self.tmp}.xlsx'
+                self.counter_registrazione = self.counter_registrazione + 1
+                self.check_path()
+                # pop up con messaggio: inserire un nuovo nome al file di registrazione
+        else:
+            # Salvare il file excell
+            self.workbook.save(self.banco_di_taratura.excell_full_path)
+            if self.banco_di_taratura.excell_file_name == "Default": 
+                    # print(f"Il file '{self.banco_di_taratura.excell_path_certificate}' è stato sovrascritto siccome era il file di default.")
+                    error_window = Error_window(banco_di_taratura=self.banco_di_taratura)
+                    error_window.set_error_message(f"Il file '{self.banco_di_taratura.excell_full_path}' \nè stato sovrascritto siccome era il file di default.")
+                    error_window.setWindowTitle("Communication Window")
+                    error_window.exec()
+            elif self.counter_registrazione > 0:
+                # print(f"Il file '{self.banco_di_taratura.excell_path_certificate}' è stato salvato con successo.")
+                    error_window = Error_window(banco_di_taratura=self.banco_di_taratura)
+                    error_window.set_error_message(f"Il file '{self.banco_di_taratura.excell_full_path}' \nè stato salvato. Il nome è cambiato per evitare sovrascritture.")
+                    error_window.setWindowTitle("Communication Window")
+                    error_window.exec()
             else:
-                # Salvare il file excell
-                self.workbook.save(self.banco_di_taratura.excell_full_path)
-                if self.banco_di_taratura.excell_file_name == "Default": 
-                        # print(f"Il file '{self.banco_di_taratura.excell_path_certificate}' è stato sovrascritto siccome era il file di default.")
-                        error_window = Error_window(banco_di_taratura=self.banco_di_taratura)
-                        error_window.set_error_message(f"Il file '{self.banco_di_taratura.excell_full_path}' \nè stato sovrascritto siccome era il file di default.")
-                        error_window.setWindowTitle("Communication Window")
-                        error_window.exec()
-                elif self.counter_registrazione > 0:
-                    # print(f"Il file '{self.banco_di_taratura.excell_path_certificate}' è stato salvato con successo.")
-                        error_window = Error_window(banco_di_taratura=self.banco_di_taratura)
-                        error_window.set_error_message(f"Il file '{self.banco_di_taratura.excell_full_path}' \nè stato salvato. Il nome è cambiato per evitare sovrascritture.")
-                        error_window.setWindowTitle("Communication Window")
-                        error_window.exec()
-                else:
-                        error_window = Error_window(banco_di_taratura=self.banco_di_taratura)
-                        error_window.set_error_message(f"Il file '{self.banco_di_taratura.excell_full_path}' \nè stato salvato con successo.")
-                        error_window.setWindowTitle("Communication Window")
-                        error_window.exec()
-                if self.tmp != None:
-                    self.banco_di_taratura.excell_file_name = self.tmp
+                    error_window = Error_window(banco_di_taratura=self.banco_di_taratura)
+                    error_window.set_error_message(f"Il file '{self.banco_di_taratura.excell_full_path}' \nè stato salvato con successo.")
+                    error_window.setWindowTitle("Communication Window")
+                    error_window.exec()
+            if self.tmp != None:
+                self.banco_di_taratura.excell_file_name = self.tmp

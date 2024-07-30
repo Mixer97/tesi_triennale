@@ -55,10 +55,12 @@ QPushButton::pressed{
 
 
     def update_zero(self):
+        """Salva lo zero in mV del canale"""
         self.banco_di_taratura.controller_tcp.DATA.LIST_mV_ZERO[1] = self.banco_di_taratura.controller_tcp.DATA.LIST_mV_VALUE[1]
 
         
     def update_fondoscala(self):
+        """Salva il fondoscala del canale"""
         new_value = self.ui.lineEdit_fondoscala.text() 
         if is_number_tryexcept(new_value):
             self.controller_TCP.DATA.LIST_FULLSCALE[1] = float(new_value)
@@ -66,6 +68,7 @@ QPushButton::pressed{
             print("Valore inserito non rappresenta un numero")       
             
     def update_sensibilità(self):
+        """Salva la sensibilità del canale"""
         new_value = self.ui.lineEdit_sensibilita.text() 
         if is_number_tryexcept(new_value):
             self.controller_TCP.DATA.LIST_SENSIBILITY[1] = float(new_value)
