@@ -188,3 +188,7 @@
 
 25/07
     Inizio a lavorare sulla logica per la stabilità
+
+30/07
+    Ho commentato il codice con dei commenti utili per capirne il funzionamento
+    ora prosegue nel sistemare il codice
