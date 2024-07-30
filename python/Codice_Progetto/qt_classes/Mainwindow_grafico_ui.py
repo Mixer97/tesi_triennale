@@ -993,7 +993,6 @@ class Ui_GraphWindow(object):
         self.comboBox_Main_Temp = QComboBox(self.frame_6)
         self.comboBox_Main_Temp.addItem("")
         self.comboBox_Main_Temp.addItem("")
-        self.comboBox_Main_Temp.addItem("")
         self.comboBox_Main_Temp.setObjectName(u"comboBox_Main_Temp")
         self.comboBox_Main_Temp.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.comboBox_Main_Temp.setStyleSheet(u"QComboBox {\n"
@@ -1460,7 +1459,6 @@ class Ui_GraphWindow(object):
         self.label.setText(QCoreApplication.translate("GraphWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:700; color:#0b0b0b;\">Grafico</span></p></body></html>", None))
         self.comboBox_Main_Temp.setItemText(0, QCoreApplication.translate("GraphWindow", u"Main", None))
         self.comboBox_Main_Temp.setItemText(1, QCoreApplication.translate("GraphWindow", u"Temp", None))
-        self.comboBox_Main_Temp.setItemText(2, QCoreApplication.translate("GraphWindow", u"Main + Channel", None))
 
         self.comboBox_Ch_1234.setItemText(0, QCoreApplication.translate("GraphWindow", u"Channel 1", None))
         self.comboBox_Ch_1234.setItemText(1, QCoreApplication.translate("GraphWindow", u"Channel 2", None))

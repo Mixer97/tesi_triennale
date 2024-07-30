@@ -1798,11 +1798,6 @@ QComboBox QAbstractItemView {
                  <string>Temp</string>
                 </property>
                </item>
-               <item>
-                <property name="text">
-                 <string>Main + Channel</string>
-                </property>
-               </item>
               </widget>
              </item>
              <item>

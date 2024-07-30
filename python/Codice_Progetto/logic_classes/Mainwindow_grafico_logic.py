@@ -461,7 +461,7 @@ class GraphWindow(QMainWindow):
         self.graph_recap = Graph_static_recap(self, banco_di_taratura)  # Inizializzo il grafico di recap
         
         # grafici disponibili
-        graph_main_and_channel = self.ui.graphWidget_SG600_main_and_channel  """GRAFICO DA ELIMINARE"""
+        graph_main_and_channel = self.ui.graphWidget_SG600_main_and_channel  #"""GRAFICO DA ELIMINARE"""
         graph_soloTemp = self.ui.graphWidget_SG600_solo_temp
         graph_soloMain = self.ui.graphWidget_SG600_solo_main
         graph_ch1 = self.ui.graphWidget_solo_channel_1
@@ -481,7 +481,7 @@ class GraphWindow(QMainWindow):
         self.controller_TCP = banco_di_taratura.controller_tcp
         self.controller_MODBUS = banco_di_taratura.controller_modbus
         
-        self.graph_main_and_channel = Graph(self, graph=graph_main_and_channel, channel=channel_main_ch, title='Main + channel', start_time=self.start_time) """GRAFICO DA ELIMINARE"""
+        self.graph_main_and_channel = Graph(self, graph=graph_main_and_channel, channel=channel_main_ch, title='Main + channel', start_time=self.start_time)  #"""GRAFICO DA ELIMINARE"""
         self.graph_soloMain = Graph(self, graph=graph_soloMain, channel=channel_main_ch, title='Main', start_time=self.start_time)
         self.graph_soloTemp = Graph(self, graph=graph_soloTemp, channel=channel_temp_ch, title='Temp', start_time=self.start_time)
         
