@@ -7,10 +7,19 @@
 # Cartelle celte da me
 Venvs
 CSV
+JSON
 Venv
 
 # File scelti da me 
 *.json
+*.toc
+*.pyz
+*.zip
+*.html
+*.pkg 
+*.spec
+*.exe
+*.txt
 
 # User-specific files
 *.rsuser

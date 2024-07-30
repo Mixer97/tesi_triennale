@@ -28,6 +28,12 @@
 }
 </string>
   </property>
+  <property name="iconSize">
+   <size>
+    <width>20</width>
+    <height>20</height>
+   </size>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
     <string notr="true">QWidget {
@@ -643,6 +649,9 @@ QLabel{
           <layout class="QVBoxLayout" name="verticalLayout">
            <item>
             <widget class="QWidget" name="widget" native="true">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
              <property name="styleSheet">
               <string notr="true">QWidget {
 	background-color:rgb(255, 207, 84); 
@@ -923,7 +932,7 @@ QComboBox QAbstractItemView {
 </string>
                   </property>
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Channel 2&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Cella di carico&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                  </widget>
                 </item>
@@ -959,6 +968,9 @@ QLCDNumber{
           <layout class="QVBoxLayout" name="verticalLayout_3">
            <item>
             <widget class="QWidget" name="widget_4" native="true">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
              <property name="styleSheet">
               <string notr="true">QWidget {
 	background-color:rgb(255, 207, 84); 
@@ -1074,7 +1086,7 @@ QComboBox QAbstractItemView {
 </string>
                   </property>
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Channel 3&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#99875e;&quot;&gt;Channel 3&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                  </widget>
                 </item>
@@ -1142,7 +1154,7 @@ QLCDNumber{
 </string>
                   </property>
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Channel 4&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Torsiometro&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                  </widget>
                 </item>
@@ -1382,6 +1394,9 @@ QPushButton::pressed{
           </item>
           <item>
            <widget class="QPushButton" name="pushButton_setup_registrazione">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
               <horstretch>0</horstretch>
@@ -1416,6 +1431,12 @@ QPushButton::pressed{
 	border-width: 1px;
 	background-color:rgb(56, 56, 56);
 	color: rgb(0, 0, 0);
+}
+
+QPushButton::disabled{
+	border-width: 1px;
+	background-color:rgb(140, 140, 140);
+	color:rgb(140, 140, 140);
 }</string>
             </property>
             <property name="text">

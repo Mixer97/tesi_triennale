@@ -151,3 +151,44 @@
 16/07
     fare in modo che con il click, per salvare i dati, si vada al prossimo punto del grafico verde
     concluso il grafico di aggiornamento durant euramet.
+
+17/07
+    lavoro sul cambiare il punto di partenza della scrittura dati per il file excell di Euramet
+    ho implementato le funzionalita per gestire meglio il file excell di euramet.
+    ora mi occupo del salvataggio che non vada a fare sovrascritture.
+        - ho scritto sul foglio di carta le cose da salvare, vedere quelle che non sono in banco di tarat. e portarcele.
+
+-------------------------------------------------------------------------------------------
+    calibrazione seneca attraverso mx+q per misure corrette (fatta con multimetro)
+    label prossimo step per operatore
+    abilita automatica abilitata o disabilitata
+
+    main unit per controllare tensione e fare test
+    test per deriva di temperatura del seneca (bassa e alta)
+        - multimetro in parallelo, pt100 per temperatura
+-------------------------------------------------------------------------------------------
+
+    [[problema da risolvere: mi salva valori None al posto dei valori che mi servono nel setup euramet]]
+
+18/07
+    Risolto problema del salvataggio impostazioni Euramet 
+    
+19/07
+    Riordino il codice in modo che sia diviso in package.
+    INNO SETUP usare per setup.
+    libreria logging per scrittura su file e a terminale per riuscire a avere un log quando le cose non funzionano
+    cambiata l'icona delle varie finestre in modo che ripiazzi quella di default 
+    inserite delle finestre di errore per quando ci sono problemi di connessione
+    provato a risolvere il problema delle finestre di errore dei controller ma non sono gestite in modo corretto (thread problem)
+        per la gui serve essere nel thread principale.
+
+
+24/07
+    Inizio a fare esercizi con grafana e influx
+
+25/07
+    Inizio a lavorare sulla logica per la stabilità
+
+30/07
+    Ho commentato il codice con dei commenti utili per capirne il funzionamento
+    ora prosegue nel sistemare il codice
