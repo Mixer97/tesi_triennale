@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>976</width>
+    <width>1154</width>
     <height>647</height>
    </rect>
   </property>
@@ -305,6 +305,9 @@ QPushButton::pressed{
         <layout class="QVBoxLayout" name="verticalLayout">
          <item>
           <widget class="QWidget" name="widget_8" native="true">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
            <property name="styleSheet">
             <string notr="true">QWidget {
 	background-color:rgb(255, 207, 84); 
@@ -319,6 +322,12 @@ QPushButton::pressed{
              <layout class="QGridLayout" name="gridLayout_41">
               <item row="0" column="0">
                <widget class="QLabel" name="label_toggle_CHN_1">
+                <property name="minimumSize">
+                 <size>
+                  <width>210</width>
+                  <height>0</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">QLabel {
     border: 2px solid black;
@@ -534,6 +543,12 @@ QLCDNumber{
              <layout class="QGridLayout" name="gridLayout_36">
               <item row="0" column="0">
                <widget class="QLabel" name="label_toggle_CHN_2">
+                <property name="minimumSize">
+                 <size>
+                  <width>210</width>
+                  <height>0</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">QLabel {
     border: 2px solid black;
@@ -549,7 +564,7 @@ QLabel{
 }</string>
                 </property>
                 <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:700; color:#00aa00;&quot;&gt;CANALE 2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:700; color:#00aa00;&quot;&gt;CELLA&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                </widget>
               </item>
@@ -736,6 +751,9 @@ QLCDNumber{
          </item>
          <item>
           <widget class="QWidget" name="widget_6" native="true">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
            <property name="styleSheet">
             <string notr="true">QWidget {
 	background-color:rgb(255, 207, 84); 
@@ -750,6 +768,15 @@ QLCDNumber{
              <layout class="QGridLayout" name="gridLayout_31">
               <item row="0" column="0">
                <widget class="QLabel" name="label_toggle_CHN_3">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>210</width>
+                  <height>0</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">QLabel {
     border: 2px solid black;
@@ -966,6 +993,12 @@ QLCDNumber{
              <layout class="QGridLayout" name="gridLayout_21">
               <item row="0" column="0">
                <widget class="QLabel" name="label_toggle_CHN_4">
+                <property name="minimumSize">
+                 <size>
+                  <width>210</width>
+                  <height>0</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">QLabel {
     border: 2px solid black;
@@ -981,7 +1014,7 @@ QLabel{
 }</string>
                 </property>
                 <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:700; color:#00aa00;&quot;&gt;CANALE 4&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:700; color:#00aa00;&quot;&gt;TORSIOMETRO&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                </widget>
               </item>
