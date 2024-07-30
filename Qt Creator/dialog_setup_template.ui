@@ -171,6 +171,77 @@ QLabel{
              </property>
             </widget>
            </item>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="comboBox_sens">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>15</pointsize>
+              </font>
+             </property>
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QComboBox {
+    border: 3px solid gray;
+    border-radius: 3px;
+    padding: 1px 1px 1px 10px;
+    min-width: 6em;
+    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */
+}
+
+QComboBox:hover, QPushButton:hover
+{
+    border: 1px solid rgb(202, 203, 194);
+    color: white;
+}
+
+QComboBox:!editable, QComboBox::drop-down:editable {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
+                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
+}
+
+
+/* Stile della tendina del QComboBox */
+QComboBox QAbstractItemView {
+    background-color:	qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
+                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3); ; /* Colore di sfondo della tendina */
+    selection-background-color: #3399FF; /* Colore di sfondo dell'elemento selezionato */
+    selection-color:rgb(106, 112, 113); /* Colore del testo dell'elemento selezionato */
+    border: 3px solid gray;
+    border-radius: 3px;
+    padding: 1px 18px 1px 3px;
+    min-width: 6em;
+    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */
+}</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>mV/V</string>
+              </property>
+             </item>
+            </widget>
+           </item>
           </layout>
          </item>
          <item row="0" column="0">
@@ -279,6 +350,87 @@ QPushButton::pressed{
              <property name="alignment">
               <set>Qt::AlignCenter</set>
              </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QComboBox" name="comboBox_fullscale">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>15</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QComboBox {
+    border: 3px solid gray;
+    border-radius: 3px;
+    padding: 1px 1px 1px 10px;
+    min-width: 6em;
+    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */
+}
+
+QComboBox:hover, QPushButton:hover
+{
+    border: 1px solid rgb(202, 203, 194);
+    color: white;
+}
+
+QComboBox:!editable, QComboBox::drop-down:editable {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
+                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
+}
+
+
+/* Stile della tendina del QComboBox */
+QComboBox QAbstractItemView {
+    background-color:	qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
+                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3); ; /* Colore di sfondo della tendina */
+    selection-background-color: #3399FF; /* Colore di sfondo dell'elemento selezionato */
+    selection-color:rgb(106, 112, 113); /* Colore del testo dell'elemento selezionato */
+    border: 3px solid gray;
+    border-radius: 3px;
+    padding: 1px 18px 1px 3px;
+    min-width: 6em;
+    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */
+}</string>
+             </property>
+             <property name="currentIndex">
+              <number>0</number>
+             </property>
+             <item>
+              <property name="text">
+               <string>Kg</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>N</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Nm</string>
+              </property>
+             </item>
             </widget>
            </item>
           </layout>

@@ -901,11 +901,6 @@ QComboBox QAbstractItemView {
                 </item>
                 <item>
                  <property name="text">
-                  <string>Nm</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
                   <string>Kg</string>
                  </property>
                 </item>
@@ -1235,16 +1230,6 @@ QComboBox QAbstractItemView {
                 <item>
                  <property name="text">
                   <string>Nm</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Kg</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>N</string>
                  </property>
                 </item>
                </widget>

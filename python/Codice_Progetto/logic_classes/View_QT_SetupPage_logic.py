@@ -117,22 +117,22 @@ class SetupWindow(QMainWindow):
                 self.banco_di_taratura.error_window_logic("Path non selezionato!")
         
     def open_setup_CH1_window(self):
-        self.setup_window = Canale_Setup_1(banco_di_taratura=self.banco_di_taratura)
+        self.setup_window = Canale_Setup_1(banco_di_taratura=self.banco_di_taratura, setup_window=self)
         self.setup_window.exec()
         self.ui.pushButton_concludi_setup.click()
         
     def open_setup_CH2_window(self):
-        self.setup_window = Canale_Setup_2(banco_di_taratura=self.banco_di_taratura)
+        self.setup_window = Canale_Setup_2(banco_di_taratura=self.banco_di_taratura, setup_window=self)
         self.setup_window.exec()
         self.ui.pushButton_concludi_setup.click()
 
     def open_setup_CH3_window(self):
-        self.setup_window = Canale_Setup_3(banco_di_taratura=self.banco_di_taratura)
+        self.setup_window = Canale_Setup_3(banco_di_taratura=self.banco_di_taratura, setup_window=self)
         self.setup_window.exec()
         self.ui.pushButton_concludi_setup.click()
 
     def open_setup_CH4_window(self):
-        self.setup_window = Canale_Setup_4(banco_di_taratura=self.banco_di_taratura)
+        self.setup_window = Canale_Setup_4(banco_di_taratura=self.banco_di_taratura, setup_window=self)
         self.setup_window.exec()
         self.ui.pushButton_concludi_setup.click()
         

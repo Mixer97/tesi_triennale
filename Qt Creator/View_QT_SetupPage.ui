@@ -486,6 +486,12 @@ QCheckBox::indicator:unchecked {
               </property>
               <item row="0" column="0" colspan="2">
                <widget class="QLabel" name="label_CH1">
+                <property name="minimumSize">
+                 <size>
+                  <width>170</width>
+                  <height>0</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">QLabel{
 	color: rgb(0,0,0);
@@ -708,6 +714,18 @@ QCheckBox::indicator:unchecked {
               </property>
               <item row="0" column="0" colspan="2">
                <widget class="QLabel" name="label_CH2_2">
+                <property name="minimumSize">
+                 <size>
+                  <width>170</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">QLabel{
 	color: rgb(0,0,0);
@@ -715,7 +733,7 @@ QCheckBox::indicator:unchecked {
 </string>
                 </property>
                 <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;FONDOSCALA [?]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;FONDOSCALA [N]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="textFormat">
                  <enum>Qt::RichText</enum>
@@ -936,6 +954,18 @@ QCheckBox::indicator:unchecked {
               </property>
               <item row="0" column="0" colspan="2">
                <widget class="QLabel" name="label_CH3_2">
+                <property name="minimumSize">
+                 <size>
+                  <width>170</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">QLabel{
 	color: rgb(0,0,0);
@@ -1158,6 +1188,18 @@ QCheckBox::indicator:unchecked {
               </property>
               <item row="0" column="0" colspan="2">
                <widget class="QLabel" name="label_CH4">
+                <property name="minimumSize">
+                 <size>
+                  <width>170</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">QLabel{
 	color: rgb(0,0,0);
@@ -1165,7 +1207,7 @@ QCheckBox::indicator:unchecked {
 </string>
                 </property>
                 <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;FONDOSCALA [?]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;FONDOSCALA [Nm]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="textFormat">
                  <enum>Qt::RichText</enum>
