@@ -128,7 +128,7 @@
 </string>
                </property>
                <property name="text">
-                <string>main channel [mV]</string>
+                <string>main channel [V]</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>

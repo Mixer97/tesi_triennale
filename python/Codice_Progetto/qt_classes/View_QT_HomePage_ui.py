@@ -1018,10 +1018,10 @@ class Ui_MainWindow(object):
         self.label.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">INTERFACCIA</p></body></html>", None))
         self.pushButton_Interfaccia.setText(QCoreApplication.translate("MainWindow", u"START", None))
         self.label_SG600.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">SG-600</p></body></html>", None))
-        self.comboBox_5.setItemText(0, QCoreApplication.translate("MainWindow", u"mV", None))
+        self.comboBox_5.setItemText(0, QCoreApplication.translate("MainWindow", u"V", None))
         self.comboBox_5.setItemText(1, QCoreApplication.translate("MainWindow", u"Nm", None))
 
-        self.comboBox_5.setCurrentText(QCoreApplication.translate("MainWindow", u"mV", None))
+        self.comboBox_5.setCurrentText(QCoreApplication.translate("MainWindow", u"V", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Main Channel</p></body></html>", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Temperature</p></body></html>", None))
         self.comboBox_1.setItemText(0, QCoreApplication.translate("MainWindow", u"mV", None))

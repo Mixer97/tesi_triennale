@@ -1431,7 +1431,7 @@ class Ui_GraphWindow(object):
 
     def retranslateUi(self, GraphWindow):
         GraphWindow.setWindowTitle(QCoreApplication.translate("GraphWindow", u"MainWindow", None))
-        self.label_main_mV.setText(QCoreApplication.translate("GraphWindow", u"main channel [mV]", None))
+        self.label_main_mV.setText(QCoreApplication.translate("GraphWindow", u"main channel [V]", None))
         self.label_main_Nm.setText(QCoreApplication.translate("GraphWindow", u"main channel [Nm]", None))
         self.label_4.setText(QCoreApplication.translate("GraphWindow", u"Channel 2 [N]", None))
         self.label_3.setText(QCoreApplication.translate("GraphWindow", u"Channel 4 [Nm]", None))

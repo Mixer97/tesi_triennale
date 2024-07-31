@@ -397,8 +397,8 @@ class Graph:
         return data
 
     def elaborate_data_main(self):
-        if self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd_SG600_main_temp[0] == 'mV':
-            data = self.GraphWindow.banco_di_taratura.controller_modbus.DATA.canale_principale_mV
+        if self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd_SG600_main_temp[0] == 'V':
+            data = self.GraphWindow.banco_di_taratura.controller_modbus.get_V_main()
         elif self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd_SG600_main_temp[0] == 'Nm':
             data = self.GraphWindow.banco_di_taratura.controller_modbus.DATA.canale_principale_Nm
         else:
@@ -666,7 +666,7 @@ class GraphWindow(QMainWindow):
 
         
     def inizializzazione_display(self):
-        self.ui.lcdNumber_main_mV.display(self.banco_di_taratura.controller_modbus.DATA.canale_principale_mV)
+        self.ui.lcdNumber_main_mV.display(self.banco_di_taratura.controller_modbus.get_V_main())
         self.ui.lcdNumber_main_Nm.display(self.banco_di_taratura.controller_modbus.DATA.canale_principale_Nm)
         self.ui.lcdNumber_ch2.display(self.banco_di_taratura.controller_tcp.DATA.LIST_N_VALUE[1])
         self.ui.lcdNumber_ch4.display(self.banco_di_taratura.controller_tcp.DATA.LIST_Nm_VALUE[3])

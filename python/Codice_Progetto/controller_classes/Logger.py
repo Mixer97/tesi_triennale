@@ -22,7 +22,7 @@ class LOGGER:
             self.text_lcd=["mV","mV","mV","mV"]  # Viene aggiornata dalla Main_View in automatico
             self.result_list_1_4=[0,0,0,0]  # [CH1, CH2, CH3, CH4]
             self.result_list_SG600_main_temp=[0,0]
-            self.text_lcd_SG600_main_temp=["mV","mV"]  # Viene aggiornato dalla Main View in automatico [[DA IMPLEMENTARE]] 
+            self.text_lcd_SG600_main_temp=["V","mV"]  # Viene aggiornato dalla Main View in automatico [[DA IMPLEMENTARE]] 
             self.loop_status=True  # Status che governa il loop di esecuzione secondario nel quale sono aggiornati i valori, invitai al DB e scritti sul file .csv
             self.periodo_logger=0.1  # In secondi
             self.counter_registrazione = 0
@@ -237,8 +237,8 @@ class LOGGER:
                 exit(1)
                 
     def update_SG600_main(self, controller_MODBUS):
-        if self.DATA.text_lcd_SG600_main_temp[0] == "mV":
-                main_mV = Controller_Client_MODBUS_Seneca.Controller_MODBUS.get_mV_main(controller_MODBUS)
+        if self.DATA.text_lcd_SG600_main_temp[0] == "V":
+                main_mV = Controller_Client_MODBUS_Seneca.Controller_MODBUS.get_V_main(controller_MODBUS)
                 self.DATA.result_list_SG600_main_temp[0]=main_mV
         elif self.DATA.text_lcd_SG600_main_temp[0] == "Nm":
                 main_Nm = Controller_Client_MODBUS_Seneca.Controller_MODBUS.get_Nm_main(controller_MODBUS)

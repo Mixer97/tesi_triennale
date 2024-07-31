@@ -481,7 +481,7 @@ QComboBox QAbstractItemView {
 }</string>
                    </property>
                    <property name="currentText">
-                    <string>mV</string>
+                    <string>V</string>
                    </property>
                    <property name="iconSize">
                     <size>
@@ -491,7 +491,7 @@ QComboBox QAbstractItemView {
                    </property>
                    <item>
                     <property name="text">
-                     <string>mV</string>
+                     <string>V</string>
                     </property>
                    </item>
                    <item>
