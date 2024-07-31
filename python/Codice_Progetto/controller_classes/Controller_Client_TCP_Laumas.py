@@ -108,8 +108,12 @@ class Controller_TCP:
     def read_holding_registers_mV(self):
             if self.connect:     
                     
+                written = False    
+                    
                 # Inviare il comando 6902 a CMDR (abilitare lettura in mV)
-                self.write_CMDR(self.CMDR_COMMANDS.COMMAND_6902)
+                if not written: 
+                    self.write_CMDR(self.CMDR_COMMANDS.COMMAND_6902)
+                    written = True
                 
                 # Lettura holding registers (52...55)
                 risultatimV=self.client.read_holding_registers(address=self.ADDRESS.REGISTER_3, count=4, slave=self.SLAVE.ID)
@@ -125,7 +129,7 @@ class Controller_TCP:
                     risultatimV.registers[value] = float((self.convert_to_signed_16_bit(risultatimV.registers[value]))/100)
 
                 # Comando di conclusione
-                self.write_CMDR(self.CMDR_COMMANDS.COMMAND_6903)
+                # self.write_CMDR(self.CMDR_COMMANDS.COMMAND_6903)
                 
                 return risultatimV.registers
 
