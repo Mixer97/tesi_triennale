@@ -53,3 +53,25 @@ BUG SCOPERTI:
     - Problema handling del file excell quando è aperto
     [[- Bug che avviene ogni tanto all'inizio dell'esecuzione del programma]]
     - se salva la registrazione su default e poi faccio ripartire il programma e salvo di nuovo allora va sempre su default (senza sovrascrivere)
+
+
+multimetro manda su influx i dati presi (vedere con Pilo)
+main per generare tensione 
+collegarsi con labview (portatile di sopra della Acer)
+5 punti salita (sul fondoscala della seneca)
+segno multi e seneca su tabella
+forno 40 gradi e frigo
+
+cose da fare nella parte finale del progetto:
+
+    1| analisi della scheda a temperatura ambiente, temperatura del frigo e temperatura del forno (40°C)
+    2| misura formato euramet prima con il Sirius e poi con il mio setup
+    3| se le cose tornano andare a setuppare il computerino con Docker
+    4| generare l'eseguibile e fare un pacchetto con inno setup
+    5| testing finale per vedere che l'eseguibile funzioni già di suo
+
+
+COSE PRINCIPALI DA CHIEDERE AI PIANI ALTI:
+
+    - password da amministratore per il pc piccolo (per installare/disinstallare le varie cose e avere privilegi da amministratore)
+    - come utilizzare LabView per fare diventare l'SG600 un DC generator da 5V 

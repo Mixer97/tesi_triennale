@@ -122,20 +122,20 @@ def data_update_mV(controller_tcp:C_Laumas.Controller_TCP, controller_modbus:C_S
     tmp = time.time()
     while logger.DATA.loop_status:
         try:
-            test = time.time() - tmp
-            print(f"tempo iniziale: {test}")
-            tmp = time.time()
+            # test = time.time() - tmp
+            # print(f"tempo iniziale: {test}")
+            # tmp = time.time()
             result_list_laumas = controller_tcp.read_holding_registers_mV()   # celle di carico 1-4
-            test = time.time() - tmp
-            print(f"tempo tcp: {test}")
-            tmp = time.time()
+            # test = time.time() - tmp
+            # print(f"tempo tcp: {test}")  # Tempo ottimizzato che richiede una scrittura e un loop di letture
+            # tmp = time.time()
             result_list_SG600 = controller_modbus.read_holding_registers_mV() # canale main e canale temp
-            test = time.time() - tmp
-            print(f"tempo modbus: {test}")
+            # test = time.time() - tmp
+            # print(f"tempo modbus: {test}")  # Tempo ottimizzato diccome la connessione funziona solo con un baudrate di 2400
             controller_tcp.DATA.LIST_mV_VALUE = result_list_laumas
             controller_modbus.DATA.canale_principale_mV = result_list_SG600[0]
             controller_modbus.DATA.canale_temperatura_mV = result_list_SG600[1]
-            tmp = time.time()
+            # tmp = time.time()
         except Exception as e:
             logging.critical("Problema critico nel dialogo con le schede!", exc_info=True)
             

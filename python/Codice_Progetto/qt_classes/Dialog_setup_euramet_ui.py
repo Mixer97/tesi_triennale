@@ -1012,9 +1012,16 @@ class Ui_Dialog_Euramet_setup(object):
 
         self.verticalLayout_7.addWidget(self.comboBox_quadrante)
 
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Preferred)
 
         self.verticalLayout_7.addItem(self.verticalSpacer)
+
+        self.frame_3 = QFrame(self.frame_27)
+        self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setFrameShape(QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QFrame.Raised)
+
+        self.verticalLayout_7.addWidget(self.frame_3)
 
 
         self.verticalLayout_8.addWidget(self.frame_27)
