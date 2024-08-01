@@ -103,6 +103,12 @@ class BANCO_DI_TARATURA:
         # valori per plotting
         self.x = 0
         
+        # valori per stabilità del led
+        self.percentage_interval_green = 10
+        self.percentage_interval_yellow = 15
+        self.difference_variance_green = 1
+        self.difference_variance_yellow = 3
+        
     # metodi comuni a tutte le istanze da metter qui
     def set_window_icon(self, window:MainWindow):
         window.setWindowIcon(QIcon(self.window_icon_path))

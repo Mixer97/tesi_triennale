@@ -57,6 +57,11 @@ class Euramet_window(QDialog):
         self.ui.comboBox_quadrante.currentIndexChanged.connect(self.update_quadrant)
         self.ui.comboBox_step.currentIndexChanged.connect(self.ui.stackedWidget_euramet.setCurrentIndex) # Varia la visualizzazione
         self.ui.pushButton_concludi_setup.clicked.connect(self.end_setup)
+        
+        self.ui.horizontalSlider_stabilita_giallo.sliderReleased.connect(self.update_valori_sliders)  # segnali per acuisire il valore degli sliders
+        self.ui.horizontalSlider_stabilita_verde.sliderReleased.connect(self.update_valori_sliders)
+        self.ui.horizontalSlider_varianza_giallo.sliderReleased.connect(self.update_valori_sliders)
+        self.ui.horizontalSlider_varianza_verde.sliderReleased.connect(self.update_valori_sliders)
 
 
     # usato per inizializzare il secondo quadrante e terminare alla fine del 2 quadrante
@@ -169,6 +174,11 @@ class Euramet_window(QDialog):
             self.banco_di_taratura.status_inserimento_altezza = False
         print(self.banco_di_taratura.list_status_checkbox_euramet_page)
         
+    def update_valori_sliders(self):
+        self.banco_di_taratura.percentage_interval_green = self.ui.horizontalSlider_stabilita_verde.value()
+        self.banco_di_taratura.percentage_interval_yellow = self.ui.horizontalSlider_stabilita_giallo.value()
+        self.banco_di_taratura.difference_variance_green = self.ui.horizontalSlider_varianza_verde.value()
+        self.banco_di_taratura.difference_variance_yellow = self.ui.horizontalSlider_varianza_giallo.value()
         
     def update_status_salita_1(self):
         tmp = self.ui.checkBox_salita_1.isChecked()
