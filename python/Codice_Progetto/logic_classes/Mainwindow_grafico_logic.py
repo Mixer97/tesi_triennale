@@ -579,10 +579,11 @@ class GraphWindow(QMainWindow):
                 varianza = round(somma_quadrati / (len(buffer) - 1), 5)
                 
                 # Parametri il range di varianza e stabilità delle zone verdi e gialle
-                yellow_stability = ((self.banco_di_taratura.percentage_interval_yellow/100)*full_scale)
-                green_stability = ((self.banco_di_taratura.percentage_interval_green/100)*full_scale)
-                yellow_varianza = self.banco_di_taratura.difference_variance_yellow
-                green_varianza = self.banco_di_taratura.difference_variance_green
+                # Il /2 si usa perchè il check viene fatto su valori assoluti e quindi su solo la parte positiva (cioè metà) del range
+                yellow_stability = (((self.banco_di_taratura.percentage_interval_yellow/2)/100)*full_scale)
+                green_stability = (((self.banco_di_taratura.percentage_interval_green/2)/100)*full_scale)
+                yellow_varianza = self.banco_di_taratura.difference_variance_yellow/2
+                green_varianza = self.banco_di_taratura.difference_variance_green/2
                 
                 # verde
                 if difference < green_stability and varianza < green_varianza:

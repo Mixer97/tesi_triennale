@@ -180,6 +180,11 @@ class Euramet_window(QDialog):
         self.banco_di_taratura.difference_variance_green = self.ui.horizontalSlider_varianza_verde.value()
         self.banco_di_taratura.difference_variance_yellow = self.ui.horizontalSlider_varianza_giallo.value()
         
+        self.ui.label_stabilit_verde.setText(f"{self.banco_di_taratura.percentage_interval_green}%")
+        self.ui.label_stabilita_giallo.setText(f"{self.banco_di_taratura.percentage_interval_yellow}%")
+        self.ui.label_varianza_verde.setText(f"{self.banco_di_taratura.difference_variance_green}")
+        self.ui.label_varianza_giallo.setText(f"{self.banco_di_taratura.difference_variance_yellow}")
+        
     def update_status_salita_1(self):
         tmp = self.ui.checkBox_salita_1.isChecked()
         if tmp:
