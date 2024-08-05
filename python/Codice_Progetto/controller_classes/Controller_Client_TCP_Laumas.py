@@ -108,8 +108,12 @@ class Controller_TCP:
     def read_holding_registers_mV(self):
             if self.connect:     
                     
+                written = False    
+                    
                 # Inviare il comando 6902 a CMDR (abilitare lettura in mV)
-                self.write_CMDR(self.CMDR_COMMANDS.COMMAND_6902)
+                if not written: 
+                    self.write_CMDR(self.CMDR_COMMANDS.COMMAND_6902)
+                    written = True
                 
                 # Lettura holding registers (52...55)
                 risultatimV=self.client.read_holding_registers(address=self.ADDRESS.REGISTER_3, count=4, slave=self.SLAVE.ID)
@@ -125,7 +129,7 @@ class Controller_TCP:
                     risultatimV.registers[value] = float((self.convert_to_signed_16_bit(risultatimV.registers[value]))/100)
 
                 # Comando di conclusione
-                self.write_CMDR(self.CMDR_COMMANDS.COMMAND_6903)
+                # self.write_CMDR(self.CMDR_COMMANDS.COMMAND_6903)
                 
                 return risultatimV.registers
 
@@ -497,12 +501,12 @@ class Controller_TCP:
         i = 0
         for i in range(0, len(self.DATA.LIST_mV_VALUE)):
             if self.DATA.LIST_SENSIBILITY[i]!=0:
-                self.DATA.LIST_Kg_VALUE[i] = abs((self.DATA.LIST_FULLSCALE[i]/(self.SLAVE.CHN_VOLTAGE*self.DATA.LIST_SENSIBILITY[i]))*(self.DATA.LIST_mV_VALUE[i] - self.DATA.LIST_mV_ZERO[i]))
+                self.DATA.LIST_Kg_VALUE[i] = abs((self.DATA.LIST_FULLSCALE[i]/(self.SLAVE.CHN_VOLTAGE*self.DATA.LIST_SENSIBILITY[i]))*(self.DATA.LIST_mV_VALUE[i] - self.DATA.LIST_mV_ZERO[i]))/9.81
             else:
                 self.DATA.LIST_Kg_VALUE[i] = 0
         return self.DATA.LIST_Kg_VALUE
     
-    def get_Nm(self, lever_length=1, unit_fullscale="Kg"):
+    def get_Nm(self, lever_length=1):
         """
         Ritorna una lista espressa in Nm di 4 elementi: [CH1, CH2, CH3, CH4]
         """
@@ -510,7 +514,7 @@ class Controller_TCP:
         for i in range(0, len(self.DATA.LIST_mV_VALUE)):
             self.DATA.LEVER_LENGTH = lever_length
             if self.DATA.LIST_SENSIBILITY[i]!=0:
-                self.DATA.LIST_Nm_VALUE[i] = self.DATA.LEVER_LENGTH*9.81*(self.DATA.LIST_FULLSCALE[i]/(self.SLAVE.CHN_VOLTAGE*self.DATA.LIST_SENSIBILITY[i]))*(self.DATA.LIST_mV_VALUE[i] - self.DATA.LIST_mV_ZERO[i])
+                self.DATA.LIST_Nm_VALUE[i] = self.DATA.LEVER_LENGTH*(self.DATA.LIST_FULLSCALE[i]/(self.SLAVE.CHN_VOLTAGE*self.DATA.LIST_SENSIBILITY[i]))*(self.DATA.LIST_mV_VALUE[i] - self.DATA.LIST_mV_ZERO[i])
             else:
                 self.DATA.LIST_Nm_VALUE[i] = 0
         return self.DATA.LIST_Nm_VALUE
@@ -522,7 +526,7 @@ class Controller_TCP:
         i = 0
         for i in range(0, len(self.DATA.LIST_mV_VALUE)):
             if self.DATA.LIST_SENSIBILITY[i]!=0:
-                self.DATA.LIST_N_VALUE[i] = 9.81*(self.DATA.LIST_FULLSCALE[i]/(self.SLAVE.CHN_VOLTAGE*self.DATA.LIST_SENSIBILITY[i]))*(self.DATA.LIST_mV_VALUE[i] - self.DATA.LIST_mV_ZERO[i])
+                self.DATA.LIST_N_VALUE[i] = (self.DATA.LIST_FULLSCALE[i]/(self.SLAVE.CHN_VOLTAGE*self.DATA.LIST_SENSIBILITY[i]))*(self.DATA.LIST_mV_VALUE[i] - self.DATA.LIST_mV_ZERO[i])
             else:
                 self.DATA.LIST_N_VALUE[i] = 0
         return self.DATA.LIST_N_VALUE

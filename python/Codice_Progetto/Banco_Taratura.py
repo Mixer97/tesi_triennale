@@ -7,6 +7,7 @@ import controller_classes.Controller_Client_TCP_Laumas as C_Laumas
 import controller_classes.Controller_Client_MODBUS_Seneca as C_Seneca
 from threading import Thread
 from time import sleep
+import time
 from pymodbus import pymodbus_apply_logging_config
 import sys
 from PySide6.QtGui import QIcon
@@ -102,6 +103,12 @@ class BANCO_DI_TARATURA:
         # valori per plotting
         self.x = 0
         
+        # valori per stabilità del led
+        self.percentage_interval_green = 10
+        self.percentage_interval_yellow = 15
+        self.difference_variance_green = 1
+        self.difference_variance_yellow = 3
+        
     # metodi comuni a tutte le istanze da metter qui
     def set_window_icon(self, window:MainWindow):
         window.setWindowIcon(QIcon(self.window_icon_path))
@@ -118,13 +125,23 @@ def run_logger(controller_tcp:C_Laumas.Controller_TCP, controller_modbus:C_Senec
     logger.log_data(controller_TCP=controller_tcp, controller_MODBUS=controller_modbus)  
     
 def data_update_mV(controller_tcp:C_Laumas.Controller_TCP, controller_modbus:C_Seneca.Controller_MODBUS, logger:Logger.LOGGER):
+    tmp = time.time()
     while logger.DATA.loop_status:
         try:
+            # test = time.time() - tmp
+            # print(f"tempo iniziale: {test}")
+            # tmp = time.time()
             result_list_laumas = controller_tcp.read_holding_registers_mV()   # celle di carico 1-4
+            # test = time.time() - tmp
+            # print(f"tempo tcp: {test}")  # Tempo ottimizzato che richiede una scrittura e un loop di letture
+            # tmp = time.time()
             result_list_SG600 = controller_modbus.read_holding_registers_mV() # canale main e canale temp
+            # test = time.time() - tmp
+            # print(f"tempo modbus: {test}")  # Tempo ottimizzato diccome la connessione funziona solo con un baudrate di 2400
             controller_tcp.DATA.LIST_mV_VALUE = result_list_laumas
             controller_modbus.DATA.canale_principale_mV = result_list_SG600[0]
             controller_modbus.DATA.canale_temperatura_mV = result_list_SG600[1]
+            # tmp = time.time()
         except Exception as e:
             logging.critical("Problema critico nel dialogo con le schede!", exc_info=True)
             

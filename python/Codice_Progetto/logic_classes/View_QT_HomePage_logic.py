@@ -217,9 +217,9 @@ class MainWindow(QMainWindow):
     
     
     def update_SG600_main(self):
-        main_mV = self.controller_MODBUS.get_mV_main()
+        main_mV = self.controller_MODBUS.get_V_main()
         main_Nm = self.controller_MODBUS.get_Nm_main()
-        if self.ui.comboBox_5.currentText() == "mV":
+        if self.ui.comboBox_5.currentText() == "V":
                 self.ui.lcdNumber_main_SG600.display(main_mV)
         elif self.ui.comboBox_5.currentText() == "Nm":
                 self.ui.lcdNumber_main_SG600.display(main_Nm)

@@ -397,8 +397,8 @@ class Graph:
         return data
 
     def elaborate_data_main(self):
-        if self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd_SG600_main_temp[0] == 'mV':
-            data = self.GraphWindow.banco_di_taratura.controller_modbus.DATA.canale_principale_mV
+        if self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd_SG600_main_temp[0] == 'V':
+            data = self.GraphWindow.banco_di_taratura.controller_modbus.get_V_main()
         elif self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd_SG600_main_temp[0] == 'Nm':
             data = self.GraphWindow.banco_di_taratura.controller_modbus.DATA.canale_principale_Nm
         else:
@@ -579,10 +579,11 @@ class GraphWindow(QMainWindow):
                 varianza = round(somma_quadrati / (len(buffer) - 1), 5)
                 
                 # Parametri il range di varianza e stabilità delle zone verdi e gialle
-                yellow_stability = ((15/100)*full_scale)
-                green_stability = ((10/100)*full_scale)
-                yellow_varianza = 3
-                green_varianza = 1
+                # Il /2 si usa perchè il check viene fatto su valori assoluti e quindi su solo la parte positiva (cioè metà) del range
+                yellow_stability = (((self.banco_di_taratura.percentage_interval_yellow/2)/100)*full_scale)
+                green_stability = (((self.banco_di_taratura.percentage_interval_green/2)/100)*full_scale)
+                yellow_varianza = self.banco_di_taratura.difference_variance_yellow/2
+                green_varianza = self.banco_di_taratura.difference_variance_green/2
                 
                 # verde
                 if difference < green_stability and varianza < green_varianza:
@@ -666,7 +667,7 @@ class GraphWindow(QMainWindow):
 
         
     def inizializzazione_display(self):
-        self.ui.lcdNumber_main_mV.display(self.banco_di_taratura.controller_modbus.DATA.canale_principale_mV)
+        self.ui.lcdNumber_main_mV.display(self.banco_di_taratura.controller_modbus.get_V_main())
         self.ui.lcdNumber_main_Nm.display(self.banco_di_taratura.controller_modbus.DATA.canale_principale_Nm)
         self.ui.lcdNumber_ch2.display(self.banco_di_taratura.controller_tcp.DATA.LIST_N_VALUE[1])
         self.ui.lcdNumber_ch4.display(self.banco_di_taratura.controller_tcp.DATA.LIST_Nm_VALUE[3])

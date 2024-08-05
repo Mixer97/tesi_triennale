@@ -121,11 +121,20 @@ class Controller_MODBUS:
             return y
         except Exception as e:
                 logging.exception("Exception occurred", exc_info=True)
+                
+    def get_V_main(self):
+        try:
+            # Formula: y=mx+q per la correzione lineare #
+            y = self.DATA.canale_principale_mV*self.banco_di_taratura.m_main + self.banco_di_taratura.q_main
+            y = y / 1000
+            return y
+        except Exception as e:
+                logging.exception("Exception occurred", exc_info=True)
     
     def get_Nm_main(self):
         try:
             # Formula: Nm=(mV-zero)*coeff #
-            self.DATA.canale_principale_Nm = (self.get_mV_main() - self.DATA.zero_main) * self.DATA.coefficiente_main
+            self.DATA.canale_principale_Nm = (self.get_V_main() - self.DATA.zero_main) * self.DATA.coefficiente_main
             return self.DATA.canale_principale_Nm
         except Exception as e:
                 logging.exception("Exception occurred", exc_info=True)

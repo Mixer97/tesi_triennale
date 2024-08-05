@@ -55,7 +55,7 @@ class Canale_Setup_SG600(QDialog):
         self.banco_di_taratura.q_temp = float(self.ui.lineEdit_q_temp.text())
 
     def update_zero_main(self):
-        self.banco_di_taratura.controller_modbus.DATA.zero_main = self.banco_di_taratura.controller_modbus.DATA.canale_principale_mV
+        self.banco_di_taratura.controller_modbus.DATA.zero_main = self.banco_di_taratura.controller_modbus.get_V_main()
 
     def update_zero_temp(self):
         self.banco_di_taratura.controller_modbus.DATA.zero_temp = self.banco_di_taratura.controller_modbus.DATA.canale_temperatura_mV
