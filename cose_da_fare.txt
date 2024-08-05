@@ -54,7 +54,7 @@ BUG SCOPERTI:
     - Problema handling del file excell quando è aperto
     [[- Bug che avviene ogni tanto all'inizio dell'esecuzione del programma]]
     - se salva la registrazione su default e poi faccio ripartire il programma e salvo di nuovo allora va sempre su default (senza sovrascrivere)
-
+    - portare anche lo stile usato per la finestra di errore
 
 multimetro manda su influx i dati presi (vedere con Pilo)
 main per generare tensione 

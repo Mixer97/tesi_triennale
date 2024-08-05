@@ -156,7 +156,7 @@ def db_write(controller_tcp:C_Laumas.Controller_TCP, controller_modbus:C_Seneca.
         while banco.logger.DATA.loop_status:
             sleep(banco.logger.DATA.periodo_logger)
             if banco.logger.DATA.startStop_logger and db_writer != None:
-                p = Point("Euramet Data")
+                p = Point("Euramet Data").tag("measure", "measure")
                 p.field("main", float(list_main_temp[0]))
                 p.field("temp", float(list_main_temp[1]))
                 p.field("CH1", float(list_channels_laumas[0]))
