@@ -99,6 +99,7 @@ class Ui_SG600_Setup(object):
 "	color: rgb(0,0,0);\n"
 "}\n"
 "")
+        self.label_coefficiente_setup_main.setMargin(5)
 
         self.gridLayout_3.addWidget(self.label_coefficiente_setup_main, 0, 0, 1, 1)
 
@@ -209,6 +210,8 @@ class Ui_SG600_Setup(object):
 "}\n"
 "")
         self.label_correzione_lineare.setAlignment(Qt.AlignCenter)
+        self.label_correzione_lineare.setMargin(5)
+        self.label_correzione_lineare.setIndent(-1)
 
         self.verticalLayout.addWidget(self.label_correzione_lineare)
 
@@ -355,6 +358,7 @@ class Ui_SG600_Setup(object):
 "	color: rgb(0,0,0);\n"
 "}\n"
 "")
+        self.label_coefficiente_setup_temp.setMargin(5)
 
         self.gridLayout_14.addWidget(self.label_coefficiente_setup_temp, 0, 0, 1, 1)
 
@@ -453,6 +457,7 @@ class Ui_SG600_Setup(object):
 "}\n"
 "")
         self.label_correzione_lineare_2.setAlignment(Qt.AlignCenter)
+        self.label_correzione_lineare_2.setMargin(5)
 
         self.verticalLayout_2.addWidget(self.label_correzione_lineare_2)
 
@@ -626,7 +631,7 @@ class Ui_SG600_Setup(object):
 
     def retranslateUi(self, SG600_Setup):
         SG600_Setup.setWindowTitle(QCoreApplication.translate("SG600_Setup", u"Dialog", None))
-        self.label_coefficiente_setup_main.setText(QCoreApplication.translate("SG600_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">COEFFICIENTE</span></p></body></html>", None))
+        self.label_coefficiente_setup_main.setText(QCoreApplication.translate("SG600_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">COEFFICIENTE [Nm/V]</span></p></body></html>", None))
         self.lineEdit_coefficiente_main.setText(QCoreApplication.translate("SG600_Setup", u"-", None))
         self.pushButton_azzeramento_main.setText(QCoreApplication.translate("SG600_Setup", u"ZERO CANALE MAIN", None))
         self.label.setText(QCoreApplication.translate("SG600_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">coefficienti per calcolo Nm</span></p></body></html>", None))
@@ -635,7 +640,7 @@ class Ui_SG600_Setup(object):
         self.lineEdit_m_main.setText(QCoreApplication.translate("SG600_Setup", u"-", None))
         self.label_4.setText(QCoreApplication.translate("SG600_Setup", u"q", None))
         self.lineEdit_q_main.setText(QCoreApplication.translate("SG600_Setup", u"-", None))
-        self.label_coefficiente_setup_temp.setText(QCoreApplication.translate("SG600_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">COEFFICIENTE</span></p></body></html>", None))
+        self.label_coefficiente_setup_temp.setText(QCoreApplication.translate("SG600_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">COEFFICIENTE [\u00b0C/V]</span></p></body></html>", None))
         self.lineEdit_coefficiente_temp.setText(QCoreApplication.translate("SG600_Setup", u"-", None))
         self.pushButton_azzeramento_main_2.setText(QCoreApplication.translate("SG600_Setup", u"ZERO CANALE TEMP.", None))
         self.label_2.setText(QCoreApplication.translate("SG600_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">coefficienti per calcolo \u00b0C</span></p></body></html>", None))

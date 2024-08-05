@@ -23,7 +23,7 @@ class Ui_SetupWindow(object):
     def setupUi(self, SetupWindow):
         if not SetupWindow.objectName():
             SetupWindow.setObjectName(u"SetupWindow")
-        SetupWindow.resize(976, 647)
+        SetupWindow.resize(1154, 647)
         SetupWindow.setStyleSheet(u"QWidget {\n"
 "	background-color:black; \n"
 "	border-style: outset;\n"
@@ -186,6 +186,7 @@ class Ui_SetupWindow(object):
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.widget_8 = QWidget(self.Wid_L)
         self.widget_8.setObjectName(u"widget_8")
+        self.widget_8.setEnabled(False)
         self.widget_8.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(255, 207, 84); \n"
 "	border-style: outset;\n"
@@ -199,6 +200,7 @@ class Ui_SetupWindow(object):
         self.gridLayout_41.setObjectName(u"gridLayout_41")
         self.label_toggle_CHN_1 = QLabel(self.widget_8)
         self.label_toggle_CHN_1.setObjectName(u"label_toggle_CHN_1")
+        self.label_toggle_CHN_1.setMinimumSize(QSize(210, 0))
         self.label_toggle_CHN_1.setStyleSheet(u"QLabel {\n"
 "    border: 2px solid black;\n"
 "    border-radius: 10px;\n"
@@ -327,6 +329,7 @@ class Ui_SetupWindow(object):
         self.gridLayout_44.setVerticalSpacing(0)
         self.label_CH1 = QLabel(self.widget_8)
         self.label_CH1.setObjectName(u"label_CH1")
+        self.label_CH1.setMinimumSize(QSize(170, 0))
         self.label_CH1.setStyleSheet(u"QLabel{\n"
 "	color: rgb(0,0,0);\n"
 "}\n"
@@ -372,6 +375,7 @@ class Ui_SetupWindow(object):
         self.gridLayout_36.setObjectName(u"gridLayout_36")
         self.label_toggle_CHN_2 = QLabel(self.widget_7)
         self.label_toggle_CHN_2.setObjectName(u"label_toggle_CHN_2")
+        self.label_toggle_CHN_2.setMinimumSize(QSize(210, 0))
         self.label_toggle_CHN_2.setStyleSheet(u"QLabel {\n"
 "    border: 2px solid black;\n"
 "    border-radius: 10px;\n"
@@ -496,6 +500,8 @@ class Ui_SetupWindow(object):
         self.gridLayout_39.setVerticalSpacing(0)
         self.label_CH2_2 = QLabel(self.widget_7)
         self.label_CH2_2.setObjectName(u"label_CH2_2")
+        self.label_CH2_2.setMinimumSize(QSize(170, 0))
+        self.label_CH2_2.setMaximumSize(QSize(16777215, 16777215))
         self.label_CH2_2.setStyleSheet(u"QLabel{\n"
 "	color: rgb(0,0,0);\n"
 "}\n"
@@ -528,6 +534,7 @@ class Ui_SetupWindow(object):
 
         self.widget_6 = QWidget(self.Wid_L)
         self.widget_6.setObjectName(u"widget_6")
+        self.widget_6.setEnabled(False)
         self.widget_6.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(255, 207, 84); \n"
 "	border-style: outset;\n"
@@ -541,6 +548,8 @@ class Ui_SetupWindow(object):
         self.gridLayout_31.setObjectName(u"gridLayout_31")
         self.label_toggle_CHN_3 = QLabel(self.widget_6)
         self.label_toggle_CHN_3.setObjectName(u"label_toggle_CHN_3")
+        self.label_toggle_CHN_3.setEnabled(False)
+        self.label_toggle_CHN_3.setMinimumSize(QSize(210, 0))
         self.label_toggle_CHN_3.setStyleSheet(u"QLabel {\n"
 "    border: 2px solid black;\n"
 "    border-radius: 10px;\n"
@@ -665,6 +674,8 @@ class Ui_SetupWindow(object):
         self.gridLayout_34.setVerticalSpacing(0)
         self.label_CH3_2 = QLabel(self.widget_6)
         self.label_CH3_2.setObjectName(u"label_CH3_2")
+        self.label_CH3_2.setMinimumSize(QSize(170, 0))
+        self.label_CH3_2.setMaximumSize(QSize(16777215, 16777215))
         self.label_CH3_2.setStyleSheet(u"QLabel{\n"
 "	color: rgb(0,0,0);\n"
 "}\n"
@@ -710,6 +721,7 @@ class Ui_SetupWindow(object):
         self.gridLayout_21.setObjectName(u"gridLayout_21")
         self.label_toggle_CHN_4 = QLabel(self.widget_5)
         self.label_toggle_CHN_4.setObjectName(u"label_toggle_CHN_4")
+        self.label_toggle_CHN_4.setMinimumSize(QSize(210, 0))
         self.label_toggle_CHN_4.setStyleSheet(u"QLabel {\n"
 "    border: 2px solid black;\n"
 "    border-radius: 10px;\n"
@@ -834,6 +846,8 @@ class Ui_SetupWindow(object):
         self.gridLayout_24.setVerticalSpacing(0)
         self.label_CH4 = QLabel(self.widget_5)
         self.label_CH4.setObjectName(u"label_CH4")
+        self.label_CH4.setMinimumSize(QSize(170, 0))
+        self.label_CH4.setMaximumSize(QSize(16777215, 16777215))
         self.label_CH4.setStyleSheet(u"QLabel{\n"
 "	color: rgb(0,0,0);\n"
 "}\n"
@@ -1157,26 +1171,26 @@ class Ui_SetupWindow(object):
         self.pushButton_home.setText(QCoreApplication.translate("SetupWindow", u"HOME", None))
         self.pushButton_carica_setup.setText(QCoreApplication.translate("SetupWindow", u"CARICA", None))
         self.pushButton_salvataggio_setup.setText(QCoreApplication.translate("SetupWindow", u"SALVA", None))
-        self.label_toggle_CHN_1.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700; color:#00aa00;\">CANALE 1</span></p></body></html>", None))
+        self.label_toggle_CHN_1.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700; color:#94aa45;\">CANALE 1</span></p></body></html>", None))
         self.pushButton_setup_CH1.setText(QCoreApplication.translate("SetupWindow", u"SETUP", None))
         self.label_sensCH1.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">SENS. [mV/V]</span></p></body></html>", None))
         self.checkBox_CH1.setText(QCoreApplication.translate("SetupWindow", u"OFF", None))
         self.label_CH1.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">FONDOSCALA [?]</span></p></body></html>", None))
-        self.label_toggle_CHN_2.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700; color:#00aa00;\">CANALE 2</span></p></body></html>", None))
+        self.label_toggle_CHN_2.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700; color:#0000ba;\">CELLA</span></p></body></html>", None))
         self.pushButton_setup_CH2.setText(QCoreApplication.translate("SetupWindow", u"SETUP", None))
         self.label_CH2.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">SENS. [mV/V]</span></p></body></html>", None))
         self.checkBox_CH2.setText(QCoreApplication.translate("SetupWindow", u"OFF", None))
-        self.label_CH2_2.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">FONDOSCALA [?]</span></p></body></html>", None))
-        self.label_toggle_CHN_3.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700; color:#00aa00;\">CANALE 3</span></p></body></html>", None))
+        self.label_CH2_2.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">FONDOSCALA [N]</span></p></body></html>", None))
+        self.label_toggle_CHN_3.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700; color:#94aa45;\">CANALE 3</span></p></body></html>", None))
         self.pushButton_setup_CH3.setText(QCoreApplication.translate("SetupWindow", u"SETUP", None))
         self.label_CH3.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">SENS. [mV/V]</span></p></body></html>", None))
         self.checkBox_CH3.setText(QCoreApplication.translate("SetupWindow", u"OFF", None))
         self.label_CH3_2.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">FONDOSCALA [?]</span></p></body></html>", None))
-        self.label_toggle_CHN_4.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700; color:#00aa00;\">CANALE 4</span></p></body></html>", None))
+        self.label_toggle_CHN_4.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700; color:#0000ba;\">TORSIOMETRO</span></p></body></html>", None))
         self.pushButton_setup_CH4.setText(QCoreApplication.translate("SetupWindow", u"SETUP", None))
         self.label_CH4_2.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">SENS. [mV/V]</span></p></body></html>", None))
         self.checkBox_CH4.setText(QCoreApplication.translate("SetupWindow", u"OFF", None))
-        self.label_CH4.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">FONDOSCALA [?]</span></p></body></html>", None))
+        self.label_CH4.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">FONDOSCALA [Nm]</span></p></body></html>", None))
         self.pushButton_concludi_setup.setText(QCoreApplication.translate("SetupWindow", u"CONCLUSIONE SETUP", None))
         self.label_file_banco.setText(QCoreApplication.translate("SetupWindow", u"<html><head/><body><p align=\"center\"><span style=\" color:#080808;\">File Banco</span></p></body></html>", None))
         self.label_banco_attuale.setText(QCoreApplication.translate("SetupWindow", u"-", None))

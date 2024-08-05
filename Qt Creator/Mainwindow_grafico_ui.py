@@ -613,6 +613,152 @@ class Ui_GraphWindow(object):
         sizePolicy3.setHeightForWidth(self.stackedWidget_Laumas.sizePolicy().hasHeightForWidth())
         self.stackedWidget_Laumas.setSizePolicy(sizePolicy3)
         self.stackedWidget_Laumas.setMaximumSize(QSize(16777215, 300000))
+        self.page_CH2 = QWidget()
+        self.page_CH2.setObjectName(u"page_CH2")
+        sizePolicy4.setHeightForWidth(self.page_CH2.sizePolicy().hasHeightForWidth())
+        self.page_CH2.setSizePolicy(sizePolicy4)
+        self.gridLayout_8 = QGridLayout(self.page_CH2)
+        self.gridLayout_8.setSpacing(0)
+        self.gridLayout_8.setObjectName(u"gridLayout_8")
+        self.gridLayout_8.setContentsMargins(2, 2, 2, 2)
+        self.graphWidget_solo_channel_2 = PlotWidget(self.page_CH2)
+        self.graphWidget_solo_channel_2.setObjectName(u"graphWidget_solo_channel_2")
+        sizePolicy4.setHeightForWidth(self.graphWidget_solo_channel_2.sizePolicy().hasHeightForWidth())
+        self.graphWidget_solo_channel_2.setSizePolicy(sizePolicy4)
+        self.graphWidget_solo_channel_2.setStyleSheet(u"background-color: rgb(26, 49, 255);")
+
+        self.gridLayout_8.addWidget(self.graphWidget_solo_channel_2, 0, 0, 1, 1)
+
+        self.frame_15 = QFrame(self.page_CH2)
+        self.frame_15.setObjectName(u"frame_15")
+        self.frame_15.setMaximumSize(QSize(50, 16777215))
+        self.frame_15.setFrameShape(QFrame.StyledPanel)
+        self.frame_15.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_9 = QVBoxLayout(self.frame_15)
+        self.verticalLayout_9.setSpacing(0)
+        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
+        self.verticalLayout_9.setContentsMargins(0, 0, 0, 0)
+        self.pushButton_autorange_ch2 = QPushButton(self.frame_15)
+        self.pushButton_autorange_ch2.setObjectName(u"pushButton_autorange_ch2")
+        sizePolicy4.setHeightForWidth(self.pushButton_autorange_ch2.sizePolicy().hasHeightForWidth())
+        self.pushButton_autorange_ch2.setSizePolicy(sizePolicy4)
+        self.pushButton_autorange_ch2.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.pushButton_autorange_ch2.setStyleSheet(u"QWidget {\n"
+"	background-color:rgb(255, 106, 106); \n"
+"	border-style: outset;\n"
+"    border-width: 1px;\n"
+"    border-color:rgb(255, 137, 137);\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"\n"
+"QPushButton::checked {\n"
+"	background-color:rgb(152, 29, 24);\n"
+"    border-color:rgb(77, 33, 33);\n"
+"}\n"
+"\n"
+"")
+        self.pushButton_autorange_ch2.setCheckable(True)
+
+        self.verticalLayout_9.addWidget(self.pushButton_autorange_ch2)
+
+        self.pushButton_reset_ch2 = QPushButton(self.frame_15)
+        self.pushButton_reset_ch2.setObjectName(u"pushButton_reset_ch2")
+        self.pushButton_reset_ch2.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.pushButton_reset_ch2.setStyleSheet(u"QPushButton{\n"
+"	border-style: outset;\n"
+"    border-width: 1px;\n"
+"    border-color:rgb(98, 93, 255);\n"
+"	background-color:rgb(93, 117, 255);\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"\n"
+"QPushButton::pressed{\n"
+"	border-style: outset;\n"
+"    border-width: 1px;\n"
+"	border-color:rgb(70, 70, 255);\n"
+"	background-color:rgb(23, 23, 161);\n"
+"	color: rgb(0, 0, 0);\n"
+"}")
+
+        self.verticalLayout_9.addWidget(self.pushButton_reset_ch2)
+
+
+        self.gridLayout_8.addWidget(self.frame_15, 0, 1, 1, 1)
+
+        self.stackedWidget_Laumas.addWidget(self.page_CH2)
+        self.page_CH4 = QWidget()
+        self.page_CH4.setObjectName(u"page_CH4")
+        sizePolicy4.setHeightForWidth(self.page_CH4.sizePolicy().hasHeightForWidth())
+        self.page_CH4.setSizePolicy(sizePolicy4)
+        self.gridLayout_6 = QGridLayout(self.page_CH4)
+        self.gridLayout_6.setSpacing(0)
+        self.gridLayout_6.setObjectName(u"gridLayout_6")
+        self.gridLayout_6.setContentsMargins(2, 2, 2, 2)
+        self.graphWidget_solo_channel_4 = PlotWidget(self.page_CH4)
+        self.graphWidget_solo_channel_4.setObjectName(u"graphWidget_solo_channel_4")
+        sizePolicy4.setHeightForWidth(self.graphWidget_solo_channel_4.sizePolicy().hasHeightForWidth())
+        self.graphWidget_solo_channel_4.setSizePolicy(sizePolicy4)
+        self.graphWidget_solo_channel_4.setStyleSheet(u"background-color: rgb(26, 49, 255);")
+
+        self.gridLayout_6.addWidget(self.graphWidget_solo_channel_4, 0, 0, 1, 1)
+
+        self.frame_13 = QFrame(self.page_CH4)
+        self.frame_13.setObjectName(u"frame_13")
+        self.frame_13.setMaximumSize(QSize(50, 16777215))
+        self.frame_13.setFrameShape(QFrame.StyledPanel)
+        self.frame_13.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_7 = QVBoxLayout(self.frame_13)
+        self.verticalLayout_7.setSpacing(0)
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
+        self.pushButton_autorange_ch4 = QPushButton(self.frame_13)
+        self.pushButton_autorange_ch4.setObjectName(u"pushButton_autorange_ch4")
+        sizePolicy4.setHeightForWidth(self.pushButton_autorange_ch4.sizePolicy().hasHeightForWidth())
+        self.pushButton_autorange_ch4.setSizePolicy(sizePolicy4)
+        self.pushButton_autorange_ch4.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.pushButton_autorange_ch4.setStyleSheet(u"QWidget {\n"
+"	background-color:rgb(255, 106, 106); \n"
+"	border-style: outset;\n"
+"    border-width: 1px;\n"
+"    border-color:rgb(255, 137, 137);\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"\n"
+"QPushButton::checked {\n"
+"	background-color:rgb(152, 29, 24);\n"
+"    border-color:rgb(77, 33, 33);\n"
+"}\n"
+"\n"
+"")
+        self.pushButton_autorange_ch4.setCheckable(True)
+
+        self.verticalLayout_7.addWidget(self.pushButton_autorange_ch4)
+
+        self.pushButton_reset_ch4 = QPushButton(self.frame_13)
+        self.pushButton_reset_ch4.setObjectName(u"pushButton_reset_ch4")
+        self.pushButton_reset_ch4.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.pushButton_reset_ch4.setStyleSheet(u"QPushButton{\n"
+"	border-style: outset;\n"
+"    border-width: 1px;\n"
+"    border-color:rgb(98, 93, 255);\n"
+"	background-color:rgb(93, 117, 255);\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"\n"
+"QPushButton::pressed{\n"
+"	border-style: outset;\n"
+"    border-width: 1px;\n"
+"	border-color:rgb(70, 70, 255);\n"
+"	background-color:rgb(23, 23, 161);\n"
+"	color: rgb(0, 0, 0);\n"
+"}")
+
+        self.verticalLayout_7.addWidget(self.pushButton_reset_ch4)
+
+
+        self.gridLayout_6.addWidget(self.frame_13, 0, 1, 1, 1)
+
+        self.stackedWidget_Laumas.addWidget(self.page_CH4)
         self.page_CH1 = QWidget()
         self.page_CH1.setObjectName(u"page_CH1")
         sizePolicy4.setHeightForWidth(self.page_CH1.sizePolicy().hasHeightForWidth())
@@ -689,79 +835,6 @@ class Ui_GraphWindow(object):
         self.gridLayout_9.addWidget(self.frame_16, 0, 1, 1, 1)
 
         self.stackedWidget_Laumas.addWidget(self.page_CH1)
-        self.page_CH2 = QWidget()
-        self.page_CH2.setObjectName(u"page_CH2")
-        sizePolicy4.setHeightForWidth(self.page_CH2.sizePolicy().hasHeightForWidth())
-        self.page_CH2.setSizePolicy(sizePolicy4)
-        self.gridLayout_8 = QGridLayout(self.page_CH2)
-        self.gridLayout_8.setSpacing(0)
-        self.gridLayout_8.setObjectName(u"gridLayout_8")
-        self.gridLayout_8.setContentsMargins(2, 2, 2, 2)
-        self.graphWidget_solo_channel_2 = PlotWidget(self.page_CH2)
-        self.graphWidget_solo_channel_2.setObjectName(u"graphWidget_solo_channel_2")
-        sizePolicy4.setHeightForWidth(self.graphWidget_solo_channel_2.sizePolicy().hasHeightForWidth())
-        self.graphWidget_solo_channel_2.setSizePolicy(sizePolicy4)
-        self.graphWidget_solo_channel_2.setStyleSheet(u"background-color: rgb(26, 49, 255);")
-
-        self.gridLayout_8.addWidget(self.graphWidget_solo_channel_2, 0, 0, 1, 1)
-
-        self.frame_15 = QFrame(self.page_CH2)
-        self.frame_15.setObjectName(u"frame_15")
-        self.frame_15.setMaximumSize(QSize(50, 16777215))
-        self.frame_15.setFrameShape(QFrame.StyledPanel)
-        self.frame_15.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_9 = QVBoxLayout(self.frame_15)
-        self.verticalLayout_9.setSpacing(0)
-        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
-        self.verticalLayout_9.setContentsMargins(0, 0, 0, 0)
-        self.pushButton_autorange_ch2 = QPushButton(self.frame_15)
-        self.pushButton_autorange_ch2.setObjectName(u"pushButton_autorange_ch2")
-        sizePolicy4.setHeightForWidth(self.pushButton_autorange_ch2.sizePolicy().hasHeightForWidth())
-        self.pushButton_autorange_ch2.setSizePolicy(sizePolicy4)
-        self.pushButton_autorange_ch2.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.pushButton_autorange_ch2.setStyleSheet(u"QWidget {\n"
-"	background-color:rgb(255, 106, 106); \n"
-"	border-style: outset;\n"
-"    border-width: 1px;\n"
-"    border-color:rgb(255, 137, 137);\n"
-"	color: rgb(0,0,0);\n"
-"}\n"
-"\n"
-"QPushButton::checked {\n"
-"	background-color:rgb(152, 29, 24);\n"
-"    border-color:rgb(77, 33, 33);\n"
-"}\n"
-"\n"
-"")
-        self.pushButton_autorange_ch2.setCheckable(True)
-
-        self.verticalLayout_9.addWidget(self.pushButton_autorange_ch2)
-
-        self.pushButton_reset_ch2 = QPushButton(self.frame_15)
-        self.pushButton_reset_ch2.setObjectName(u"pushButton_reset_ch2")
-        self.pushButton_reset_ch2.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.pushButton_reset_ch2.setStyleSheet(u"QPushButton{\n"
-"	border-style: outset;\n"
-"    border-width: 1px;\n"
-"    border-color:rgb(98, 93, 255);\n"
-"	background-color:rgb(93, 117, 255);\n"
-"	color: rgb(0, 0, 0);\n"
-"}\n"
-"\n"
-"QPushButton::pressed{\n"
-"	border-style: outset;\n"
-"    border-width: 1px;\n"
-"	border-color:rgb(70, 70, 255);\n"
-"	background-color:rgb(23, 23, 161);\n"
-"	color: rgb(0, 0, 0);\n"
-"}")
-
-        self.verticalLayout_9.addWidget(self.pushButton_reset_ch2)
-
-
-        self.gridLayout_8.addWidget(self.frame_15, 0, 1, 1, 1)
-
-        self.stackedWidget_Laumas.addWidget(self.page_CH2)
         self.page_CH3 = QWidget()
         self.page_CH3.setObjectName(u"page_CH3")
         sizePolicy4.setHeightForWidth(self.page_CH3.sizePolicy().hasHeightForWidth())
@@ -835,79 +908,6 @@ class Ui_GraphWindow(object):
         self.gridLayout_3.addWidget(self.graphWidget_solo_channel_3, 3, 0, 1, 1)
 
         self.stackedWidget_Laumas.addWidget(self.page_CH3)
-        self.page_CH4 = QWidget()
-        self.page_CH4.setObjectName(u"page_CH4")
-        sizePolicy4.setHeightForWidth(self.page_CH4.sizePolicy().hasHeightForWidth())
-        self.page_CH4.setSizePolicy(sizePolicy4)
-        self.gridLayout_6 = QGridLayout(self.page_CH4)
-        self.gridLayout_6.setSpacing(0)
-        self.gridLayout_6.setObjectName(u"gridLayout_6")
-        self.gridLayout_6.setContentsMargins(2, 2, 2, 2)
-        self.graphWidget_solo_channel_4 = PlotWidget(self.page_CH4)
-        self.graphWidget_solo_channel_4.setObjectName(u"graphWidget_solo_channel_4")
-        sizePolicy4.setHeightForWidth(self.graphWidget_solo_channel_4.sizePolicy().hasHeightForWidth())
-        self.graphWidget_solo_channel_4.setSizePolicy(sizePolicy4)
-        self.graphWidget_solo_channel_4.setStyleSheet(u"background-color: rgb(26, 49, 255);")
-
-        self.gridLayout_6.addWidget(self.graphWidget_solo_channel_4, 0, 0, 1, 1)
-
-        self.frame_13 = QFrame(self.page_CH4)
-        self.frame_13.setObjectName(u"frame_13")
-        self.frame_13.setMaximumSize(QSize(50, 16777215))
-        self.frame_13.setFrameShape(QFrame.StyledPanel)
-        self.frame_13.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_7 = QVBoxLayout(self.frame_13)
-        self.verticalLayout_7.setSpacing(0)
-        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
-        self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
-        self.pushButton_autorange_ch4 = QPushButton(self.frame_13)
-        self.pushButton_autorange_ch4.setObjectName(u"pushButton_autorange_ch4")
-        sizePolicy4.setHeightForWidth(self.pushButton_autorange_ch4.sizePolicy().hasHeightForWidth())
-        self.pushButton_autorange_ch4.setSizePolicy(sizePolicy4)
-        self.pushButton_autorange_ch4.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.pushButton_autorange_ch4.setStyleSheet(u"QWidget {\n"
-"	background-color:rgb(255, 106, 106); \n"
-"	border-style: outset;\n"
-"    border-width: 1px;\n"
-"    border-color:rgb(255, 137, 137);\n"
-"	color: rgb(0,0,0);\n"
-"}\n"
-"\n"
-"QPushButton::checked {\n"
-"	background-color:rgb(152, 29, 24);\n"
-"    border-color:rgb(77, 33, 33);\n"
-"}\n"
-"\n"
-"")
-        self.pushButton_autorange_ch4.setCheckable(True)
-
-        self.verticalLayout_7.addWidget(self.pushButton_autorange_ch4)
-
-        self.pushButton_reset_ch4 = QPushButton(self.frame_13)
-        self.pushButton_reset_ch4.setObjectName(u"pushButton_reset_ch4")
-        self.pushButton_reset_ch4.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.pushButton_reset_ch4.setStyleSheet(u"QPushButton{\n"
-"	border-style: outset;\n"
-"    border-width: 1px;\n"
-"    border-color:rgb(98, 93, 255);\n"
-"	background-color:rgb(93, 117, 255);\n"
-"	color: rgb(0, 0, 0);\n"
-"}\n"
-"\n"
-"QPushButton::pressed{\n"
-"	border-style: outset;\n"
-"    border-width: 1px;\n"
-"	border-color:rgb(70, 70, 255);\n"
-"	background-color:rgb(23, 23, 161);\n"
-"	color: rgb(0, 0, 0);\n"
-"}")
-
-        self.verticalLayout_7.addWidget(self.pushButton_reset_ch4)
-
-
-        self.gridLayout_6.addWidget(self.frame_13, 0, 1, 1, 1)
-
-        self.stackedWidget_Laumas.addWidget(self.page_CH4)
 
         self.verticalLayout.addWidget(self.stackedWidget_Laumas)
 
@@ -1032,8 +1032,6 @@ class Ui_GraphWindow(object):
         self.verticalLayout_10.addWidget(self.comboBox_Main_Temp)
 
         self.comboBox_Ch_1234 = QComboBox(self.frame_6)
-        self.comboBox_Ch_1234.addItem("")
-        self.comboBox_Ch_1234.addItem("")
         self.comboBox_Ch_1234.addItem("")
         self.comboBox_Ch_1234.addItem("")
         self.comboBox_Ch_1234.setObjectName(u"comboBox_Ch_1234")
@@ -1433,7 +1431,7 @@ class Ui_GraphWindow(object):
 
     def retranslateUi(self, GraphWindow):
         GraphWindow.setWindowTitle(QCoreApplication.translate("GraphWindow", u"MainWindow", None))
-        self.label_main_mV.setText(QCoreApplication.translate("GraphWindow", u"main channel [mV]", None))
+        self.label_main_mV.setText(QCoreApplication.translate("GraphWindow", u"main channel [V]", None))
         self.label_main_Nm.setText(QCoreApplication.translate("GraphWindow", u"main channel [Nm]", None))
         self.label_4.setText(QCoreApplication.translate("GraphWindow", u"Channel 2 [N]", None))
         self.label_3.setText(QCoreApplication.translate("GraphWindow", u"Channel 4 [Nm]", None))
@@ -1447,23 +1445,21 @@ class Ui_GraphWindow(object):
         self.pushButton_reset_solo_temp.setText(QCoreApplication.translate("GraphWindow", u"RESET", None))
         self.pushButton_autorange_main_and_channel.setText("")
         self.pushButton_reset_main_and_channel.setText(QCoreApplication.translate("GraphWindow", u"RESET", None))
-        self.pushButton_autorange_ch1.setText("")
-        self.pushButton_reset_ch1.setText(QCoreApplication.translate("GraphWindow", u"RESET", None))
         self.pushButton_autorange_ch2.setText("")
         self.pushButton_reset_ch2.setText(QCoreApplication.translate("GraphWindow", u"RESET", None))
-        self.pushButton_autorange_ch3.setText("")
-        self.pushButton_reset_ch3.setText(QCoreApplication.translate("GraphWindow", u"RESET", None))
         self.pushButton_autorange_ch4.setText("")
         self.pushButton_reset_ch4.setText(QCoreApplication.translate("GraphWindow", u"RESET", None))
+        self.pushButton_autorange_ch1.setText("")
+        self.pushButton_reset_ch1.setText(QCoreApplication.translate("GraphWindow", u"RESET", None))
+        self.pushButton_autorange_ch3.setText("")
+        self.pushButton_reset_ch3.setText(QCoreApplication.translate("GraphWindow", u"RESET", None))
         self.label_quadrante.setText(QCoreApplication.translate("GraphWindow", u"Q(1/3)", None))
         self.label.setText(QCoreApplication.translate("GraphWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:700; color:#0b0b0b;\">Grafico</span></p></body></html>", None))
         self.comboBox_Main_Temp.setItemText(0, QCoreApplication.translate("GraphWindow", u"Main", None))
         self.comboBox_Main_Temp.setItemText(1, QCoreApplication.translate("GraphWindow", u"Temp", None))
 
-        self.comboBox_Ch_1234.setItemText(0, QCoreApplication.translate("GraphWindow", u"Channel 1", None))
-        self.comboBox_Ch_1234.setItemText(1, QCoreApplication.translate("GraphWindow", u"Channel 2", None))
-        self.comboBox_Ch_1234.setItemText(2, QCoreApplication.translate("GraphWindow", u"Channel 3", None))
-        self.comboBox_Ch_1234.setItemText(3, QCoreApplication.translate("GraphWindow", u"Channel 4", None))
+        self.comboBox_Ch_1234.setItemText(0, QCoreApplication.translate("GraphWindow", u"Channel 2", None))
+        self.comboBox_Ch_1234.setItemText(1, QCoreApplication.translate("GraphWindow", u"Channel 4", None))
 
         self.lineEdit_time_window.setText(QCoreApplication.translate("GraphWindow", u"time-window", None))
         self.label_2.setText(QCoreApplication.translate("GraphWindow", u"EURAMET", None))

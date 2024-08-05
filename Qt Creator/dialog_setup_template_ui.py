@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QDialog, QGridLayout, QHBoxLayout,
-    QLabel, QLayout, QLineEdit, QPushButton,
-    QSizePolicy, QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QDialog, QGridLayout,
+    QHBoxLayout, QLabel, QLayout, QLineEdit,
+    QPushButton, QSizePolicy, QWidget)
 
 class Ui_Canale_Setup(object):
     def setupUi(self, Canale_Setup):
@@ -124,6 +124,58 @@ class Ui_Canale_Setup(object):
 
         self.gridLayout_5.addWidget(self.lineEdit_sensibilita, 0, 0, 1, 1)
 
+        self.comboBox_sens = QComboBox(self.gridWidget_3)
+        self.comboBox_sens.addItem("")
+        self.comboBox_sens.setObjectName(u"comboBox_sens")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Preferred)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.comboBox_sens.sizePolicy().hasHeightForWidth())
+        self.comboBox_sens.setSizePolicy(sizePolicy3)
+        self.comboBox_sens.setMinimumSize(QSize(100, 0))
+        self.comboBox_sens.setMaximumSize(QSize(100, 16777215))
+        font1 = QFont()
+        font1.setPointSize(15)
+        self.comboBox_sens.setFont(font1)
+        self.comboBox_sens.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.comboBox_sens.setStyleSheet(u"QComboBox {\n"
+"    border: 3px solid gray;\n"
+"    border-radius: 3px;\n"
+"    padding: 1px 1px 1px 10px;\n"
+"    min-width: 6em;\n"
+"    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */\n"
+"}\n"
+"\n"
+"QComboBox:hover, QPushButton:hover\n"
+"{\n"
+"    border: 1px solid rgb(202, 203, 194);\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"QComboBox:!editable, QComboBox::drop-down:editable {\n"
+"    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
+"}\n"
+"\n"
+"\n"
+"/* Stile della tendina del QComboBox */\n"
+"QComboBox QAbstractItemView {\n"
+"    background-color:	qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3); ; /* Colore di sfondo della tendina */\n"
+"    selection-background-color: #3399FF; /* Colore di sfondo dell'eleme"
+                        "nto selezionato */\n"
+"    selection-color:rgb(106, 112, 113); /* Colore del testo dell'elemento selezionato */\n"
+"    border: 3px solid gray;\n"
+"    border-radius: 3px;\n"
+"    padding: 1px 18px 1px 3px;\n"
+"    min-width: 6em;\n"
+"    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */\n"
+"}")
+
+        self.gridLayout_5.addWidget(self.comboBox_sens, 0, 1, 1, 1)
+
 
         self.gridLayout_2.addLayout(self.gridLayout_5, 0, 1, 1, 2)
 
@@ -131,11 +183,11 @@ class Ui_Canale_Setup(object):
         self.gridLayout.setObjectName(u"gridLayout")
         self.label_sensib_setup = QLabel(self.gridWidget_3)
         self.label_sensib_setup.setObjectName(u"label_sensib_setup")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.label_sensib_setup.sizePolicy().hasHeightForWidth())
-        self.label_sensib_setup.setSizePolicy(sizePolicy3)
+        sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.label_sensib_setup.sizePolicy().hasHeightForWidth())
+        self.label_sensib_setup.setSizePolicy(sizePolicy4)
         self.label_sensib_setup.setStyleSheet(u"QLabel{\n"
 "	background-color:rgb(255, 207, 84); \n"
 "	border-style: outset;\n"
@@ -155,14 +207,12 @@ class Ui_Canale_Setup(object):
         self.gridLayout_9.setObjectName(u"gridLayout_9")
         self.pushButton_azzeramento_tara = QPushButton(self.gridWidget_3)
         self.pushButton_azzeramento_tara.setObjectName(u"pushButton_azzeramento_tara")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.pushButton_azzeramento_tara.sizePolicy().hasHeightForWidth())
-        self.pushButton_azzeramento_tara.setSizePolicy(sizePolicy4)
+        sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.pushButton_azzeramento_tara.sizePolicy().hasHeightForWidth())
+        self.pushButton_azzeramento_tara.setSizePolicy(sizePolicy5)
         self.pushButton_azzeramento_tara.setMinimumSize(QSize(0, 70))
-        font1 = QFont()
-        font1.setPointSize(15)
         self.pushButton_azzeramento_tara.setFont(font1)
         self.pushButton_azzeramento_tara.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.pushButton_azzeramento_tara.setStyleSheet(u"QWidget{\n"
@@ -203,6 +253,54 @@ class Ui_Canale_Setup(object):
 
         self.gridLayout_6.addWidget(self.lineEdit_fondoscala, 0, 1, 1, 1)
 
+        self.comboBox_fullscale = QComboBox(self.gridWidget_3)
+        self.comboBox_fullscale.addItem("")
+        self.comboBox_fullscale.addItem("")
+        self.comboBox_fullscale.addItem("")
+        self.comboBox_fullscale.setObjectName(u"comboBox_fullscale")
+        sizePolicy3.setHeightForWidth(self.comboBox_fullscale.sizePolicy().hasHeightForWidth())
+        self.comboBox_fullscale.setSizePolicy(sizePolicy3)
+        self.comboBox_fullscale.setMinimumSize(QSize(100, 0))
+        self.comboBox_fullscale.setMaximumSize(QSize(100, 16777215))
+        self.comboBox_fullscale.setFont(font1)
+        self.comboBox_fullscale.setStyleSheet(u"QComboBox {\n"
+"    border: 3px solid gray;\n"
+"    border-radius: 3px;\n"
+"    padding: 1px 1px 1px 10px;\n"
+"    min-width: 6em;\n"
+"    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */\n"
+"}\n"
+"\n"
+"QComboBox:hover, QPushButton:hover\n"
+"{\n"
+"    border: 1px solid rgb(202, 203, 194);\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"QComboBox:!editable, QComboBox::drop-down:editable {\n"
+"    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
+"}\n"
+"\n"
+"\n"
+"/* Stile della tendina del QComboBox */\n"
+"QComboBox QAbstractItemView {\n"
+"    background-color:	qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3); ; /* Colore di sfondo della tendina */\n"
+"    selection-background-color: #3399FF; /* Colore di sfondo dell'eleme"
+                        "nto selezionato */\n"
+"    selection-color:rgb(106, 112, 113); /* Colore del testo dell'elemento selezionato */\n"
+"    border: 3px solid gray;\n"
+"    border-radius: 3px;\n"
+"    padding: 1px 18px 1px 3px;\n"
+"    min-width: 6em;\n"
+"    color: rgb(0, 0, 0); /* Colore del testo del QComboBox */\n"
+"}")
+
+        self.gridLayout_6.addWidget(self.comboBox_fullscale, 0, 2, 1, 1)
+
 
         self.gridLayout_2.addLayout(self.gridLayout_6, 2, 1, 1, 2)
 
@@ -210,8 +308,8 @@ class Ui_Canale_Setup(object):
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.label_fondoscala_setup = QLabel(self.gridWidget_3)
         self.label_fondoscala_setup.setObjectName(u"label_fondoscala_setup")
-        sizePolicy3.setHeightForWidth(self.label_fondoscala_setup.sizePolicy().hasHeightForWidth())
-        self.label_fondoscala_setup.setSizePolicy(sizePolicy3)
+        sizePolicy4.setHeightForWidth(self.label_fondoscala_setup.sizePolicy().hasHeightForWidth())
+        self.label_fondoscala_setup.setSizePolicy(sizePolicy4)
         self.label_fondoscala_setup.setStyleSheet(u"QLabel{\n"
 "	background-color:rgb(255, 207, 84); \n"
 "	border-style: outset;\n"
@@ -236,6 +334,9 @@ class Ui_Canale_Setup(object):
 
         self.retranslateUi(Canale_Setup)
 
+        self.comboBox_fullscale.setCurrentIndex(0)
+
+
         QMetaObject.connectSlotsByName(Canale_Setup)
     # setupUi
 
@@ -243,9 +344,15 @@ class Ui_Canale_Setup(object):
         Canale_Setup.setWindowTitle(QCoreApplication.translate("Canale_Setup", u"Dialog", None))
         self.label_setup_title.setText(QCoreApplication.translate("Canale_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:20pt; font-weight:700; color:#00aa00;\">CANALE 1</span></p></body></html>", None))
         self.lineEdit_sensibilita.setText(QCoreApplication.translate("Canale_Setup", u"-", None))
+        self.comboBox_sens.setItemText(0, QCoreApplication.translate("Canale_Setup", u"mV/V", None))
+
         self.label_sensib_setup.setText(QCoreApplication.translate("Canale_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">SENSIBILITA'</span></p></body></html>", None))
         self.pushButton_azzeramento_tara.setText(QCoreApplication.translate("Canale_Setup", u"AZZERAMENTO TARA", None))
         self.lineEdit_fondoscala.setText(QCoreApplication.translate("Canale_Setup", u"-", None))
+        self.comboBox_fullscale.setItemText(0, QCoreApplication.translate("Canale_Setup", u"Kg", None))
+        self.comboBox_fullscale.setItemText(1, QCoreApplication.translate("Canale_Setup", u"N", None))
+        self.comboBox_fullscale.setItemText(2, QCoreApplication.translate("Canale_Setup", u"Nm", None))
+
         self.label_fondoscala_setup.setText(QCoreApplication.translate("Canale_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">FONDOSCALA</span></p></body></html>", None))
     # retranslateUi
 

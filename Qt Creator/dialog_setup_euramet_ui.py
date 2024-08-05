@@ -17,7 +17,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QDialog,
     QFrame, QGridLayout, QHBoxLayout, QLabel,
-    QPushButton, QSizePolicy, QSpacerItem, QStackedWidget,
+    QPushButton, QSizePolicy, QSlider, QStackedWidget,
     QVBoxLayout, QWidget)
 
 class Ui_Dialog_Euramet_setup(object):
@@ -949,7 +949,8 @@ class Ui_Dialog_Euramet_setup(object):
 
         self.frame_29 = QFrame(self.frame)
         self.frame_29.setObjectName(u"frame_29")
-        self.frame_29.setMaximumSize(QSize(200, 16777215))
+        self.frame_29.setMinimumSize(QSize(300, 0))
+        self.frame_29.setMaximumSize(QSize(400, 16777215))
         self.frame_29.setFrameShape(QFrame.StyledPanel)
         self.frame_29.setFrameShadow(QFrame.Raised)
         self.verticalLayout_8 = QVBoxLayout(self.frame_29)
@@ -1012,9 +1013,312 @@ class Ui_Dialog_Euramet_setup(object):
 
         self.verticalLayout_7.addWidget(self.comboBox_quadrante)
 
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.frame_3 = QFrame(self.frame_27)
+        self.frame_3.setObjectName(u"frame_3")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.frame_3.sizePolicy().hasHeightForWidth())
+        self.frame_3.setSizePolicy(sizePolicy3)
+        self.frame_3.setFrameShape(QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QFrame.Raised)
+        self.gridLayout_13 = QGridLayout(self.frame_3)
+        self.gridLayout_13.setObjectName(u"gridLayout_13")
+        self.gridLayout_13.setHorizontalSpacing(0)
+        self.gridLayout_13.setVerticalSpacing(20)
+        self.gridLayout_13.setContentsMargins(0, -1, 0, 0)
+        self.frame_25 = QFrame(self.frame_3)
+        self.frame_25.setObjectName(u"frame_25")
+        self.frame_25.setFrameShape(QFrame.StyledPanel)
+        self.frame_25.setFrameShadow(QFrame.Raised)
+        self.gridLayout_11 = QGridLayout(self.frame_25)
+        self.gridLayout_11.setSpacing(0)
+        self.gridLayout_11.setObjectName(u"gridLayout_11")
+        self.gridLayout_11.setContentsMargins(0, 0, 0, 0)
+        self.horizontalSlider_varianza_verde = QSlider(self.frame_25)
+        self.horizontalSlider_varianza_verde.setObjectName(u"horizontalSlider_varianza_verde")
+        sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.horizontalSlider_varianza_verde.sizePolicy().hasHeightForWidth())
+        self.horizontalSlider_varianza_verde.setSizePolicy(sizePolicy4)
+        self.horizontalSlider_varianza_verde.setCursor(QCursor(Qt.CursorShape.SplitHCursor))
+        self.horizontalSlider_varianza_verde.setStyleSheet(u"QWidget{\n"
+"	background-color:rgb(186, 255, 134);\n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(125, 125, 125);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.horizontalSlider_varianza_verde.setMinimum(1)
+        self.horizontalSlider_varianza_verde.setMaximum(10)
+        self.horizontalSlider_varianza_verde.setSingleStep(1)
+        self.horizontalSlider_varianza_verde.setPageStep(1)
+        self.horizontalSlider_varianza_verde.setValue(1)
+        self.horizontalSlider_varianza_verde.setOrientation(Qt.Horizontal)
+        self.horizontalSlider_varianza_verde.setTickPosition(QSlider.TicksBothSides)
 
-        self.verticalLayout_7.addItem(self.verticalSpacer)
+        self.gridLayout_11.addWidget(self.horizontalSlider_varianza_verde, 3, 0, 1, 2)
+
+        self.label_16 = QLabel(self.frame_25)
+        self.label_16.setObjectName(u"label_16")
+        self.label_16.setStyleSheet(u"QLabel {\n"
+"    border: 2px solid black;\n"
+"    border-radius: 0px;\n"
+"	background-color: rgb(221, 192, 255);\n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"	border-color: rgb(110, 149, 255);\n"
+"}\n"
+"QLabel{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_16.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_11.addWidget(self.label_16, 1, 0, 1, 1)
+
+        self.label_varianza_verde = QLabel(self.frame_25)
+        self.label_varianza_verde.setObjectName(u"label_varianza_verde")
+        sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Preferred)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.label_varianza_verde.sizePolicy().hasHeightForWidth())
+        self.label_varianza_verde.setSizePolicy(sizePolicy5)
+        self.label_varianza_verde.setMinimumSize(QSize(70, 0))
+        self.label_varianza_verde.setStyleSheet(u"QLabel{\n"
+"	background-color:rgb(255, 255, 255); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(125, 125, 125);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_varianza_verde.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_11.addWidget(self.label_varianza_verde, 1, 1, 1, 1)
+
+
+        self.gridLayout_13.addWidget(self.frame_25, 2, 0, 1, 1)
+
+        self.frame_4 = QFrame(self.frame_3)
+        self.frame_4.setObjectName(u"frame_4")
+        self.frame_4.setStyleSheet(u"")
+        self.frame_4.setFrameShape(QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QFrame.Raised)
+        self.gridLayout_5 = QGridLayout(self.frame_4)
+        self.gridLayout_5.setSpacing(0)
+        self.gridLayout_5.setObjectName(u"gridLayout_5")
+        self.gridLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.label_stabilit_verde = QLabel(self.frame_4)
+        self.label_stabilit_verde.setObjectName(u"label_stabilit_verde")
+        sizePolicy5.setHeightForWidth(self.label_stabilit_verde.sizePolicy().hasHeightForWidth())
+        self.label_stabilit_verde.setSizePolicy(sizePolicy5)
+        self.label_stabilit_verde.setMinimumSize(QSize(70, 0))
+        self.label_stabilit_verde.setStyleSheet(u"QLabel{\n"
+"	background-color:rgb(255, 255, 255); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(125, 125, 125);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_stabilit_verde.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_5.addWidget(self.label_stabilit_verde, 0, 1, 1, 1)
+
+        self.label_3 = QLabel(self.frame_4)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setStyleSheet(u"QLabel {\n"
+"    border: 2px solid black;\n"
+"    border-radius: 0px;\n"
+"	background-color: rgb(221, 192, 255);\n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"	border-color: rgb(110, 149, 255);\n"
+"}\n"
+"QLabel{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_3.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_5.addWidget(self.label_3, 0, 0, 1, 1)
+
+        self.horizontalSlider_stabilita_verde = QSlider(self.frame_4)
+        self.horizontalSlider_stabilita_verde.setObjectName(u"horizontalSlider_stabilita_verde")
+        sizePolicy4.setHeightForWidth(self.horizontalSlider_stabilita_verde.sizePolicy().hasHeightForWidth())
+        self.horizontalSlider_stabilita_verde.setSizePolicy(sizePolicy4)
+        self.horizontalSlider_stabilita_verde.setCursor(QCursor(Qt.CursorShape.SplitHCursor))
+        self.horizontalSlider_stabilita_verde.setStyleSheet(u"QWidget{\n"
+"	background-color:rgb(186, 255, 134);\n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(125, 125, 125);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.horizontalSlider_stabilita_verde.setMinimum(5)
+        self.horizontalSlider_stabilita_verde.setMaximum(55)
+        self.horizontalSlider_stabilita_verde.setSingleStep(5)
+        self.horizontalSlider_stabilita_verde.setPageStep(5)
+        self.horizontalSlider_stabilita_verde.setValue(10)
+        self.horizontalSlider_stabilita_verde.setOrientation(Qt.Horizontal)
+        self.horizontalSlider_stabilita_verde.setTickPosition(QSlider.TicksBothSides)
+
+        self.gridLayout_5.addWidget(self.horizontalSlider_stabilita_verde, 1, 0, 1, 2)
+
+
+        self.gridLayout_13.addWidget(self.frame_4, 0, 0, 1, 1)
+
+        self.frame_26 = QFrame(self.frame_3)
+        self.frame_26.setObjectName(u"frame_26")
+        self.frame_26.setFrameShape(QFrame.StyledPanel)
+        self.frame_26.setFrameShadow(QFrame.Raised)
+        self.gridLayout_12 = QGridLayout(self.frame_26)
+        self.gridLayout_12.setSpacing(0)
+        self.gridLayout_12.setObjectName(u"gridLayout_12")
+        self.gridLayout_12.setContentsMargins(0, 0, 0, 0)
+        self.label_varianza_giallo = QLabel(self.frame_26)
+        self.label_varianza_giallo.setObjectName(u"label_varianza_giallo")
+        sizePolicy5.setHeightForWidth(self.label_varianza_giallo.sizePolicy().hasHeightForWidth())
+        self.label_varianza_giallo.setSizePolicy(sizePolicy5)
+        self.label_varianza_giallo.setMinimumSize(QSize(70, 0))
+        self.label_varianza_giallo.setStyleSheet(u"QLabel{\n"
+"	background-color:rgb(255, 255, 255); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(125, 125, 125);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_varianza_giallo.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_12.addWidget(self.label_varianza_giallo, 0, 1, 1, 1)
+
+        self.label_18 = QLabel(self.frame_26)
+        self.label_18.setObjectName(u"label_18")
+        self.label_18.setStyleSheet(u"QLabel {\n"
+"    border: 2px solid black;\n"
+"    border-radius: 0px;\n"
+"	background-color: rgb(221, 192, 255);\n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"	border-color: rgb(110, 149, 255);\n"
+"}\n"
+"QLabel{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_18.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_12.addWidget(self.label_18, 0, 0, 1, 1)
+
+        self.horizontalSlider_varianza_giallo = QSlider(self.frame_26)
+        self.horizontalSlider_varianza_giallo.setObjectName(u"horizontalSlider_varianza_giallo")
+        sizePolicy4.setHeightForWidth(self.horizontalSlider_varianza_giallo.sizePolicy().hasHeightForWidth())
+        self.horizontalSlider_varianza_giallo.setSizePolicy(sizePolicy4)
+        self.horizontalSlider_varianza_giallo.setCursor(QCursor(Qt.CursorShape.SplitHCursor))
+        self.horizontalSlider_varianza_giallo.setStyleSheet(u"QWidget{\n"
+"	background-color: rgb(255, 255, 97);\n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(125, 125, 125);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.horizontalSlider_varianza_giallo.setMinimum(2)
+        self.horizontalSlider_varianza_giallo.setMaximum(20)
+        self.horizontalSlider_varianza_giallo.setSingleStep(1)
+        self.horizontalSlider_varianza_giallo.setPageStep(2)
+        self.horizontalSlider_varianza_giallo.setOrientation(Qt.Horizontal)
+        self.horizontalSlider_varianza_giallo.setTickPosition(QSlider.TicksBothSides)
+
+        self.gridLayout_12.addWidget(self.horizontalSlider_varianza_giallo, 1, 0, 1, 2)
+
+
+        self.gridLayout_13.addWidget(self.frame_26, 4, 0, 1, 1)
+
+        self.frame_5 = QFrame(self.frame_3)
+        self.frame_5.setObjectName(u"frame_5")
+        self.frame_5.setFrameShape(QFrame.StyledPanel)
+        self.frame_5.setFrameShadow(QFrame.Raised)
+        self.gridLayout_10 = QGridLayout(self.frame_5)
+        self.gridLayout_10.setSpacing(0)
+        self.gridLayout_10.setObjectName(u"gridLayout_10")
+        self.gridLayout_10.setContentsMargins(0, 0, 0, 0)
+        self.label_stabilita_giallo = QLabel(self.frame_5)
+        self.label_stabilita_giallo.setObjectName(u"label_stabilita_giallo")
+        sizePolicy5.setHeightForWidth(self.label_stabilita_giallo.sizePolicy().hasHeightForWidth())
+        self.label_stabilita_giallo.setSizePolicy(sizePolicy5)
+        self.label_stabilita_giallo.setMinimumSize(QSize(70, 0))
+        self.label_stabilita_giallo.setStyleSheet(u"QLabel{\n"
+"	background-color:rgb(255, 255, 255); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(125, 125, 125);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_stabilita_giallo.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_10.addWidget(self.label_stabilita_giallo, 0, 1, 1, 1)
+
+        self.label_4 = QLabel(self.frame_5)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setStyleSheet(u"QLabel {\n"
+"    border: 2px solid black;\n"
+"    border-radius: 0px;\n"
+"	background-color: rgb(221, 192, 255);\n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"	border-color: rgb(110, 149, 255);\n"
+"}\n"
+"QLabel{\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_4.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_10.addWidget(self.label_4, 0, 0, 1, 1)
+
+        self.horizontalSlider_stabilita_giallo = QSlider(self.frame_5)
+        self.horizontalSlider_stabilita_giallo.setObjectName(u"horizontalSlider_stabilita_giallo")
+        sizePolicy4.setHeightForWidth(self.horizontalSlider_stabilita_giallo.sizePolicy().hasHeightForWidth())
+        self.horizontalSlider_stabilita_giallo.setSizePolicy(sizePolicy4)
+        self.horizontalSlider_stabilita_giallo.setCursor(QCursor(Qt.CursorShape.SplitHCursor))
+        self.horizontalSlider_stabilita_giallo.setStyleSheet(u"QWidget{\n"
+"	background-color: rgb(255, 255, 97);\n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(125, 125, 125);\n"
+"	border-radius: 0px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.horizontalSlider_stabilita_giallo.setMinimum(10)
+        self.horizontalSlider_stabilita_giallo.setMaximum(60)
+        self.horizontalSlider_stabilita_giallo.setSingleStep(5)
+        self.horizontalSlider_stabilita_giallo.setPageStep(5)
+        self.horizontalSlider_stabilita_giallo.setValue(20)
+        self.horizontalSlider_stabilita_giallo.setOrientation(Qt.Horizontal)
+        self.horizontalSlider_stabilita_giallo.setTickPosition(QSlider.TicksBothSides)
+
+        self.gridLayout_10.addWidget(self.horizontalSlider_stabilita_giallo, 1, 0, 1, 2)
+
+
+        self.gridLayout_13.addWidget(self.frame_5, 3, 0, 1, 1)
+
+
+        self.verticalLayout_7.addWidget(self.frame_3)
 
 
         self.verticalLayout_8.addWidget(self.frame_27)
@@ -1044,11 +1348,11 @@ class Ui_Dialog_Euramet_setup(object):
         self.horizontalLayout_19.setContentsMargins(0, 0, 0, 0)
         self.pushButton_concludi_setup = QPushButton(self.frame_navigation)
         self.pushButton_concludi_setup.setObjectName(u"pushButton_concludi_setup")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.pushButton_concludi_setup.sizePolicy().hasHeightForWidth())
-        self.pushButton_concludi_setup.setSizePolicy(sizePolicy3)
+        sizePolicy6 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.pushButton_concludi_setup.sizePolicy().hasHeightForWidth())
+        self.pushButton_concludi_setup.setSizePolicy(sizePolicy6)
         self.pushButton_concludi_setup.setMaximumSize(QSize(200, 16777215))
         font1 = QFont()
         font1.setPointSize(14)
@@ -1072,8 +1376,8 @@ class Ui_Dialog_Euramet_setup(object):
 
         self.pushButton_impostazioni_csv = QPushButton(self.frame_navigation)
         self.pushButton_impostazioni_csv.setObjectName(u"pushButton_impostazioni_csv")
-        sizePolicy3.setHeightForWidth(self.pushButton_impostazioni_csv.sizePolicy().hasHeightForWidth())
-        self.pushButton_impostazioni_csv.setSizePolicy(sizePolicy3)
+        sizePolicy6.setHeightForWidth(self.pushButton_impostazioni_csv.sizePolicy().hasHeightForWidth())
+        self.pushButton_impostazioni_csv.setSizePolicy(sizePolicy6)
         self.pushButton_impostazioni_csv.setMaximumSize(QSize(200, 16777215))
         self.pushButton_impostazioni_csv.setFont(font1)
         self.pushButton_impostazioni_csv.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
@@ -1156,6 +1460,14 @@ class Ui_Dialog_Euramet_setup(object):
         self.comboBox_quadrante.setItemText(0, QCoreApplication.translate("Dialog_Euramet_setup", u"Q1", None))
         self.comboBox_quadrante.setItemText(1, QCoreApplication.translate("Dialog_Euramet_setup", u"Q3", None))
 
+        self.label_16.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"range varianza verde", None))
+        self.label_varianza_verde.setText("")
+        self.label_stabilit_verde.setText("")
+        self.label_3.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"range stabilit\u00e0 % verde", None))
+        self.label_varianza_giallo.setText("")
+        self.label_18.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"range varianza gialla", None))
+        self.label_stabilita_giallo.setText("")
+        self.label_4.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"range stabilit\u00e0 % giallo", None))
         self.pushButton_concludi_setup.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"CONCLUDI SETUP", None))
         self.pushButton_impostazioni_csv.setText(QCoreApplication.translate("Dialog_Euramet_setup", u"IMPOSTAZIONI", None))
     # retranslateUi
