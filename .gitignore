@@ -19,7 +19,7 @@ Venv
 *.pkg 
 *.spec
 *.exe
-*.txt
+app.log
 
 # User-specific files
 *.rsuser
