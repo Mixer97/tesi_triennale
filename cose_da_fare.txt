@@ -43,6 +43,7 @@ EURAMET LOGIC:
     [[- inserire nome file attuale salvataggio excell per la schermata euramet]]
     [[- disattivare pulsante per cambiare csv registrazione mentre il pulsante registrazione è rosso (cioè sta registrando)]]
     - Gestire path realtivo del template euramet.
+    - Inizializzare i valori degli slider per range stabilità
 
 BUG SCOPERTI:
 

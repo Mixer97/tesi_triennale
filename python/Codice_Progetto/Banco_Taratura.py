@@ -35,7 +35,7 @@ class BANCO_DI_TARATURA:
         self.db_writer=DB_Writer(self)
         
         # variabili per grafica
-        self.window_icon_path = "python\\Codice_Progetto\\Assets\\connection.png"
+        self.window_icon_path = 'Assets/connection.png'
         
         # variabili per home page
         self.startStop = False
@@ -90,7 +90,7 @@ class BANCO_DI_TARATURA:
         self.workbook = None
         self.euramet_cella_inizio_precarichi_Q3 = ["D",7]  # vorrei usarlo come "D7" ma devo cambiare D e 7 per spostarmi lungo il file excell
         self.euramet_cella_inizio_precarichi_Q1 = ["D",29]
-        self.excell_path_template = 'python/Codice_Progetto/Template_Euramet_Excel/04. YYMMDD - Rapporto Taratura UUT v9.xlsx'
+        self.excell_path_template = 'Assets/04. YYMMDD - Rapporto Taratura UUT v9.xlsx'
         self.excell_file_name = None
         self.excell_path_dir_certificate = None
         self.excell_full_path = None
