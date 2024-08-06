@@ -66,7 +66,7 @@ class Controller_MODBUS:
                     sleep(2)
                     logging.error(f"ERROR! connessione al dispostivo presente sulla COM-port {self.SLAVE.port} fallita.\n tentativo di riconnessione numero: {i}\\3", exc_info=True)
                     self.banco_di_taratura.error_window_logic(messaggio_di_errore=f"ERROR! connessione fallita con scheda Seneca, tentativo di riconnessione: {i}\\3.\nChiudere la finestra per continuare.")
-                    connection = self.client.connect() 
+                    # connection = self.client.connect() 
         except Exception as e:
             logging.error("Connessione fallita dopo 3 tentativi!", exc_info=True)
             self.banco_di_taratura.error_window_logic(messaggio_di_errore=f"ERROR! connessione fallita con scheda Seneca, chiudere la finestra\ne riavviare l'applicazione.")

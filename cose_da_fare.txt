@@ -25,6 +25,7 @@ COSE DA FARE:
     [[- inserire immissione dei parametri X e Q per correzione lineare lettura mV (main e temp)]]
         [[- i 4 valori vanno inseriti nel JSON di setup banco]]
     [[- inserire label prossimo step per operatore]]
+    - inserire schermata di avvio che è presente mentre si aprono le altre
 
 
 
@@ -55,6 +56,16 @@ BUG SCOPERTI:
     [[- Bug che avviene ogni tanto all'inizio dell'esecuzione del programma]]
     - se salva la registrazione su default e poi faccio ripartire il programma e salvo di nuovo allora va sempre su default (senza sovrascrivere)
     - portare anche lo stile usato per la finestra di errore
+    - sistemare il click accidentale al setup di eurramet durante euramet 
+        - (mettere una finestra con dialogo che chiede se vuoi proseguire)
+        - (mettere l'inizializzazione di euramet e del grafico se si preme il pulsante euramet setup, quando euramet istance non è null)
+    - Tarmet si chiama Banco_Taratura nel gestore attività (dovrebbe chiamarsi Tarmet)
+
+
+
+
+
+
 
 multimetro manda su influx i dati presi (vedere con Pilo)
 main per generare tensione 
@@ -67,8 +78,8 @@ cose da fare nella parte finale del progetto:
 
     1| analisi della scheda a temperatura ambiente, temperatura del frigo e temperatura del forno (40°C)
     2| misura formato euramet prima con il Sirius e poi con il mio setup
-    3| se le cose tornano andare a setuppare il computerino con Docker
-    4| generare l'eseguibile e fare un pacchetto con inno setup
+    [[3| se le cose tornano andare a setuppare il computerino con Docker]]
+    [[4| generare l'eseguibile e fare un pacchetto con inno setup]]
     5| testing finale per vedere che l'eseguibile funzioni già di suo
 
 
