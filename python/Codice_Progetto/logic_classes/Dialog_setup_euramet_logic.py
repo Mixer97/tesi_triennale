@@ -62,6 +62,8 @@ class Euramet_window(QDialog):
         self.ui.horizontalSlider_stabilita_verde.sliderReleased.connect(self.update_valori_sliders)
         self.ui.horizontalSlider_varianza_giallo.sliderReleased.connect(self.update_valori_sliders)
         self.ui.horizontalSlider_varianza_verde.sliderReleased.connect(self.update_valori_sliders)
+        
+        self.update_valori_sliders()  # necessario per avere i valori inizializzati delle label
 
 
     # usato per inizializzare il secondo quadrante e terminare alla fine del 2 quadrante
