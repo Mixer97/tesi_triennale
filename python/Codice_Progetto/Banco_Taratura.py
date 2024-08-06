@@ -1,7 +1,7 @@
 from __future__ import annotations
-from PySide6.QtWidgets import QApplication
-from PySide6.QtCore import QTimer
-from PySide6.QtGui import QCursor
+from PySide6.QtWidgets import QApplication, QSplashScreen
+from PySide6.QtCore import QTimer, Qt
+from PySide6.QtGui import QCursor, QPixmap
 import controller_classes.Logger as Logger
 import controller_classes.Controller_Client_TCP_Laumas as C_Laumas
 import controller_classes.Controller_Client_MODBUS_Seneca as C_Seneca
@@ -17,6 +17,8 @@ from Grafana_and_Influx.DB_Writer_Influx import DB_Writer
 from influxdb_client import InfluxDBClient, Point
 from influxdb_client.client.write_api import SYNCHRONOUS
 import logging 
+import os
+
 
 
 
@@ -174,11 +176,23 @@ def closed_last_window_signal(banco_di_taratura:BANCO_DI_TARATURA, window:MainWi
 # MAIN PER ESEGUIRE L'APPLICAZIONE
 if __name__ == "__main__":
     app = QApplication(sys.argv)
+    
+    current_directory = os.getcwd()
+    print(current_directory)
+    
+    # Setup splash screen
+    splash_pix = QPixmap('Assets/output-onlinepngtools_resized.png')  # Use your own image path
+    splash = QSplashScreen(splash_pix, Qt.WindowStaysOnTopHint)
+    splash.setMask(splash_pix.mask())
+    splash.show()
+    
     banco=BANCO_DI_TARATURA()
     if banco.controller_tcp.connect():
         if banco.controller_modbus.connect():
             window = MainWindow(banco_di_taratura=banco)
+            sleep(10)
             window.show()
+            splash.finish(window)
             app.lastWindowClosed.connect(lambda: closed_last_window_signal(banco, window))
             logger_thread = Thread(target=run_logger, args=(banco.controller_tcp, banco.controller_modbus, banco.logger))
             logger_thread.start()     

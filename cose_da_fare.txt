@@ -25,7 +25,7 @@ COSE DA FARE:
     [[- inserire immissione dei parametri X e Q per correzione lineare lettura mV (main e temp)]]
         [[- i 4 valori vanno inseriti nel JSON di setup banco]]
     [[- inserire label prossimo step per operatore]]
-    - inserire schermata di avvio che è presente mentre si aprono le altre
+    [[- inserire schermata di avvio che è presente mentre si aprono le altre]]
 
 
 
@@ -43,8 +43,8 @@ EURAMET LOGIC:
     - dopo avere implementato la logica euramet per bene, andare a cambiare la guida Per fabio e aggiornarla in modo che corrisponda a eventuali elementi/logiche aggiunte.
     [[- inserire nome file attuale salvataggio excell per la schermata euramet]]
     [[- disattivare pulsante per cambiare csv registrazione mentre il pulsante registrazione è rosso (cioè sta registrando)]]
-    - Gestire path realtivo del template euramet.
-    - Inizializzare i valori degli slider per range stabilità
+    [[- Gestire path realtivo del template euramet.]]
+    [[- Inizializzare i valori degli slider per range stabilità]]
 
 BUG SCOPERTI:
 
