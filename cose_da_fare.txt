@@ -56,7 +56,7 @@ BUG SCOPERTI:
     [[- Bug che avviene ogni tanto all'inizio dell'esecuzione del programma]]
     - se salva la registrazione su default e poi faccio ripartire il programma e salvo di nuovo allora va sempre su default (senza sovrascrivere)
     - portare anche lo stile usato per la finestra di errore
-    - sistemare il click accidentale al setup di eurramet durante euramet 
+    - sistemare il click accidentale al setup di euramet durante euramet 
         - (mettere una finestra con dialogo che chiede se vuoi proseguire)
         - (mettere l'inizializzazione di euramet e del grafico se si preme il pulsante euramet setup, quando euramet istance non è null)
     - Tarmet si chiama Banco_Taratura nel gestore attività (dovrebbe chiamarsi Tarmet)

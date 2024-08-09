@@ -190,7 +190,6 @@ if __name__ == "__main__":
     if banco.controller_tcp.connect():
         if banco.controller_modbus.connect():
             window = MainWindow(banco_di_taratura=banco)
-            sleep(10)
             window.show()
             splash.finish(window)
             app.lastWindowClosed.connect(lambda: closed_last_window_signal(banco, window))
