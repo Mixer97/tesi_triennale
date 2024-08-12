@@ -119,7 +119,9 @@ class BANCO_DI_TARATURA:
         error_window = Error_window(banco_di_taratura=self)
         error_window.set_error_message(messaggio_di_errore)
         error_window.setWindowTitle(titolo)
+        logging.warning(f"{messaggio_di_errore}")
         error_window.exec()
+        return error_window
         
 
 # FUNZIONI NECESSARIE PER I THREAD
@@ -145,7 +147,7 @@ def data_update_mV(controller_tcp:C_Laumas.Controller_TCP, controller_modbus:C_S
             controller_modbus.DATA.canale_temperatura_mV = result_list_SG600[1]
             # tmp = time.time()
         except Exception as e:
-            logging.critical("Problema critico nel dialogo con le schede!", exc_info=True)
+            logging.warning("Problema critico nel dialogo con le schede!", exc_info=True)
             
 def db_write(controller_tcp:C_Laumas.Controller_TCP, controller_modbus:C_Seneca.Controller_MODBUS, logger:Logger.LOGGER, db_writer:DB_Writer):
         
@@ -201,10 +203,12 @@ if __name__ == "__main__":
             influx_thread.start()
             sys.exit(app.exec())
         else:
-            logging.error("Problema connessione con scheda Seneca", exc_info=True)
-            banco.error_window_logic(messaggio_di_errore=f"ERROR! connessione fallita con scheda Seneca, chiudere la finestra\ne riavviare l'applicazione.")
+            logging.warning("Problema connessione con scheda Seneca")
+            window = banco.error_window_logic(messaggio_di_errore=f"ERROR! connessione fallita con scheda Seneca, chiudere la finestra\ne riavviare l'applicazione.")
+            splash.finish(window)
             exit()
     else:
-        logging.error("Problema connessione con scheda Laumas", exc_info=True)
-        banco.error_window_logic(messaggio_di_errore=f"ERROR! connessione fallita con scheda Laumas, chiudere la finestra\ne riavviare l'applicazione.")
+        logging.warning("Problema connessione con scheda Laumas")
+        window = banco.error_window_logic(messaggio_di_errore=f"ERROR! connessione fallita con scheda Laumas, chiudere la finestra\ne riavviare l'applicazione.")
+        splash.finish(window)
         exit()

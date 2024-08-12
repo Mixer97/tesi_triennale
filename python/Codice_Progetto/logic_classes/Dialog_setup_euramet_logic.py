@@ -93,7 +93,7 @@ class Euramet_window(QDialog):
             self.graph_window.euramet_measure_entity = None
             self.graph_window.stability_logic()
         else:
-            logging.error(f"La logica di change_quadrant NON deve arrivare qui! quadrant_counter={self.banco_di_taratura.quadrant_counter}")
+            logging.warning(f"La logica di change_quadrant NON deve arrivare qui! quadrant_counter={self.banco_di_taratura.quadrant_counter}")
     
     def update_combobox(self):
         

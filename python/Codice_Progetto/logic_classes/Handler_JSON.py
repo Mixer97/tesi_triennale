@@ -55,7 +55,7 @@ class handler_json:
             # Logger
             banco_di_taratura.logger.DATA.periodo_logger = new_json_string['data_logger']['periodo logger']
             
-            # print(new_json_string)
+            # Pop up
             error_window = Error_window(banco_di_taratura=banco_di_taratura)
             error_window.set_error_message(f"Il file '{self.path_load_banco}' \nè stato caricato con successo.")
             error_window.setWindowTitle("Communication Window")

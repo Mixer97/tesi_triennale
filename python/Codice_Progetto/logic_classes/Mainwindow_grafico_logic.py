@@ -662,7 +662,7 @@ class GraphWindow(QMainWindow):
         else:
             self.stability_counter_value += 1
             self.ui.progressBar.setValue(self.stability_counter_value)
-            logging.warn(f"valore del timer: {self.stability_counter_value}")
+            logging.warning(f"valore del timer: {self.stability_counter_value}")
             print(f"valore del timer: {self.stability_counter_value}")
 
         
@@ -699,7 +699,7 @@ class GraphWindow(QMainWindow):
                 self.euramet_measure_entity.measure_value()
             self.ui.progressBar.reset()
             print(f"Sto misurando nel quadrante: {self.banco_di_taratura.quadrant}")
-            logging.debug(f"Dato salvato: {self.banco_di_taratura.quadrant}")
+            logging.warning(f"Dato salvato: {self.banco_di_taratura.quadrant}")
         else:
             print("errore nell' instanziazione della misura euramet")
         self.timer_stability.start()

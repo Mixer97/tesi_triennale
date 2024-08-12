@@ -85,19 +85,19 @@ class Controller_TCP:
     """---------------------------CONNECT-----------------------------"""
 
     # Connessione al dispositivo Laumas
-    # Metodo usato per connettersi al dispositivo e che riprova fino a 3 volte in caso di perdita di connessione #
+    # Metodo usato per connettersi al dispositivo e che riprova fino a 2 volte in caso di perdita di connessione #
     def connect(self):
         try:
             connection = self.client.connect() 
-            for i in range(1,4):
+            for i in range(1,3):
                 if connection:
                     return True
                 else: 
-                    logging.error(f"ERROR! connessione al dispostivo presente all'IP {self.SLAVE.IP} fallita.\n tentativo di riconnessione numero: {i}\\3")
-                    self.banco_di_taratura.error_window_logic(messaggio_di_errore=f"ERROR! connessione fallita con scheda Laumas, tentativo di riconnessione: {i}\\3\nChiudere la finestra per continuare.")
+                    logging.warning(f"ERROR! connessione al dispostivo presente all'IP {self.SLAVE.IP} fallita.\n tentativo di riconnessione numero: {i}\\2")
+                    self.banco_di_taratura.error_window_logic(messaggio_di_errore=f"ERROR! connessione fallita con scheda Laumas, tentativo di riconnessione: {i}\\2\nChiudere la finestra per continuare.")
                     connection = self.client.connect() 
         except Exception as e:
-            logging.error("Connessione fallita dopo 3 tentativi!", exc_info=True)
+            logging.warning("Connessione fallita dopo 3 tentativi!", exc_info=True)
             self.banco_di_taratura.error_window_logic(messaggio_di_errore=f"ERROR! connessione fallita con scheda Laumas, chiudere la finestra\ne riavviare l'applicazione.")
             return False
 
