@@ -88,7 +88,7 @@ class Controller_MODBUS:
     def read_holding_registers_mV(self):
         try:
             list_results_mV = [0,0]
-            while list_results_mV == [0,0]:
+            while list_results_mV == [0,0] or list_results_mV[0] == None or list_results_mV[1] == None:
                 list_results_mV = self.read_registers(start_address=16, count=2)
             return list_results_mV
         except Exception as e:
@@ -113,30 +113,30 @@ class Controller_MODBUS:
     
     """---------------------------DATA INTERACTIONS-----------------------------"""
     
-    def get_mV_main(self):
-        try:
-            # Formula: y=mx+q per la correzione lineare #
-            y = self.DATA.canale_principale_mV*self.banco_di_taratura.m_main + self.banco_di_taratura.q_main
-            return y
-        except Exception as e:
-                logging.warning("Exception occurred", exc_info=True)
+    # def get_mV_main(self):
+    #     try:
+    #         # Formula: y=mx+q per la correzione lineare #
+    #         y = self.DATA.canale_principale_mV*self.banco_di_taratura.m_main + self.banco_di_taratura.q_main
+    #         return y
+    #     except Exception as e:
+    #             logging.warning("Exception occurred", exc_info=True)
                 
     def get_V_main(self):
         try:
             # Formula: y=mx+q per la correzione lineare #
             y = self.DATA.canale_principale_mV*self.banco_di_taratura.m_main + self.banco_di_taratura.q_main
-            y = y / 1000
-            return y
+            y = y / 1000.0
+            return round(y,3)
         except Exception as e:
-                logging.warning("Exception occurred", exc_info=True)
+                logging.warning("Exception occurred measuring mV Main", exc_info=True)
     
     def get_Nm_main(self):
         try:
             # Formula: Nm=(mV-zero)*coeff #
             self.DATA.canale_principale_Nm = (self.get_V_main() - self.DATA.zero_main) * self.DATA.coefficiente_main
-            return self.DATA.canale_principale_Nm
+            return round(self.DATA.canale_principale_Nm,3)
         except Exception as e:
-                logging.warning("Exception occurred", exc_info=True)
+                logging.warning("Exception occurred measuring Nm", exc_info=True)
     
     def get_mV_temp(self):
         try:
@@ -144,15 +144,15 @@ class Controller_MODBUS:
             y = self.DATA.canale_temperatura_mV*self.banco_di_taratura.m_temp + self.banco_di_taratura.q_temp
             return y
         except Exception as e:
-                logging.warning("Exception occurred", exc_info=True)
+                logging.warning("Exception occurred measuring mV temp", exc_info=True)
     
     def get_C_temp(self):
         try:
-            # Formula: Nm=(mV-zero)*coeff #
-            self.DATA.canale_temperatura_C = (self.get_mV_temp() - self.DATA.zero_temp) * self.DATA.coefficiente_temp
+            # Formula: C=(mV-zero)*coeff #
+            self.DATA.canale_temperatura_C = (self.get_mV_temp() - self.DATA.zero_temp) * (self.DATA.coefficiente_temp/1000.0)
             return self.DATA.canale_temperatura_C
         except Exception as e:
-                logging.warning("Exception occurred", exc_info=True)
+                logging.warning("Exception occurred measuring Celsius", exc_info=True)
             
 if __name__ == "__main__":
     controller=Controller_MODBUS()

@@ -26,6 +26,7 @@ COSE DA FARE:
         [[- i 4 valori vanno inseriti nel JSON di setup banco]]
     [[- inserire label prossimo step per operatore]]
     [[- inserire schermata di avvio che è presente mentre si aprono le altre]]
+    - inserire lo zero in mV tramite un input e non solo tramite acquisizione da pulsante
 
 
 
@@ -59,8 +60,8 @@ BUG SCOPERTI:
     - sistemare il click accidentale al setup di euramet durante euramet 
         - (mettere una finestra con dialogo che chiede se vuoi proseguire)
         - (mettere l'inizializzazione di euramet e del grafico se si preme il pulsante euramet setup, quando euramet istance non è null)
-    - Tarmet si chiama Banco_Taratura nel gestore attività (dovrebbe chiamarsi Tarmet)
-
+    [[- Tarmet si chiama Banco_Taratura nel gestore attività (dovrebbe chiamarsi Tarmet)]]
+    - Type none problem per lettura sg600
 
 
 
@@ -87,3 +88,7 @@ COSE PRINCIPALI DA CHIEDERE AI PIANI ALTI:
 
     - password da amministratore per il pc piccolo (per installare/disinstallare le varie cose e avere privilegi da amministratore)
     - come utilizzare LabView per fare diventare l'SG600 un DC generator da 5V 
+
+
+
+

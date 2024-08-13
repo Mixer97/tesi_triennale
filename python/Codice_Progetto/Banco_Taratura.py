@@ -49,6 +49,8 @@ class BANCO_DI_TARATURA:
         self.update_status = False
         self.list_status_checkbox_setup_page = [0,0,0,0]   #[CH4, CH3, CH2, CH1]     
         self.status_timer = False  
+        
+        # Variabili per correzione lineare (y=mx+q)
         self.m_main = 1
         self.q_main = 0
         self.m_temp = 1
@@ -125,10 +127,11 @@ class BANCO_DI_TARATURA:
         
 
 # FUNZIONI NECESSARIE PER I THREAD
-def run_logger(controller_tcp:C_Laumas.Controller_TCP, controller_modbus:C_Seneca.Controller_MODBUS, logger:Logger.LOGGER):
+def run_logger(banco: BANCO_DI_TARATURA, controller_tcp:C_Laumas.Controller_TCP, controller_modbus:C_Seneca.Controller_MODBUS, logger:Logger.LOGGER):
     logger.log_data(controller_TCP=controller_tcp, controller_MODBUS=controller_modbus)  
     
-def data_update_mV(controller_tcp:C_Laumas.Controller_TCP, controller_modbus:C_Seneca.Controller_MODBUS, logger:Logger.LOGGER):
+    
+def data_update_mV(banco: BANCO_DI_TARATURA, controller_tcp:C_Laumas.Controller_TCP, controller_modbus:C_Seneca.Controller_MODBUS, logger:Logger.LOGGER):
     tmp = time.time()
     while logger.DATA.loop_status:
         try:
@@ -147,9 +150,9 @@ def data_update_mV(controller_tcp:C_Laumas.Controller_TCP, controller_modbus:C_S
             controller_modbus.DATA.canale_temperatura_mV = result_list_SG600[1]
             # tmp = time.time()
         except Exception as e:
-            logging.warning("Problema critico nel dialogo con le schede!", exc_info=True)
+            logging.warning("ERROR! Problema critico nel dialogo con le schede per ottenere i mV.", exc_info=True)
             
-def db_write(controller_tcp:C_Laumas.Controller_TCP, controller_modbus:C_Seneca.Controller_MODBUS, logger:Logger.LOGGER, db_writer:DB_Writer):
+def db_write(banco: BANCO_DI_TARATURA, controller_tcp:C_Laumas.Controller_TCP, controller_modbus:C_Seneca.Controller_MODBUS, logger:Logger.LOGGER, db_writer:DB_Writer):
         
         # Dati registrati di Euramet
         list_main_temp = banco.logger.DATA.result_list_SG600_main_temp
@@ -158,17 +161,20 @@ def db_write(controller_tcp:C_Laumas.Controller_TCP, controller_modbus:C_Seneca.
         list_channels_laumas = banco.logger.DATA.result_list_1_4
         
         while banco.logger.DATA.loop_status:
-            sleep(banco.logger.DATA.periodo_logger)
-            if banco.logger.DATA.startStop_logger and db_writer != None:
-                p = Point("Euramet Data").tag("measure", "measure")
-                p.field("main", float(list_main_temp[0]))
-                p.field("temp", float(list_main_temp[1]))
-                p.field("CH1", float(list_channels_laumas[0]))
-                p.field("CH2", float(list_channels_laumas[1]))
-                p.field("CH3", float(list_channels_laumas[2]))
-                p.field("CH4", float(list_channels_laumas[3]))
-                db_writer.write_api.write(bucket=db_writer.bucket, org=db_writer.org, record=p)
-                sleep(0.1)
+            try:
+                sleep(banco.logger.DATA.periodo_logger)
+                if banco.logger.DATA.startStop_logger and db_writer != None:
+                    p = Point("Euramet Data").tag("measure", "measure")
+                    p.field("main", float(list_main_temp[0]))
+                    p.field("temp", float(list_main_temp[1]))
+                    p.field("CH1", float(list_channels_laumas[0]))
+                    p.field("CH2", float(list_channels_laumas[1]))
+                    p.field("CH3", float(list_channels_laumas[2]))
+                    p.field("CH4", float(list_channels_laumas[3]))
+                    db_writer.write_api.write(bucket=db_writer.bucket, org=db_writer.org, record=p)
+                    sleep(0.1)
+            except Exception as e:
+                logging.warning("Problema con la scrittura dei dati nel database.")
     
         
 def closed_last_window_signal(banco_di_taratura:BANCO_DI_TARATURA, window:MainWindow):
@@ -177,12 +183,13 @@ def closed_last_window_signal(banco_di_taratura:BANCO_DI_TARATURA, window:MainWi
 
 # MAIN PER ESEGUIRE L'APPLICAZIONE
 if __name__ == "__main__":
+    
     app = QApplication(sys.argv)
     
     current_directory = os.getcwd()
     print(current_directory)
     
-    # Setup splash screen
+    # Setup splash screen (schermata pre-caricamento home page)
     splash_pix = QPixmap('Assets/output-onlinepngtools_resized.png')  # Use your own image path
     splash = QSplashScreen(splash_pix, Qt.WindowStaysOnTopHint)
     splash.setMask(splash_pix.mask())
@@ -195,11 +202,11 @@ if __name__ == "__main__":
             window.show()
             splash.finish(window)
             app.lastWindowClosed.connect(lambda: closed_last_window_signal(banco, window))
-            logger_thread = Thread(target=run_logger, args=(banco.controller_tcp, banco.controller_modbus, banco.logger))
+            logger_thread = Thread(target=run_logger, args=(banco, banco.controller_tcp, banco.controller_modbus, banco.logger))
             logger_thread.start()     
-            update_thread = Thread(target=data_update_mV, args=(banco.controller_tcp, banco.controller_modbus, banco.logger))
+            update_thread = Thread(target=data_update_mV, args=(banco, banco.controller_tcp, banco.controller_modbus, banco.logger))
             update_thread.start()
-            influx_thread = Thread(target=db_write, args=(banco.controller_tcp, banco.controller_modbus, banco.logger, banco.db_writer))
+            influx_thread = Thread(target=db_write, args=(banco, banco.controller_tcp, banco.controller_modbus, banco.logger, banco.db_writer))
             influx_thread.start()
             sys.exit(app.exec())
         else:

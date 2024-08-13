@@ -308,6 +308,7 @@ class Graph:
             data = self.elaborate_data_main()
         elif self.channel == 'temp':    
             data = self.GraphWindow.banco_di_taratura.controller_modbus.DATA.canale_temperatura_mV
+            self.axisX_desc = "Celsius (C)"
         else:
             data = None
         return data
@@ -399,7 +400,9 @@ class Graph:
     def elaborate_data_main(self):
         if self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd_SG600_main_temp[0] == 'V':
             data = self.GraphWindow.banco_di_taratura.controller_modbus.get_V_main()
+            self.axisX_desc = "Voltage (mV)"
         elif self.GraphWindow.banco_di_taratura.logger.DATA.text_lcd_SG600_main_temp[0] == 'Nm':
+            self.axisX_desc = "Newton Metro (Nm)"
             data = self.GraphWindow.banco_di_taratura.controller_modbus.DATA.canale_principale_Nm
         else:
             data = None

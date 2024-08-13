@@ -171,7 +171,7 @@ class LOGGER:
                 
                 except Exception as e:
                     logging.warning("Apertura del file di logging CSV fallita!", exc_info=True)
-                    self.banco_di_taratura.error_window_logic(messaggio_di_errore=f"ERROR! l'apertura del file di logging CSV NON è avvenuta con successo.")
+                    # self.banco_di_taratura.error_window_logic(messaggio_di_errore=f"ERROR! l'apertura del file di logging CSV NON è avvenuta con successo.")
 
 
     def update_CH1(self, controller_TCP):
