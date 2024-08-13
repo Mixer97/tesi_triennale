@@ -149,7 +149,7 @@ class Controller_MODBUS:
     def get_C_temp(self):
         try:
             # Formula: C=(mV-zero)*coeff #
-            self.DATA.canale_temperatura_C = (self.get_mV_temp() - self.DATA.zero_temp) * (self.DATA.coefficiente_temp/1000.0)
+            self.DATA.canale_temperatura_C = (self.get_mV_temp()/1000 - self.DATA.zero_temp) * (self.DATA.coefficiente_temp)
             return self.DATA.canale_temperatura_C
         except Exception as e:
                 logging.warning("Exception occurred measuring Celsius", exc_info=True)

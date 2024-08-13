@@ -308,7 +308,7 @@ class Graph:
             data = self.elaborate_data_main()
         elif self.channel == 'temp':    
             data = self.GraphWindow.banco_di_taratura.controller_modbus.DATA.canale_temperatura_mV
-            self.axisX_desc = "Celsius (C)"
+            self.axisX_desc = "Celsius"
         else:
             data = None
         return data

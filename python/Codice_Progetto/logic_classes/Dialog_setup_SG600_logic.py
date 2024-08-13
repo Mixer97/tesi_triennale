@@ -27,12 +27,17 @@ class Canale_Setup_SG600(QDialog):
         # Setup dei valori iniziali delle lineEdit
         coefficiente_main=self.controller_MODBUS.DATA.coefficiente_main
         coefficiente_temp=self.controller_MODBUS.DATA.coefficiente_temp
+        zero_main = self.banco_di_taratura.controller_modbus.DATA.zero_main
+        zero_temp = self.banco_di_taratura.controller_modbus.DATA.zero_temp
         m_main = self.banco_di_taratura.m_main
         q_main = self.banco_di_taratura.q_main
         m_temp = self.banco_di_taratura.m_temp
         q_temp = self.banco_di_taratura.q_temp
+        
         self.ui.lineEdit_coefficiente_main.setText(str(coefficiente_main))
         self.ui.lineEdit_coefficiente_temp.setText(str(coefficiente_temp))
+        self.ui.lineEdit_zero_main.setText(str(zero_main))
+        self.ui.lineEdit_zero_temp.setText(str(zero_temp))
         self.ui.lineEdit_m_main.setText(str(m_main))
         self.ui.lineEdit_q_main.setText(str(q_main))
         self.ui.lineEdit_m_temp.setText(str(m_temp))
@@ -45,8 +50,8 @@ class Canale_Setup_SG600(QDialog):
         self.ui.lineEdit_q_main.editingFinished.connect(self.update_linear_correction_values)
         self.ui.lineEdit_m_temp.editingFinished.connect(self.update_linear_correction_values)
         self.ui.lineEdit_q_temp.editingFinished.connect(self.update_linear_correction_values)
-        self.ui.pushButton_azzeramento_main.clicked.connect(self.update_zero_main)
-        self.ui.pushButton_azzeramento_main_2.clicked.connect(self.update_zero_temp)
+        self.ui.lineEdit_zero_main.editingFinished.connect(self.update_zero_main)
+        self.ui.lineEdit_zero_temp.editingFinished.connect(self.update_zero_temp)
 
     def update_linear_correction_values(self):
         self.banco_di_taratura.m_main = float(self.ui.lineEdit_m_main.text())
@@ -54,11 +59,12 @@ class Canale_Setup_SG600(QDialog):
         self.banco_di_taratura.m_temp = float(self.ui.lineEdit_m_temp.text())
         self.banco_di_taratura.q_temp = float(self.ui.lineEdit_q_temp.text())
 
+    # Arritinddamento alla 3 cifra decimale perchè è la precisione della scheda della Seneca
     def update_zero_main(self):
-        self.banco_di_taratura.controller_modbus.DATA.zero_main = self.banco_di_taratura.controller_modbus.get_V_main()
+        self.banco_di_taratura.controller_modbus.DATA.zero_main = round(float(self.ui.lineEdit_zero_main.text()),3)
 
     def update_zero_temp(self):
-        self.banco_di_taratura.controller_modbus.DATA.zero_temp = self.banco_di_taratura.controller_modbus.DATA.canale_temperatura_mV
+        self.banco_di_taratura.controller_modbus.DATA.zero_temp = round(float(self.ui.lineEdit_zero_temp.text()),3)
 
     def update_coefficiente_main(self):
         new_value = float(self.ui.lineEdit_coefficiente_main.text())

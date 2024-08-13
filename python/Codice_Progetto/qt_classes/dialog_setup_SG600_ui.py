@@ -17,7 +17,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QGridLayout,
     QHBoxLayout, QLabel, QLayout, QLineEdit,
-    QPushButton, QSizePolicy, QVBoxLayout, QWidget)
+    QSizePolicy, QVBoxLayout, QWidget)
 
 class Ui_SG600_Setup(object):
     def setupUi(self, SG600_Setup):
@@ -75,120 +75,6 @@ class Ui_SG600_Setup(object):
 "")
         self.gridLayout = QGridLayout(self.gridWidget_3)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.frame = QFrame(self.gridWidget_3)
-        self.frame.setObjectName(u"frame")
-        self.frame.setFrameShape(QFrame.StyledPanel)
-        self.frame.setFrameShadow(QFrame.Raised)
-        self.gridLayout_2 = QGridLayout(self.frame)
-        self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.gridLayout_3 = QGridLayout()
-        self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.label_coefficiente_setup_main = QLabel(self.frame)
-        self.label_coefficiente_setup_main.setObjectName(u"label_coefficiente_setup_main")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.label_coefficiente_setup_main.sizePolicy().hasHeightForWidth())
-        self.label_coefficiente_setup_main.setSizePolicy(sizePolicy2)
-        self.label_coefficiente_setup_main.setStyleSheet(u"QLabel{\n"
-"	background-color: rgb(178, 193, 255);\n"
-"	border-style: outset;\n"
-"    border-width: 2px;\n"
-"	border-color: rgb(128, 112, 211);\n"
-"	border-radius: 20px;\n"
-"	color: rgb(0,0,0);\n"
-"}\n"
-"")
-        self.label_coefficiente_setup_main.setMargin(5)
-
-        self.gridLayout_3.addWidget(self.label_coefficiente_setup_main, 0, 0, 1, 1)
-
-
-        self.gridLayout_2.addLayout(self.gridLayout_3, 1, 0, 1, 1)
-
-        self.gridLayout_6 = QGridLayout()
-        self.gridLayout_6.setObjectName(u"gridLayout_6")
-        self.lineEdit_coefficiente_main = QLineEdit(self.frame)
-        self.lineEdit_coefficiente_main.setObjectName(u"lineEdit_coefficiente_main")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.lineEdit_coefficiente_main.sizePolicy().hasHeightForWidth())
-        self.lineEdit_coefficiente_main.setSizePolicy(sizePolicy3)
-        font = QFont()
-        font.setPointSize(16)
-        font.setItalic(True)
-        self.lineEdit_coefficiente_main.setFont(font)
-        self.lineEdit_coefficiente_main.setStyleSheet(u"QWidget{\n"
-"	background-color:rgb(255, 255, 255); \n"
-"	border-style: outset;\n"
-"    border-width: 2px;\n"
-"	border-color: rgb(128, 112, 211);\n"
-"	border-radius: 20;\n"
-"	color: rgb(0,0,0);\n"
-"}")
-        self.lineEdit_coefficiente_main.setAlignment(Qt.AlignCenter)
-
-        self.gridLayout_6.addWidget(self.lineEdit_coefficiente_main, 0, 1, 1, 1)
-
-
-        self.gridLayout_2.addLayout(self.gridLayout_6, 1, 1, 1, 1)
-
-        self.gridLayout_9 = QGridLayout()
-        self.gridLayout_9.setObjectName(u"gridLayout_9")
-        self.pushButton_azzeramento_main = QPushButton(self.frame)
-        self.pushButton_azzeramento_main.setObjectName(u"pushButton_azzeramento_main")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.pushButton_azzeramento_main.sizePolicy().hasHeightForWidth())
-        self.pushButton_azzeramento_main.setSizePolicy(sizePolicy4)
-        self.pushButton_azzeramento_main.setMinimumSize(QSize(0, 70))
-        font1 = QFont()
-        font1.setPointSize(15)
-        self.pushButton_azzeramento_main.setFont(font1)
-        self.pushButton_azzeramento_main.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.pushButton_azzeramento_main.setStyleSheet(u"QWidget{\n"
-"	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(115, 188, 226, 255), stop:0.948357 rgba(112, 99, 193, 223));\n"
-"	border-style: outset;\n"
-"    border-width: 2px;\n"
-"	border-color: rgb(128, 112, 211);\n"
-"	border-radius: 20px;\n"
-"	color: rgb(0,0,0);\n"
-"}\n"
-"QPushButton::pressed{\n"
-"	border-width: 2px;\n"
-"	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(112, 99, 193, 223), stop:0.948357 rgba(115, 188, 226, 255) );\n"
-"	color: rgb(0, 0, 0);\n"
-"	border-color: rgb(110, 100, 200)\n"
-"}")
-        self.pushButton_azzeramento_main.setFlat(False)
-
-        self.gridLayout_9.addWidget(self.pushButton_azzeramento_main, 0, 0, 1, 1)
-
-
-        self.gridLayout_2.addLayout(self.gridLayout_9, 2, 0, 1, 2)
-
-        self.label = QLabel(self.frame)
-        self.label.setObjectName(u"label")
-        self.label.setMinimumSize(QSize(0, 70))
-        self.label.setStyleSheet(u"QWidget {\n"
-"    border: 2px ;\n"
-"    border-radius: 10px;\n"
-"	background-color: rgb(160, 180, 255);\n"
-"	border-style: outset;\n"
-"    border-width: 2px;\n"
-"	border-color: rgb(128, 112, 211);\n"
-"	border-radius: 20px;\n"
-"	color: rgb(0, 0, 0);\n"
-"}\n"
-"")
-
-        self.gridLayout_2.addWidget(self.label, 0, 0, 1, 2)
-
-
-        self.gridLayout.addWidget(self.frame, 0, 0, 1, 1)
-
         self.frame_3 = QFrame(self.gridWidget_3)
         self.frame_3.setObjectName(u"frame_3")
         self.frame_3.setMaximumSize(QSize(200, 16777215))
@@ -318,6 +204,116 @@ class Ui_SG600_Setup(object):
 
         self.gridLayout.addWidget(self.frame_3, 0, 1, 1, 1)
 
+        self.frame = QFrame(self.gridWidget_3)
+        self.frame.setObjectName(u"frame")
+        self.frame.setFrameShape(QFrame.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Raised)
+        self.gridLayout_2 = QGridLayout(self.frame)
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.label = QLabel(self.frame)
+        self.label.setObjectName(u"label")
+        self.label.setMinimumSize(QSize(0, 70))
+        self.label.setStyleSheet(u"QWidget {\n"
+"    border: 2px ;\n"
+"    border-radius: 10px;\n"
+"	background-color: rgb(160, 180, 255);\n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"	border-color: rgb(128, 112, 211);\n"
+"	border-radius: 20px;\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"")
+
+        self.gridLayout_2.addWidget(self.label, 0, 0, 1, 2)
+
+        self.gridLayout_9 = QGridLayout()
+        self.gridLayout_9.setObjectName(u"gridLayout_9")
+        self.label_7 = QLabel(self.frame)
+        self.label_7.setObjectName(u"label_7")
+
+        self.gridLayout_9.addWidget(self.label_7, 0, 0, 1, 1)
+
+
+        self.gridLayout_2.addLayout(self.gridLayout_9, 3, 0, 1, 1)
+
+        self.gridLayout_3 = QGridLayout()
+        self.gridLayout_3.setObjectName(u"gridLayout_3")
+        self.label_coefficiente_setup_main = QLabel(self.frame)
+        self.label_coefficiente_setup_main.setObjectName(u"label_coefficiente_setup_main")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.label_coefficiente_setup_main.sizePolicy().hasHeightForWidth())
+        self.label_coefficiente_setup_main.setSizePolicy(sizePolicy2)
+        self.label_coefficiente_setup_main.setStyleSheet(u"QLabel{\n"
+"	background-color: rgb(178, 193, 255);\n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"	border-color: rgb(128, 112, 211);\n"
+"	border-radius: 20px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"")
+        self.label_coefficiente_setup_main.setMargin(5)
+
+        self.gridLayout_3.addWidget(self.label_coefficiente_setup_main, 0, 0, 1, 1)
+
+
+        self.gridLayout_2.addLayout(self.gridLayout_3, 1, 0, 1, 1)
+
+        self.gridLayout_6 = QGridLayout()
+        self.gridLayout_6.setObjectName(u"gridLayout_6")
+        self.lineEdit_coefficiente_main = QLineEdit(self.frame)
+        self.lineEdit_coefficiente_main.setObjectName(u"lineEdit_coefficiente_main")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.lineEdit_coefficiente_main.sizePolicy().hasHeightForWidth())
+        self.lineEdit_coefficiente_main.setSizePolicy(sizePolicy3)
+        font = QFont()
+        font.setPointSize(16)
+        font.setItalic(True)
+        self.lineEdit_coefficiente_main.setFont(font)
+        self.lineEdit_coefficiente_main.setStyleSheet(u"QWidget{\n"
+"	background-color:rgb(255, 255, 255); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"	border-color: rgb(128, 112, 211);\n"
+"	border-radius: 20;\n"
+"	color: rgb(0,0,0);\n"
+"}")
+        self.lineEdit_coefficiente_main.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_6.addWidget(self.lineEdit_coefficiente_main, 0, 1, 1, 1)
+
+
+        self.gridLayout_2.addLayout(self.gridLayout_6, 1, 1, 1, 1)
+
+        self.gridLayout_10 = QGridLayout()
+        self.gridLayout_10.setObjectName(u"gridLayout_10")
+        self.lineEdit_zero_main = QLineEdit(self.frame)
+        self.lineEdit_zero_main.setObjectName(u"lineEdit_zero_main")
+        sizePolicy3.setHeightForWidth(self.lineEdit_zero_main.sizePolicy().hasHeightForWidth())
+        self.lineEdit_zero_main.setSizePolicy(sizePolicy3)
+        self.lineEdit_zero_main.setStyleSheet(u"QWidget{\n"
+"	background-color:rgb(255, 255, 255); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"	border-color: rgb(128, 112, 211);\n"
+"	border-radius: 20;\n"
+"	color: rgb(0,0,0);\n"
+"}")
+        self.lineEdit_zero_main.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_10.addWidget(self.lineEdit_zero_main, 0, 0, 1, 1)
+
+
+        self.gridLayout_2.addLayout(self.gridLayout_10, 3, 1, 1, 1)
+
+
+        self.gridLayout.addWidget(self.frame, 0, 0, 1, 1)
+
 
         self.gridLayout_15.addWidget(self.gridWidget_3, 1, 0, 1, 1)
 
@@ -369,8 +365,8 @@ class Ui_SG600_Setup(object):
         self.gridLayout_13.setObjectName(u"gridLayout_13")
         self.lineEdit_coefficiente_temp = QLineEdit(self.frame_2)
         self.lineEdit_coefficiente_temp.setObjectName(u"lineEdit_coefficiente_temp")
-        sizePolicy3.setHeightForWidth(self.lineEdit_coefficiente_temp.sizePolicy().hasHeightForWidth())
-        self.lineEdit_coefficiente_temp.setSizePolicy(sizePolicy3)
+        sizePolicy1.setHeightForWidth(self.lineEdit_coefficiente_temp.sizePolicy().hasHeightForWidth())
+        self.lineEdit_coefficiente_temp.setSizePolicy(sizePolicy1)
         self.lineEdit_coefficiente_temp.setFont(font)
         self.lineEdit_coefficiente_temp.setStyleSheet(u"QWidget{\n"
 "	background-color:rgb(255, 255, 255); \n"
@@ -386,35 +382,6 @@ class Ui_SG600_Setup(object):
 
 
         self.gridLayout_7.addLayout(self.gridLayout_13, 1, 1, 1, 1)
-
-        self.gridLayout_12 = QGridLayout()
-        self.gridLayout_12.setObjectName(u"gridLayout_12")
-        self.pushButton_azzeramento_main_2 = QPushButton(self.frame_2)
-        self.pushButton_azzeramento_main_2.setObjectName(u"pushButton_azzeramento_main_2")
-        sizePolicy4.setHeightForWidth(self.pushButton_azzeramento_main_2.sizePolicy().hasHeightForWidth())
-        self.pushButton_azzeramento_main_2.setSizePolicy(sizePolicy4)
-        self.pushButton_azzeramento_main_2.setMinimumSize(QSize(0, 70))
-        self.pushButton_azzeramento_main_2.setFont(font1)
-        self.pushButton_azzeramento_main_2.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.pushButton_azzeramento_main_2.setStyleSheet(u"QWidget{\n"
-"	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(115, 188, 226, 255), stop:0.948357 rgba(112, 99, 193, 223));\n"
-"	border-style: outset;\n"
-"    border-width: 2px;\n"
-"	border-color: rgb(128, 112, 211);\n"
-"	border-radius: 20px;\n"
-"	color: rgb(0,0,0);\n"
-"}\n"
-"QPushButton::pressed{\n"
-"	border-width: 2px;\n"
-"	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(112, 99, 193, 223), stop:0.948357 rgba(115, 188, 226, 255) );\n"
-"	color: rgb(0, 0, 0);\n"
-"	border-color: rgb(110, 100, 200)\n"
-"}")
-
-        self.gridLayout_12.addWidget(self.pushButton_azzeramento_main_2, 0, 0, 1, 1)
-
-
-        self.gridLayout_7.addLayout(self.gridLayout_12, 2, 0, 1, 2)
 
         self.label_2 = QLabel(self.frame_2)
         self.label_2.setObjectName(u"label_2")
@@ -432,6 +399,37 @@ class Ui_SG600_Setup(object):
 "")
 
         self.gridLayout_7.addWidget(self.label_2, 0, 0, 1, 2)
+
+        self.gridLayout_12 = QGridLayout()
+        self.gridLayout_12.setObjectName(u"gridLayout_12")
+        self.label_8 = QLabel(self.frame_2)
+        self.label_8.setObjectName(u"label_8")
+
+        self.gridLayout_12.addWidget(self.label_8, 0, 0, 1, 1)
+
+
+        self.gridLayout_7.addLayout(self.gridLayout_12, 2, 0, 1, 1)
+
+        self.gridLayout_11 = QGridLayout()
+        self.gridLayout_11.setObjectName(u"gridLayout_11")
+        self.lineEdit_zero_temp = QLineEdit(self.frame_2)
+        self.lineEdit_zero_temp.setObjectName(u"lineEdit_zero_temp")
+        sizePolicy1.setHeightForWidth(self.lineEdit_zero_temp.sizePolicy().hasHeightForWidth())
+        self.lineEdit_zero_temp.setSizePolicy(sizePolicy1)
+        self.lineEdit_zero_temp.setStyleSheet(u"QWidget{\n"
+"	background-color:rgb(255, 255, 255); \n"
+"	border-style: outset;\n"
+"    border-width: 2px;\n"
+"	border-color: rgb(128, 112, 211);\n"
+"	border-radius: 20;\n"
+"	color: rgb(0,0,0);\n"
+"}")
+        self.lineEdit_zero_temp.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_11.addWidget(self.lineEdit_zero_temp, 0, 0, 1, 1)
+
+
+        self.gridLayout_7.addLayout(self.gridLayout_11, 2, 1, 1, 1)
 
 
         self.gridLayout_5.addWidget(self.frame_2, 0, 0, 1, 1)
@@ -631,19 +629,21 @@ class Ui_SG600_Setup(object):
 
     def retranslateUi(self, SG600_Setup):
         SG600_Setup.setWindowTitle(QCoreApplication.translate("SG600_Setup", u"Dialog", None))
-        self.label_coefficiente_setup_main.setText(QCoreApplication.translate("SG600_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">COEFFICIENTE [Nm/V]</span></p></body></html>", None))
-        self.lineEdit_coefficiente_main.setText(QCoreApplication.translate("SG600_Setup", u"-", None))
-        self.pushButton_azzeramento_main.setText(QCoreApplication.translate("SG600_Setup", u"ZERO CANALE MAIN", None))
-        self.label.setText(QCoreApplication.translate("SG600_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">coefficienti per calcolo Nm</span></p></body></html>", None))
         self.label_correzione_lineare.setText(QCoreApplication.translate("SG600_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">correzione lineare</span></p></body></html>", None))
         self.label_3.setText(QCoreApplication.translate("SG600_Setup", u"m", None))
         self.lineEdit_m_main.setText(QCoreApplication.translate("SG600_Setup", u"-", None))
         self.label_4.setText(QCoreApplication.translate("SG600_Setup", u"q", None))
         self.lineEdit_q_main.setText(QCoreApplication.translate("SG600_Setup", u"-", None))
+        self.label.setText(QCoreApplication.translate("SG600_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">coefficienti per calcolo Nm</span></p></body></html>", None))
+        self.label_7.setText(QCoreApplication.translate("SG600_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; color:#090909;\">ZERO [V]</span></p></body></html>", None))
+        self.label_coefficiente_setup_main.setText(QCoreApplication.translate("SG600_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">COEFFICIENTE [Nm/V]</span></p></body></html>", None))
+        self.lineEdit_coefficiente_main.setText(QCoreApplication.translate("SG600_Setup", u"-", None))
+        self.lineEdit_zero_main.setText(QCoreApplication.translate("SG600_Setup", u"1", None))
         self.label_coefficiente_setup_temp.setText(QCoreApplication.translate("SG600_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">COEFFICIENTE [\u00b0C/V]</span></p></body></html>", None))
         self.lineEdit_coefficiente_temp.setText(QCoreApplication.translate("SG600_Setup", u"-", None))
-        self.pushButton_azzeramento_main_2.setText(QCoreApplication.translate("SG600_Setup", u"ZERO CANALE TEMP.", None))
         self.label_2.setText(QCoreApplication.translate("SG600_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">coefficienti per calcolo \u00b0C</span></p></body></html>", None))
+        self.label_8.setText(QCoreApplication.translate("SG600_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; color:#080808;\">ZERO [V]</span></p></body></html>", None))
+        self.lineEdit_zero_temp.setText(QCoreApplication.translate("SG600_Setup", u"1", None))
         self.label_correzione_lineare_2.setText(QCoreApplication.translate("SG600_Setup", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">correzione lineare</span></p></body></html>", None))
         self.label_5.setText(QCoreApplication.translate("SG600_Setup", u"m", None))
         self.lineEdit_m_temp.setText(QCoreApplication.translate("SG600_Setup", u"-", None))
