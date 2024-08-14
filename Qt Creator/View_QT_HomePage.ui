@@ -403,6 +403,18 @@ QLabel{
                 <layout class="QGridLayout" name="gridLayout_11">
                  <item row="1" column="0">
                   <widget class="QLabel" name="label_SG600">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>225</width>
+                     <height>0</height>
+                    </size>
+                   </property>
                    <property name="font">
                     <font>
                      <pointsize>17</pointsize>
@@ -573,6 +585,12 @@ QLCDNumber{
                  </item>
                  <item row="0" column="0">
                   <widget class="QLabel" name="label_6">
+                   <property name="minimumSize">
+                    <size>
+                     <width>225</width>
+                     <height>0</height>
+                    </size>
+                   </property>
                    <property name="font">
                     <font>
                      <pointsize>17</pointsize>
@@ -598,6 +616,12 @@ QLabel{
                  </item>
                  <item row="1" column="0">
                   <widget class="QLabel" name="label_7">
+                   <property name="minimumSize">
+                    <size>
+                     <width>225</width>
+                     <height>0</height>
+                    </size>
+                   </property>
                    <property name="font">
                     <font>
                      <pointsize>17</pointsize>
@@ -617,7 +641,7 @@ QLabel{
 </string>
                    </property>
                    <property name="text">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Temperature&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Temperature [°C]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                    </property>
                   </widget>
                  </item>

@@ -283,6 +283,9 @@ class Ui_MainWindow(object):
         self.gridLayout_11.setObjectName(u"gridLayout_11")
         self.label_SG600 = QLabel(self.widget_7)
         self.label_SG600.setObjectName(u"label_SG600")
+        sizePolicy.setHeightForWidth(self.label_SG600.sizePolicy().hasHeightForWidth())
+        self.label_SG600.setSizePolicy(sizePolicy)
+        self.label_SG600.setMinimumSize(QSize(225, 0))
         self.label_SG600.setFont(font)
         self.label_SG600.setStyleSheet(u"QLabel{\n"
 "	color: rgb(0,0,0);\n"
@@ -393,11 +396,13 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.lcdNumber_main_SG600.setDigitCount(7)
+        self.lcdNumber_main_SG600.setProperty("value", 0.000000000000000)
 
         self.gridLayout_8.addWidget(self.lcdNumber_main_SG600, 0, 1, 1, 1)
 
         self.label_6 = QLabel(self.widget_7)
         self.label_6.setObjectName(u"label_6")
+        self.label_6.setMinimumSize(QSize(225, 0))
         self.label_6.setFont(font)
         self.label_6.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(255, 207, 84); \n"
@@ -415,6 +420,7 @@ class Ui_MainWindow(object):
 
         self.label_7 = QLabel(self.widget_7)
         self.label_7.setObjectName(u"label_7")
+        self.label_7.setMinimumSize(QSize(225, 0))
         self.label_7.setFont(font)
         self.label_7.setStyleSheet(u"QWidget {\n"
 "	background-color:rgb(255, 207, 84); \n"
@@ -1023,7 +1029,7 @@ class Ui_MainWindow(object):
 
         self.comboBox_5.setCurrentText(QCoreApplication.translate("MainWindow", u"V", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Main Channel</p></body></html>", None))
-        self.label_7.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Temperature</p></body></html>", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Temperature [\u00b0C]</p></body></html>", None))
         self.comboBox_1.setItemText(0, QCoreApplication.translate("MainWindow", u"mV", None))
         self.comboBox_1.setItemText(1, QCoreApplication.translate("MainWindow", u"Nm", None))
         self.comboBox_1.setItemText(2, QCoreApplication.translate("MainWindow", u"Kg", None))
