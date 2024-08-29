@@ -107,7 +107,7 @@ class BANCO_DI_TARATURA:
         # valori per plotting
         self.x = 0
         
-        # valori per stabilità del led
+        # valori per stabilità del led (larghezza totale intervallo)
         self.percentage_interval_green = 10
         self.percentage_interval_yellow = 15
         self.difference_variance_green = 4
