@@ -1,0 +1,5 @@
+comando usato per creare l'eseguibile:
+    -->  pyinstaller Banco_Taratura.py --noconsole --onefile --icon="C:\Users\franc\OneDrive\Desktop\icone\favicon (1).ico"
+
+per creare l'installer ho usato Inno Setup Compiler.
+vanno inseriti tutti gli asset presenti nel progetto dentro una cartella Assets tramite inno setup.

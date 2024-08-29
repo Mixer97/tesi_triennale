@@ -20,6 +20,7 @@ Venv
 *.spec
 *.exe
 app.log
+!appunti_eseguibile.txt
 
 # User-specific files
 *.rsuser
