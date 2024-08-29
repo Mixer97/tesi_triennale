@@ -22,7 +22,7 @@ class LOGGER:
             self.text_lcd=["mV","mV","mV","mV"]  # Viene aggiornata dalla Main_View in automatico
             self.result_list_1_4=[0,0,0,0]  # [CH1, CH2, CH3, CH4]
             self.result_list_SG600_main_temp=[0,0]
-            self.text_lcd_SG600_main_temp=["V","mV"]  # Viene aggiornato dalla Main View in automatico [[DA IMPLEMENTARE]] 
+            self.text_lcd_SG600_main_temp=["V","C"]  # Viene aggiornato dalla Main View in automatico [[DA IMPLEMENTARE]] 
             self.loop_status=True  # Status che governa il loop di esecuzione secondario nel quale sono aggiornati i valori, invitai al DB e scritti sul file .csv
             self.periodo_logger=0.1  # In secondi
             self.counter_registrazione = 0

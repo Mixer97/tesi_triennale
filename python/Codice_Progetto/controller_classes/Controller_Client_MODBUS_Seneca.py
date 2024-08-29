@@ -88,11 +88,12 @@ class Controller_MODBUS:
     def read_holding_registers_mV(self):
         try:
             list_results_mV = [0,0]
-            while list_results_mV == [0,0] or list_results_mV[0] == None or list_results_mV[1] == None:
+            while list_results_mV == [0,0] or list_results_mV == None:
                 list_results_mV = self.read_registers(start_address=16, count=2)
             return list_results_mV
         except Exception as e:
             logging.warning("Exception occurred", exc_info=True)
+            self.banco_di_taratura.error_window_logic(messaggio_di_errore="Errore nella lettura dei registri\n assicurarsi la connessione con la scheda Seneca!")
             
     """---------------------------UTILS-----------------------------"""
      

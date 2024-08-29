@@ -110,8 +110,8 @@ class BANCO_DI_TARATURA:
         # valori per stabilità del led
         self.percentage_interval_green = 10
         self.percentage_interval_yellow = 15
-        self.difference_variance_green = 1
-        self.difference_variance_yellow = 3
+        self.difference_variance_green = 4
+        self.difference_variance_yellow = 8
         
     # metodi comuni a tutte le istanze da metter qui
     def set_window_icon(self, window:MainWindow):
@@ -143,6 +143,9 @@ def data_update_mV(banco: BANCO_DI_TARATURA, controller_tcp:C_Laumas.Controller_
             # print(f"tempo tcp: {test}")  # Tempo ottimizzato che richiede una scrittura e un loop di letture
             # tmp = time.time()
             result_list_SG600 = controller_modbus.read_holding_registers_mV() # canale main e canale temp
+            while result_list_SG600 == None:
+                result_list_SG600 = controller_modbus.read_holding_registers_mV()
+                logging.warning(f"Problema con la lettura del seneca, result_list_SG600 = None")
             # test = time.time() - tmp
             # print(f"tempo modbus: {test}")  # Tempo ottimizzato diccome la connessione funziona solo con un baudrate di 2400
             controller_tcp.DATA.LIST_mV_VALUE = result_list_laumas

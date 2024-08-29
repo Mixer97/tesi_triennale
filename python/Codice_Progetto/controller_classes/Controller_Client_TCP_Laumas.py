@@ -106,32 +106,37 @@ class Controller_TCP:
     
     # Metodo che legge i registri da 4053 a 4056 della scheda Laumas #
     def read_holding_registers_mV(self):
-            if self.connect:     
+            if self.connect: 
+                try:    
                     
-                written = False    
+                    written = False    
+                        
+                    # Inviare il comando 6902 a CMDR (abilitare lettura in mV)
+                    if not written: 
+                        self.write_CMDR(self.CMDR_COMMANDS.COMMAND_6902)
+                        written = True
                     
-                # Inviare il comando 6902 a CMDR (abilitare lettura in mV)
-                if not written: 
-                    self.write_CMDR(self.CMDR_COMMANDS.COMMAND_6902)
-                    written = True
-                
-                # Lettura holding registers (52...55)
-                risultatimV=self.client.read_holding_registers(address=self.ADDRESS.REGISTER_3, count=4, slave=self.SLAVE.ID)
-
-                # Check che tutti i canali NON siano zero (utile all'accensione)
-                while risultatimV.registers==[0,0,0,0]:
+                    # Lettura holding registers (52...55)
                     risultatimV=self.client.read_holding_registers(address=self.ADDRESS.REGISTER_3, count=4, slave=self.SLAVE.ID)
-                    self.write_CMDR(self.CMDR_COMMANDS.COMMAND_6902)
-                    sleep(0.5)
 
-                # Conversione
-                for value in range(4):
-                    risultatimV.registers[value] = float((self.convert_to_signed_16_bit(risultatimV.registers[value]))/100)
+                    # Check che tutti i canali NON siano zero (utile all'accensione)
+                    while risultatimV.registers==[0,0,0,0] or risultatimV == None:
+                        risultatimV=self.client.read_holding_registers(address=self.ADDRESS.REGISTER_3, count=4, slave=self.SLAVE.ID)
+                        self.write_CMDR(self.CMDR_COMMANDS.COMMAND_6902)
+                        sleep(0.5)
 
-                # Comando di conclusione
-                # self.write_CMDR(self.CMDR_COMMANDS.COMMAND_6903)
+                    # Conversione
+                    for value in range(4):
+                        risultatimV.registers[value] = float((self.convert_to_signed_16_bit(risultatimV.registers[value]))/100)
+
+                    # Comando di conclusione
+                    # self.write_CMDR(self.CMDR_COMMANDS.COMMAND_6903)
+                    
+                    return risultatimV.registers
                 
-                return risultatimV.registers
+                except Exception as e:
+                    logging.warning(f"Error! Exception: {e}")
+                    self.banco_di_taratura.error_window_logic(messaggio_di_errore="Errore nella lettura dei registri\n assicurarsi la connessione con la scheda Laumas!")
 
             else:
                 print("Impossibile connettersi al dispositivo Modbus")

@@ -88,6 +88,7 @@ class Graph_static_recap:
         n=step_totali --> clear e si reinizializza
         """
         pointer=len(self.data_set_X_buff)
+        logging.warning(f"Lunghezza del dataset delle X: {pointer}. Step_totali: {step_totali}.")
         if self.count == 0:
             self.data_set_X_buff.append(self.data_set_X_full[pointer])
             self.data_set_X_buff.append(self.data_set_X_full[pointer+1])
@@ -510,6 +511,7 @@ class GraphWindow(QMainWindow):
         self.reached_stability = False  # parametro per capire se ho raggiunto la stabilità
         self.saved_cella_di_carico = None  # valore della cella di carico che salvo per la stabilità
         self.saved_torsiometro = None  # valore del torsiometro che salvo per la stabilità
+        self.saved_SG600 = None # valore dell'SG600 che savlo per la stabilità
         self.logic_flip_flop = True  # switch per gestire la logica della stabilità (True-->ON, False-->OFF)
         self.stability_counter_value = 0
         
@@ -574,7 +576,7 @@ class GraphWindow(QMainWindow):
                     buffer[i] = channel.buffer[i]
                 
                 requested_value = int(tmp[0])  # valore dello step attuale
-                difference = abs(self.mediated_value - requested_value)
+                difference = abs(self.mediated_value - abs(requested_value))
                 full_scale = abs(self.euramet_measure_entity.max_torque)
                 
                 # calcolo varianza
@@ -657,15 +659,17 @@ class GraphWindow(QMainWindow):
         if self.stability_counter_value == 30:
             self.reached_stability = True
             tmp = self.banco_di_taratura.controller_tcp.get_N()
-            self.saved_cella_di_carico = tmp[1]
+            self.saved_cella_di_carico = tmp[1]  # secondo canale Laumas
             tmp = self.banco_di_taratura.controller_tcp.get_Nm()
-            self.saved_torsiometro = tmp[3]
+            self.saved_torsiometro = tmp[3]  # quarto canale Laumas
+            tmp = self.banco_di_taratura.controller_modbus.get_V_main()
+            self.saved_SG600 = tmp  # primo canale Seneca
             self.stability_counter_value = 0
             self.led_timer.stop()
         else:
             self.stability_counter_value += 1
             self.ui.progressBar.setValue(self.stability_counter_value)
-            logging.warning(f"valore del timer: {self.stability_counter_value}")
+            # logging.warning(f"valore del timer: {self.stability_counter_value}")
             print(f"valore del timer: {self.stability_counter_value}")
 
         
@@ -697,7 +701,7 @@ class GraphWindow(QMainWindow):
         self.graph_recap.plot_a_point(self.euramet_measure_entity.numero_misure_totali_da_fare)
         if self.euramet_measure_entity != None:
             if tmp == True:
-                self.euramet_measure_entity.measure_value(cella=self.saved_cella_di_carico, torsiom=self.saved_torsiometro)
+                self.euramet_measure_entity.measure_value(cella=self.saved_cella_di_carico, torsiom=self.saved_torsiometro, SG600=self.saved_SG600)
             else:
                 self.euramet_measure_entity.measure_value()
             self.ui.progressBar.reset()
@@ -707,7 +711,8 @@ class GraphWindow(QMainWindow):
             print("errore nell' instanziazione della misura euramet")
         self.timer_stability.start()
         if self.banco_di_taratura.quadrant_counter != 2:  # Quando ho finito euramet non riparte il timer
-            self.led_timer.start()
+            if self.ui.label_led_stabilita.isEnabled():   # Per evitare che riparta il timer led quando acquisisco un valore se la logica e la logica è OFF
+                self.led_timer.start()
 
             
     def stability_logic(self):
@@ -718,6 +723,7 @@ class GraphWindow(QMainWindow):
             self.ui.label_led_stabilita.setEnabled(False)
             self.ui.progressBar.setEnabled(False)
             self.ui.progressBar.reset()
+            # self.ui.progressBar.hide()
             self.logic_flip_flop = False
 
         else:
@@ -725,6 +731,7 @@ class GraphWindow(QMainWindow):
             self.led_timer.start()
             self.ui.label_led_stabilita.setEnabled(True)
             self.ui.progressBar.setEnabled(True)
+            # self.ui.progressBar.show()
             self.logic_flip_flop = True
         
         
