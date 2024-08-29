@@ -696,6 +696,7 @@ class GraphWindow(QMainWindow):
         
         """
         self.timer_stability.stop()
+        self.stability_counter_value = 0
         tmp = self.reached_stability  # Salvo in variabile temporante la condizione della stabilità
         self.reached_stability = False # Fondamentale per evitare di fare due volte la misura di seguito
         self.graph_recap.plot_a_point(self.euramet_measure_entity.numero_misure_totali_da_fare)
