@@ -88,7 +88,7 @@ class Controller_MODBUS:
     def read_holding_registers_mV(self):
         try:
             list_results_mV = [0,0]
-            while list_results_mV == [0,0] or list_results_mV == None:
+            while list_results_mV == None:
                 list_results_mV = self.read_registers(start_address=16, count=2)
             return list_results_mV
         except Exception as e:
