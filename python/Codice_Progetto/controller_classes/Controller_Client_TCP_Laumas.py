@@ -542,7 +542,7 @@ class Controller_TCP:
         
         ESEMPIO: [0, 1, 0, 1] ⁓ [CH4, CH3, CH2, CH1] --> CH3 e CH1 attivi
         """
-        print(list)
+        # print(list)
         self.set_channel_status(list)
         
         
