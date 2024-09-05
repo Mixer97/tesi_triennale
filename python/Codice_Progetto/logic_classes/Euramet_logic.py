@@ -41,7 +41,7 @@ class Rampa:
             self.number_of_steps = self.banco_di_taratura.current_number_of_steps-1
         
         
-    def measure_value(self, cella=None, torsiom=None):
+    def measure_value(self, cella=None, torsiom=None, SG600=None):
         """
         Measure value della rampa: cella e torsiom sono valori che vengono inseriti nel caso si arrivi ai 30s di stabilità
         
@@ -57,7 +57,8 @@ class Rampa:
         if torsiom == None: torsiometro = self.banco_di_taratura.controller_tcp.DATA.LIST_Nm_VALUE[3]  # cella ch4
         else: torsiometro = torsiom
         
-        sg600 = self.banco_di_taratura.controller_modbus.DATA.canale_principale_mV/1000  # Main in V
+        if SG600 == None: sg600 = self.banco_di_taratura.controller_modbus.DATA.canale_principale_mV/1000  # Main in V
+        else : sg600 = SG600
         
         # Aggiornamento dei valori grafici step attuale
         if self.tipo == "salita1" or self.tipo == "salita2":
@@ -159,7 +160,7 @@ class Precarichi:
         self.max_torque = misura.max_torque
         self.current_step_value = 0
         
-    def measure_value(self, cella=None, torsiom=None):
+    def measure_value(self, cella=None, torsiom=None, SG600=None):
         """
         Measure value del precarico: cella e torsiom sono valori che vengono inseriti nel caso si arrivi ai 30s di stabilità
         
@@ -175,7 +176,8 @@ class Precarichi:
         if torsiom == None: torsiometro = self.banco_di_taratura.controller_tcp.DATA.LIST_Nm_VALUE[3]  # cella ch4
         else: torsiometro = torsiom
         
-        sg600 = self.banco_di_taratura.controller_modbus.DATA.canale_principale_mV/1000  # Main in V
+        if SG600 == None: sg600 = self.banco_di_taratura.controller_modbus.DATA.canale_principale_mV/1000  # Main in V
+        else : sg600 = SG600
                 
         # Scrittura su Excell e aumento dello step
         data = (haxis, int(href), cella_di_carico_N, torsiometro, sg600)
@@ -327,7 +329,7 @@ class Misura_euramet:
         
         
 
-    def measure_value(self, cella=None, torsiom=None):
+    def measure_value(self, cella=None, torsiom=None, SG600=None):
         """
         Measure_value: cella e torsiom sono valori che vengono inseriti nel caso si arrivi ai 30s di stabilità
         
@@ -335,20 +337,20 @@ class Misura_euramet:
         """
         if self.end_check_prec == 0:
             print("Ho appena misurato uno step dei precatichi")
-            self.end_check_prec = self.precarichi.measure_value(cella=cella, torsiom=torsiom)
+            self.end_check_prec = self.precarichi.measure_value(cella=cella, torsiom=torsiom, SG600=SG600)
         elif self.end_check_salita_1 == 0 and self.rampa_salita_1 != None:
             print("Ho appena misurato uno step nella salita 1")
-            self.end_check_salita_1 = self.rampa_salita_1.measure_value(cella=cella, torsiom=torsiom)
+            self.end_check_salita_1 = self.rampa_salita_1.measure_value(cella=cella, torsiom=torsiom, SG600=SG600)
         elif self.end_check_discesa_1 == 0 and self.rampa_discesa_1 != None:
             print("Ho appena misurato uno step nella discesa 1")
-            self.end_check_discesa_1 = self.rampa_discesa_1.measure_value(cella=cella, torsiom=torsiom)
+            self.end_check_discesa_1 = self.rampa_discesa_1.measure_value(cella=cella, torsiom=torsiom, SG600=SG600)
         elif self.end_check_salita_2 == 0 and self.rampa_salita_2 != None:
             print("Ho appena misurato uno step nella salita 2")
-            self.end_check_salita_2 = self.rampa_salita_2.measure_value(cella=cella, torsiom=torsiom)
+            self.end_check_salita_2 = self.rampa_salita_2.measure_value(cella=cella, torsiom=torsiom, SG600=SG600)
         elif self.end_check_zero_finale == 0 and self.zero_finale != None:
             self.zero_finale.number_of_steps = 1
             self.max_torque = 0
-            self.end_check_zero_finale = self.zero_finale.measure_value(cella=cella, torsiom=torsiom)
+            self.end_check_zero_finale = self.zero_finale.measure_value(cella=cella, torsiom=torsiom, SG600=SG600)
             self.banco_di_taratura.quadrant_counter += 1
             self.euramet_window.change_quadrant()
             print("Sono nello zero finale")

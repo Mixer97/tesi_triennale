@@ -25,6 +25,8 @@ COSE DA FARE:
     [[- inserire immissione dei parametri X e Q per correzione lineare lettura mV (main e temp)]]
         [[- i 4 valori vanno inseriti nel JSON di setup banco]]
     [[- inserire label prossimo step per operatore]]
+    [[- inserire schermata di avvio che è presente mentre si aprono le altre]]
+    - inserire lo zero in mV tramite un input e non solo tramite acquisizione da pulsante
 
 
 
@@ -42,7 +44,8 @@ EURAMET LOGIC:
     - dopo avere implementato la logica euramet per bene, andare a cambiare la guida Per fabio e aggiornarla in modo che corrisponda a eventuali elementi/logiche aggiunte.
     [[- inserire nome file attuale salvataggio excell per la schermata euramet]]
     [[- disattivare pulsante per cambiare csv registrazione mentre il pulsante registrazione è rosso (cioè sta registrando)]]
-    - Gestire path realtivo del template euramet.
+    [[- Gestire path realtivo del template euramet.]]
+    [[- Inizializzare i valori degli slider per range stabilità]]
 
 BUG SCOPERTI:
 
@@ -53,6 +56,16 @@ BUG SCOPERTI:
     - Problema handling del file excell quando è aperto
     [[- Bug che avviene ogni tanto all'inizio dell'esecuzione del programma]]
     - se salva la registrazione su default e poi faccio ripartire il programma e salvo di nuovo allora va sempre su default (senza sovrascrivere)
+    - portare anche lo stile usato per la finestra di errore
+    - sistemare il click accidentale al setup di euramet durante euramet 
+        - (mettere una finestra con dialogo che chiede se vuoi proseguire)
+        - (mettere l'inizializzazione di euramet e del grafico se si preme il pulsante euramet setup, quando euramet istance non è null)
+    [[- Tarmet si chiama Banco_Taratura nel gestore attività (dovrebbe chiamarsi Tarmet)]]
+    - Type none problem per lettura sg600
+
+
+
+
 
 
 multimetro manda su influx i dati presi (vedere con Pilo)
@@ -66,8 +79,8 @@ cose da fare nella parte finale del progetto:
 
     1| analisi della scheda a temperatura ambiente, temperatura del frigo e temperatura del forno (40°C)
     2| misura formato euramet prima con il Sirius e poi con il mio setup
-    3| se le cose tornano andare a setuppare il computerino con Docker
-    4| generare l'eseguibile e fare un pacchetto con inno setup
+    [[3| se le cose tornano andare a setuppare il computerino con Docker]]
+    [[4| generare l'eseguibile e fare un pacchetto con inno setup]]
     5| testing finale per vedere che l'eseguibile funzioni già di suo
 
 
@@ -75,3 +88,7 @@ COSE PRINCIPALI DA CHIEDERE AI PIANI ALTI:
 
     - password da amministratore per il pc piccolo (per installare/disinstallare le varie cose e avere privilegi da amministratore)
     - come utilizzare LabView per fare diventare l'SG600 un DC generator da 5V 
+
+
+
+

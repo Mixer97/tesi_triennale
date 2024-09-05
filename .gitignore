@@ -19,7 +19,8 @@ Venv
 *.pkg 
 *.spec
 *.exe
-*.txt
+app.log
+!appunti_eseguibile.txt
 
 # User-specific files
 *.rsuser

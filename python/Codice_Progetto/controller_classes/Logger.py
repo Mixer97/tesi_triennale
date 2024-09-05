@@ -22,7 +22,7 @@ class LOGGER:
             self.text_lcd=["mV","mV","mV","mV"]  # Viene aggiornata dalla Main_View in automatico
             self.result_list_1_4=[0,0,0,0]  # [CH1, CH2, CH3, CH4]
             self.result_list_SG600_main_temp=[0,0]
-            self.text_lcd_SG600_main_temp=["V","mV"]  # Viene aggiornato dalla Main View in automatico [[DA IMPLEMENTARE]] 
+            self.text_lcd_SG600_main_temp=["V","C"]  # Viene aggiornato dalla Main View in automatico [[DA IMPLEMENTARE]] 
             self.loop_status=True  # Status che governa il loop di esecuzione secondario nel quale sono aggiornati i valori, invitai al DB e scritti sul file .csv
             self.periodo_logger=0.1  # In secondi
             self.counter_registrazione = 0
@@ -147,26 +147,32 @@ class LOGGER:
                 self.update_SG600_temp(self.controller_MODBUS)
                 
                 # Scrittura di una riga
-                with open(self.path_CSV, mode="a", newline="") as csv_doc:
-                    writer = csv.writer(csv_doc)
-                    list_to_write = [round(self.timer,5),
-                                    "s",
-                                    round(self.DATA.result_list_1_4[0],5),
-                                    self.DATA.text_lcd[0],
-                                    round(self.DATA.result_list_1_4[1],5),
-                                    self.DATA.text_lcd[1],
-                                    round(self.DATA.result_list_1_4[2],5),
-                                    self.DATA.text_lcd[2],
-                                    round(self.DATA.result_list_1_4[3],5),
-                                    self.DATA.text_lcd[3],
-                                    round(self.DATA.result_list_SG600_main_temp[0],5),
-                                    self.DATA.text_lcd_SG600_main_temp[0],
-                                    round(self.DATA.result_list_SG600_main_temp[1],5),
-                                    self.DATA.text_lcd_SG600_main_temp[1],
-                                    ]
-                    
-                    writer.writerow(list_to_write)  # Scrittura di una riga del CSV
-                    print(list_to_write)    # Print di testing
+                try:
+                    with open(self.path_CSV, mode="a", newline="") as csv_doc:
+                        writer = csv.writer(csv_doc)
+                        list_to_write = [round(self.timer,5),
+                                        "s",
+                                        round(self.DATA.result_list_1_4[0],5),
+                                        self.DATA.text_lcd[0],
+                                        round(self.DATA.result_list_1_4[1],5),
+                                        self.DATA.text_lcd[1],
+                                        round(self.DATA.result_list_1_4[2],5),
+                                        self.DATA.text_lcd[2],
+                                        round(self.DATA.result_list_1_4[3],5),
+                                        self.DATA.text_lcd[3],
+                                        round(self.DATA.result_list_SG600_main_temp[0],5),
+                                        self.DATA.text_lcd_SG600_main_temp[0],
+                                        round(self.DATA.result_list_SG600_main_temp[1],5),
+                                        self.DATA.text_lcd_SG600_main_temp[1],
+                                        ]
+                        
+                        writer.writerow(list_to_write)  # Scrittura di una riga del CSV
+                        print(list_to_write)    # Print di testing
+                
+                except Exception as e:
+                    logging.warning("Apertura del file di logging CSV fallita!", exc_info=True)
+                    # self.banco_di_taratura.error_window_logic(messaggio_di_errore=f"ERROR! l'apertura del file di logging CSV NON è avvenuta con successo.")
+
 
     def update_CH1(self, controller_TCP):
         if self.DATA.text_lcd[0] == "mV":

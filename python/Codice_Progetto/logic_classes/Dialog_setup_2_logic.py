@@ -48,7 +48,7 @@ QPushButton::pressed{
         )
         
  # Setup dei valori iniziali delle lineEdit
-        i=self.controller_TCP.DATA.LIST_FULLSCALE[1]
+        i=self.controller_TCP.DATA.LIST_FULLSCALE[1]/9.81  # Siccome il fondoscala è gestito sempre in N e il valore iniziale è visualizzato in Kg dal menu a tendina
         l=self.controller_TCP.DATA.LIST_SENSIBILITY[1]
         self.ui.lineEdit_fondoscala.setText(str(i))
         self.ui.lineEdit_sensibilita.setText(str(l))

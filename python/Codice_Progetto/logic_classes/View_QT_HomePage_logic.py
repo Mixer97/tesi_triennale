@@ -119,7 +119,7 @@ class MainWindow(QMainWindow):
         if self.status_pulsante_registrazione % 2 != 0: 
                 self.ui.pushButton_setup_registrazione.setEnabled(False)
                 if self.banco_di_taratura.registrazione_directory_path == None or self.banco_di_taratura.registrazione_name == None:
-                        logging.error(f"Directory: {self.banco_di_taratura.registrazione_directory_path}, Name: {self.banco_di_taratura.registrazione_name}")
+                        logging.warning(f"Directory: {self.banco_di_taratura.registrazione_directory_path}, Name: {self.banco_di_taratura.registrazione_name}")
                         error_window = Error_window(banco_di_taratura=self.banco_di_taratura)
                         error_window.set_error_message(f"Il file per la registrazione non è stato definito.")
                         error_window.setWindowTitle("Error Window")

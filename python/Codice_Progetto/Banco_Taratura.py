@@ -1,7 +1,7 @@
 from __future__ import annotations
-from PySide6.QtWidgets import QApplication
-from PySide6.QtCore import QTimer
-from PySide6.QtGui import QCursor
+from PySide6.QtWidgets import QApplication, QSplashScreen
+from PySide6.QtCore import QTimer, Qt
+from PySide6.QtGui import QCursor, QPixmap
 import controller_classes.Logger as Logger
 import controller_classes.Controller_Client_TCP_Laumas as C_Laumas
 import controller_classes.Controller_Client_MODBUS_Seneca as C_Seneca
@@ -17,6 +17,8 @@ from Grafana_and_Influx.DB_Writer_Influx import DB_Writer
 from influxdb_client import InfluxDBClient, Point
 from influxdb_client.client.write_api import SYNCHRONOUS
 import logging 
+import os
+
 
 
 
@@ -35,7 +37,7 @@ class BANCO_DI_TARATURA:
         self.db_writer=DB_Writer(self)
         
         # variabili per grafica
-        self.window_icon_path = "python\\Codice_Progetto\\Assets\\connection.png"
+        self.window_icon_path = 'Assets/connection.png'
         
         # variabili per home page
         self.startStop = False
@@ -47,6 +49,8 @@ class BANCO_DI_TARATURA:
         self.update_status = False
         self.list_status_checkbox_setup_page = [0,0,0,0]   #[CH4, CH3, CH2, CH1]     
         self.status_timer = False  
+        
+        # Variabili per correzione lineare (y=mx+q)
         self.m_main = 1
         self.q_main = 0
         self.m_temp = 1
@@ -90,7 +94,7 @@ class BANCO_DI_TARATURA:
         self.workbook = None
         self.euramet_cella_inizio_precarichi_Q3 = ["D",7]  # vorrei usarlo come "D7" ma devo cambiare D e 7 per spostarmi lungo il file excell
         self.euramet_cella_inizio_precarichi_Q1 = ["D",29]
-        self.excell_path_template = 'python/Codice_Progetto/Template_Euramet_Excel/04. YYMMDD - Rapporto Taratura UUT v9.xlsx'
+        self.excell_path_template = 'Assets/04. YYMMDD - Rapporto Taratura UUT v9.xlsx'
         self.excell_file_name = None
         self.excell_path_dir_certificate = None
         self.excell_full_path = None
@@ -103,11 +107,11 @@ class BANCO_DI_TARATURA:
         # valori per plotting
         self.x = 0
         
-        # valori per stabilità del led
+        # valori per stabilità del led (larghezza totale intervallo)
         self.percentage_interval_green = 10
         self.percentage_interval_yellow = 15
-        self.difference_variance_green = 1
-        self.difference_variance_yellow = 3
+        self.difference_variance_green = 4
+        self.difference_variance_yellow = 8
         
     # metodi comuni a tutte le istanze da metter qui
     def set_window_icon(self, window:MainWindow):
@@ -117,14 +121,17 @@ class BANCO_DI_TARATURA:
         error_window = Error_window(banco_di_taratura=self)
         error_window.set_error_message(messaggio_di_errore)
         error_window.setWindowTitle(titolo)
+        logging.warning(f"{messaggio_di_errore}")
         error_window.exec()
+        return error_window
         
 
 # FUNZIONI NECESSARIE PER I THREAD
-def run_logger(controller_tcp:C_Laumas.Controller_TCP, controller_modbus:C_Seneca.Controller_MODBUS, logger:Logger.LOGGER):
+def run_logger(banco: BANCO_DI_TARATURA, controller_tcp:C_Laumas.Controller_TCP, controller_modbus:C_Seneca.Controller_MODBUS, logger:Logger.LOGGER):
     logger.log_data(controller_TCP=controller_tcp, controller_MODBUS=controller_modbus)  
     
-def data_update_mV(controller_tcp:C_Laumas.Controller_TCP, controller_modbus:C_Seneca.Controller_MODBUS, logger:Logger.LOGGER):
+    
+def data_update_mV(banco: BANCO_DI_TARATURA, controller_tcp:C_Laumas.Controller_TCP, controller_modbus:C_Seneca.Controller_MODBUS, logger:Logger.LOGGER):
     tmp = time.time()
     while logger.DATA.loop_status:
         try:
@@ -136,6 +143,9 @@ def data_update_mV(controller_tcp:C_Laumas.Controller_TCP, controller_modbus:C_S
             # print(f"tempo tcp: {test}")  # Tempo ottimizzato che richiede una scrittura e un loop di letture
             # tmp = time.time()
             result_list_SG600 = controller_modbus.read_holding_registers_mV() # canale main e canale temp
+            while result_list_SG600 == None:
+                result_list_SG600 = controller_modbus.read_holding_registers_mV()
+                logging.warning(f"Problema con la lettura del seneca, result_list_SG600 = None")
             # test = time.time() - tmp
             # print(f"tempo modbus: {test}")  # Tempo ottimizzato diccome la connessione funziona solo con un baudrate di 2400
             controller_tcp.DATA.LIST_mV_VALUE = result_list_laumas
@@ -143,9 +153,9 @@ def data_update_mV(controller_tcp:C_Laumas.Controller_TCP, controller_modbus:C_S
             controller_modbus.DATA.canale_temperatura_mV = result_list_SG600[1]
             # tmp = time.time()
         except Exception as e:
-            logging.critical("Problema critico nel dialogo con le schede!", exc_info=True)
+            logging.warning("ERROR! Problema critico nel dialogo con le schede per ottenere i mV.", exc_info=True)
             
-def db_write(controller_tcp:C_Laumas.Controller_TCP, controller_modbus:C_Seneca.Controller_MODBUS, logger:Logger.LOGGER, db_writer:DB_Writer):
+def db_write(banco: BANCO_DI_TARATURA, controller_tcp:C_Laumas.Controller_TCP, controller_modbus:C_Seneca.Controller_MODBUS, logger:Logger.LOGGER, db_writer:DB_Writer):
         
         # Dati registrati di Euramet
         list_main_temp = banco.logger.DATA.result_list_SG600_main_temp
@@ -154,17 +164,20 @@ def db_write(controller_tcp:C_Laumas.Controller_TCP, controller_modbus:C_Seneca.
         list_channels_laumas = banco.logger.DATA.result_list_1_4
         
         while banco.logger.DATA.loop_status:
-            sleep(banco.logger.DATA.periodo_logger)
-            if banco.logger.DATA.startStop_logger and db_writer != None:
-                p = Point("Euramet test").tag("rampa", "Precarico")
-                p.field("main", float(list_main_temp[0]))
-                p.field("temp", float(list_main_temp[1]))
-                p.field("CH1", float(list_channels_laumas[0]))
-                p.field("CH2", float(list_channels_laumas[1]))
-                p.field("CH3", float(list_channels_laumas[2]))
-                p.field("CH4", float(list_channels_laumas[3]))
-                db_writer.write_api.write(bucket=db_writer.bucket, org=db_writer.org, record=p)
-                sleep(0.1)
+            try:
+                sleep(banco.logger.DATA.periodo_logger)
+                if banco.logger.DATA.startStop_logger and db_writer != None:
+                    p = Point("Euramet Data").tag("measure", "measure")
+                    p.field("main", float(list_main_temp[0]))
+                    p.field("temp", float(list_main_temp[1]))
+                    p.field("CH1", float(list_channels_laumas[0]))
+                    p.field("CH2", float(list_channels_laumas[1]))
+                    p.field("CH3", float(list_channels_laumas[2]))
+                    p.field("CH4", float(list_channels_laumas[3]))
+                    db_writer.write_api.write(bucket=db_writer.bucket, org=db_writer.org, record=p)
+                    sleep(0.1)
+            except Exception as e:
+                logging.warning("Problema con la scrittura dei dati nel database.")
     
         
 def closed_last_window_signal(banco_di_taratura:BANCO_DI_TARATURA, window:MainWindow):
@@ -173,25 +186,39 @@ def closed_last_window_signal(banco_di_taratura:BANCO_DI_TARATURA, window:MainWi
 
 # MAIN PER ESEGUIRE L'APPLICAZIONE
 if __name__ == "__main__":
+    
     app = QApplication(sys.argv)
+    
+    current_directory = os.getcwd()
+    print(current_directory)
+    
+    # Setup splash screen (schermata pre-caricamento home page)
+    splash_pix = QPixmap('Assets/output-onlinepngtools_resized.png')  # Use your own image path
+    splash = QSplashScreen(splash_pix, Qt.WindowStaysOnTopHint)
+    splash.setMask(splash_pix.mask())
+    splash.show()
+    
     banco=BANCO_DI_TARATURA()
     if banco.controller_tcp.connect():
         if banco.controller_modbus.connect():
             window = MainWindow(banco_di_taratura=banco)
             window.show()
+            splash.finish(window)
             app.lastWindowClosed.connect(lambda: closed_last_window_signal(banco, window))
-            logger_thread = Thread(target=run_logger, args=(banco.controller_tcp, banco.controller_modbus, banco.logger))
+            logger_thread = Thread(target=run_logger, args=(banco, banco.controller_tcp, banco.controller_modbus, banco.logger))
             logger_thread.start()     
-            update_thread = Thread(target=data_update_mV, args=(banco.controller_tcp, banco.controller_modbus, banco.logger))
+            update_thread = Thread(target=data_update_mV, args=(banco, banco.controller_tcp, banco.controller_modbus, banco.logger))
             update_thread.start()
-            influx_thread = Thread(target=db_write, args=(banco.controller_tcp, banco.controller_modbus, banco.logger, banco.db_writer))
+            influx_thread = Thread(target=db_write, args=(banco, banco.controller_tcp, banco.controller_modbus, banco.logger, banco.db_writer))
             influx_thread.start()
             sys.exit(app.exec())
         else:
-            logging.error("Problema connessione con scheda Seneca", exc_info=True)
-            banco.error_window_logic(messaggio_di_errore=f"ERROR! connessione fallita con scheda Seneca, chiudere la finestra\ne riavviare l'applicazione.")
+            logging.warning("Problema connessione con scheda Seneca")
+            window = banco.error_window_logic(messaggio_di_errore=f"ERROR! connessione fallita con scheda Seneca, chiudere la finestra\ne riavviare l'applicazione.")
+            splash.finish(window)
             exit()
     else:
-        logging.error("Problema connessione con scheda Laumas", exc_info=True)
-        banco.error_window_logic(messaggio_di_errore=f"ERROR! connessione fallita con scheda Laumas, chiudere la finestra\ne riavviare l'applicazione.")
+        logging.warning("Problema connessione con scheda Laumas")
+        window = banco.error_window_logic(messaggio_di_errore=f"ERROR! connessione fallita con scheda Laumas, chiudere la finestra\ne riavviare l'applicazione.")
+        splash.finish(window)
         exit()

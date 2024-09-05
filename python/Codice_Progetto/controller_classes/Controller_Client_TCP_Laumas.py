@@ -85,19 +85,19 @@ class Controller_TCP:
     """---------------------------CONNECT-----------------------------"""
 
     # Connessione al dispositivo Laumas
-    # Metodo usato per connettersi al dispositivo e che riprova fino a 3 volte in caso di perdita di connessione #
+    # Metodo usato per connettersi al dispositivo e che riprova fino a 2 volte in caso di perdita di connessione #
     def connect(self):
         try:
             connection = self.client.connect() 
-            for i in range(1,4):
+            for i in range(1,3):
                 if connection:
                     return True
                 else: 
-                    logging.error(f"ERROR! connessione al dispostivo presente all'IP {self.SLAVE.IP} fallita.\n tentativo di riconnessione numero: {i}\\3")
-                    self.banco_di_taratura.error_window_logic(messaggio_di_errore=f"ERROR! connessione fallita con scheda Laumas, tentativo di riconnessione: {i}\\3\nChiudere la finestra per continuare.")
+                    logging.warning(f"ERROR! connessione al dispostivo presente all'IP {self.SLAVE.IP} fallita.\n tentativo di riconnessione numero: {i}\\2")
+                    self.banco_di_taratura.error_window_logic(messaggio_di_errore=f"ERROR! connessione fallita con scheda Laumas, tentativo di riconnessione: {i}\\2\nChiudere la finestra per continuare.")
                     connection = self.client.connect() 
         except Exception as e:
-            logging.error("Connessione fallita dopo 3 tentativi!", exc_info=True)
+            logging.warning("Connessione fallita dopo 3 tentativi!", exc_info=True)
             self.banco_di_taratura.error_window_logic(messaggio_di_errore=f"ERROR! connessione fallita con scheda Laumas, chiudere la finestra\ne riavviare l'applicazione.")
             return False
 
@@ -106,32 +106,37 @@ class Controller_TCP:
     
     # Metodo che legge i registri da 4053 a 4056 della scheda Laumas #
     def read_holding_registers_mV(self):
-            if self.connect:     
+            if self.connect: 
+                try:    
                     
-                written = False    
+                    written = False    
+                        
+                    # Inviare il comando 6902 a CMDR (abilitare lettura in mV)
+                    if not written: 
+                        self.write_CMDR(self.CMDR_COMMANDS.COMMAND_6902)
+                        written = True
                     
-                # Inviare il comando 6902 a CMDR (abilitare lettura in mV)
-                if not written: 
-                    self.write_CMDR(self.CMDR_COMMANDS.COMMAND_6902)
-                    written = True
-                
-                # Lettura holding registers (52...55)
-                risultatimV=self.client.read_holding_registers(address=self.ADDRESS.REGISTER_3, count=4, slave=self.SLAVE.ID)
-
-                # Check che tutti i canali NON siano zero (utile all'accensione)
-                while risultatimV.registers==[0,0,0,0]:
+                    # Lettura holding registers (52...55)
                     risultatimV=self.client.read_holding_registers(address=self.ADDRESS.REGISTER_3, count=4, slave=self.SLAVE.ID)
-                    self.write_CMDR(self.CMDR_COMMANDS.COMMAND_6902)
-                    sleep(0.5)
 
-                # Conversione
-                for value in range(4):
-                    risultatimV.registers[value] = float((self.convert_to_signed_16_bit(risultatimV.registers[value]))/100)
+                    # Check che tutti i canali NON siano zero (utile all'accensione)
+                    while risultatimV.registers==[0,0,0,0] or risultatimV == None:
+                        risultatimV=self.client.read_holding_registers(address=self.ADDRESS.REGISTER_3, count=4, slave=self.SLAVE.ID)
+                        self.write_CMDR(self.CMDR_COMMANDS.COMMAND_6902)
+                        sleep(0.5)
 
-                # Comando di conclusione
-                # self.write_CMDR(self.CMDR_COMMANDS.COMMAND_6903)
+                    # Conversione
+                    for value in range(4):
+                        risultatimV.registers[value] = float((self.convert_to_signed_16_bit(risultatimV.registers[value]))/100)
+
+                    # Comando di conclusione
+                    # self.write_CMDR(self.CMDR_COMMANDS.COMMAND_6903)
+                    
+                    return risultatimV.registers
                 
-                return risultatimV.registers
+                except Exception as e:
+                    logging.warning(f"Error! Exception: {e}")
+                    self.banco_di_taratura.error_window_logic(messaggio_di_errore="Errore nella lettura dei registri\n assicurarsi la connessione con la scheda Laumas!")
 
             else:
                 print("Impossibile connettersi al dispositivo Modbus")
@@ -537,7 +542,7 @@ class Controller_TCP:
         
         ESEMPIO: [0, 1, 0, 1] ⁓ [CH4, CH3, CH2, CH1] --> CH3 e CH1 attivi
         """
-        print(list)
+        # print(list)
         self.set_channel_status(list)
         
         
