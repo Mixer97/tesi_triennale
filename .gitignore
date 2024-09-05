@@ -9,6 +9,7 @@ Venvs
 CSV
 JSON
 Venv
+Qt Creator/*.py
 
 # File scelti da me 
 *.json
