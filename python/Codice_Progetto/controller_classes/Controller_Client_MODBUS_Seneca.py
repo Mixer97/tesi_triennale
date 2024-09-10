@@ -30,13 +30,13 @@ class Controller_MODBUS:
             self.canale_principale_mV=0 # Input canale 1
             self.canale_principale_Nm=0
             self.zero_main=0
-            self.coefficiente_main = 1  # Nm/mV
+            self.coefficiente_main = 1  # Nm/V
             
             # temp
             self.canale_temperatura_mV=0  # Input canale 2
             self.canale_temperatura_C=0
             self.zero_temp=0
-            self.coefficiente_temp = 1  # C/mV
+            self.coefficiente_temp = 1  # C/V
             
     # costruttore della classe #
     def __init__(self, banco_di_taratura:BANCO_DI_TARATURA, port="COM8", baudrate=2400, bytesize=8, parity="N", stopbits=1, ID=1):
@@ -133,7 +133,7 @@ class Controller_MODBUS:
     
     def get_Nm_main(self):
         try:
-            # Formula: Nm=(mV-zero)*coeff #
+            # Formula: Nm=(V-zero)*coeff #
             self.DATA.canale_principale_Nm = (self.get_V_main() - self.DATA.zero_main) * self.DATA.coefficiente_main
             return round(self.DATA.canale_principale_Nm,3)
         except Exception as e:
@@ -149,7 +149,7 @@ class Controller_MODBUS:
     
     def get_C_temp(self):
         try:
-            # Formula: C=(mV-zero)*coeff #
+            # Formula: C=(V-zero)*coeff #
             self.DATA.canale_temperatura_C = (self.get_mV_temp()/1000 - self.DATA.zero_temp) * (self.DATA.coefficiente_temp)
             return self.DATA.canale_temperatura_C
         except Exception as e:

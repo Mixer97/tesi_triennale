@@ -193,7 +193,7 @@ if __name__ == "__main__":
     print(current_directory)
     
     # Setup splash screen (schermata pre-caricamento home page)
-    splash_pix = QPixmap('Assets/output-onlinepngtools_resized.png')  # Use your own image path
+    splash_pix = QPixmap('Assets/output-onlinepngtools_resized.png')
     splash = QSplashScreen(splash_pix, Qt.WindowStaysOnTopHint)
     splash.setMask(splash_pix.mask())
     splash.show()
